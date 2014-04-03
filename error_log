@@ -1,6 +1,0 @@
-[14-Mar-2014 16:55:48] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Host 'box293.bluehost.com' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts' in /home2/actorsgu/public_html/blue/LogIn1.php on line 106
-[14-Mar-2014 16:55:48] PHP Warning:  mysql_select_db(): supplied argument is not a valid MySQL-Link resource in /home2/actorsgu/public_html/blue/LogIn1.php on line 107
-[14-Mar-2014 16:55:48] PHP Warning:  mysql_close(): supplied argument is not a valid MySQL-Link resource in /home2/actorsgu/public_html/blue/LogIn1.php on line 166
-[14-Mar-2014 16:58:39] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home2/actorsgu/public_html/blue/LogIn1.php on line 58
-[03-Apr-2014 17:11:26] PHP Parse error:  syntax error, unexpected ';' in /home2/actorsgu/public_html/blue/LogIn.php on line 55
-[03-Apr-2014 17:11:32] PHP Parse error:  syntax error, unexpected ';' in /home2/actorsgu/public_html/blue/LogIn.php on line 55
