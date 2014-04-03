@@ -51,8 +51,6 @@ $Password2 = "";
 			//this function is used to escape any dangerous strings (SQL injections)
 			$email = mysql_real_escape_string($email, $db_handle);
 			$password = mysql_real_escape_string($Password, $db_handle);
-			$verify = password_verify($password, 
-			$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 			//query database with entered data
 			$SQL = "SELECT password FROM Personnel WHERE username='$email'";
 			$hashedPassword = mysql_query($SQL);
