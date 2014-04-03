@@ -18,8 +18,8 @@ if (isset($_POST['Submit']))
 	$Hair_Color = $_POST['hair'];
 	$Eye_Color = $_POST['eyecolor'];
 	$Previous_Work = $_POST['previousexperience'];//need to fix
-	$username = $_POST['fullname'];//use sessions to save login data
-	$password = $_POST['fullname'];//use sessions to save login data
+	$username = $_POST['username'];//use sessions to save login data
+	$password = $_POST['password'];//use sessions to save login data
 	$Age = $_POST['age'];
 	$Street_Address = $_POST['streetaddress'];
 	$State = $_POST['state'];
@@ -76,18 +76,19 @@ if (isset($_POST['Submit']))
         $SQL1 = "SELECT MAX(idPersonnel) FROM Personnel";//find maximum of user's id
 		$result1 = mysql_query($con,$SQL1);
 		$idPersonnel = $result1 + 1;//increment maximum user id and assign it to the regestering user
+		$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 		$result1 = mysql_query($con,"INSERT INTO Personnel(admin, idPersonnel,Contact_Phone, Contact_Email, Notes, 
                                                            First_Name, Last_Name, Height, Weight, Hair_Color,
                                                            Eye_Color, Previous_Work, username, password, Age,
                                                            Street_Address, State, Zip_Code, City)
 									                VALUES ('admin','idPersonnel','Contact_Phone', 'Contact_Email', 'Notes', 
                                                             'First_Name', 'Last_Name', 'Height', 'Weight', 'Hair_Color',
-                                                            'Eye_Color', 'Previous_Work', 'username', 'password', 'Age',
+                                                            'Eye_Color', 'Previous_Work', 'username', 'hashedPassword', 'Age',
                                                             'Street_Address', 'State', 'Zip_Code', 'City')");
 		$result2 = mysql_query($con,"SELECT * 
 										FROM Personnel
 									   WHERE username = '$username'
-									     AND password = '$password'
+									     AND password = '$hashedPassword'
 							   ");									
 					
 		if (!$result2)//if there is no result returned, display error message
@@ -123,20 +124,20 @@ if (isset($_POST['Submit']))
 <table width="1400" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="14">
-			<img src="EditProfile_01.gif" width="1400" height="208" alt=""></td>
+			<img src="Assets/Assets/EditProfile_01.gif" width="1400" height="208" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="6" rowspan="4">
-			<img src="EditProfile_02.gif" width="484" height="114" alt=""></td>
+			<img src="Assets/EditProfile_02.gif" width="484" height="114" alt=""></td>
 		<td width="453" height="42" colspan="7" background="EditProfile_03.gif"><label for="name"></label>
       .
       <input type="text" name="name" id="name" style="color: #FFFFFF;border:none;background-color:transparent;" size="65"></td>
 		<td rowspan="18">
-			<img src="EditProfile_04.gif" width="463" height="759" alt=""></td>
+			<img src="Assets/EditProfile_04.gif" width="463" height="759" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="7">
-			<img src="EditProfile_05.gif" width="453" height="16" alt=""></td>
+			<img src="Assets/EditProfile_05.gif" width="453" height="16" alt=""></td>
 	</tr>
 	<tr>
 		<td width="453" height="42" colspan="7" background="EditProfile_06.gif">.
@@ -145,43 +146,43 @@ if (isset($_POST['Submit']))
 	</tr>
 	<tr>
 		<td colspan="7">
-			<img src="EditProfile_07.gif" width="453" height="14" alt=""></td>
+			<img src="Assets/EditProfile_07.gif" width="453" height="14" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="4" rowspan="10">
-			<img src="EditProfile_08.gif" width="352" height="313" alt=""></td>
+			<img src="Assets/EditProfile_08.gif" width="352" height="313" alt=""></td>
 		<td width="142" height="42" colspan="3" background="EditProfile_09.gif"><label for="city"></label>
 	    .
 	    <input type="text" name="city" id="city" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
 		<td rowspan="2">
-			<img src="EditProfile_10.gif" width="75" height="56" alt=""></td>
+			<img src="Assets/EditProfile_10.gif" width="75" height="56" alt=""></td>
 		<td width="145" height="42" colspan="2" background="EditProfile_11.gif">.
 		  <label for="state"></label>
 	    <input type="text" name="state" id="state" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
 		<td colspan="2" rowspan="2">
-			<img src="EditProfile_12.gif" width="77" height="56" alt=""></td>
+			<img src="Assets/EditProfile_12.gif" width="77" height="56" alt=""></td>
 		<td width="146" height="42" background="EditProfile_13.gif">.
 		  <label for="zip"></label>
 	    <input type="text" name="zip" id="zip" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
 	</tr>
 	<tr>
 		<td colspan="3">
-			<img src="EditProfile_14.gif" width="142" height="14" alt=""></td>
+			<img src="Assets/EditProfile_14.gif" width="142" height="14" alt=""></td>
 		<td colspan="2">
-			<img src="EditProfile_15.gif" width="145" height="14" alt=""></td>
+			<img src="Assets/EditProfile_15.gif" width="145" height="14" alt=""></td>
 		<td>
-			<img src="EditProfile_16.gif" width="146" height="14" alt=""></td>
+			<img src="Assets/EditProfile_16.gif" width="146" height="14" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="2" rowspan="4">
-			<img src="EditProfile_17.gif" width="132" height="107" alt=""></td>
+			<img src="Assets/EditProfile_17.gif" width="132" height="107" alt=""></td>
 		<td width="453" height="42" colspan="7" background="EditProfile_18.gif">.
 		  <label for="email"></label>
 	    <input type="text" name="email" id="email" size="65" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
 	</tr>
 	<tr>
 		<td colspan="7">
-			<img src="EditProfile_19.gif" width="453" height="12" alt=""></td>
+			<img src="Assets/EditProfile_19.gif" width="453" height="12" alt=""></td>
 	</tr>
 	<tr>
 		<td width="453" height="42" colspan="7" background="EditProfile_20.gif">.
@@ -190,101 +191,101 @@ if (isset($_POST['Submit']))
 	</tr>
 	<tr>
 		<td colspan="7">
-			<img src="EditProfile_21.gif" width="453" height="11" alt=""></td>
+			<img src="Assets/EditProfile_21.gif" width="453" height="11" alt=""></td>
 	</tr>
 	<tr>
 		<td width="142" height="42" colspan="3" background="EditProfile_22.gif">.
 		  <label for="height"></label>
 	    <input type="text" name="height" id="height" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
 		<td rowspan="2">
-			<img src="EditProfile_23.gif" width="75" height="56" alt=""></td>
+			<img src="Assets/EditProfile_23.gif" width="75" height="56" alt=""></td>
 		<td width="145" height="42" colspan="2" background="EditProfile_24.gif"><label for="weight"></label>
 	    .
 	    <input type="text" name="weight" id="weight" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
 		<td colspan="2" rowspan="2">
-			<img src="EditProfile_25.gif" width="77" height="56" alt=""></td>
+			<img src="Assets/EditProfile_25.gif" width="77" height="56" alt=""></td>
 		<td width="146" height="42" background="EditProfile_26.gif">.
 		  <label for="age"></label>
 	    <input type="text" name="age" id="age" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
 	</tr>
 	<tr>
 		<td colspan="3">
-			<img src="EditProfile_27.gif" width="142" height="14" alt=""></td>
+			<img src="Assets/EditProfile_27.gif" width="142" height="14" alt=""></td>
 		<td colspan="2">
-			<img src="EditProfile_28.gif" width="145" height="14" alt=""></td>
+			<img src="Assets/EditProfile_28.gif" width="145" height="14" alt=""></td>
 		<td>
-			<img src="EditProfile_29.gif" width="146" height="14" alt=""></td>
+			<img src="Assets/EditProfile_29.gif" width="146" height="14" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="2">
-			<img src="EditProfile_30.gif" width="38" height="94" alt=""></td>
+			<img src="Assets/EditProfile_30.gif" width="38" height="94" alt=""></td>
 		<td width="218" height="42" colspan="4" background="EditProfile_31.gif">.
 		  <label for="hair"></label>
 	    <input type="text" name="hair" id="hair" size="25" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
 		<td colspan="2" rowspan="2">
-			<img src="EditProfile_32.gif" width="115" height="94" alt=""></td>
+			<img src="Assets/EditProfile_32.gif" width="115" height="94" alt=""></td>
 		<td width="214" height="42" colspan="2" background="EditProfile_33.gif">.
 		  <label for="eyecolor"></label>
 	    <input type="text" name="eyecolor" id="eyecolor" size="25" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
 	</tr>
 	<tr>
 		<td colspan="4">
-			<img src="EditProfile_34.gif" width="218" height="52" alt=""></td>
+			<img src="Assets/EditProfile_34.gif" width="218" height="52" alt=""></td>
 		<td colspan="2">
-			<img src="EditProfile_35.gif" width="214" height="52" alt=""></td>
+			<img src="Assets/EditProfile_35.gif" width="214" height="52" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="4">
-			<img src="EditProfile_36.gif" width="286" height="332" alt=""></td>
+			<img src="Assets/EditProfile_36.gif" width="286" height="332" alt=""></td>
 		<td width="651" height="173" colspan="12" background="EditProfile_37.gif"><label for="previousexperience"></label>
 	    .
 	    <textarea name="previousexperience" id="previousexperience" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea></td>
 	</tr>
 	<tr>
 		<td colspan="12">
-			<img src="EditProfile_38.gif" width="651" height="15" alt=""></td>
+			<img src="Assets/EditProfile_38.gif" width="651" height="15" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="2">
-			<img src="EditProfile_39.gif" width="16" height="144" alt=""></td>
+			<img src="Assets/EditProfile_39.gif" width="16" height="144" alt=""></td>
 		<td width="30" height="28" background="EditProfile_40.gif"><input type="checkbox" name="notifications" id="notifications">
 	    <label for="notifications"></label></td>
 		<td colspan="10" rowspan="2">
-			<img src="EditProfile_41.gif" width="605" height="144" alt=""></td>
+			<img src="Assets/EditProfile_41.gif" width="605" height="144" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="EditProfile_42.gif" width="30" height="116" alt=""></td>
+			<img src="Assets/EditProfile_42.gif" width="30" height="116" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="spacer.gif" width="286" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="286" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="16" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="16" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="30" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="30" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="20" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="20" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="38" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="38" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="94" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="94" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="10" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="10" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="75" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="75" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="39" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="39" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="106" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="106" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="9" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="9" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="68" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="68" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="146" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="146" height="1" alt=""></td>
 		<td>
-			<img src="spacer.gif" width="463" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="463" height="1" alt=""></td>
 	</tr>
 </table>
 <!-- End Save for Web Slices -->

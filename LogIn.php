@@ -26,7 +26,7 @@ $Password2 = "";
 		{
 			echo "<script type='text/javascript'>
 				 alert('Please, make sure you enter your email and password');".
-				 "window.location = 'LogIn.php';</script>";//redirect back to login page    
+				 "window.location = 'LogIn.php';</script>";//redirect back to login page
 			exit;//exit, so that the following code is not executed
 		}
 
@@ -50,33 +50,40 @@ $Password2 = "";
 		{
 			//this function is used to escape any dangerous strings (SQL injections)
 			$email = mysql_real_escape_string($email, $db_handle);
-			$Password = mysql_real_escape_string($Password, $db_handle);
+			$password = mysql_real_escape_string($Password, $db_handle);
+			$verify = password_verify($password, 
+			$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 			//query database with entered data
-			$SQL = "SELECT Contact_Email FROM Personnel WHERE username='$email' AND password ='$Password'";			
-			$result = mysql_query($SQL);
-			$num_rows = mysql_num_rows($result);
-			if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
-			{	
-				$admin = $db_field['admin'];
-				switch ($admin):
-					case 0://regular user login
-							echo "<script type='text/javascript'>
-								 alert('admin has logged in');".//debug statement
-								  "window.location = 'admin.php';</script>";//redirect to admin page 
-							exit;
-					case 1://admin login
-							echo "<script type='text/javascript'>
-								 alert('User has logged in');".//debug statement
-								  "window.location = 'user.php';</script>";//redirect to user page  
-							exit;
-                endswitch;							
-			}
-			else //if user is not in DB, redirect to LogIn page
-			{							
-				echo "<script type='text/javascript'>
-					 alert('Error has occured. Try to login again or register as a new user');".
-					 "window.location = 'LogIn.php';</script>";//redirect back to login page 
-				exit;
+			$SQL = "SELECT password FROM Personnel WHERE username='$email'";
+			$hashedPassword = mysql_query($SQL);
+			if (password_verify($password, $hashedPassword)
+			{
+				$SQL = "SELECT Contact_Email FROM Personnel WHERE username='$email'";			
+				$result = mysql_query($SQL);
+				$num_rows = mysql_num_rows($result);
+				if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
+				{	
+					$admin = $db_field['admin'];
+					switch ($admin):
+						case 0://regular user login
+								echo "<script type='text/javascript'>
+									 alert('admin has logged in');".//debug statement
+									  "window.location = 'admin.php';</script>";//redirect to admin page 
+								exit;
+						case 1://admin login
+								echo "<script type='text/javascript'>
+									 alert('User has logged in');".//debug statement
+									  "window.location = 'user.php';</script>";//redirect to user page  
+								exit;
+					endswitch;							
+				}
+				else //if user is not in DB, redirect to LogIn page
+				{							
+					echo "<script type='text/javascript'>
+						 alert('Error has occured. Try to login again or register as a new user');".
+						 "window.location = 'LogIn.php';</script>";//redirect back to login page 
+					exit;
+				}
 			}
 		}
 		else//if DB was not found
@@ -130,12 +137,13 @@ $Password2 = "";
 		{
 			//this function is used to escape any dangerous strings (SQL injections)
 			$email2 = mysql_real_escape_string($email2, $db_handle);
-			$Password2 = mysql_real_escape_string($Password2, $db_handle);		
+			$Password2 = mysql_real_escape_string($Password2, $db_handle);	
+			$hashedPassword2 = password_hash($pass, PASSWORD_BCRYPT);			
 
 			//check if user already exist by quering the Personnel table
 			$sql2 = ("SELECT Contact_Email FROM Personnel
 										  WHERE username = '$email2'
-											AND password = '$Password2'
+											AND password = '$hashedPassword2'
 								  ");
 			$result2 = mysql_query($sql2);					 
 			
