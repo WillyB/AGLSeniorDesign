@@ -124,7 +124,7 @@ if (isset($_POST['Submit']))
 <table width="1400" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="14">
-			<img src="Assets/Assets/EditProfile_01.gif" width="1400" height="208" alt=""></td>
+			<img src="Assets/EditProfile_01.gif" width="1400" height="208" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="6" rowspan="4">
