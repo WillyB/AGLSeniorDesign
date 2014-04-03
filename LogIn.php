@@ -56,7 +56,7 @@ $Password2 = "";
 			//query database with entered data
 			$SQL = "SELECT password FROM Personnel WHERE username='$email'";
 			$hashedPassword = mysql_query($SQL);
-			if (password_verify($password, $hashedPassword)
+			if (password_verify($password, $hashedPassword))
 			{
 				$SQL = "SELECT Contact_Email FROM Personnel WHERE username='$email'";			
 				$result = mysql_query($SQL);
