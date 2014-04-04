@@ -1,8 +1,8 @@
-<html
+<htmljkbjkbjkbjkb
 <head>
 <title>AGL Actors DB</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<?php
+<meta http-equivvad="Content-Type" content="text/html; charset=utf-8">
+<?phap
 $email = "";
 $Password = "";
 $email2 = "";
