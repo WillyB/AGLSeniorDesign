@@ -17,7 +17,7 @@ $Password2 = "";
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
-		$server ='localhost:3306';
+		$server = 'box293.bluehost.com:3306';//change back to 'localhost:3306';
 
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
@@ -51,27 +51,50 @@ $Password2 = "";
 			//this function is used to escape any dangerous strings (SQL injections)
 			$email = mysql_real_escape_string($email, $db_handle);
 			$password = mysql_real_escape_string($Password, $db_handle);
+			
 			//query database with entered data
-			$SQL = "SELECT password FROM Personnel WHERE username='$email'";
+			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
 			$hashedPassword = mysql_query($SQL);
+			
 			if (password_verify($password, $hashedPassword))
 			{
-				$SQL = "SELECT Contact_Email FROM Personnel WHERE username='$email'";			
+				$SQL = "SELECT Contact_Email, Role FROM Personnel WHERE Contact_Email='$email'";			
 				$result = mysql_query($SQL);
 				$num_rows = mysql_num_rows($result);
 				if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
 				{	
-					$admin = $db_field['admin'];
-					switch ($admin):
-						case 0://regular user login
+					$role = $db_field['Role'];
+					switch ($role):
+						case 0://admin login
+						
+							   //save email and password in a cookie
+								setCookie('email',$email);
+						        setCookie('password',$hashedPassword);
+								
 								echo "<script type='text/javascript'>
 									 alert('admin has logged in');".//debug statement
-									  "window.location = 'admin.php';</script>";//redirect to admin page 
+									  "window.location = 'AdminTools.php';</script>";//redirect to admin page 
 								exit;
-						case 1://admin login
+								
+						case 1://director login
+							   //save email and password in a cookie
+								setCookie('email',$email);
+						        setCookie('password',$hashedPassword);
+								
+								echo "<script type='text/javascript'>
+									 alert('director has logged in');".//debug statement
+									  "window.location = 'AdminTools.php';</script>";//redirect to admin page 
+								exit;
+								
+						case 2://regular user login
+						
+							   //save email and password in a cookie
+								setCookie('email',$email);
+						        setCookie('password',$hashedPassword);
+								
 								echo "<script type='text/javascript'>
 									 alert('User has logged in');".//debug statement
-									  "window.location = 'user.php';</script>";//redirect to user page  
+									  "window.location = 'UserTools.php';</script>";//redirect to user page  
 								exit;
 					endswitch;							
 				}
@@ -102,7 +125,7 @@ $Password2 = "";
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
-		$server ='box293.bluehost.com';
+		$server = 'box293.bluehost.com:3306';//change back to 'localhost:3306';
 
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
@@ -140,7 +163,7 @@ $Password2 = "";
 
 			//check if user already exist by quering the Personnel table
 			$sql2 = ("SELECT Contact_Email FROM Personnel
-										  WHERE username = '$email2'
+										  WHERE Contact_Email = '$email2'
 											AND password = '$hashedPassword2'
 								  ");
 			$result2 = mysql_query($sql2);					 
