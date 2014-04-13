@@ -74,8 +74,13 @@
 		<td rowspan="2">
 			<img src="Assets/ViewShows_07.gif" width="384" height="712" alt=""></td>
 		<td width="654" height="564" background="Assets/ViewShows_08.gif">&nbsp;
+        <div id="ShowList">
+            overflow:auto;
+        </div>
+        <!--
         <label for="users"></label>
 	    <textarea name="users" id="users" cols="76" rows="33" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea>
+        -->
         </td>
 		<td rowspan="2">
 			<img src="Assets/ViewShows_09.gif" width="173" height="712" alt=""></td>
