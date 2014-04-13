@@ -9,7 +9,8 @@ $password = $_COOKIE['password'];
 
 	if (isset($_POST['myprofile'])) 
 	{
-		header("Location: EditProfile.php");//DO WE HAVe SAME PHP FOR VIEW AND EDIT PROFILE???
+		echo "<script type='text/javascript'>
+	          window.location = 'EditProfile.php';</script>";		
 		exit;
 	}
 	
@@ -33,23 +34,25 @@ $password = $_COOKIE['password'];
 	{
 		echo "<script type='text/javascript'>
 	          window.location = 'ViewUsers.php';</script>";
-		//header("Location: ViewUsers.php");
 		exit;
 	}
 	//redirect to viewshows.php when this button is clicked
 	if (isset($_POST['viewshows'])) 
 	{
-		header("Location: ViewShows.php");
+		echo "<script type='text/javascript'>
+	          window.location = 'ViewShows.php';</script>";
 		exit;	
 	}
 	if (isset($_POST['createshow'])) 
 	{
-		header("Location: CreateShow.php");
+		echo "<script type='text/javascript'>
+	          window.location = 'CreateShow.php';</script>";
 		exit;	
 	}
 	if (isset($_POST['search'])) 
 	{
-		header("Location: SearchDB.php");
+		echo "<script type='text/javascript'>
+	          window.location = 'SearchDB.php';</script>";
 		exit;	
 	}
 ?>
