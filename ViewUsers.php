@@ -91,7 +91,6 @@
 			<img src="Assets/ViewUsers_07.gif" width="384" height="712" alt=""></td>
 		<td width="654" height="564" background="Assets/ViewShows_08.gif">&nbsp;
         <div id="UserList">
-            overflow:auto;
             <ul id="UserTableList" style="padding: 0;">
             </ul>
         </div>
