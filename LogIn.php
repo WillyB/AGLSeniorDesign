@@ -21,7 +21,7 @@ $Password2 = "";
 		$database = 'actorsgu_data';
 		$server = 'localhost:3306';
 		//$server = 'box293.bluehost.com:3306';
-
+		
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 		
@@ -61,17 +61,15 @@ $Password2 = "";
 			//$hashedPassword = mysql_query($SQL);
 			$result = mysql_query($SQL);//delete this statement later 
 			
-
 			//uncomment the following statement when hash function works
 			//if (password_verify($password, $hashedPassword))
 			$num_rows1 = mysql_num_rows($result);
 			if($num_rows1 > 0)
-			if ($password == $hashedPassword)
-
 			{
-				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email'";			
+				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND password='$Password'";			
 				$result = mysql_query($SQL);
 				$num_rows = mysql_num_rows($result);
+				$db_field = mysql_fetch_array($result);
 				if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
 				{	
 					$role = $db_field['Role'];
@@ -144,7 +142,6 @@ $Password2 = "";
 		$database = 'actorsgu_data';
 		//$server = 'box293.bluehost.com:3306';
 		$server = 'localhost:3306';
-
 
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
