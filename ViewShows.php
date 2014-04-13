@@ -23,8 +23,8 @@
             while( false !== ($row = mysql_fetch_assoc($rs)))
             {
               echo "<li>";
-              echo "<a href='" . $row['link'] . "'>" . $row['link'] . "</a><br />";
-              echo $row['notes'] . "<hr />";
+              echo "<a href='" . $row['First_Name'] . "'>" . $row['First_Name'] . "</a><br />";
+              echo $row['Last_Name'] . "<hr />";
               echo "</li>";
             }
             echo "</ul>";
