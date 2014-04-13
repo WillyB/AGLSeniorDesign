@@ -28,6 +28,7 @@
             
             while($row = mysql_fetch_assoc($rs))
             {
+                echo 'Pushing user '.$rs['First_Name'];
                 $asFirstName[] = $rs['First_Name'];
                 $asLastName[] = $rs['Last_Name'];
                 $asEmail[] = $rs['Contact_Email'];
