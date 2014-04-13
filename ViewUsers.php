@@ -49,6 +49,7 @@
 //    }
     $(document).ready(function(){
        var list = "";
+       list +="<li>"+"hi there!"+"</li>"
        for(i=0, i<asFirstName.length; i++){
         list +="<li>"+asFirstName[i]+"</li>"
        } 
@@ -90,7 +91,7 @@
 	<tr>
 		<td rowspan="2">
 			<img src="Assets/ViewUsers_07.gif" width="384" height="712" alt=""></td>
-		<td width="654" height="564" background="Assets/ViewShows_08.gif">&nbsp;
+		<td width="654" height="564">
         <div id="UserList">
             <ul id="UserTableList" style="padding: 0;">
             </ul>
@@ -98,6 +99,7 @@
         <!--
         <label for="users"></label>
 	    <textarea name="users" id="users" cols="76" rows="33" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea>
+        background="Assets/ViewShows_08.gif">&nbsp;
         -->
         </td>
 		<td rowspan="2">
