@@ -17,17 +17,25 @@
             //$SQL = "SELECT First_Name, Last_Name FROM Personnel";
 //            $result = mysql_query($SQL);
             
-            $rs = mysql_query("SELECT First_Name, Last_Name FROM Personnel") or die(mysql_error());
-
-            echo "<ul>";
+            $rs = mysql_query("SELECT First_Name, Last_Name, Contact_Email FROM Personnel") or die(mysql_error());
+            
+            
+            echo "<table border='1' bgcolor='#00FF00'>
+            <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            </tr>";
+            
             while( false !== ($row = mysql_fetch_assoc($rs)))
             {
-              echo "<li>";
-              echo "<a href='" . $row['First_Name'] . "'>" . $row['First_Name'] . "</a><br />";
-              echo $row['Last_Name'] . "<hr />";
-              echo "</li>";
+              echo "<tr>";
+              echo "<td>" . $row['First_Name'] . "</td>";
+              echo "<td>" . $row['Last_Name'] . "</td>";
+              echo "<td>" . $row['Contact_Email'] . "</td>";
+              echo "</tr>";
             }
-            echo "</ul>";
+                
             
         }
 ?>
