@@ -28,10 +28,10 @@
             
             while($row = mysql_fetch_assoc($rs))
             {
-                echo 'Pushing user '.$rs['First_Name'];
-                $asFirstName[] = $rs['First_Name'];
-                $asLastName[] = $rs['Last_Name'];
-                $asEmail[] = $rs['Contact_Email'];
+                echo 'Pushing user '.$row['First_Name'].' for all the monies';
+                $asFirstName[] = $row['First_Name'];
+                $asLastName[] = $row['Last_Name'];
+                $asEmail[] = $row['Contact_Email'];
             }
                 
             
