@@ -2,6 +2,35 @@
 <head>
 <title>AGL: View Shows</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<?php
+    //data to login into mysql server on multilab machine
+		$user_name = 'actorsgu_data';
+		$pass_word = 'cliffy36&winepress';
+		$database = 'actorsgu_data';
+		$server = 'localhost:3306';//change back to 'localhost:3306';
+
+		$db_handle = mysql_connect($server, $user_name, $pass_word);
+		$db_found = mysql_select_db($database, $db_handle);
+        
+        if ($db_found)
+        {
+            //$SQL = "SELECT First_Name, Last_Name FROM Personnel";
+//            $result = mysql_query($SQL);
+            
+            $rs = mysql_query("SELECT First_Name, Last_Name FROM Personnel") or die(mysql_error());
+
+            echo "<ul>";
+            while( false !== ($row = mysql_fetch_assoc($rs)))
+            {
+              echo "<li>";
+              echo "<a href='" . $row['link'] . "'>" . $row['link'] . "</a><br />";
+              echo $row['notes'] . "<hr />";
+              echo "</li>";
+            }
+            echo "</ul>";
+            
+        }
+?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ViewShows.psd) -->

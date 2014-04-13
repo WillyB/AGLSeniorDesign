@@ -17,7 +17,7 @@ $Password2 = "";
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
-		$server = 'box293.bluehost.com:3306';//change back to 'localhost:3306';
+		$server = 'localhost:3306';//change back to 'localhost:3306';
 
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
@@ -56,7 +56,7 @@ $Password2 = "";
 			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
 			$hashedPassword = mysql_query($SQL);
 			
-			if (password_verify($password, $hashedPassword))
+			if ($password == $hashedPassword)
 			{
 				$SQL = "SELECT Contact_Email, Role FROM Personnel WHERE Contact_Email='$email'";			
 				$result = mysql_query($SQL);
@@ -125,7 +125,7 @@ $Password2 = "";
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
-		$server = 'box293.bluehost.com:3306';//change back to 'localhost:3306';
+		$server = 'localhost:3306';//change back to 'localhost:3306';
 
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
@@ -164,7 +164,7 @@ $Password2 = "";
 			//check if user already exist by quering the Personnel table
 			$sql2 = ("SELECT Contact_Email FROM Personnel
 										  WHERE Contact_Email = '$email2'
-											AND password = '$hashedPassword2'
+											AND password = '$Password2'
 								  ");
 			$result2 = mysql_query($sql2);					 
 			
