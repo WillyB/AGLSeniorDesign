@@ -51,7 +51,7 @@
        for(i=0, i<asFirstName.length; i++){
         list +="<li>"+asFirstname[i]+"</li>"
        } 
-        $("#UserList").append(list);
+        $("#UserTableList").append(list);
         
     });
     
@@ -92,6 +92,8 @@
 		<td width="654" height="564" background="Assets/ViewShows_08.gif">&nbsp;
         <div id="UserList">
             overflow:auto;
+            <ul id="UserTableList" style="padding: 0;">
+            </ul>
         </div>
         <!--
         <label for="users"></label>
