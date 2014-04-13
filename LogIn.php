@@ -19,14 +19,9 @@ $Password2 = "";
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
-<<<<<<< HEAD
 		$server = 'localhost:3306';
 		//$server = 'box293.bluehost.com:3306';
-		
-=======
-		$server = 'localhost:3306';//change back to 'localhost:3306';
 
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 		
@@ -66,14 +61,13 @@ $Password2 = "";
 			//$hashedPassword = mysql_query($SQL);
 			$result = mysql_query($SQL);//delete this statement later 
 			
-<<<<<<< HEAD
+
 			//uncomment the following statement when hash function works
 			//if (password_verify($password, $hashedPassword))
 			$num_rows1 = mysql_num_rows($result);
 			if($num_rows1 > 0)
-=======
 			if ($password == $hashedPassword)
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 			{
 				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email'";			
 				$result = mysql_query($SQL);
@@ -148,12 +142,9 @@ $Password2 = "";
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
-<<<<<<< HEAD
 		//$server = 'box293.bluehost.com:3306';
 		$server = 'localhost:3306';
-=======
-		$server = 'localhost:3306';//change back to 'localhost:3306';
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);

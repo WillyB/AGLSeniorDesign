@@ -65,22 +65,18 @@ $password = $_COOKIE['password'];
 	<tr>
 		<td colspan="5" rowspan="3">
 			<img src="Assets/AdminTools_02.gif" width="1211" height="272" alt=""></td>
-<<<<<<< HEAD
+
 		<td><input type="image" name="myprofile" value="myprofile" src="Assets/AdminTools_03.gif"></td>
-=======
-		<td><input type="image" name="myprofile" id="myprofile" src="Assets/AdminTools_03.gif"></td>
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 		<td rowspan="7">
 			<img src="Assets/AdminTools_04.gif" width="83" height="931" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-<<<<<<< HEAD
+
 		<td><input type="image" name="logout" value="logout" src="Assets/AdminTools_05.gif"></td>
-=======
-		<td><input type="image" name="logout" id="logout" src="Assets/AdminTools_05.gif"></td>
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
@@ -93,17 +89,12 @@ $password = $_COOKIE['password'];
 	<tr>
 		<td rowspan="4">
 			<img src="Assets/AdminTools_07.gif" width="381" height="659" alt=""></td>
-<<<<<<< HEAD
+
 		<td><input type="image" name="viewusers" value="viewusers" src="Assets/AdminTools_08.gif"></td>
 		<td rowspan="4">
 			<img src="Assets/AdminTools_09.gif" width="173" height="659" alt=""></td>
 		<td><input type="image" name="viewshows" value="viewshows" src="Assets/AdminTools_10.gif"></td>
-=======
-		<td><input type="image" name="viewusers" id="viewusers" src="Assets/AdminTools_08.gif"></td>
-		<td rowspan="4">
-			<img src="Assets/AdminTools_09.gif" width="173" height="659" alt=""></td>
-		<td><input type="image" name="viewshows" id="viewshows" src="Assets/AdminTools_10.gif"></td>
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 		<td rowspan="4">
 			<img src="Assets/AdminTools_11.gif" width="162" height="659" alt=""></td>
 		<td>
@@ -118,13 +109,10 @@ $password = $_COOKIE['password'];
 			<img src="Assets/spacer.gif" width="1" height="44" alt=""></td>
 	</tr>
 	<tr>
-<<<<<<< HEAD
+
 		<td><input type="image" name="createshow" value="createshow" src="Assets/AdminTools_14.gif"></td>
 		<td><input type="image" name="search" value="search" src="Assets/AdminTools_15.gif"></td>
-=======
-		<td><input type="image" name="createshow" id="createshow" src="Assets/AdminTools_14.gif"></td>
-		<td><input type="image" name="search" id="search" src="Assets/AdminTools_15.gif"></td>
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="59" alt=""></td>
 	</tr>

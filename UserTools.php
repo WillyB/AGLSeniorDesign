@@ -2,7 +2,7 @@
 <head>
 <title>AGL: User Home</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<<<<<<< HEAD
+
 <?php
 $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
@@ -47,11 +47,7 @@ $password = $_COOKIE['password'];
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (UserTools.psd) -->
 <form name="form" method="post" action="UserTools.php">
-=======
-</head>
-<body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<!-- Save for Web Slices (UserTools.psd) -->
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 <table width="1401" height="967" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="7">
@@ -62,22 +58,17 @@ $password = $_COOKIE['password'];
 	<tr>
 		<td colspan="5" rowspan="3">
 			<img src="Assets/UserTools_02.gif" width="1211" height="272" alt=""></td>
-<<<<<<< HEAD
+
 		<td><input type="image" name="home" value="home" src="Assets/UserTools_03.gif"></td>
-=======
-		<td><input type="image" name="home" id="home" src="Assets/UserTools_03.gif"></td>
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 		<td rowspan="5">
 			<img src="Assets/UserTools_04.gif" width="83" height="931" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-<<<<<<< HEAD
 		<td><input type="image" name="logout" value="logout" src="Assets/UserTools_05.gif"></td>
-=======
-		<td><input type="image" name="logout" id="logout" src="Assets/UserTools_05.gif"></td>
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
@@ -90,17 +81,12 @@ $password = $_COOKIE['password'];
 	<tr>
 		<td rowspan="2">
 			<img src="Assets/UserTools_07.gif" width="381" height="659" alt=""></td>
-<<<<<<< HEAD
+
 		<td><input type="image" name="viewprofile" value="viewprofile" src="Assets/UserTools_08.gif"></td>
 		<td rowspan="2">
 			<img src="Assets/UserTools_09.gif" width="173" height="659" alt=""></td>
 		<td><input type="image" name="viewshows" value="viewshows" src="Assets/UserTools_10.gif"></td>
-=======
-		<td><input type="image" name="viewprofile" id="viewprofile" src="Assets/UserTools_08.gif"></td>
-		<td rowspan="2">
-			<img src="Assets/UserTools_09.gif" width="173" height="659" alt=""></td>
-		<td><input type="image" name="viewshows" id="viewshows" src="Assets/UserTools_10.gif"></td>
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 		<td rowspan="2">
 			<img src="Assets/UserTools_11.gif" width="162" height="659" alt=""></td>
 		<td>
@@ -116,9 +102,8 @@ $password = $_COOKIE['password'];
 	</tr>
 </table>
 <!-- End Save for Web Slices -->
-<<<<<<< HEAD
+
 </form>
-=======
->>>>>>> 8cad3d9f25d5c7c8d691d169959af07d167db546
+
 </body>
 </html>
