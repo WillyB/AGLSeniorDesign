@@ -69,7 +69,7 @@
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="118" alt=""></td>
 	</tr>
-    <!--
+    
 	<tr>
 		<td rowspan="2">
 			<img src="Assets/ViewShows_07.gif" width="384" height="712" alt=""></td>
@@ -82,7 +82,7 @@
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="564" alt=""></td>
 	</tr>
-    -->
+  
 	<tr>
 		<td>
 			<img src="Assets/ViewShows_10.gif" width="654" height="148" alt=""></td>
