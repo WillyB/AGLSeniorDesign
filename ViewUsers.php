@@ -28,7 +28,7 @@
             
             while($row = mysql_fetch_assoc($rs))
             {
-                echo 'Pushing user '.$row['First_Name'].' for all the monies';
+                echo 'Pushing user '.$row['Last_Name'].' for all the monies';
                 $asFirstName[] = $row['First_Name'];
                 $asLastName[] = $row['Last_Name'];
                 $asEmail[] = $row['Contact_Email'];
@@ -39,7 +39,7 @@
 ?>
 <script type="text/javascript">
     var asFirstName = <?php echo json_encode($asFirstName); ?>;
-    var asLastName = <?php echo json_encode($asLasttName); ?>;
+    var asLastName = <?php echo json_encode($asLastName); ?>;
     var asEmail = <?php echo json_encode($asEmail); ?>;
     
 //    function userLists() {
@@ -50,7 +50,7 @@
     $(document).ready(function(){
        var list = "";
        for(i=0, i<asFirstName.length; i++){
-        list +="<li>"+asFirstname[i]+"</li>"
+        list +="<li>"+asFirstName[i]+"</li>"
        } 
         $("#UserTableList").append(list);
         
