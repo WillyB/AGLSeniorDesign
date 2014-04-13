@@ -56,7 +56,7 @@ $Password2 = "";
 			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
 			$hashedPassword = mysql_query($SQL);
 			
-			if (password_verify($password, $hashedPassword))
+			if ($password == $hashedPassword)
 			{
 				$SQL = "SELECT Contact_Email, Role FROM Personnel WHERE Contact_Email='$email'";			
 				$result = mysql_query($SQL);
