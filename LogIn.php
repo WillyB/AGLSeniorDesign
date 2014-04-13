@@ -3,6 +3,8 @@
 <title>AGL Actors DB</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
+$db_field = "";
+$role = "";
 $email = "";
 $Password = "";
 $email2 = "";
@@ -17,8 +19,9 @@ $Password2 = "";
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
-		$server = 'box293.bluehost.com:3306';//change back to 'localhost:3306';
-
+		$server = 'localhost:3306';
+		//$server = 'box293.bluehost.com:3306';
+		
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 		
@@ -54,11 +57,16 @@ $Password2 = "";
 			
 			//query database with entered data
 			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
-			$hashedPassword = mysql_query($SQL);
+			//uncomment following statement later
+			//$hashedPassword = mysql_query($SQL);
+			$result = mysql_query($SQL);//delete this statement later 
 			
-			if (password_verify($password, $hashedPassword))
+			//uncomment the following statement when hash function works
+			//if (password_verify($password, $hashedPassword))
+			$num_rows1 = mysql_num_rows($result);
+			if($num_rows1 > 0)
 			{
-				$SQL = "SELECT Contact_Email, Role FROM Personnel WHERE Contact_Email='$email'";			
+				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email'";			
 				$result = mysql_query($SQL);
 				$num_rows = mysql_num_rows($result);
 				if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
@@ -67,9 +75,11 @@ $Password2 = "";
 					switch ($role):
 						case 0://admin login
 						
-							   //save email and password in a cookie
+							   //save role, email, and password in a cookie
+							    setCookie('role', $role);
 								setCookie('email',$email);
-						        setCookie('password',$hashedPassword);
+								setCookie('password',$Password);//delete later
+						        //setCookie('password',$hashedPassword);//uncomment later
 								
 								echo "<script type='text/javascript'>
 									 alert('admin has logged in');".//debug statement
@@ -78,8 +88,10 @@ $Password2 = "";
 								
 						case 1://director login
 							   //save email and password in a cookie
+							    setCookie('role', $role);
 								setCookie('email',$email);
-						        setCookie('password',$hashedPassword);
+								setCookie('password',$Password);//delete later
+						        //setCookie('password',$hashedPassword); uncomment later
 								
 								echo "<script type='text/javascript'>
 									 alert('director has logged in');".//debug statement
@@ -89,8 +101,10 @@ $Password2 = "";
 						case 2://regular user login
 						
 							   //save email and password in a cookie
+							    setCookie('role', $role);
 								setCookie('email',$email);
-						        setCookie('password',$hashedPassword);
+								setCookie('password',$Password);//delete later
+						        //setCookie('password',$hashedPassword); uncomment later
 								
 								echo "<script type='text/javascript'>
 									 alert('User has logged in');".//debug statement
@@ -125,7 +139,8 @@ $Password2 = "";
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
-		$server = 'box293.bluehost.com:3306';//change back to 'localhost:3306';
+		//$server = 'box293.bluehost.com:3306';
+		$server = 'localhost:3306';
 
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
@@ -159,12 +174,13 @@ $Password2 = "";
 			//this function is used to escape any dangerous strings (SQL injections)
 			$email2 = mysql_real_escape_string($email2, $db_handle);
 			$Password2 = mysql_real_escape_string($Password2, $db_handle);	
-			$hashedPassword2 = password_hash($pass, PASSWORD_BCRYPT);			
+			//$hashedPassword2 = password_hash($pass, PASSWORD_BCRYPT);	uncomment later		
 
 			//check if user already exist by quering the Personnel table
+			//change $Password2 to $hashedPassword2 when hash function works
 			$sql2 = ("SELECT Contact_Email FROM Personnel
 										  WHERE Contact_Email = '$email2'
-											AND password = '$hashedPassword2'
+											AND password = '$Password2'
 								  ");
 			$result2 = mysql_query($sql2);					 
 			
