@@ -20,7 +20,7 @@
             $rs = mysql_query("SELECT First_Name, Last_Name, Contact_Email FROM Personnel") or die(mysql_error());
             
             
-            echo "<table border='1' bgcolor='#00FF00'>
+            echo "<table border='1' bgcolor='#336699'>
             <tr>
             <th>Firstname</th>
             <th>Lastname</th>
@@ -69,6 +69,7 @@
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="118" alt=""></td>
 	</tr>
+    <!--
 	<tr>
 		<td rowspan="2">
 			<img src="Assets/ViewShows_07.gif" width="384" height="712" alt=""></td>
@@ -81,6 +82,7 @@
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="564" alt=""></td>
 	</tr>
+    -->
 	<tr>
 		<td>
 			<img src="Assets/ViewShows_10.gif" width="654" height="148" alt=""></td>
