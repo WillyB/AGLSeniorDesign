@@ -14,16 +14,6 @@ $Password2 = "";
 	{
 		$email = $_POST['email'];
 		$Password = $_POST['Password'];
-
-		//data to login into mysql server on multilab machine
-		$user_name = 'actorsgu_data';
-		$pass_word = 'cliffy36&winepress';
-		$database = 'actorsgu_data';
-		$server = 'localhost:3306';
-		//$server = 'box293.bluehost.com:3306';
-		
-		$db_handle = mysql_connect($server, $user_name, $pass_word);
-		$db_found = mysql_select_db($database, $db_handle);
 		
 		if($email=="" && $Password == "")//display error message in case username and password fields are left blank
 		{
@@ -48,7 +38,16 @@ $Password2 = "";
 				 "window.location = 'LogIn.php';</script>";//redirect back to login page   
 			exit;//exit, so that the following code is not executed
 		}
-
+		
+		//data to login into mysql server on multilab machine
+		$user_name = 'actorsgu_data';
+		$pass_word = 'cliffy36&winepress';
+		$database = 'actorsgu_data';
+		$server = 'localhost:3306';
+		//$server = 'box293.bluehost.com:3306';
+		
+		$db_handle = mysql_connect($server, $user_name, $pass_word);
+		$db_found = mysql_select_db($database, $db_handle);
 		if ($db_found)
 		{
 			//this function is used to escape any dangerous strings (SQL injections)
