@@ -95,7 +95,7 @@ if (isset($_POST['Search']))
 			}		 
 			if($weightf !="" && $weightt !="")
 			{       
-					$query.= 'Height >=' .$weightf. ' AND Height <=' .$weightt. ' AND ';
+					$query.= 'Weight >=' .$weightf. ' AND Weight <=' .$weightt. ' AND ';
 			}	
 			if($agef !="" && $aget !="")
 			{       
@@ -103,7 +103,7 @@ if (isset($_POST['Search']))
 			}	
 			
 			$result = substr($query,0,-5);
-			$result.=' ;';
+			$result.=';';
 			
 			echo $result;
 			
