@@ -28,7 +28,7 @@
             
             while($row = mysql_fetch_assoc($rs))
             {
-                echo 'Pushing user '.$row['Last_Name'].' for all the monies';
+                //echo 'Pushing user '.$row['Last_Name'].' for all the monies';
                 $asFirstName[] = $row['First_Name'];
                 $asLastName[] = $row['Last_Name'];
                 $asEmail[] = $row['Contact_Email'];
@@ -37,27 +37,7 @@
             
         }
 ?>
-<script type="text/javascript">
-    var asFirstName = <?php echo json_encode($asFirstName); ?>;
-    var asLastName = <?php echo json_encode($asLastName); ?>;
-    var asEmail = <?php echo json_encode($asEmail); ?>;
-    
-//    function userLists() {
-//     var addList = document.getElementById(UserList);
-//     var docstyle = addList.style.display   
-//        
-//    }
-    $(document).ready(function(){
-       var list = "";
-       list +="<li>"+"hi there!"+"</li>"
-       for(i=0, i<asFirstName.length; i++){
-        list +="<li>"+asFirstName[i]+"</li>"
-       } 
-        $("#UserTableList").append(list);
-        
-    });
-    
-</script>
+
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ViewUsers.psd) -->
@@ -116,4 +96,21 @@
 </table>
 <!-- End Save for Web Slices -->
 </body>
+<script type="text/javascript">
+    var asFirstName = <?php echo json_encode($asFirstName); ?>;
+    var asLastName = <?php echo json_encode($asLastName); ?>;
+    var asEmail = <?php echo json_encode($asEmail); ?>;
+    
+
+    $(window).load(function(){
+       var list = "";
+       list +="<li>"+"hi there!"+"</li>"
+       for(i=0, i<asFirstName.length; i++){
+        list +="<li>"+asFirstName[i]+"</li>"
+       } 
+        $("#UserTableList").append(list);
+        
+    });
+    
+</script>
 </html>
