@@ -27,7 +27,7 @@ if (isset($_POST['Search']))
 	{
 		//user has to choose at least one parameter of the search
 		echo "<script type='text/javascript'>
-			 alert('Please, select parameters for search');".
+			 alert('Please, select at least one parameter for the search');".
 			 "window.location = 'SearchDB.php';</script>";//redirect back to search page
 		exit;//exit, so that the following code is not executed
 	}
