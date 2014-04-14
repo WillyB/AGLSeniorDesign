@@ -91,15 +91,15 @@ if (isset($_POST['Search']))
 			}		 
 			if($heightf !="" && $heightt !="")
 			{       
-					$query.= 'Height BETWEEN' .$heightf. ' AND ' .$heightt. ' AND ';
+					$query.= 'Height BETWEEN ' .$heightf. ' AND ' .$heightt. ' AND ';
 			}		 
 			if($weightf !="" && $weightt !="")
 			{       
-					$query.= 'Height BETWEEN' .$weightf. ' AND ' .$weightt. ' AND ';
+					$query.= 'Height BETWEEN ' .$weightf. ' AND ' .$weightt. ' AND ';
 			}	
 			if($agef !="" && $aget !="")
 			{       
-					$query.= 'Height BETWEEN' .$agef. ' AND ' .$aget. ' AND ';
+					$query.= 'Height BETWEEN ' .$agef. ' AND ' .$aget. ' AND ';
 			}	
 			
 			$result = substr($query,0,-5);
