@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <?php
-$role = $_COOKIE['role'];
+/*$role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
@@ -178,7 +178,7 @@ if(isset($_POST['Cast']))
 			  </script>';				  
 	}
 	mysql_close($db_handle);		
-}
+}*/
 ?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
