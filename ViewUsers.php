@@ -8,7 +8,7 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
-//redirect to ViewUsers.php when "HOME" button is clicked
+//redirect to AdminTools.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
 {
 	echo "<script type='text/javascript'>
@@ -261,7 +261,7 @@ if($role == 0 || $role == 1)//check, just in case, if user is a director or admi
 	<tr>
 		<td colspan="3" rowspan="3">
 			<img src="Assets/ViewUsers_02.gif" width="1211" height="185" alt=""></td>
-		<td><input type="image" name="home" value="home" src="Assets/ViewUsers_03.gif"></td>
+		<td><input type="image" name="home" value="home" src="Assets/ViewShows_03.gif"></td>
 		<td rowspan="5">
 			<img src="Assets/ViewUsers_04.gif" width="83" height="897" alt=""></td>
 		<td>
