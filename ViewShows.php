@@ -9,7 +9,7 @@ $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
 	echo "<script type='text/javascript'>
-		  alert('Goodbye!');".
+		  alert($role);".
 		 "window.location = 'ViewShows.php';</script>";//redirect to login page
 	exit;	
 //redirect to ViewUsers.php when "HOME" button is clicked
