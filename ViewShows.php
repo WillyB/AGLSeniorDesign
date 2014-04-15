@@ -7,7 +7,7 @@
 $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
-/*
+
 if($role == '0' || $role == '1' || $role =='2')
 {
 	//LOGIN into DB server
@@ -84,7 +84,7 @@ if($role == '0' || $role == '1' || $role =='2')
 	}
 	mysql_close($db_handle);
 }
-*/
+
 //redirect to ViewUsers.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
 {
@@ -170,7 +170,8 @@ if(isset($_POST['Cast']))
 		echo "<script type='text/javascript'>
 			  alert('SOME MAGIC HAPPENS WHEN YOU PUSH cast BUTTON');".
 			 "window.location = 'AdminTools.php';</script>";	//redirect to AdminTools for now	
-		exit;	
+		exit;
+	}
 	else//if DB was not found
 	{
 		echo '<script type="text/javascript"> 
