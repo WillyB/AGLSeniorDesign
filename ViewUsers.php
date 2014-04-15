@@ -27,6 +27,8 @@ if (isset($_POST['logout']))
 	setcookie('email', '', time() - 3600);
 	setcookie('password', '', time() - 3600);	
 	
+	mysql_close($db_handle);
+		
 	echo "<script type='text/javascript'>
 		  alert('Goodbye!');".
 		 "window.location = 'LogIn.php';</script>";//redirect to login page
@@ -70,8 +72,7 @@ if(isset($_POST['Delete']))
 				  window.location = 'ViewUsers.php';</script>";		
 			exit;			
 		}
-	}	
-    mysql_close($db_handle);	
+	}		
 }
 
 //If "EDIT" button was pressed
@@ -121,7 +122,7 @@ if(isset($_POST['Promote']))
 			exit;			
 		}
 	}
-	mysql_close($db_handle);
+
 }
 
 if(isset($_POST['Demote']))
@@ -167,8 +168,7 @@ if(isset($_POST['Demote']))
 				  window.location = 'ViewUsers.php';</script>";		
 			exit;			
 		}
-	}	
-	mysql_close($db_handle);	
+	}		
 } 
 
 if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
