@@ -60,6 +60,7 @@ if (isset($_POST['Search']))
 			$ethnicity = mysql_real_escape_string($ethnicity, $db_handle); 
 			$gender = mysql_real_escape_string($gender, $db_handle); 	
 		
+			//construct the query usign user specified parameters
 			$query = 'SELECT * FROM Personnel WHERE ';
 			if($firstname!="")
 				{
