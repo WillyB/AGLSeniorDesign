@@ -123,19 +123,9 @@ if(isset($_POST['Delete']))
 		$showID = $_POST['ShowID1'];		
 		$SQL2 = "DELETE FROM Shows WHERE idShows='$showID'";
 		$result2 = mysql_query($SQL2);
-		if($result)
-		{
-			echo "<script type='text/javascript'>
-				  window.location = 'ViewShows.php';</script>";		
-			exit;
-		}
-		else
-		{
-			echo '<script type="text/javascript"> 
-				  alert("Error had occur when tried to delete show");
-				  </script>';
-			exit;
-		}	
+		echo "<script type='text/javascript'>
+			  window.location = 'ViewUsers.php';</script>";		
+		exit;	
     }
 	else//if DB was not found
 	{
@@ -162,20 +152,18 @@ if(isset($_POST['Cast']))
 	$user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
 	$database = 'actorsgu_data';
-	$server = 'localhost:3306';
 	//$server = 'box293.bluehost.com:3306';
+	$server = 'localhost:3306';
 
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
-	
-	if ($db_found)
+
+	if ($db_found) 
 	{
-	$showID = $_POST['idShows'];
-	//$SQL2 = "DELETE FROM Personnel where Contact_Email='$who'";//need to know what happens here
-	//$result2 = mysql_query($SQL2);
+	    $showID = $_POST['ShowID3'];
 		echo "<script type='text/javascript'>
-			 alert('Some magic will happen here');".
-			 "window.location = 'AdminTools.php';</script>";//redirect to AdminTools for now	
+			  alert('SOME MAGIC HAPPENS WHEN YOU PUSH cast BUTTON');".
+			 "window.location = 'AdminTools.php';</script>";	//redirect to AdminTools for now	
 		exit;
 	}
 	else//if DB was not found
@@ -184,8 +172,9 @@ if(isset($_POST['Cast']))
 			  alert("Database is not found");
 			  </script>';
 		exit;
-	}
-	mysql_close($db_handle);		
+	}	
+	mysql_close($db_handle);
+}		
 }
 ?>
 </head>
