@@ -2,148 +2,46 @@
 <head>
 <title>AGL: View Shows</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
 <?php
-$role = $_COOKIE['role'];
-$email = $_COOKIE['email'];
-$password = $_COOKIE['password'];
-
-//redirect to ViewUsers.php when "HOME" button is clicked
-if (isset($_POST['home'])) 
-{
-	echo "<script type='text/javascript'>
-		  window.location = 'AdminTools.php';</script>";
-	exit;
-}
-
-//remove cookies and redirect to login.php when "LOGOUT" button is clicked
-if (isset($_POST['logout'])) 
-{
-	unset($_COOKIE['role']);
-	unset($_COOKIE['email']);
-	unset($_COOKIE['password']);
-
-	setcookie('role', '', time() - 3600);		
-	setcookie('email', '', time() - 3600);
-	setcookie('password', '', time() - 3600);	
-	
-	mysql_close($db_handle);
-	
-	echo "<script type='text/javascript'>
-		  alert('Goodbye!');".
-		 "window.location = 'LogIn.php';</script>";//redirect to login page
-	exit;	
-}
-
-if(isset($_POST['Delete']))
-{
-	$showID = $_POST['ShowID1'];		
-	$SQL2 = "DELETE FROM Shows WHERE idShows='$showID'";
-	$result2 = mysql_query($SQL2);
-	echo "<script type='text/javascript'>
-		  window.location = 'ViewUsers.php';</script>";		
-	exit;			
-
-}
-
-//If "EDIT" button was pressed
-if(isset($_POST['Edit']))
-{
-	$showID = $_POST['ShowID2'];
-	setCookie('showID', $showID);//set cookie to pass use on the next page
-	echo  "<script type='text/javascript'>
-			window.location = 'EditShow.php';</script>";
-	exit;
-}
-
-if(isset($_POST['Cast']))
-{
-	$showIS = $_POST['idShows'];
-	//$SQL2 = "DELETE FROM Personnel where Contact_Email='$who'";//need to know what happens here
-	//$result2 = mysql_query($SQL2);
-		echo "<script type='text/javascript'>
-			  alert('SOME MAGIC HAPPENS WHEN YOU PUSH cast BUTTON');".
-			 "window.location = 'AdminTools.php';</script>";	//redirect to AdminTools for now	
-		exit;				
-}
-
-    //LOGIN into DB server just ONCE
+    //data to login into mysql server on multilab machine
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
-		//$server = 'localhost:3306';
-		$server = 'box293.bluehost.com:3306';
+		$server = 'localhost:3306';//change back to 'localhost:3306';
 
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
         
         if ($db_found)
         {
-		$SQL = 'SELECT * FROM Shows';
-		$result = mysql_query($SQL);
-		$num_rows = mysql_num_rows($result);
-		
-		//print out results if query returned result
-		if($num_rows > 0)
-		{
-			echo "<body bgcolor='silver'>";
-			echo "<h2>All Shows:</h2>";
-			echo "
-			<table border='1'>
-				<tr>
-				<th>ID</th>
-				<th>Title</th>
-				<th>Rehearsal start</th>
-				<th>Rehearsal End</th>			
-				<th>Director</th>
-				<th>Playwright</th>
-				<th>Notes</th>
-				<th>Delete Show</th>
-				<th>Edit Show</th>
-				<th>Cast Show</th>
-				</tr>";
-				while($row = mysql_fetch_array($result))
-				{
-					$value = $row['idShows'];
-					echo "<tr><td>".$row['idShows']."</td><td>".
-									$row['Show_Name']."</td><td>".
-									$row['Rehearsal_Start']."</td><td>".
-									$row['Rehearsal_End']."</td><td>".
-									$row['Director']."</td><td>".
-									$row['Playwright']."</td><td>".
-									$row['Audition_Notes']."</td>";
-					echo "<form action='ViewShows.php' method='post'>
-						     <td><input type='SUBMIT' name='Delete' value='Delete'/>
-							 <input type='HIDDEN' name='ShowID1' value='" .$value. "'/></td>
-							 
-							 <td><input type='SUBMIT' name='Edit' value='Edit'/>
-							 <input type='HIDDEN' name='ShowID2' value='" .$value. "'/></td>
-							 
-							 <td><input type='SUBMIT' name='Cast' value='Cast Show'/>
-							 <input type='HIDDEN' name='ShowID3' value='" .$value. "'/></td></td></form>";	 						
-				}
-				echo "</table>";
-				echo "<br>"."<br>";
-		}
-		else//if there is no specified user found in DB
-		{							
-			echo "<script type='text/javascript'>
-				 alert('NO SHOWS FOUND');".
-				 "window.location = 'AdminTools.php';</script>";//redirect back to SearchDB.php page 
-			exit;			
-		}
+            //$SQL = "SELECT First_Name, Last_Name FROM Personnel";
+//            $result = mysql_query($SQL);
+            
+            $rs = mysql_query("SELECT First_Name, Last_Name, Contact_Email FROM Personnel") or die(mysql_error());
+            
+            
+            echo "<table border='1' bgcolor='#336699'>
+            <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            </tr>";
+            
+            while( false !== ($row = mysql_fetch_assoc($rs)))
+            {
+              echo "<tr>";
+              echo "<td>" . $row['First_Name'] . "</td>";
+              echo "<td>" . $row['Last_Name'] . "</td>";
+              echo "<td>" . $row['Contact_Email'] . "</td>";
+              echo "</tr>";
+            }
+                
+            
         }
-		else//if DB was not found
-		{
-			echo '<script type="text/javascript"> 
-				  alert("Database is not found");
-				  </script>';				  
-		}	
 ?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ViewShows.psd) -->
-<form name="form" method="post" action="ViewShows.php">
 <table width="1401" height="967" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="5">
@@ -154,14 +52,14 @@ if(isset($_POST['Cast']))
 	<tr>
 		<td colspan="3" rowspan="3">
 			<img src="Assets/ViewShows_02.gif" width="1211" height="185" alt=""></td>
-		<td><input type="image" name="home" value="home" src="Assets/ViewShows_03.gif"></td>
+		<td><input type="image" name="home" id="home" src="Assets/ViewShows_03.gif"></td>
 		<td rowspan="5">
 			<img src="Assets/ViewShows_04.gif" width="83" height="897" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
 	<tr>
-		<td><input type="image" name="logout" value="logout" src="Assets/ViewShows_05.gif"></td>
+		<td><input type="image" name="logout" id="logout" src="Assets/ViewShows_05.gif"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
 	</tr>
@@ -175,7 +73,15 @@ if(isset($_POST['Cast']))
 	<tr>
 		<td rowspan="2">
 			<img src="Assets/ViewShows_07.gif" width="384" height="712" alt=""></td>
-		<td width="654" height="564" background="Assets/ViewShows_08.gif">&nbsp;</td>
+		<td width="654" height="564" background="Assets/ViewShows_08.gif">&nbsp;
+        <div id="ShowList">
+            overflow:auto;
+        </div>
+        <!--
+        <label for="users"></label>
+	    <textarea name="users" id="users" cols="76" rows="33" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea>
+        -->
+        </td>
 		<td rowspan="2">
 			<img src="Assets/ViewShows_09.gif" width="173" height="712" alt=""></td>
 		<td>
@@ -189,7 +95,6 @@ if(isset($_POST['Cast']))
 			<img src="Assets/spacer.gif" width="1" height="148" alt=""></td>
 	</tr>
 </table>
-</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>

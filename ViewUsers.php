@@ -38,6 +38,7 @@ if (isset($_POST['logout']))
 if(isset($_POST['Delete']))
 {
 	$who = $_POST['UserEmail0'];
+	echo $who."<br>";
 
 	if($who == $email)
 	{
@@ -55,6 +56,7 @@ if(isset($_POST['Delete']))
 	{
 		$row1 = mysql_fetch_array($result1);
 		$role1 = $row1['Role'];
+		echo $role1;
 		if($role1 == '0')
 		{
 			echo "<script type='text/javascript'>
