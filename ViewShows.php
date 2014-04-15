@@ -12,7 +12,32 @@ $password = $_COOKIE['password'];
 		  alert('Goodbye!');".
 		 "window.location = 'ViewUsers.php';</script>";//redirect to login page
 	exit;	
+//redirect to ViewUsers.php when "HOME" button is clicked
+if (isset($_POST['home'])) 
+{
+	echo "<script type='text/javascript'>
+		  window.location = 'AdminTools.php';</script>";
+	exit;
+}
 
+//remove cookies and redirect to login.php when "LOGOUT" button is clicked
+if (isset($_POST['logout'])) 
+{
+	unset($_COOKIE['role']);
+	unset($_COOKIE['email']);
+	unset($_COOKIE['password']);
+
+	setcookie('role', '', time() - 3600);		
+	setcookie('email', '', time() - 3600);
+	setcookie('password', '', time() - 3600);	
+	
+	mysql_close($db_handle);
+	
+	echo "<script type='text/javascript'>
+		  alert('Goodbye!');".
+		 "window.location = 'LogIn.php';</script>";//redirect to login page
+	exit;	
+}
 ?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
