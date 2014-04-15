@@ -12,7 +12,7 @@ $password = $_COOKIE['password'];
 if (isset($_POST['home'])) 
 {
 	echo "<script type='text/javascript'>
-		  window.location = 'ViewUsers.php';</script>";
+		  window.location = 'AdminTools.php';</script>";
 	exit;
 }
 
@@ -36,7 +36,6 @@ if (isset($_POST['logout']))
 if(isset($_POST['Delete']))
 {
 	$who = $_POST['UserEmail0'];
-	echo $who."<br>";
 
 	if($who == $email)
 	{
@@ -58,16 +57,13 @@ if(isset($_POST['Delete']))
 	if ($db_found) 
 	{		
 		$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
-		echo "SQL=".$SQL1."<br>";
 		$result1 = mysql_query($SQL1);	
-		echo "result1=".$result1;
 		$num_rows1 = mysql_num_rows($result1);
 
 		if($num_rows1 > 0)
 		{
 			$row1 = mysql_fetch_array($result1);
 			$role1 = $row1['Role'];
-			echo $role1;
 			if($role1 == '0')
 			{
 				echo "<script type='text/javascript'>
