@@ -123,9 +123,19 @@ if(isset($_POST['Delete']))
 		$showID = $_POST['ShowID1'];		
 		$SQL2 = "DELETE FROM Shows WHERE idShows='$showID'";
 		$result2 = mysql_query($SQL2);
-		echo "<script type='text/javascript'>
-			  window.location = 'ViewShows.php';</script>";		
-		exit;	
+		if($result)
+		{
+			echo "<script type='text/javascript'>
+				  window.location = 'ViewShows.php';</script>";		
+			exit;
+		}
+		else
+		{
+			echo '<script type="text/javascript"> 
+				  alert("Error had occur when tried to delete show");
+				  </script>';
+			exit;
+		}	
     }
 	else//if DB was not found
 	{
