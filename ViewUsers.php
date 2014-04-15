@@ -8,11 +8,11 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
-//redirect to AdminTools.php when "HOME" button is clicked
+//redirect to ViewUsers.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
 {
 	echo "<script type='text/javascript'>
-		  window.location = 'AdminTools.php';</script>";
+		  window.location = 'ViewUsers.php';</script>";
 	exit;
 }
 
@@ -27,8 +27,6 @@ if (isset($_POST['logout']))
 	setcookie('email', '', time() - 3600);
 	setcookie('password', '', time() - 3600);	
 	
-	mysql_close($db_handle);
-		
 	echo "<script type='text/javascript'>
 		  alert('Goodbye!');".
 		 "window.location = 'LogIn.php';</script>";//redirect to login page
@@ -47,32 +45,53 @@ if(isset($_POST['Delete']))
 			 "window.location = 'ViewUsers.php';</script>";		
 		exit;			
 	}
-		
-	$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
-	$result1 = mysql_query($SQL1);	
-	$num_rows1 = mysql_num_rows($result1);
+	//data to login into mysql server on multilab machine
+	$user_name = 'actorsgu_data';
+	$pass_word = 'cliffy36&winepress';
+	$database = 'actorsgu_data';
+	$server = 'box293.bluehost.com:3306';
+	//$server = 'localhost:3306';
 
-	if($num_rows1 > 0)
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+
+	if ($db_found) 
+	{		
+		$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
+		echo "SQL=".$SQL1."<br>";
+		$result1 = mysql_query($SQL1);	
+		echo "result1=".$result1;
+		$num_rows1 = mysql_num_rows($result1);
+
+		if($num_rows1 > 0)
+		{
+			$row1 = mysql_fetch_array($result1);
+			$role1 = $row1['Role'];
+			echo $role1;
+			if($role1 == '0')
+			{
+				echo "<script type='text/javascript'>
+					  alert('User is ADMIN. Cannot delete user who is Admin');".
+					 "window.location = 'ViewUsers.php';</script>";		
+				exit;
+			}
+			else
+			{
+				$SQL2 = "DELETE FROM Personnel where Contact_Email='$who'";
+				$result2 = mysql_query($SQL2);
+				echo "<script type='text/javascript'>
+					  window.location = 'ViewUsers.php';</script>";		
+				exit;			
+			}
+		}
+	}
+	else//if DB was not found
 	{
-		$row1 = mysql_fetch_array($result1);
-		$role1 = $row1['Role'];
-		echo $role1;
-		if($role1 == '0')
-		{
-			echo "<script type='text/javascript'>
-				  alert('User is ADMIN. Cannot delete user who is Admin');".
-				 "window.location = 'ViewUsers.php';</script>";		
-			exit;
-		}
-		else
-		{
-			$SQL2 = "DELETE FROM Personnel where Contact_Email='$who'";
-			$result2 = mysql_query($SQL2);
-			echo "<script type='text/javascript'>
-				  window.location = 'ViewUsers.php';</script>";		
-			exit;			
-		}
-	}		
+		echo '<script type="text/javascript"> 
+			  alert("Database is not found");
+			  </script>';				  
+	}	
+	mysql_close($db_handle);	
 }
 
 //If "EDIT" button was pressed
@@ -89,40 +108,60 @@ if(isset($_POST['Edit']))
 if(isset($_POST['Promote']))
 {
 	$who = $_POST['UserEmail2'];
-	$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
-	$result1 = mysql_query($SQL1);	
-	$num_rows1 = mysql_num_rows($result1);	
 
-	if($num_rows1 > 0)
+	//data to login into mysql server on multilab machine
+	$user_name = 'actorsgu_data';
+	$pass_word = 'cliffy36&winepress';
+	$database = 'actorsgu_data';
+	$server = 'box293.bluehost.com:3306';
+	//$server = 'localhost:3306';
+
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+
+	if ($db_found) 
 	{
-		$row1 = mysql_fetch_array($result1);
-		$role1 = $row1['Role'];
-		
-		if($role1 == '0')
+		$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
+		$result1 = mysql_query($SQL1);	
+		$num_rows1 = mysql_num_rows($result1);	
+
+		if($num_rows1 > 0)
 		{
-		echo "<script type='text/javascript'>
-			  alert('User is ADMIN. Cannot promote Admin to Director');".
-			 "window.location = 'ViewUsers.php';</script>";		
-		exit;
-		}
-		
-		if($role1 == '1')
-		{
-		echo "<script type='text/javascript'>
-			  alert('User is already a DIRECTOR');".
-			 "window.location = 'ViewUsers.php';</script>";				
-		exit;
-		}
-		else
-		{
-			$SQL2 = "UPDATE Personnel SET Role='1' WHERE Contact_Email='$who'";
-			$result2 = mysql_query($SQL2);
+			$row1 = mysql_fetch_array($result1);
+			$role1 = $row1['Role'];
+			
+			if($role1 == '0')
+			{
 			echo "<script type='text/javascript'>
-				  window.location = 'ViewUsers.php';</script>";		
-			exit;			
+				  alert('User is ADMIN. Cannot promote Admin to Director');".
+				 "window.location = 'ViewUsers.php';</script>";		
+			exit;
+			}
+			
+			if($role1 == '1')
+			{
+			echo "<script type='text/javascript'>
+				  alert('User is already a DIRECTOR');".
+				 "window.location = 'ViewUsers.php';</script>";				
+			exit;
+			}
+			else
+			{
+				$SQL2 = "UPDATE Personnel SET Role='1' WHERE Contact_Email='$who'";
+				$result2 = mysql_query($SQL2);
+				echo "<script type='text/javascript'>
+					  window.location = 'ViewUsers.php';</script>";		
+				exit;			
+			}
 		}
 	}
-
+	else//if DB was not found
+	{
+		echo '<script type="text/javascript"> 
+			  alert("Database is not found");
+			  </script>';				  
+	}	
+	mysql_close($db_handle);
 }
 
 if(isset($_POST['Demote']))
@@ -135,40 +174,59 @@ if(isset($_POST['Demote']))
 			 "window.location = 'ViewUsers.php';</script>";		
 		exit;			
 	}
-	
-	$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
-	$result1 = mysql_query($SQL1);
-	$num_rows1 = mysql_num_rows($result1);
+	//data to login into mysql server on multilab machine
+	$user_name = 'actorsgu_data';
+	$pass_word = 'cliffy36&winepress';
+	$database = 'actorsgu_data';
+	$server = 'box293.bluehost.com:3306';
+	//$server = 'localhost:3306';
 
-	if($num_rows1 > 0)
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+
+	if ($db_found) 
 	{
-		$row1 = mysql_fetch_array($result1);	
-		$role1 = $row1['Role'];
-		
-		if($role1 == '0')
+		$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
+		$result1 = mysql_query($SQL1);
+		$num_rows1 = mysql_num_rows($result1);
+
+		if($num_rows1 > 0)
 		{
-		echo "<script type='text/javascript'>
-			  alert('User is ADMIN. Cannot demote Admin');".
-			 "window.location = 'ViewUsers.php';</script>";		
-		exit;
-		}
-		
-		if($role1 == '2')
-		{
-		echo "<script type='text/javascript'>
-			  alert('User is already a regular user');".
-			 "window.location = 'ViewUsers.php';</script>";				
-		exit;
-		}
-		else
-		{
-			$SQL2 = "UPDATE Personnel SET Role='2' WHERE Contact_Email='$who'";
-			$result2 = mysql_query($SQL2);
+			$row1 = mysql_fetch_array($result1);	
+			$role1 = $row1['Role'];
+			
+			if($role1 == '0')
+			{
 			echo "<script type='text/javascript'>
-				  window.location = 'ViewUsers.php';</script>";		
-			exit;			
+				  alert('User is ADMIN. Cannot demote Admin');".
+				 "window.location = 'ViewUsers.php';</script>";		
+			exit;
+			}
+			
+			if($role1 == '2')
+			{
+			echo "<script type='text/javascript'>
+				  alert('User is already a regular user');".
+				 "window.location = 'ViewUsers.php';</script>";				
+			exit;
+			}
+			else
+			{
+				$SQL2 = "UPDATE Personnel SET Role='2' WHERE Contact_Email='$who'";
+				$result2 = mysql_query($SQL2);
+				echo "<script type='text/javascript'>
+					  window.location = 'ViewUsers.php';</script>";		
+				exit;			
+			}
 		}
-	}		
+	}
+	else//if DB was not found
+	{
+		echo '<script type="text/javascript"> 
+			  alert("Database is not found");
+			  </script>';				  
+	}	
+	mysql_close($db_handle);	
 } 
 
 if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
@@ -177,8 +235,8 @@ if($role == 0 || $role == 1)//check, just in case, if user is a director or admi
 	$user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
 	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
+	$server = 'box293.bluehost.com:3306';
+	//$server = 'localhost:3306';
 
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
@@ -243,6 +301,7 @@ if($role == 0 || $role == 1)//check, just in case, if user is a director or admi
 			  alert("Database is not found");
 			  </script>';				  
 	}	
+	mysql_close($db_handle);
 }
 
 ?>
@@ -261,7 +320,7 @@ if($role == 0 || $role == 1)//check, just in case, if user is a director or admi
 	<tr>
 		<td colspan="3" rowspan="3">
 			<img src="Assets/ViewUsers_02.gif" width="1211" height="185" alt=""></td>
-		<td><input type="image" name="home" value="home" src="Assets/ViewShows_03.gif"></td>
+		<td><input type="image" name="home" value="home" src="Assets/ViewUsers_03.gif"></td>
 		<td rowspan="5">
 			<img src="Assets/ViewUsers_04.gif" width="83" height="897" alt=""></td>
 		<td>
