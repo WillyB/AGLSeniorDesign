@@ -195,23 +195,23 @@ if (isset($_POST['Search']))
 <table width="1401" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="19">
-			<img src="images/SearchDB_01.gif" width="1400" height="70" alt=""></td>
+			<img src="Assets/SearchDB_01.gif" width="1400" height="70" alt=""></td>
 		<td>
-			<img src="images/spacer.gif" width="1" height="70" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="70" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="17" rowspan="3">
-			<img src="images/SearchDB_02.gif" width="1211" height="238" alt=""></td>
+			<img src="Assests/SearchDB_02.gif" width="1211" height="238" alt=""></td>
 		<td><input type="image" name="home" value="home" src="Assets/SearchDB_03.gif"></td>
 		<td rowspan="13">
-			<img src="images/SearchDB_04.gif" width="83" height="897" alt=""></td>
+			<img src="Assets/SearchDB_04.gif" width="83" height="897" alt=""></td>
 		<td>
-			<img src="images/spacer.gif" width="1" height="35" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
 	<tr>
 		<td><input type="image" name="logout" value="logout" src="Assets/SearchDB_05.gif"></td>
 		<td>
-			<img src="images/spacer.gif" width="1" height="32" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="11">
