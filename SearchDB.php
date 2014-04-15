@@ -203,7 +203,7 @@ if (isset($_POST['Search']))
 		<td colspan="17" rowspan="3">
 			<img src="Assets/SearchDB_02.gif" width="1211" height="238" alt=""></td>
 		<td>
-			<td><input type="image" name="home" value="home" src="Assets/SearchDB_03.gif" width="106" height="35" alt=""</></td>
+			<td><input type="image" name="home" value="home" src="Assets/SearchDB_03.gif"></td>
 		<td rowspan="13">
 			<img src="Assets/SearchDB_04.gif" width="83" height="897" alt=""></td>
 		<td>
@@ -212,7 +212,7 @@ if (isset($_POST['Search']))
 
 	<tr>
 		<td>
-		    <td><input type="image" name="logout" value="logout" src="Assets/SearchDB_05.gif width="106" height="32" alt=""</"></td>
+		    <td><input type="image" name="logout" value="logout" src="Assets/SearchDB_05.gif"></td>
 
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
