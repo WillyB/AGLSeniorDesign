@@ -8,10 +8,78 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
-	echo "<script type='text/javascript'>
-		  alert($role);".
-		 "window.location = 'ViewShows.php';</script>";//redirect to login page
-	exit;	
+//data to login into mysql server on multilab machine
+$user_name = 'actorsgu_data';
+$pass_word = 'cliffy36&winepress';
+$database = 'actorsgu_data';
+//$server = 'box293.bluehost.com:3306';
+$server = 'localhost:3306';
+
+$db_handle = mysql_connect($server, $user_name, $pass_word);
+$db_found = mysql_select_db($database, $db_handle);
+
+if ($db_found) 
+{
+	$SQL = 'SELECT * FROM Shows';
+	$result = mysql_query($SQL);
+	$num_rows = mysql_num_rows($result);
+	
+	//print out results if query returned result
+	if($num_rows > 0)
+	{	
+		echo "<body bgcolor='silver'>";
+		echo "<h2>All Shows:</h2>";
+		echo "<table border='1'><tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Rehearsal start</th>
+				<th>Rehearsal End</th>			
+				<th>Director</th>
+				<th>Playwright</th>
+				<th>Notes</th>
+				<th>Delete Show</th>
+				<th>Edit Show</th>
+				<th>Cast Show</th></tr>";
+				
+		while($row = mysql_fetch_array($result))
+		{
+			$value = $row['idShows'];
+			echo "<tr><td>".$row['idShows']."</td><td>".
+							$row['Show_Name']."</td><td>".
+							$row['Rehearsal_Start']."</td><td>".
+							$row['Rehearsal_End']."</td><td>".
+							$row['Director']."</td><td>".
+							$row['Playwright']."</td><td>".
+							$row['Audition_Notes']."</td>";
+			echo "<form action='ViewShows.php' method='post'>
+					 <td><input type='SUBMIT' name='Delete' value='Delete'/>
+					 <input type='HIDDEN' name='ShowID1' value='" .$value. "'/></td>
+					 
+					 <td><input type='SUBMIT' name='Edit' value='Edit'/>
+					 <input type='HIDDEN' name='ShowID2' value='" .$value. "'/></td>
+					 
+					 <td><input type='SUBMIT' name='Cast' value='Cast Show'/>
+					 <input type='HIDDEN' name='ShowID3' value='" .$value. "'/></td></td></form>";	 						
+		}
+		echo "</table>";
+		echo "<br>"."<br>";
+	}
+	else//if there is no specified user found in DB
+	{							
+		echo "<script type='text/javascript'>
+			 alert('NO SHOWS FOUND');".
+			 "window.location = 'AdminTools.php';</script>";//redirect back to SearchDB.php page 
+		exit;			
+	}			
+}
+else//if DB was not found
+{
+	echo '<script type="text/javascript"> 
+		  alert("Database is not found");
+		  </script>';				  
+}	
+mysql_close($db_handle);
+	
 //redirect to ViewUsers.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
 {
