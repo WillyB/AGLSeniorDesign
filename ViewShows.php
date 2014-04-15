@@ -160,12 +160,12 @@ if(isset($_POST['Cast']))
 	
 	if ($db_found)
 	{
-	$showIS = $_POST['idShows'];
+	$showID = $_POST['idShows'];
 	//$SQL2 = "DELETE FROM Personnel where Contact_Email='$who'";//need to know what happens here
 	//$result2 = mysql_query($SQL2);
 		echo "<script type='text/javascript'>
-			  alert('SOME MAGIC HAPPENS WHEN YOU PUSH cast BUTTON');".
-			 "window.location = 'AdminTools.php';</script>";	//redirect to AdminTools for now	
+			 alert('Some magic will happen here');".
+			 "window.location = 'AdminTools.php';</script>";//redirect to AdminTools for now	
 		exit;
 	}
 	else//if DB was not found
