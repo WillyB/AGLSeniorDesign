@@ -202,14 +202,14 @@ if (isset($_POST['Search']))
 	<tr>
 		<td colspan="17" rowspan="3">
 			<img src="images/SearchDB_02.gif" width="1211" height="238" alt=""></td>
-		<td><input type="image" name="home" value="home" src="images/SearchDB_03.gif"></td>
+		<td><input type="image" name="home" value="home" src="Assets/SearchDB_03.gif"></td>
 		<td rowspan="13">
 			<img src="images/SearchDB_04.gif" width="83" height="897" alt=""></td>
 		<td>
 			<img src="images/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
 	<tr>
-		<td><input type="image" name="logout" value="logout" src="images/SearchDB_05.gif"></td>
+		<td><input type="image" name="logout" value="logout" src="Assets/SearchDB_05.gif"></td>
 		<td>
 			<img src="images/spacer.gif" width="1" height="32" alt=""></td>
 	</tr>
