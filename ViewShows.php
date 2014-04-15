@@ -106,6 +106,77 @@ if (isset($_POST['logout']))
 		 "window.location = 'LogIn.php';</script>";//redirect to login page
 	exit;	
 }
+
+if(isset($_POST['Delete']))
+{
+	$user_name = 'actorsgu_data';
+	$pass_word = 'cliffy36&winepress';
+	$database = 'actorsgu_data';
+	$server = 'localhost:3306';
+	//$server = 'box293.bluehost.com:3306';
+
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+	
+	if ($db_found)
+	{
+		$showID = $_POST['ShowID1'];		
+		$SQL2 = "DELETE FROM Shows WHERE idShows='$showID'";
+		$result2 = mysql_query($SQL2);
+		echo "<script type='text/javascript'>
+			  window.location = 'ViewUsers.php';</script>";		
+		exit;	
+    }
+	else//if DB was not found
+	{
+		echo '<script type="text/javascript"> 
+			  alert("Database is not found");
+			  </script>';	
+		exit;
+	}
+	mysql_close($db_handle);
+}
+
+//If "EDIT" button was pressed
+if(isset($_POST['Edit']))
+{
+	$showID = $_POST['ShowID2'];
+	setCookie('showID', $showID);//set cookie to pass use on the next page
+	echo  "<script type='text/javascript'>
+			window.location = 'EditShow.php';</script>";
+	exit;
+}
+
+if(isset($_POST['Cast']))
+{
+	$user_name = 'actorsgu_data';
+	$pass_word = 'cliffy36&winepress';
+	$database = 'actorsgu_data';
+	$server = 'localhost:3306';
+	//$server = 'box293.bluehost.com:3306';
+
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+	
+	if ($db_found)
+	{
+	$showIS = $_POST['idShows'];
+	//$SQL2 = "DELETE FROM Personnel where Contact_Email='$who'";//need to know what happens here
+	//$result2 = mysql_query($SQL2);
+		echo "<script type='text/javascript'>
+			  alert('SOME MAGIC HAPPENS WHEN YOU PUSH cast BUTTON');".
+			 "window.location = 'AdminTools.php';</script>";	//redirect to AdminTools for now	
+		exit;
+	}
+	else//if DB was not found
+	{
+		echo '<script type="text/javascript"> 
+			  alert("Database is not found");
+			  </script>';
+		exit;
+	}
+	mysql_close($db_handle);		
+}
 ?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
