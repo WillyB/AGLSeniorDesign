@@ -124,7 +124,7 @@ if(isset($_POST['Delete']))
 		$SQL2 = "DELETE FROM Shows WHERE idShows='$showID'";
 		$result2 = mysql_query($SQL2);
 		echo "<script type='text/javascript'>
-			  window.location = 'ViewShows.php';</script>";		
+			  window.location='ViewShows.php';</script>";		
 		exit;	
     }
 	else//if DB was not found
