@@ -10,6 +10,7 @@ $password = $_COOKIE['password'];
 
 if($role == '0' || $role == '1' || $role =='2')
 {
+	echo "passed the role check";
 	//LOGIN into DB server
 	$user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
@@ -22,6 +23,7 @@ if($role == '0' || $role == '1' || $role =='2')
 	
 	if ($db_found)
 	{
+		echo "connected to DB";
 		$SQL = 'SELECT * FROM Shows';
 		$result = mysql_query($SQL);
 		$num_rows = mysql_num_rows($result);
