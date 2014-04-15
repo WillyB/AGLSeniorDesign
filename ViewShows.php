@@ -10,7 +10,7 @@ $password = $_COOKIE['password'];
 
 	echo "<script type='text/javascript'>
 		  alert('Goodbye!');".
-		 "window.location = 'ViewUsers.php';</script>";//redirect to login page
+		 "window.location = 'ViewShows.php';</script>";//redirect to login page
 	exit;	
 //redirect to ViewUsers.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
