@@ -175,7 +175,6 @@ if(isset($_POST['Cast']))
 	}	
 	mysql_close($db_handle);
 }		
-}
 ?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
