@@ -7,7 +7,7 @@
 $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
-
+/*
 if($role == '0' || $role == '1' || $role =='2')
 {
 	//LOGIN into DB server
@@ -84,7 +84,7 @@ if($role == '0' || $role == '1' || $role =='2')
 	}
 	mysql_close($db_handle);
 }
-/*
+*/
 //redirect to ViewUsers.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
 {
@@ -178,7 +178,7 @@ if(isset($_POST['Cast']))
 			  </script>';				  
 	}
 	mysql_close($db_handle);		
-}*/
+}
 ?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
