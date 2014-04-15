@@ -45,51 +45,33 @@ if(isset($_POST['Delete']))
 			 "window.location = 'ViewUsers.php';</script>";		
 		exit;			
 	}
-	//data to login into mysql server on multilab machine
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
+		
+	$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
+	$result1 = mysql_query($SQL1);	
+	$num_rows1 = mysql_num_rows($result1);
 
-	$db_handle = mysql_connect($server, $user_name, $pass_word);
-	$db_found = mysql_select_db($database, $db_handle);
-
-	if ($db_found) 
-	{		
-		$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
-		$result1 = mysql_query($SQL1);	
-		$num_rows1 = mysql_num_rows($result1);
-
-		if($num_rows1 > 0)
-		{
-			$row1 = mysql_fetch_array($result1);
-			$role1 = $row1['Role'];
-			echo $role1;
-			if($role1 == '0')
-			{
-				echo "<script type='text/javascript'>
-					  alert('User is ADMIN. Cannot delete user who is Admin');".
-					 "window.location = 'ViewUsers.php';</script>";		
-				exit;
-			}
-			else
-			{
-				$SQL2 = "DELETE FROM Personnel where Contact_Email='$who'";
-				$result2 = mysql_query($SQL2);
-				echo "<script type='text/javascript'>
-					  window.location = 'ViewUsers.php';</script>";		
-				exit;			
-			}
-		}
-	}
-	else//if DB was not found
+	if($num_rows1 > 0)
 	{
-		echo '<script type="text/javascript"> 
-			  alert("Database is not found");
-			  </script>';				  
+		$row1 = mysql_fetch_array($result1);
+		$role1 = $row1['Role'];
+		echo $role1;
+		if($role1 == '0')
+		{
+			echo "<script type='text/javascript'>
+				  alert('User is ADMIN. Cannot delete user who is Admin');".
+				 "window.location = 'ViewUsers.php';</script>";		
+			exit;
+		}
+		else
+		{
+			$SQL2 = "DELETE FROM Personnel where Contact_Email='$who'";
+			$result2 = mysql_query($SQL2);
+			echo "<script type='text/javascript'>
+				  window.location = 'ViewUsers.php';</script>";		
+			exit;			
+		}
 	}	
-	mysql_close($db_handle);	
+    mysql_close($db_handle);	
 }
 
 //If "EDIT" button was pressed
@@ -106,59 +88,39 @@ if(isset($_POST['Edit']))
 if(isset($_POST['Promote']))
 {
 	$who = $_POST['UserEmail2'];
+	$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
+	$result1 = mysql_query($SQL1);	
+	$num_rows1 = mysql_num_rows($result1);	
 
-	//data to login into mysql server on multilab machine
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
-
-	$db_handle = mysql_connect($server, $user_name, $pass_word);
-	$db_found = mysql_select_db($database, $db_handle);
-
-	if ($db_found) 
+	if($num_rows1 > 0)
 	{
-		$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
-		$result1 = mysql_query($SQL1);	
-		$num_rows1 = mysql_num_rows($result1);	
-
-		if($num_rows1 > 0)
+		$row1 = mysql_fetch_array($result1);
+		$role1 = $row1['Role'];
+		
+		if($role1 == '0')
 		{
-			$row1 = mysql_fetch_array($result1);
-			$role1 = $row1['Role'];
-			
-			if($role1 == '0')
-			{
+		echo "<script type='text/javascript'>
+			  alert('User is ADMIN. Cannot promote Admin to Director');".
+			 "window.location = 'ViewUsers.php';</script>";		
+		exit;
+		}
+		
+		if($role1 == '1')
+		{
+		echo "<script type='text/javascript'>
+			  alert('User is already a DIRECTOR');".
+			 "window.location = 'ViewUsers.php';</script>";				
+		exit;
+		}
+		else
+		{
+			$SQL2 = "UPDATE Personnel SET Role='1' WHERE Contact_Email='$who'";
+			$result2 = mysql_query($SQL2);
 			echo "<script type='text/javascript'>
-				  alert('User is ADMIN. Cannot promote Admin to Director');".
-				 "window.location = 'ViewUsers.php';</script>";		
-			exit;
-			}
-			
-			if($role1 == '1')
-			{
-			echo "<script type='text/javascript'>
-				  alert('User is already a DIRECTOR');".
-				 "window.location = 'ViewUsers.php';</script>";				
-			exit;
-			}
-			else
-			{
-				$SQL2 = "UPDATE Personnel SET Role='1' WHERE Contact_Email='$who'";
-				$result2 = mysql_query($SQL2);
-				echo "<script type='text/javascript'>
-					  window.location = 'ViewUsers.php';</script>";		
-				exit;			
-			}
+				  window.location = 'ViewUsers.php';</script>";		
+			exit;			
 		}
 	}
-	else//if DB was not found
-	{
-		echo '<script type="text/javascript"> 
-			  alert("Database is not found");
-			  </script>';				  
-	}	
 	mysql_close($db_handle);
 }
 
@@ -172,57 +134,39 @@ if(isset($_POST['Demote']))
 			 "window.location = 'ViewUsers.php';</script>";		
 		exit;			
 	}
-	//data to login into mysql server on multilab machine
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	//server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
+	
+	$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
+	$result1 = mysql_query($SQL1);
+	$num_rows1 = mysql_num_rows($result1);
 
-	$db_handle = mysql_connect($server, $user_name, $pass_word);
-	$db_found = mysql_select_db($database, $db_handle);
-
-	if ($db_found) 
+	if($num_rows1 > 0)
 	{
-		$SQL1 = "SELECT Role FROM Personnel WHERE Contact_Email='$who'";
-		$result1 = mysql_query($SQL1);
-		$num_rows1 = mysql_num_rows($result1);
-
-		if($num_rows1 > 0)
+		$row1 = mysql_fetch_array($result1);	
+		$role1 = $row1['Role'];
+		
+		if($role1 == '0')
 		{
-			$row1 = mysql_fetch_array($result1);	
-			$role1 = $row1['Role'];
-			
-			if($role1 == '0')
-			{
-			echo "<script type='text/javascript'>
-				  alert('User is ADMIN. Cannot demote Admin');".
-				 "window.location = 'ViewUsers.php';</script>";		
-			exit;
-			}
-			
-			if($role1 == '2')
-			{
-			echo "<script type='text/javascript'>
-				  alert('User is already a regular user');".
-				 "window.location = 'ViewUsers.php';</script>";				
-			exit;
-			}
-			else
-			{
-				$SQL2 = "UPDATE Personnel SET Role='2' WHERE Contact_Email='$who'";
-				$result2 = mysql_query($SQL2);
-				echo "<script type='text/javascript'>
-					  window.location = 'ViewUsers.php';</script>";		
-				exit;			
-			}
+		echo "<script type='text/javascript'>
+			  alert('User is ADMIN. Cannot demote Admin');".
+			 "window.location = 'ViewUsers.php';</script>";		
+		exit;
 		}
-	}
-	else//if DB was not found
-	{
-		echo '<script type="text/javascript"> 
-			  alert("Database is not found");
-			  </script>';				  
+		
+		if($role1 == '2')
+		{
+		echo "<script type='text/javascript'>
+			  alert('User is already a regular user');".
+			 "window.location = 'ViewUsers.php';</script>";				
+		exit;
+		}
+		else
+		{
+			$SQL2 = "UPDATE Personnel SET Role='2' WHERE Contact_Email='$who'";
+			$result2 = mysql_query($SQL2);
+			echo "<script type='text/javascript'>
+				  window.location = 'ViewUsers.php';</script>";		
+			exit;			
+		}
 	}	
 	mysql_close($db_handle);	
 } 
@@ -299,7 +243,6 @@ if($role == 0 || $role == 1)//check, just in case, if user is a director or admi
 			  alert("Database is not found");
 			  </script>';				  
 	}	
-	mysql_close($db_handle);
 }
 
 ?>
