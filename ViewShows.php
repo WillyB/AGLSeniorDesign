@@ -7,8 +7,11 @@
 $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
-echo "I am here";
-echo "role = ".$role;
+
+	echo "<script type='text/javascript'>
+		  alert('Goodbye!');".
+		 "window.location = 'ViewUsers.php';</script>";//redirect to login page
+	exit;	
 
 ?>
 </head>
