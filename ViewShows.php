@@ -3,7 +3,7 @@
 <title>AGL: View Shows</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?php/*
 $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
@@ -178,7 +178,7 @@ if(isset($_POST['Cast']))
 			  </script>';				  
 	}
 	mysql_close($db_handle);		
-}
+}*/
 ?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -194,14 +194,14 @@ if(isset($_POST['Cast']))
 	<tr>
 		<td colspan="3" rowspan="3">
 			<img src="Assets/ViewShows_02.gif" width="1211" height="185" alt=""></td>
-		<td><input type="image" name="home" id="home" src="Assets/ViewShows_03.gif"></td>
+		<td><input type="image" name="home" value="home" src="Assets/ViewShows_03.gif"></td>
 		<td rowspan="5">
 			<img src="Assets/ViewShows_04.gif" width="83" height="897" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
 	<tr>
-		<td><input type="image" name="logout" id="logout" src="Assets/ViewShows_05.gif"></td>
+		<td><input type="image" name="logout" value="logout" src="Assets/ViewShows_05.gif"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
 	</tr>
