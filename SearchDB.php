@@ -31,7 +31,7 @@ if (isset($_POST['logout']))
 
 
 
-if (isset($_POST['Search'])) 
+/*if (isset($_POST['Search'])) 
 {
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
@@ -185,7 +185,7 @@ if (isset($_POST['Search']))
 		}	
 		mysql_close($db_handle);
 	}//end of if at least one search parameter was received
-}//end of if search button was clicked	
+}//end of if search button was clicked	*/
 ?>
 
 </head>
