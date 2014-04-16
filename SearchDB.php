@@ -350,7 +350,7 @@ if (isset($_POST['Search']))
 				echo "<body bgcolor='silver'>";
 				echo "<h2 style='color: #FFFFF;' align='center'>Search Results:</h2>";
 				echo "
-				<table border='1' bordercolor='#FFFFF' style='color: #FFFFF;border:none;background-color:#1f3e52;' align='center' cellpadding='20' >
+				<table border='1' bordercolor='#FFFFF' style='color: #FFFFF;border:none;background-color:#transparent;' align='center' cellpadding='20' >
 					<tr>
 					<th>first name</th>
 					<th>last name</th>
