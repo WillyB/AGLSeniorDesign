@@ -14,6 +14,7 @@ $password = $_COOKIE['password'];
 		exit;
 	}
 	
+        //delete the cookies and redirect to login.php when this button is clicked
 	if (isset($_POST['logout'])) 
 	{
 		unset($_COOKIE['role']);		
@@ -43,12 +44,14 @@ $password = $_COOKIE['password'];
 	          window.location = 'ViewShows.php';</script>";
 		exit;	
 	}
+        //redirect to editshow.php when this button is clicked
 	if (isset($_POST['createshow'])) 
 	{
 		echo "<script type='text/javascript'>
-	          window.location = 'CreateShow.php';</script>";
+	          window.location = 'EditShow.php';</script>";
 		exit;	
 	}
+        //redirect to searchdb.php when this button is clicked
 	if (isset($_POST['search'])) 
 	{
 		echo "<script type='text/javascript'>
