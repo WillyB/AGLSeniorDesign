@@ -429,9 +429,9 @@ if (isset($_POST['Search']))
 			if($num_rows > 0)
 			{
 				echo "<body bgcolor='silver'>";
-				echo "<h2 style='color: #fffff;' align='center'>Search Results:</h2>";
+				echo "<h2 style='color: #ffffff;' align='center'>Search Results:</h2>";
 				echo "
-				<table border='1' bordercolor='#fffff' style='color: #fffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
+				<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
 					<tr>
 					<th>first name</th>
 					<th>last name</th>
