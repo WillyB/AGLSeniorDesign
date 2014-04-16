@@ -392,7 +392,33 @@ if (isset($_POST['Search']))
 		<td rowspan="2">
 			<img src="Assets/SearchDB_41.gif" width="74" height="314" alt=""></td>
 		<td width="1267" height="233" colspan="19" background="Assets/SearchDB_42.gif">&nbsp;
-        
+        <?php
+				echo "<body bgcolor='silver'>";
+				echo "<h2>Search Results:</h2>";
+				echo "
+				<table border='1'>
+					<tr>
+					<th>first name</th>
+					<th>last name</th>
+					<th>email</th>
+					<th>phone</th>
+					<th>height</th>
+					<th>weight</th>
+					<th>age</th>
+					</tr>";
+					while($row = mysql_fetch_array($final))
+					{
+						echo "<tr><td>".$row['First_Name']."</td><td>".
+										$row['Last_Name']."</td><td>".
+										$row['Contact_Email']."</td><td>".
+										$row['Contact_Phone']."</td><td>".
+										$row['Height']."</td><td>".
+										$row['Weight']."</td><td>".
+										$row['Age']."</td></tr>";
+					}
+				echo "</table>";
+				echo "<br>"."<br>";
+		?>
         </td>
 		<td rowspan="2">
 			<img src="Assets/SearchDB_43.gif" width="59" height="314" alt=""></td>
