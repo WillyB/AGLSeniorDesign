@@ -22,7 +22,7 @@ if (isset($_POST['logout']))
 	setcookie('role', '', time() - 3600);		
 	setcookie('email', '', time() - 3600);
 	setcookie('password', '', time() - 3600);	
-	
+
 	echo "<script type='text/javascript'>
 		  alert('Goodbye!');".
 		 "window.location = 'LogIn.php';</script>";//redirect to login page
@@ -46,7 +46,7 @@ if (isset($_POST['Search']))
 	$eyecolor = $_POST['eyecolor'];
 	$ethnicity = $_POST['ethnicity'];
 	$gender = $_POST['gender'];
-	
+
 	if($firstname == "" && $lastname == "" && $heightf == "" && $heightt == "" && 
        $weightf == "" && $weightt == "" && $agef == "" && $aget == "" &&	
 	   $haircolor == "" && $hairstyle == "" && $eyecolor == "" && $ethnicity == "" &&
@@ -86,7 +86,7 @@ if (isset($_POST['Search']))
 			$eyecolor = mysql_real_escape_string($eyecolor, $db_handle); 
 			$ethnicity = mysql_real_escape_string($ethnicity, $db_handle); 
 			$gender = mysql_real_escape_string($gender, $db_handle); 	
-		
+
 			//construct the query usign user specified parameters
 			$query = 'SELECT * FROM Personnel WHERE ';
 			if($firstname!="")
@@ -129,16 +129,16 @@ if (isset($_POST['Search']))
 			{       
 					$query.= 'Age >=' .$agef. ' AND Age <=' .$aget. ' AND ';
 			}	
-			
+
 			$result = substr($query,0,-5);
 			$result.=';';
-			
+
 			echo $result;
-			
+
 			//query the DB with received attributes
 			$final = mysql_query($result);
 			$num_rows = mysql_num_rows($final);
-			
+
 			//print out results if query returned result
 			if($num_rows > 0)
 			{
@@ -167,7 +167,7 @@ if (isset($_POST['Search']))
 					}
 				echo "</table>";
 				echo "<br>"."<br>";
-					
+
 			}
 			else//if there is no specified user found in DB
 			{							
@@ -192,50 +192,46 @@ if (isset($_POST['Search']))
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (SearchDB_Layout.psd) -->
 <form name="form" method="post" action="SearchDB.php">
-<table width="1401" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
+<table width="1401" height="1048" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
-		<td colspan="19">
+		<td colspan="21">
 			<img src="Assets/SearchDB_01.gif" width="1400" height="70" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="70" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="17" rowspan="3">
+		<td colspan="18" rowspan="3">
 			<img src="Assets/SearchDB_02.gif" width="1211" height="238" alt=""></td>
 		<td>
-			<td><input type="image" name="home" value="home" src="Assets/SearchDB_03.gif"></td>
-		<td rowspan="13">
-			<img src="Assets/SearchDB_04.gif" width="83" height="897" alt=""></td>
+			<input type="image" name="home" value="home" src="Assets/SearchDB_03.gif"></td>
+		<td colspan="2" rowspan="13">
+			<img src="Assets/SearchDB_04.gif" width="83" height="628" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
-
 	<tr>
 		<td>
-		    <td><input type="image" name="logout" value="logout" src="Assets/SearchDB_05.gif"></td>
-
+			<img src="Assets/SearchDB_05.gif" width="106" height="32" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="11">
-			<img src="Assets/SearchDB_06.gif" width="106" height="830" alt=""></td>
+			<img src="Assets/SearchDB_06.gif" width="106" height="561" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="171" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="4" rowspan="2">
+		<td colspan="5" rowspan="2">
 			<img src="Assets/SearchDB_07.gif" width="580" height="56" alt=""></td>
 		<td width="207" height="43" colspan="7" background="Assets/SearchDB_08.gif">&nbsp;
-        <label for="firstname"></label>
-	   <input type="text" name="firstname" id="firstname" style="color: #FFFFFF;border:none;background-color:transparent;" size="26">
+        <input type="text" name="firstname" id="firstname" style="color: #FFFFFF;border:none;background-color:transparent;" size="26">
         </td>
 		<td width="248" height="43" colspan="5" background="Assets/SearchDB_09.gif">&nbsp;
-        <label for="lastname"></label>
-	      <input type="text" name="lastname" id="lastname" style="color: #FFFFFF;border:none;background-color:transparent;" size="30">
+        <input type="text" name="lastname" id="lastname" style="color: #FFFFFF;border:none;background-color:transparent;" size="30">
         </td>
 		<td rowspan="10">
-			<img src="Assets/SearchDB_10.gif" width="176" height="659" alt=""></td>
+			<img src="Assets/SearchDB_10.gif" width="176" height="390" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
 	</tr>
@@ -246,35 +242,29 @@ if (isset($_POST['Search']))
 			<img src="Assets/spacer.gif" width="1" height="13" alt=""></td>
 	</tr>
 	<tr>
-		<td rowspan="8">
-			<img src="Assets/SearchDB_12.gif" width="449" height="603" alt=""></td>
+		<td colspan="2" rowspan="8">
+			<img src="Assets/SearchDB_12.gif" width="449" height="334" alt=""></td>
 		<td width="71" height="43" colspan="2" background="Assets/SearchDB_13.gif">&nbsp;
-        <label for="heightf"></label>
-	    <input type="text" name="heightf" id="heightf" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="heightf" id="heightf" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td width="72" height="43" colspan="2" background="Assets/SearchDB_14.gif">&nbsp;
-        <label for="heightt"></label>
-	    <input type="text" name="heightt" id="heightt" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="heightt" id="heightt" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/SearchDB_15.gif" width="74" height="110" alt=""></td>
 		<td width="75" height="43" colspan="2" background="Assets/SearchDB_16.gif">&nbsp;
-        <label for="weightf"></label>
-	    <input type="text" name="weightf" id="weightf" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="weightf" id="weightf" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td width="72" height="43" colspan="3" background="Assets/SearchDB_17.gif">&nbsp;
-        <label for="weightt"></label>
-	    <input type="text" name="weightt" id="weightt" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="weightt" id="weightt" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/SearchDB_18.gif" width="76" height="110" alt=""></td>
 		<td width="70" height="43" background="Assets/SearchDB_19.gif">&nbsp;
-        <label for="agef"></label>
-	    <input type="text" name="agef" id="agef" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="agef" id="agef" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td width="76" height="43" background="Assets/SearchDB_20.gif">&nbsp;
-        <label for="aget"></label>
-	    <input type="text" name="aget" id="aget" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="aget" id="aget" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
@@ -339,7 +329,7 @@ if (isset($_POST['Search']))
 	</tr>
 	<tr>
 		<td rowspan="4">
-			<img src="Assets/SearchDB_30.gif" width="39" height="493" alt=""></td>
+			<img src="Assets/SearchDB_30.gif" width="39" height="224" alt=""></td>
 		<td width="232" height="42" colspan="6" background="Assets/SearchDB_31.gif">&nbsp;
         <label for="ethnicity"></label>
 		  <select name="ethnicity" id="ethnicity">
@@ -372,29 +362,54 @@ if (isset($_POST['Search']))
 		<td colspan="6">
 			<img src="Assets/SearchDB_34.gif" width="232" height="20" alt=""></td>
 		<td colspan="3" rowspan="3">
-			<img src="Assets/SearchDB_35.gif" width="214" height="451" alt=""></td>
+			<img src="Assets/SearchDB_35.gif" width="214" height="182" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="20" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="4" rowspan="2">
-			<img src="Assets/SearchDB_36.gif" width="164" height="431" alt=""></td>
+			<img src="Assets/SearchDB_36.gif" width="164" height="162" alt=""></td>
 		<td colspan="4">
-			<input type="image" name="Search" value="Search" src="Assets/SearchDB_37.gif" width="119" height="42" alt=""></td>		
+			<input type="image" name="Search" value="Search" src="Assets/SearchDB_37.gif" width="119" height="42" alt=""></td>
 		<td colspan="3" rowspan="2">
-			<img src="Assets/SearchDB_38.gif" width="50" height="431" alt=""></td>
+			<img src="Assets/SearchDB_38.gif" width="50" height="162" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="4">
-			<img src="Assets/SearchDB_39.gif" width="119" height="389" alt=""></td>
+			<img src="Assets/SearchDB_39.gif" width="119" height="120" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="389" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="120" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="21">
+			<img src="Assets/SearchDB_40.gif" width="1400" height="35" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="2">
+			<img src="Assets/SearchDB_41.gif" width="74" height="314" alt=""></td>
+		<td width="1267" height="233" colspan="19" background="Assets/SearchDB_42.gif">&nbsp;
+        
+        </td>
+		<td rowspan="2">
+			<img src="Assets/SearchDB_43.gif" width="59" height="314" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="233" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="19">
+			<img src="Assets/SearchDB_44.gif" width="1267" height="81" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="81" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="Assets/spacer.gif" width="449" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="74" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="375" height="1" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="39" height="1" alt=""></td>
 		<td>
@@ -430,11 +445,13 @@ if (isset($_POST['Search']))
 		<td>
 			<img src="Assets/spacer.gif" width="106" height="1" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="83" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="24" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="59" height="1" alt=""></td>
 		<td></td>
 	</tr>
 </table>
-<!-- End Save for Web Slices -->
 </form>
+<!-- End Save for Web Slices -->
 </body>
 </html>
