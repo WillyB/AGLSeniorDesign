@@ -88,10 +88,91 @@ if (isset($_POST['logout']))
 		<td colspan="2" rowspan="8">
 			<img src="Assets/SearchDB_12.gif" width="449" height="334" alt=""></td>
 		<td width="71" height="43" colspan="2" background="Assets/SearchDB_13.gif">&nbsp;
-        <input type="text" name="heightf" id="heightf" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <label for="heightf"></label>
+        <select name="heightf" id="heightf">
+          <option value="" selected> </option>
+          <option value="4.00">4'0&quot;</option>
+          <option value="4.01">4'1&quot;</option>
+          <option value="4.02">4'2&quot;</option>
+          <option value="4.03">4'3&quot;</option>
+          <option value="4.04">4'4&quot;</option>
+          <option value="4.05">4'5&quot;</option>
+          <option value="4.06">4'6&quot;</option>
+          <option value="4.07">4'7&quot;</option>
+          <option value="4.08">4'8&quot;</option>
+          <option value="4.09">4'9&quot;</option>
+          <option value="4.10">4'10&quot;</option>
+          <option value="4.11">4'11&quot;</option>
+          <option value="5.00">5'0&quot;</option>
+          <option value="5.01">5'1&quot;</option>
+          <option value="5.02">5'2&quot;</option>
+          <option value="5.03">5'3&quot;</option>
+          <option value="5.04">5'4&quot;</option>
+          <option value="5.05">5'5&quot;</option>
+          <option value="5.06">5'6&quot;</option>
+          <option value="5.07">5'7&quot;</option>
+          <option value="5.08">5'8&quot;</option>
+          <option value="5.09">5'9&quot;</option>
+          <option value="5.10">5'10&quot;</option>
+          <option value="5.11">5'11&quot;</option>
+          <option value="6.00">6'0&quot;</option>
+          <option value="6.01">6'1&quot;</option>
+          <option value="6.02">6'2&quot;</option>
+          <option value="6.03">6'3&quot;</option>
+
+          <option value="6.04">6'4&quot;</option>
+          <option value="6.05">6'5&quot;</option>
+          <option value="6.06">6'6&quot;</option>
+          <option value="6.07">6'7&quot;</option>
+          <option value="6.08">6'8&quot;</option>
+          <option value="6.09">6'9&quot;</option>
+          <option value="6.10">6'10&quot;</option>
+          <option value="6.11">6'11&quot;</option>
+          <option value="7.00">7'0&quot;</option>
+        </select>
         </td>
 		<td width="72" height="43" colspan="2" background="Assets/SearchDB_14.gif">&nbsp;
-        <input type="text" name="heightt" id="heightt" size="4" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <label for="heightt"></label>
+        <select name="heightt" id="heightt">
+          <option value="" selected> </option>
+          <option value="4.00">4'0&quot;</option>
+          <option value="4.01">4'1&quot;</option>
+          <option value="4.02">4'2&quot;</option>
+          <option value="4.03">4'3&quot;</option>
+          <option value="4.04">4'4&quot;</option>
+          <option value="4.05">4'5&quot;</option>
+          <option value="4.06">4'6&quot;</option>
+          <option value="4.07">4'7&quot;</option>
+          <option value="4.08">4'8&quot;</option>
+          <option value="4.09">4'9&quot;</option>
+          <option value="4.10">4'10&quot;</option>
+          <option value="4.11">4'11&quot;</option>
+          <option value="5.00">5'0&quot;</option>
+          <option value="5.01">5'1&quot;</option>
+          <option value="5.02">5'2&quot;</option>
+          <option value="5.03">5'3&quot;</option>
+          <option value="5.04">5'4&quot;</option>
+          <option value="5.05">5'5&quot;</option>
+          <option value="5.06">5'6&quot;</option>
+          <option value="5.07">5'7&quot;</option>
+          <option value="5.08">5'8&quot;</option>
+          <option value="5.09">5'9&quot;</option>
+          <option value="5.10">5'10&quot;</option>
+          <option value="5.11">5'11&quot;</option>
+          <option value="6.00">6'0&quot;</option>
+          <option value="6.01">6'1&quot;</option>
+          <option value="6.02">6'2&quot;</option>
+          <option value="6.03">6'3&quot;</option>
+          <option value="6.04">6'4&quot;</option>
+          <option value="6.05">6'5&quot;</option>
+          <option value="6.06">6'6&quot;</option>
+          <option value="6.07">6'7&quot;</option>
+          <option value="6.08">6'8&quot;</option>
+          <option value="6.09">6'9&quot;</option>
+          <option value="6.10">6'10&quot;</option>
+          <option value="6.11">6'11&quot;</option>
+          <option value="7.00">7'0&quot;</option>
+        </select>
         </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/SearchDB_15.gif" width="74" height="110" alt=""></td>
