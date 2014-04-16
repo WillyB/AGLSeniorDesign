@@ -338,7 +338,7 @@ if (isset($_POST['Search']))
 			$result = substr($query,0,-5);
 			$result.=';';
 
-			echo $result;
+			//echo $result;
 
 			//query the DB with received attributes
 			$final = mysql_query($result);
