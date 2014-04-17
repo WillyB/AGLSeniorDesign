@@ -16,6 +16,7 @@ function getExtension($str) {
 // checks if the form has been submitted
  if(isset($_POST['Submit'])) 
  {
+	echo "<h1> v4 test </h1>";
     //reads the name of the file the user submitted for uploading
     $image=$_FILES['image']['name'];
     //if it is not empty
@@ -69,11 +70,11 @@ function getExtension($str) {
     }
 }
  
-//If no errors registred, print the success message
-if(isset($_POST['Submit'])
+//If no errors registered, print the success message
+if(isset($_POST['Submit']))
 {
 	echo "<h1> submit set </h1>";
-	if (!$errors)) 
+	if (!$errors) 
 	{
 		echo "<h1>File Uploaded Successfully! Try again!</h1>";
 	}
