@@ -159,7 +159,6 @@ if(isset($_POST['Cast']))
 				if($num_rows > 0)
 				{	
 					echo "<body bgcolor='silver'>";
-					echo "<h2>All Shows:</h2>";
 					echo "<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
 					<tr>
 							<th>ID</th>
