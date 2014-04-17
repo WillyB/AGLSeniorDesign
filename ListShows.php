@@ -160,7 +160,8 @@ if(isset($_POST['Cast']))
 				{	
 					echo "<body bgcolor='silver'>";
 					echo "<h2>All Shows:</h2>";
-					echo "<table border='1'><tr>
+					echo "<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
+					<tr>
 							<th>ID</th>
 							<th>Title</th>
 							<th>Rehearsal start</th>
