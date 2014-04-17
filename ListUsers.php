@@ -266,80 +266,81 @@ if(isset($_POST['Demote']))
 			<img src="Assets/ListUsers_07.gif" width="384" height="712" alt=""></td>
 		<td width="654" height="564" background="Assets/ListUsers_08.gif">
         <?php
-        if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
-{
-	//data to login into mysql server on multilab machine
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
-
-	$db_handle = mysql_connect($server, $user_name, $pass_word);
-	$db_found = mysql_select_db($database, $db_handle);
-
-	if ($db_found) 
-	{
-		$SQL = 'SELECT First_Name, Last_Name, Contact_Email, Role FROM Personnel';
-		$result = mysql_query($SQL);
-		$num_rows = mysql_num_rows($result);
-		
-		//print out results if query returned result
-		if($num_rows > 0)
-		{
-				echo "<body bgcolor='silver'>";
-				echo "
-				<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
-					<tr>
-					<th>first name</th>
-					<th>last name</th>
-					<th>email</th>
-					<th>role</th>
-					<th>Delete</th>
-					<th>Edit</th>
-					<th>Promote</th>
-					<th>Demote</th>
-					</tr>";
-					while($row = mysql_fetch_array($result))
+        	if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
+			{
+				//data to login into mysql server on multilab machine
+				$user_name = 'actorsgu_data';
+				$pass_word = 'cliffy36&winepress';
+				$database = 'actorsgu_data';
+				//$server = 'box293.bluehost.com:3306';
+				$server = 'localhost:3306';
+			
+				$db_handle = mysql_connect($server, $user_name, $pass_word);
+				$db_found = mysql_select_db($database, $db_handle);
+			
+				if ($db_found) 
+				{
+					$SQL = 'SELECT First_Name, Last_Name, Contact_Email, Role FROM Personnel';
+					$result = mysql_query($SQL);
+					$num_rows = mysql_num_rows($result);
+					
+					//print out results if query returned result
+					if($num_rows > 0)
 					{
-						$value = $row['Contact_Email'];
-						echo "<tr><td>".$row['First_Name']."</td><td>".
-										$row['Last_Name']."</td><td>".
-										$row['Contact_Email']."</td><td>".
-										$row['Role']."</td>";
-						echo "<form action='ListUsers.php' method='post'>
-							 <td><input type='SUBMIT' name='Delete' value='Delete'/>
-							     <input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
-								 
-								 <td><input type='SUBMIT' name='Edit' value='Edit'/>
-								 <input type='HIDDEN' name='UserEmail1' value='" .$value. "'/></td>
-								 
-								 <td><input type='SUBMIT' name='Promote' value='Promote to Director'/>
-								 <input type='HIDDEN' name='UserEmail2' value='" .$value. "'/></td>
-								 
-								 <td><input type='SUBMIT' name='Demote' value='Demote to User'/>
-								 <input type='HIDDEN' name='UserEmail3' value='" .$value. "'/></td></td></form>";	 						
+							echo "<body bgcolor='silver'>";
+							echo "<h2 style='color: #ffffff;'>All Users:</h2>";
+							echo "
+							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
+								<tr>
+								<th>first name</th>
+								<th>last name</th>
+								<th>email</th>
+								<th>role</th>
+								<th>Delete</th>
+								<th>Edit</th>
+								<th>Promote</th>
+								<th>Demote</th>
+								</tr>";
+								while($row = mysql_fetch_array($result))
+								{
+									$value = $row['Contact_Email'];
+									echo "<tr><td>".$row['First_Name']."</td><td>".
+													$row['Last_Name']."</td><td>".
+													$row['Contact_Email']."</td><td>".
+													$row['Role']."</td>";
+									echo "<form action='ListUsers.php' method='post'>
+										 <td><input type='SUBMIT' name='Delete' value='Delete'/>
+											 <input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
+											 
+											 <td><input type='SUBMIT' name='Edit' value='Edit'/>
+											 <input type='HIDDEN' name='UserEmail1' value='" .$value. "'/></td>
+											 
+											 <td><input type='SUBMIT' name='Promote' value='Promote to Director'/>
+											 <input type='HIDDEN' name='UserEmail2' value='" .$value. "'/></td>
+											 
+											 <td><input type='SUBMIT' name='Demote' value='Demote to User'/>
+											 <input type='HIDDEN' name='UserEmail3' value='" .$value. "'/></td></td></form>";	 						
+								}
+								echo "</table>";
+								echo "<br>"."<br>";
 					}
-					echo "</table>";
-					echo "<br>"."<br>";
-		}
-		else//if there is no specified user found in DB
-		{							
-			echo "<script type='text/javascript'>
-				 alert('NO USERS FOUND');".
-				 "window.location = 'AdminTools.php';</script>";//redirect back to SearchDB.php page 
-			exit;			
-		}
-	}
-	else//if DB was not found
-	{
-		echo '<script type="text/javascript"> 
-			  alert("Database is not found");
-			  </script>';				  
-	}	
-	mysql_close($db_handle);
-}
-?>
+					else//if there is no specified user found in DB
+					{							
+						echo "<script type='text/javascript'>
+							 alert('NO USERS FOUND');".
+							 "window.location = 'AdminTools.php';</script>";//redirect back to SearchDB.php page 
+						exit;			
+					}
+				}
+				else//if DB was not found
+				{
+					echo '<script type="text/javascript"> 
+						  alert("Database is not found");
+						  </script>';				  
+				}	
+				mysql_close($db_handle);
+			}
+		?>
         </td>
 		<td rowspan="2">
 			<img src="Assets/ListUsers_09.gif" width="173" height="712" alt=""></td>
