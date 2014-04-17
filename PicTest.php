@@ -1,9 +1,9 @@
 <?php
-//define a maxim size for the uploaded images in Kb
- define ("MAX_SIZE","100"); 
+// max file size (Kb)
+define ("MAX_SIZE","100"); 
  
-//This function reads the extension of the file. It is used to determine if the file  is an image by checking the extension.
- function getExtension($str) {
+// reads file extension
+function getExtension($str) {
          $i = strrpos($str,".");
          if (!$i) { return ""; }
          $l = strlen($str) - $i;
@@ -11,12 +11,9 @@
          return $ext;
  }
  
-//This variable is used as a flag. The value is initialized with 0 (meaning no error  found)  
-//and it will be changed to 1 if an error occurs.  
-//and it will be changed to 1 if an error occurs.  
-//If the error occurs the file will not be uploaded.
+// error flag
  $errors=0;
-//checks if the form has been submitted
+// checks if the form has been submitted
  if(isset($_POST['Submit'])) 
  {
     //reads the name of the file the user submitted for uploading
@@ -73,11 +70,14 @@
 }
  
 //If no errors registred, print the success message
- if(isset($_POST['Submit']) && !$errors) 
- {
-    echo "<h1>File Uploaded Successfully! Try again!</h1>";
- }
- 
+if(isset($_POST['Submit'])
+{
+	echo "<h1> submit set </h1>";
+	if (!$errors)) 
+	{
+		echo "<h1>File Uploaded Successfully! Try again!</h1>";
+	}
+}	 
   
   
 function resizeImage($imgSrc,$thumbnail_width,$thumbnail_height) { //$imgSrc is a FILE - Returns an image resource.
