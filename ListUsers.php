@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: View Users</title>
+<title>AGL: List Users</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <?php
@@ -225,7 +225,48 @@ if(isset($_POST['Demote']))
 	mysql_close($db_handle);	
 } 
 
-if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
+
+
+?>
+
+</head>
+<body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- Save for Web Slices (ListUsers.psd) -->
+<table width="1401" height="967" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
+	<tr>
+		<td colspan="5">
+			<img src="Assets/ListUsers_01.gif" width="1400" height="70" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="70" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="3">
+			<img src="Assets/ListUsers_02.gif" width="1211" height="185" alt=""></td>
+		<td>
+			<input type="image" name="home" value="home" src="Assets/ListUsers_03.gif"></td>
+		<td rowspan="5">
+			<img src="Assets/ListUsers_04.gif" width="83" height="897" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif"></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="3">
+			<img src="Assets/ListUsers_06.gif" width="106" height="830" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="118" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="2">
+			<img src="Assets/ListUsers_07.gif" width="384" height="712" alt=""></td>
+		<td width="654" height="564" background="Assets/ListUsers_08.gif">
+        <?php
+        if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
 {
 	//data to login into mysql server on multilab machine
 	$user_name = 'actorsgu_data';
@@ -299,46 +340,7 @@ if($role == 0 || $role == 1)//check, just in case, if user is a director or admi
 	}	
 	mysql_close($db_handle);
 }
-
 ?>
-
-</head>
-<body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<!-- Save for Web Slices (ListUsers.psd) -->
-<form name="form" method="post" action="ListUsers.php">
-<table width="1401" height="967" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
-	<tr>
-		<td colspan="5">
-			<img src="Assets/ListUsers_01.gif" width="1400" height="70" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="70" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="3" rowspan="3">
-			<img src="Assets/ListUsers_02.gif" width="1211" height="185" alt=""></td>
-		<td><input type="image" name="home" value="home" src="Assets/ListUsers_03.gif"></td>
-		<td rowspan="5">
-			<img src="Assets/ListUsers_04.gif" width="83" height="897" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
-	</tr>
-	<tr>
-		<td><input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif"></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="3">
-			<img src="Assets/ListUsers_06.gif" width="106" height="830" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="118" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="Assets/ListUsers_07.gif" width="384" height="712" alt=""></td>
-		<td width="654" height="564" background="Assets/ListUsers_08.gif">&nbsp;
-        <label for="users"></label>
-	    <textarea name="users" id="users" cols="76" rows="33" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea>
         </td>
 		<td rowspan="2">
 			<img src="Assets/ListUsers_09.gif" width="173" height="712" alt=""></td>
@@ -352,7 +354,6 @@ if($role == 0 || $role == 1)//check, just in case, if user is a director or admi
 			<img src="Assets/spacer.gif" width="1" height="148" alt=""></td>
 	</tr>
 </table>
-</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>
