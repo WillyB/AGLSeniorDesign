@@ -288,7 +288,6 @@ if(isset($_POST['Demote']))
 		if($num_rows > 0)
 		{
 				echo "<body bgcolor='silver'>";
-				echo "<h2 style='color: #ffffff;'>All Users:</h2>";
 				echo "
 				<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
 					<tr>
