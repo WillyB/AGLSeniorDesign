@@ -56,9 +56,9 @@
             $temp=resizeImage($_FILES['image']['tmp_name'],200,200);
             $imgfile="images/".$image;
  
-			$username = $_POST('username');
+			$email = $_POST('Contact_Email');
             imagejpeg ( $temp, $imgfile );
-			$result = "UPDATE User SET picture = '$imgfile' WHERE username = '$username'";
+			$result = "UPDATE User SET Picture = '$imgfile' WHERE Contact_Email = '$Contact_Email'";
             }
  
  
