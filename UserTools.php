@@ -29,11 +29,11 @@ $password = $_COOKIE['password'];
 			 "window.location = 'LogIn.php';</script>";//redirect to login page
 		exit;	
 	}
-	//redirect to viewshows.php when this button is clicked
-	if (isset($_POST['viewshows'])) 
+	//redirect to ListShows.php when this button is clicked
+	if (isset($_POST['ListShows'])) 
 	{
 		echo "<script type='text/javascript'>
-	          window.location = 'ViewShows.php';</script>";
+	          window.location = 'ListShows.php';</script>";
 		exit;	
 	}
 	//redirect to usertools.php when this button is clicked
@@ -82,7 +82,7 @@ $password = $_COOKIE['password'];
 		<td><input type="image" name="viewprofile" value="viewprofile" src="Assets/UserTools_08.gif"></td>
 		<td rowspan="2">
 			<img src="Assets/UserTools_09.gif" width="173" height="659" alt=""></td>
-		<td><input type="image" name="viewshows" value="viewshows" src="Assets/UserTools_10.gif"></td>
+		<td><input type="image" name="ListShows" value="ListShows" src="Assets/UserTools_10.gif"></td>
 		<td rowspan="2">
 			<img src="Assets/UserTools_11.gif" width="162" height="659" alt=""></td>
 		<td>

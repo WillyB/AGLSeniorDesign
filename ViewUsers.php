@@ -8,7 +8,7 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
-//redirect to ViewUsers.php when "HOME" button is clicked
+//redirect to ListUsers.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
 {
 	echo "<script type='text/javascript'>
@@ -41,7 +41,7 @@ if(isset($_POST['Delete']))
 	{
 		echo "<script type='text/javascript'>
 			  alert('You cannot delete your own profile');".
-			 "window.location = 'ViewUsers.php';</script>";		
+			 "window.location = 'ListUsers.php';</script>";		
 		exit;			
 	}
 	//data to login into mysql server on multilab machine
@@ -68,7 +68,7 @@ if(isset($_POST['Delete']))
 			{
 				echo "<script type='text/javascript'>
 					  alert('User is ADMIN. Cannot delete user who is Admin');".
-					 "window.location = 'ViewUsers.php';</script>";		
+					 "window.location = 'ListUsers.php';</script>";		
 				exit;
 			}
 			else
@@ -76,7 +76,7 @@ if(isset($_POST['Delete']))
 				$SQL2 = "DELETE FROM Personnel where Contact_Email='$who'";
 				$result2 = mysql_query($SQL2);
 				echo "<script type='text/javascript'>
-					  window.location = 'ViewUsers.php';</script>";		
+					  window.location = 'ListUsers.php';</script>";		
 				exit;			
 			}
 		}
@@ -130,7 +130,7 @@ if(isset($_POST['Promote']))
 			{
 			echo "<script type='text/javascript'>
 				  alert('User is ADMIN. Cannot promote Admin to Director');".
-				 "window.location = 'ViewUsers.php';</script>";		
+				 "window.location = 'ListUsers.php';</script>";		
 			exit;
 			}
 			
@@ -138,7 +138,7 @@ if(isset($_POST['Promote']))
 			{
 			echo "<script type='text/javascript'>
 				  alert('User is already a DIRECTOR');".
-				 "window.location = 'ViewUsers.php';</script>";				
+				 "window.location = 'ListUsers.php';</script>";				
 			exit;
 			}
 			else
@@ -146,7 +146,7 @@ if(isset($_POST['Promote']))
 				$SQL2 = "UPDATE Personnel SET Role='1' WHERE Contact_Email='$who'";
 				$result2 = mysql_query($SQL2);
 				echo "<script type='text/javascript'>
-					  window.location = 'ViewUsers.php';</script>";		
+					  window.location = 'ListUsers.php';</script>";		
 				exit;			
 			}
 		}
@@ -167,7 +167,7 @@ if(isset($_POST['Demote']))
 	{
 		echo "<script type='text/javascript'>
 			  alert('You cannot demote yourself');".
-			 "window.location = 'ViewUsers.php';</script>";		
+			 "window.location = 'ListUsers.php';</script>";		
 		exit;			
 	}
 	//data to login into mysql server on multilab machine
@@ -195,7 +195,7 @@ if(isset($_POST['Demote']))
 			{
 			echo "<script type='text/javascript'>
 				  alert('User is ADMIN. Cannot demote Admin');".
-				 "window.location = 'ViewUsers.php';</script>";		
+				 "window.location = 'ListUsers.php';</script>";		
 			exit;
 			}
 			
@@ -203,7 +203,7 @@ if(isset($_POST['Demote']))
 			{
 			echo "<script type='text/javascript'>
 				  alert('User is already a regular user');".
-				 "window.location = 'ViewUsers.php';</script>";				
+				 "window.location = 'ListUsers.php';</script>";				
 			exit;
 			}
 			else
@@ -211,7 +211,7 @@ if(isset($_POST['Demote']))
 				$SQL2 = "UPDATE Personnel SET Role='2' WHERE Contact_Email='$who'";
 				$result2 = mysql_query($SQL2);
 				echo "<script type='text/javascript'>
-					  window.location = 'ViewUsers.php';</script>";		
+					  window.location = 'ListUsers.php';</script>";		
 				exit;			
 			}
 		}
@@ -267,7 +267,7 @@ if($role == 0 || $role == 1)//check, just in case, if user is a director or admi
 										$row['Last_Name']."</td><td>".
 										$row['Contact_Email']."</td><td>".
 										$row['Role']."</td>";
-						echo "<form action='ViewUsers.php' method='post'>
+						echo "<form action='ListUsers.php' method='post'>
 							 <td><input type='SUBMIT' name='Delete' value='Delete'/>
 							     <input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
 								 
@@ -304,50 +304,50 @@ if($role == 0 || $role == 1)//check, just in case, if user is a director or admi
 
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<!-- Save for Web Slices (ViewUsers.psd) -->
-<form name="form" method="post" action="ViewUsers.php">
+<!-- Save for Web Slices (ListUsers.psd) -->
+<form name="form" method="post" action="ListUsers.php">
 <table width="1401" height="967" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="5">
-			<img src="Assets/ViewUsers_01.gif" width="1400" height="70" alt=""></td>
+			<img src="Assets/ListUsers_01.gif" width="1400" height="70" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="70" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="3" rowspan="3">
-			<img src="Assets/ViewUsers_02.gif" width="1211" height="185" alt=""></td>
-		<td><input type="image" name="home" value="home" src="Assets/ViewUsers_03.gif"></td>
+			<img src="Assets/ListUsers_02.gif" width="1211" height="185" alt=""></td>
+		<td><input type="image" name="home" value="home" src="Assets/ListUsers_03.gif"></td>
 		<td rowspan="5">
-			<img src="Assets/ViewUsers_04.gif" width="83" height="897" alt=""></td>
+			<img src="Assets/ListUsers_04.gif" width="83" height="897" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
 	<tr>
-		<td><input type="image" name="logout" value="logout" src="Assets/ViewUsers_05.gif"></td>
+		<td><input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="3">
-			<img src="Assets/ViewUsers_06.gif" width="106" height="830" alt=""></td>
+			<img src="Assets/ListUsers_06.gif" width="106" height="830" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="118" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="2">
-			<img src="Assets/ViewUsers_07.gif" width="384" height="712" alt=""></td>
-		<td width="654" height="564" background="Assets/ViewUsers_08.gif">&nbsp;
+			<img src="Assets/ListUsers_07.gif" width="384" height="712" alt=""></td>
+		<td width="654" height="564" background="Assets/ListUsers_08.gif">&nbsp;
         <label for="users"></label>
 	    <textarea name="users" id="users" cols="76" rows="33" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea>
         </td>
 		<td rowspan="2">
-			<img src="Assets/ViewUsers_09.gif" width="173" height="712" alt=""></td>
+			<img src="Assets/ListUsers_09.gif" width="173" height="712" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="564" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="Assets/ViewUsers_10.gif" width="654" height="148" alt=""></td>
+			<img src="Assets/ListUsers_10.gif" width="654" height="148" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="148" alt=""></td>
 	</tr>

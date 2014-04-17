@@ -30,18 +30,18 @@ $password = $_COOKIE['password'];
 			 "window.location = 'LogIn.php';</script>";
 		exit;	
 	}
-	//redirect to viewusers.php when this button is clicked
-	if (isset($_POST['viewusers'])) 
+	//redirect to ListUsers.php when this button is clicked
+	if (isset($_POST['ListUsers'])) 
 	{
 		echo "<script type='text/javascript'>
-	          window.location = 'ViewUsers.php';</script>";
+	          window.location = 'ListUsers.php';</script>";
 		exit;
 	}
-	//redirect to viewshows.php when this button is clicked
-	if (isset($_POST['viewshows'])) 
+	//redirect to ListShows.php when this button is clicked
+	if (isset($_POST['ListShows'])) 
 	{
 		echo "<script type='text/javascript'>
-	          window.location = 'ViewShows.php';</script>";
+	          window.location = 'ListShows.php';</script>";
 		exit;	
 	}
         //redirect to editshow.php when this button is clicked
@@ -93,10 +93,10 @@ $password = $_COOKIE['password'];
 	<tr>
 		<td rowspan="4">
 			<img src="Assets/AdminTools_07.gif" width="381" height="659" alt=""></td>
-		<td><input type="image" name="viewusers" value="viewusers" src="Assets/AdminTools_08.gif"></td>
+		<td><input type="image" name="ListUsers" value="ListUsers" src="Assets/AdminTools_08.gif"></td>
 		<td rowspan="4">
 			<img src="Assets/AdminTools_09.gif" width="173" height="659" alt=""></td>
-		<td><input type="image" name="viewshows" value="viewshows" src="Assets/AdminTools_10.gif"></td>
+		<td><input type="image" name="ListShows" value="ListShows" src="Assets/AdminTools_10.gif"></td>
 		<td rowspan="4">
 			<img src="Assets/AdminTools_11.gif" width="162" height="659" alt=""></td>
 		<td>
