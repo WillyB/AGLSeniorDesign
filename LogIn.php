@@ -10,12 +10,12 @@ $password = "";
 $email2 = "";
 
 //RETURNING USER LOGIN PROCEDURE
-	if (isset($_POST['login'])) 
+	if (isset($_POST['LogIn'])) 
 	{
 		$email = $_POST['email'];
-		$password = $_POST['password'];
+		$Password = $_POST['password'];
 		
-		if($email=="" && $password == "")//display error message in case username and password fields are left blank
+		if($email=="" && $Password == "")//display error message in case username and password fields are left blank
 		{
 			echo "<script type='text/javascript'>
 				 alert('Please, make sure you enter your email and password');".
@@ -31,7 +31,7 @@ $email2 = "";
 			exit;//exit, so that the following code is not executed
 		}
 		
-		if($password == "")//display error message in case user left password field blank
+		if($Password == "")//display error message in case user left password field blank
 		{
 			echo "<script type='text/javascript'>
 				 alert('Please, make sure you enter your password');".
@@ -52,10 +52,10 @@ $email2 = "";
 		{
 			//this function is used to escape any dangerous strings (SQL injections)
 			$email = mysql_real_escape_string($email, $db_handle);
-			$password = mysql_real_escape_string($password, $db_handle);
+			$password = mysql_real_escape_string($Password, $db_handle);
 			
 			//query database with entered data
-			$SQL = "SELECT * FROM Personnel WHERE Contact_Email='$email'";
+			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
 			//uncomment following statement later
 			//$hashedPassword = mysql_query($SQL);
 			$result = mysql_query($SQL);//delete this statement later 
@@ -65,7 +65,7 @@ $email2 = "";
 			$num_rows1 = mysql_num_rows($result);
 			if($num_rows1 > 0)
 			{
-				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND password='$password'";			
+				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND password='$Password'";			
 				$result = mysql_query($SQL);
 				$num_rows = mysql_num_rows($result);
 				$db_field = mysql_fetch_array($result);
@@ -76,9 +76,9 @@ $email2 = "";
 						case 0://admin login
 						
 							   //save role, email, and password in a cookie
-							    setcookie('role', $role);
-								setcookie('email',$email);
-								setcookie('password',$password);//delete later
+							    setCookie('role', $role);
+								setCookie('email',$email);
+								setCookie('password',$Password);//delete later
 						        //setCookie('password',$hashedPassword);//uncomment later
 								
 								echo "<script type='text/javascript'>
@@ -88,9 +88,9 @@ $email2 = "";
 								
 						case 1://director login
 							   //save email and password in a cookie
-							    setcookie('role', $role);
-								setcookie('email',$email);
-								setcookie('password',$password);//delete later
+							    setCookie('role', $role);
+								setCookie('email',$email);
+								setCookie('password',$Password);//delete later
 						        //setCookie('password',$hashedPassword); uncomment later
 								
 								echo "<script type='text/javascript'>
@@ -101,9 +101,9 @@ $email2 = "";
 						case 2://regular user login
 						
 							   //save email and password in a cookie
-							    setcookie('role', $role);
-								setcookie('email',$email);
-								setcookie('password',$password);//delete later
+							    setCookie('role', $role);
+								setCookie('email',$email);
+								setCookie('password',$Password);//delete later
 						        //setCookie('password',$hashedPassword); uncomment later
 								
 								echo "<script type='text/javascript'>
