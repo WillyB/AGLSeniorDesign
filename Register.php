@@ -73,7 +73,7 @@ if (isset($_POST['register']))
 		{
 			echo "<script type='text/javascript'>
 				 alert('Thank you for registering. You may log in now using your entered information.');".
-				 "window.location = 'Register.php';</script>";//redirect back to Register page    
+				 "window.location = 'LogIn.php';</script>";//redirect back to Register page    
 			exit;//exit, so that the following code is not executed
 		}
 		else
@@ -81,7 +81,7 @@ if (isset($_POST['register']))
 			//after successful registration, display "thank you" message
 			echo "<script type='text/javascript'>
 				 alert('An error has occured. $email already exists.');".
-				 "window.location = 'LogIn.php';</script>";//redirect back to LogIn.php   
+				 "window.location = 'Register.php';</script>";//redirect back to LogIn.php   
 			exit;//exit, so that the following code is not executed
 		}			
 		
