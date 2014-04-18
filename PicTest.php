@@ -13,75 +13,87 @@ function getExtension($str) {
  
 // error flag
 $errors=0;
-echo "<h1> v6 test </h1>";
-// check if the form has been submitted
-if(isset($_POST['Submit'])) 
+echo "<h1> v7 test </h1>";
+
+$user_name = 'actorsgu_data';
+$pass_word = 'cliffy36&winepress';
+$database = 'actorsgu_data';
+$server ='localhost:3306';
+
+$con = mysql_connect($server, $user_name, $pass_word, $database);
+$db_handle = mysql_connect($server, $user_name, $pass_word);
+$db_found = mysql_select_db($database, $db_handle);
+
+if ($db_found) 
 {
-	//reads the name of the file the user submitted for uploading
-    $image = $_FILES['image']['name'];
-	
-    //if it is not empty
-    if ($image) 
-    {
-		// get the original name of the file from the clients machine
-		$filename = stripslashes($_FILES['image']['name']);
+	// check if the form has been submitted
+	if(isset($_POST['Submit'])) 
+	{
+		//reads the name of the file the user submitted for uploading
+		$image = $_FILES['image']['name'];
 		
-		// get file extension (lower case)
-		$extension = getExtension($filename);
-		$extension = strtolower($extension);
-		
-		// ensure known file extension
-		if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) 
-			{
-				//print error message
-				echo '<h1>Unknown extension!</h1>';
-				$errors = 1;
-			}
-		else
+		//if it is not empty
+		if ($image) 
 		{
-			echo "<h1>1 of 2</h1>";
-			//get the size of the image in bytes
-			//$_FILES['image']['tmp_name'] is the temporary filename of the file
-			//in which the uploaded file was stored on the server
-			$size = filesize($_FILES['image']['tmp_name']);
- 
-			//compare the size with the maxim size we defined and print error if bigger
-			if ($size > MAX_SIZE*1024)
-			{
-				echo '<h1>You have exceeded the size limit!</h1>';
-				$errors = 1;
-			}
+			// get the original name of the file from the clients machine
+			$filename = stripslashes($_FILES['image']['name']);
+			
+			// get file extension (lower case)
+			$extension = getExtension($filename);
+			$extension = strtolower($extension);
+			
+			// ensure known file extension
+			if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) 
+				{
+					//print error message
+					echo '<h1>Unknown extension!</h1>';
+					$errors = 1;
+				}
 			else
 			{
-				//the new name will be containing the full path where will be stored (images folder)
-				$temp = resizeImage($_FILES['image']['tmp_name'],200,200);
-				$imgfile = "images/".$image;
+				//get the size of the image in bytes
+				//$_FILES['image']['tmp_name'] is the temporary filename of the file
+				//in which the uploaded file was stored on the server
+				$size = filesize($_FILES['image']['tmp_name']);
 	 
-				$email = $_POST('Contact_Email');
-				imagejpeg ( $temp, $imgfile );
-				echo "<h1>got here</h2>";
-				$result = "UPDATE Personnel SET Picture = '$imgfile' WHERE Contact_Email = '$Contact_Email'";
+				//compare the size with the maxim size we defined and print error if bigger
+				if ($size > MAX_SIZE*1024)
+				{
+					echo '<h1>You have exceeded the size limit!</h1>';
+					$errors = 1;
+				}
+				else
+				{
+					echo "<h1>1 of 2</h2>";
+					//the new name will be containing the full path where will be stored (images folder)
+					$temp = resizeImage($_FILES['image']['tmp_name'],200,200);
+					$imgfile = "images/".$image;
+		 
+					//$email = $_POST('Contact_Email');
+					imagejpeg ( $temp, $imgfile );
+					echo "<h1>2 of 2</h2>";
+					//$result = "UPDATE Personnel SET Picture = '$imgfile' WHERE Contact_Email = '$Contact_Email'";
+				}
 			}
 		}
+		else
+		{
+			echo "<h1>Select Image File</h1>";
+			$errors=1;
+		}
 	}
-    else
-    {
-        echo "<h1>Select Image File</h1>";
-        $errors=1;
-    }
-}
- 
-//If no errors registered, print the success message
-if(isset($_POST['Submit']))
-{
-	echo "<h1> submit set </h1>";
-	if (!$errors) 
+	 
+	//If no errors registered, print the success message
+	if(isset($_POST['Submit']))
 	{
-		echo "<h1>File Uploaded Successfully! Try again!</h1>";
-	}
-}	 
-  
-  
+		echo "<h1> submit set </h1>";
+		if (!$errors) 
+		{
+			echo "<h1>File Uploaded Successfully! Try again!</h1>";
+		}
+	}	 
+}
+
 function resizeImage($imgSrc,$thumbnail_width,$thumbnail_height) { //$imgSrc is a FILE - Returns an image resource.
     //getting the image dimensions  
     list($width_orig, $height_orig) = getimagesize($imgSrc);   
