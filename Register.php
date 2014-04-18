@@ -9,7 +9,13 @@ $role = 2; //Any new registration starts as a regular user
 			 //and then can be promoted by an admin to either
 			 //Director or another admin access. 
 			 
-
+	//No unauthorized access
+	if(!isset($_COOKIE['email']))
+	{
+		echo "<script type='text/javascript'>
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+		exit;
+	}
 //remove cookies and redirect to login.php when "LOGOUT" button is clicked
 if (isset($_POST['logout'])) 
 {
