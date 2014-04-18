@@ -13,7 +13,7 @@ function getExtension($str) {
  
 // error flag
 $errors=0;
-echo "<h1> v7 test </h1>";
+echo "<h1> v8 test </h1>";
 
 $user_name = 'actorsgu_data';
 $pass_word = 'cliffy36&winepress';
@@ -55,7 +55,7 @@ if ($db_found)
 				//$_FILES['image']['tmp_name'] is the temporary filename of the file
 				//in which the uploaded file was stored on the server
 				$size = filesize($_FILES['image']['tmp_name']);
-	 
+				echo $_FILES['image']['tmp_name'];
 				//compare the size with the maxim size we defined and print error if bigger
 				if ($size > MAX_SIZE*1024)
 				{
@@ -64,15 +64,13 @@ if ($db_found)
 				}
 				else
 				{
-					echo "<h1>1 of 2</h2>";
 					//the new name will be containing the full path where will be stored (images folder)
 					$temp = resizeImage($_FILES['image']['tmp_name'],200,200);
 					$imgfile = "images/".$image;
 		 
 					//$email = $_POST('Contact_Email');
 					imagejpeg ( $temp, $imgfile );
-					echo "<h1>2 of 2</h2>";
-					//$result = "UPDATE Personnel SET Picture = '$imgfile' WHERE Contact_Email = '$Contact_Email'";
+					//$result = "UPDATE Personnel SET Picture = '$imgfile' WHERE Contact_Email = '$email'";
 				}
 			}
 		}
@@ -86,10 +84,9 @@ if ($db_found)
 	//If no errors registered, print the success message
 	if(isset($_POST['Submit']))
 	{
-		echo "<h1> submit set </h1>";
 		if (!$errors) 
 		{
-			echo "<h1>File Uploaded Successfully! Try again!</h1>";
+			echo "<h1>File Uploaded Successfully!</h1>";
 		}
 	}	 
 }
