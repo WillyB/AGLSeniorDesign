@@ -41,7 +41,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
 			
 			move_uploaded_file($tmpFile, $fileName);
 			echo "Stored in: " . $fileName;
-			//echo "<img src=/" . $fileName . "alt="">";  
+			echo "<img src=/" . $fileName . "alt=''>";
 		}
 	}
 }
