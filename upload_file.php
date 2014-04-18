@@ -29,6 +29,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
 		else
 		{
 			$tmpFile = $_FILES["file"]["tmp_name"];
+			$fileName = "upload/" . $_FILES["file"]["name"];
 			list($width, $height) = getimagesize($tmpFile);
 
 			if ($width >= 100 && $height >= 100) {
@@ -38,9 +39,9 @@ if ((($_FILES["file"]["type"] == "image/gif")
 				$image->writeImage($fileName);
 			}
 			
-			move_uploaded_file($tmpFile, "upload/" . $_FILES["file"]["name"]);
-			echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-			echo "<img src=\"$fileName" title=\"img\" alt=\"img\"/>";  
+			move_uploaded_file($tmpFile, $fileName);
+			echo "Stored in: " . $fileName;
+			echo "<img src=/" . $fileName . "alt="">";  
 		}
 	}
 }
