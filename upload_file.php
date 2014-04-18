@@ -33,10 +33,14 @@ if ((($_FILES["file"]["type"] == "image/gif")
 			list($width, $height) = getimagesize($tmpFile);
 
 			if ($width >= 100 && $height >= 100) {
-				echo "<h1>bigger than 400x400</h1>";
+				echo "<h1>bigger than 100x100</h1>";
+				echo "37";
 				$image = new Imagick($tmpFile);
+				echo "39";
 				$image->thumbnailImage(100, 100);
+				echo "41";
 				$image->writeImage($fileName);
+				echo "43";
 			}
 			else
 			{
