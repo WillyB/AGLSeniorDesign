@@ -151,7 +151,7 @@ if (isset($_POST['register']))
 	</tr>
 	<tr>
 		<td width="451" height="42" colspan="4" background="Assets/Register_15.gif">&nbsp;
-        <input type="text" name="password" id="password" style="color: #FFFFFF;border:none;background-color:transparent;" size="60">
+        <input type="password" name="password" id="password" style="color: #FFFFFF;border:none;background-color:transparent;" size="60">
         </td>
 	</tr>
 	<tr>
@@ -160,7 +160,7 @@ if (isset($_POST['register']))
 	</tr>
 	<tr>
 		<td width="451" height="42" colspan="4" background="Assets/Register_17.gif">&nbsp;
-        <input type="text" name="confirmpassword" id="confirmpassword" style="color: #FFFFFF;border:none;background-color:transparent;" size="60">
+        <input type="password" name="confirmpassword" id="confirmpassword" style="color: #FFFFFF;border:none;background-color:transparent;" size="60">
         </td>
 	</tr>
 	<tr>
