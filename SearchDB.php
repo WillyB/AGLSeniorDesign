@@ -469,7 +469,7 @@ if (isset($_POST['Search']))
 					{
 						echo "<tr><td>".$row['Contact_Email']."</td><td>".
                                         $row['First_Name']." ".$row['Last_Name']."</td><td>".
-										$row['Age']."</td></tr>";
+										$row['Age']."</td>";
                         echo "<form action='ListUsers.php' method='post'>
                                         <td><input type='SUBMIT' name='View' value='View'/>
 										<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td></form>";
