@@ -116,6 +116,7 @@ if(isset($_POST['Cast']))
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ListShows.psd) -->
+<form name="form" method="post" action="ListShows.php">
 <table width="1400" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="5">
@@ -233,6 +234,7 @@ if(isset($_POST['Cast']))
 			<img src="Assets/spacer.gif" width="83" height="1" alt=""></td>
 	</tr>
 </table>
+</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>
