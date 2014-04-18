@@ -298,12 +298,11 @@ if(isset($_POST['Demote']))
 					{
 							echo "<body bgcolor='silver'>";
 							echo "
-							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='left' cellpadding='20' >
+							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='left' cellpadding='2' >
 								<tr>
-								<th>first name</th>
-								<th>last name</th>
-								<th>email</th>
-								<th>role</th>
+                                <th>Email</th>
+								<th>Name</th>
+								<th>Role</th>
 								<th>Delete</th>
 								<th>Edit</th>
 								<th>Promote</th>
@@ -312,9 +311,8 @@ if(isset($_POST['Demote']))
 								while($row = mysql_fetch_array($result))
 								{
 									$value = $row['Contact_Email'];
-									echo "<tr><td>".$row['First_Name']."</td><td>".
-													$row['Last_Name']."</td><td>".
-													$row['Contact_Email']."</td><td>".
+									echo "<tr><td>".$row['Contact_Email']."</td><td>".
+                                                    $row['First_Name']." ".$row['Last_Name']."</td><td>".
 													$row['Role']."</td>";
 									echo "<form action='ListUsers.php' method='post'>
 										 <td><input type='SUBMIT' name='Delete' value='Delete'/>
