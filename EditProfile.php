@@ -103,7 +103,7 @@ if (isset($_POST['save']))
 		//check if uset already exist
         $SQL1 = "SELECT MAX(idPersonnel) FROM Personnel";//find maximum of user's id
 		$result1 = mysql_query($con,$SQL1);
-		$idPersonnel = $result1 + 1;//increment maximum user id and assign it to the regestering user
+		$idPersonnel = $result1 + 1;//increment maximum user id and assign it to the registering user
 		$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 		$result1 = mysql_query($con,"INSERT INTO Personnel(admin, idPersonnel,Contact_Phone, Contact_Email, Notes, 
                                                            First_Name, Last_Name, Height, Weight, Hair_Color,
