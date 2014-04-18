@@ -63,8 +63,8 @@ if (isset($_POST['register']))
 		$firstname = mysql_real_escape_string($firstname, $db_handle);
 		$lastname = mysql_real_escape_string($lastname, $db_handle);
 			
-		$SQL = "INSERT INTO Personnel (First_Name, Last_Name, Contact_Email, password) 
-								VALUES ('$firstname', '$lastname', '$email', '$password')";
+		$SQL = "INSERT INTO Personnel (First_Name, Last_Name, Contact_Email, password, Role) 
+								VALUES ('$firstname', '$lastname', '$email', '$password', 2)";
 		$result = mysql_query($SQL);
 		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email' AND password = '$password'";
 		$result = mysql_query($SQL);
