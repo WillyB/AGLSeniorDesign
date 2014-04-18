@@ -65,7 +65,7 @@ $email2 = "";
 			$num_rows1 = mysql_num_rows($result);
 			if($num_rows1 > 0)
 			{
-				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND password='$Password'";			
+				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND BINARY password='$Password'";			
 				$result = mysql_query($SQL);
 				$num_rows = mysql_num_rows($result);
 				$db_field = mysql_fetch_array($result);
