@@ -36,11 +36,11 @@ if ((($_FILES["file"]["type"] == "image/gif")
         $image->thumbnailImage(400, 400);
         $image->writeImage($fileName);
     }
-    else {
+	
         move_uploaded_file($tmpFile, 
       "upload/" . $_FILES["file"]["name"]);
       echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-      }
+
     }
   }
 else
