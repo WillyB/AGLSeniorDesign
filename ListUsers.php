@@ -332,9 +332,7 @@ if(isset($_POST['Demote']))
 //											<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
                                     
                                             <td><input type='BUTTON' name='Admin Options' value='Admin Options'/>
-										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'/></td>
-                                    
-                                                            ";
+										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'</td></td></form>";
 									//echo "<form action='ListUsers.php' method='post'>
 									//	 <td><input type='SUBMIT' name='Delete' value='Delete'/>
 										//	 <input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
