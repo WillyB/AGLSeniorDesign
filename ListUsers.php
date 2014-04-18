@@ -232,6 +232,7 @@ if(isset($_POST['Demote']))
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ListUsers.psd) -->
+<form name="form" method="post" action="ListUsers.php">
 <table width="1401" height="967" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="5">
@@ -288,7 +289,6 @@ if(isset($_POST['Demote']))
 					if($num_rows > 0)
 					{
 							echo "<body bgcolor='silver'>";
-							echo "<h2 style='color: #ffffff;'>All Users:</h2>";
 							echo "
 							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
 								<tr>
@@ -354,6 +354,7 @@ if(isset($_POST['Demote']))
 			<img src="Assets/spacer.gif" width="1" height="148" alt=""></td>
 	</tr>
 </table>
+</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>
