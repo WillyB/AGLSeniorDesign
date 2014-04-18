@@ -464,6 +464,7 @@ if (isset($_POST['Search']))
                     <th>Email</th>
 					<th>Name</th>
 					<th>Age</th>
+                    <th>View Profile</th>
 					</tr>";
 					while($row = mysql_fetch_array($final))
 					{
