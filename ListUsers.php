@@ -47,11 +47,11 @@ if(isset($_POST['View']))
     $who = $_POST['UserEmail0'];
 	setCookie('who', $who);//set cookie to pass use on the next page
 	echo  "<script type='text/javascript'>
-			window.location = 'EditProfile.php';</script>";
+			window.location = 'ViewProfile.php';</script>";
 	exit;
 }
 
-if(isset($_POST['Admin Options']))
+if(isset($_POST['Admin_Options']))
 {
     //$who = $_POST['UserEmail0'];
 	//setCookie('who', $who);//set cookie to pass use on the next page
@@ -329,9 +329,9 @@ if(isset($_POST['Demote']))
 													$row['Role']."</td>";
                                     echo "<form action='ListUsers.php' method='post'>
                                             <td><input type='SUBMIT' name='View' value='View'/>
-//											<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
+											<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
                                     
-                                            <td><input type='SUBMIT' name='Admin Options' value='Admin Options'/>
+                                            <td><input type='SUBMIT' name='Admin_Options' value='Admin Options'/>
 										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'</td></td></form>";
 									//echo "<form action='ListUsers.php' method='post'>
 									//	 <td><input type='SUBMIT' name='Delete' value='Delete'/>
