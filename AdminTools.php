@@ -7,6 +7,13 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
+	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
+	{
+		echo "<script type='text/javascript'>
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+		exit;
+	}
+
 	if (isset($_POST['myprofile'])) 
 	{
 		echo "<script type='text/javascript'>
