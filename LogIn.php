@@ -6,7 +6,7 @@
 $db_field = "";
 $role = "";
 $email = "";
-$Password = "";
+$password = "";
 $email2 = "";
 
 //RETURNING USER LOGIN PROCEDURE
@@ -55,7 +55,7 @@ $email2 = "";
 			$password = mysql_real_escape_string($password, $db_handle);
 			
 			//query database with entered data
-			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
+			$SQL = "SELECT * FROM Personnel WHERE Contact_Email='$email'";
 			//uncomment following statement later
 			//$hashedPassword = mysql_query($SQL);
 			$result = mysql_query($SQL);//delete this statement later 
