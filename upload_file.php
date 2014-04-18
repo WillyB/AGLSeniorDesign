@@ -32,6 +32,19 @@ if ((($_FILES["file"]["type"] == "image/gif")
 			$fileName = "upload/" . $_FILES["file"]["name"];
 			list($width, $height) = getimagesize($tmpFile);
 
+			//test imagick
+			function alist ($array) {  //This function prints a text array as an html list.
+			  $alist = "<ul>";
+			  for ($i = 0; $i < sizeof($array); $i++) {
+				$alist .= "<li>$array[$i]";
+			  }
+			  $alist .= "</ul>";
+			  return $alist;
+			}
+			exec("convert -version", $out, $rcode); //Try to get ImageMagick "convert" program version number.
+			echo "Version return code is $rcode <br>"; //Print the return code: 0 if OK, nonzero if error.
+			echo alist($out); //Print the output of "convert -version"
+			
 			if ($width >= 100 && $height >= 100) {
 				echo "<h1>bigger than 100x100</h1>";
 				echo "37";
