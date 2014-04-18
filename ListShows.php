@@ -8,6 +8,14 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
+	//No unauthorized access
+	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
+	{
+		echo "<script type='text/javascript'>
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+		exit;
+	}
+
 //data to login into mysql server on multilab machine
 $user_name = 'actorsgu_data';
 $pass_word = 'cliffy36&winepress';
