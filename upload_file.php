@@ -32,8 +32,10 @@ if ((($_FILES["file"]["type"] == "image/gif")
 			$fileName = "upload/" . $_FILES["file"]["name"];
 			list($width, $height) = getimagesize($tmpFile);
 
-			if (!extension_loaded('imagick'))
-				echo 'imagick not installed';
+			if( class_exists("Imagick") )
+{
+    echo "imagick installed";
+}
 			
 			if ($width >= 100 && $height >= 100) {
 				echo "<h1>bigger than 100x100</h1>";
