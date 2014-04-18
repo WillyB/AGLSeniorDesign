@@ -32,7 +32,7 @@ if (isset($_POST['logout']))
 	exit;	
 }
 
-if (isset($_POST['Submit'])) 
+if (isset($_POST['save'])) 
 {
 	$idPersonnel = "";
 	$Contact_Phone = $_POST['phone'];	
