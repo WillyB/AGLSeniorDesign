@@ -13,9 +13,9 @@ $email2 = "";
 	if (isset($_POST['login'])) 
 	{
 		$email = $_POST['email'];
-		$Password = $_POST['Password'];
+		$password = $_POST['password'];
 		
-		if($email=="" && $Password == "")//display error message in case username and password fields are left blank
+		if($email=="" && $password == "")//display error message in case username and password fields are left blank
 		{
 			echo "<script type='text/javascript'>
 				 alert('Please, make sure you enter your email and password');".
@@ -31,7 +31,7 @@ $email2 = "";
 			exit;//exit, so that the following code is not executed
 		}
 		
-		if($Password == "")//display error message in case user left password field blank
+		if($password == "")//display error message in case user left password field blank
 		{
 			echo "<script type='text/javascript'>
 				 alert('Please, make sure you enter your password');".
@@ -52,7 +52,7 @@ $email2 = "";
 		{
 			//this function is used to escape any dangerous strings (SQL injections)
 			$email = mysql_real_escape_string($email, $db_handle);
-			$password = mysql_real_escape_string($Password, $db_handle);
+			$password = mysql_real_escape_string($password, $db_handle);
 			
 			//query database with entered data
 			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
@@ -65,7 +65,7 @@ $email2 = "";
 			$num_rows1 = mysql_num_rows($result);
 			if($num_rows1 > 0)
 			{
-				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND password='$Password'";			
+				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND password='$password'";			
 				$result = mysql_query($SQL);
 				$num_rows = mysql_num_rows($result);
 				$db_field = mysql_fetch_array($result);
@@ -78,7 +78,7 @@ $email2 = "";
 							   //save role, email, and password in a cookie
 							    setcookie('role', $role);
 								setcookie('email',$email);
-								setcookie('password',$Password);//delete later
+								setcookie('password',$password);//delete later
 						        //setCookie('password',$hashedPassword);//uncomment later
 								
 								echo "<script type='text/javascript'>
@@ -90,7 +90,7 @@ $email2 = "";
 							   //save email and password in a cookie
 							    setcookie('role', $role);
 								setcookie('email',$email);
-								setcookie('password',$Password);//delete later
+								setcookie('password',$password);//delete later
 						        //setCookie('password',$hashedPassword); uncomment later
 								
 								echo "<script type='text/javascript'>
@@ -103,7 +103,7 @@ $email2 = "";
 							   //save email and password in a cookie
 							    setcookie('role', $role);
 								setcookie('email',$email);
-								setcookie('password',$Password);//delete later
+								setcookie('password',$password);//delete later
 						        //setCookie('password',$hashedPassword); uncomment later
 								
 								echo "<script type='text/javascript'>
@@ -215,11 +215,11 @@ $email2 = "";
 			<img src="Assets/LogIn_05.gif" width="185" height="627" alt=""></td>
 		<td width="174" height="37" colspan="2" background="Assets/LogIn_06.gif">&nbsp;
         <input type="text" name="email" id="email" style="color: #FFFFFF;border:none;background-color:transparent;" size="16">
-        </td>
+      </td>
 		<td rowspan="2">
 			<img src="Assets/LogIn_07.gif" width="5" height="81" alt=""></td>
 		<td width="173" height="37" colspan="3" background="Assets/LogIn_08.gif">&nbsp;
-        <input type="text" name="password" id="password" style="color: #FFFFFF;border:none;background-color:transparent;" size="16">
+        <input type="password" name="password" id="password" style="color: #FFFFFF;border:none;background-color:transparent;" size="16">
         </td>
 		<td><input type="image" name="login" value="login" src="Assets/LogIn_09.gif" id="login"></td>
 		<td rowspan="5">
