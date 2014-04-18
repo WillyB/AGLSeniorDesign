@@ -36,6 +36,7 @@ if (isset($_POST['logout']))
 if(isset($_POST['Delete']))
 {
 	$who = $_POST['UserEmail0'];
+
 	if($who == $email)
 	{
 		echo "<script type='text/javascript'>
@@ -43,11 +44,6 @@ if(isset($_POST['Delete']))
 			 "window.location = 'ListUsers.php';</script>";		
 		exit;			
 	}
-
-    echo "<script type='text/javascript'>
-	var r = confirm('Are you sure you want to delete the user profile?');
-	if (r==true)
-	{";
 	//data to login into mysql server on multilab machine
 	$user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
@@ -91,15 +87,7 @@ if(isset($_POST['Delete']))
 			  alert("Database is not found");
 			  </script>';				  
 	}	
-	mysql_close($db_handle);
-    
-    echo"	
-		  }
-		else
-		{
-			window.location = 'ListUsers.php';		
-		}
-		";
+	mysql_close($db_handle);	
 }
 
 //If "EDIT" button was pressed
