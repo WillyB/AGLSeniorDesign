@@ -119,6 +119,7 @@ if (isset($_POST['Submit']))
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (CreateProfile_Layout2.psd) -->
+<form name="form" method="post" action="EditProfile.php">
 <table width="1401" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="19">
@@ -129,14 +130,14 @@ if (isset($_POST['Submit']))
 	<tr>
 		<td colspan="16" rowspan="3">
 			<img src="Assets/EditProfile_02.gif" width="1211" height="138" alt=""></td>
-		<td><input type="image" name="home" id="home" src="Assets/EditProfile_03.gif"></td>
+		<td><input type="image" name="home" value="home" src="Assets/EditProfile_03.gif" id="home"></td>
 		<td colspan="2" rowspan="3">
 			<img src="Assets/EditProfile_04.gif" width="83" height="138" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-		<td><input type="image" name="logout" id="logout" src="Assets/EditProfile_05.gif"></td>
+		<td><input type="image" name="logout" value="logout" src="Assets/EditProfile_05.gif" id"logout"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
@@ -558,6 +559,7 @@ if (isset($_POST['Submit']))
 		<td></td>
 	</tr>
 </table>
+</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>
