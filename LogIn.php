@@ -221,7 +221,7 @@ $email2 = "";
 		<td width="173" height="37" colspan="3" background="Assets/LogIn_08.gif">&nbsp;
         <input type="password" name="Password" id="Password" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
-		<td><input type="image" name="login" value="login" src="Assets/LogIn_09.gif" id="login"></td>
+		<td><input type="image" name="LogIn" value="LogIn" src="Assets/LogIn_09.gif" id="LogIn"></td>
 		<td rowspan="5">
 			<img src="Assets/LogIn_10.gif" width="248" height="627" alt=""></td>
 		<td>
