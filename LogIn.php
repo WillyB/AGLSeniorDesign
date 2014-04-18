@@ -6,14 +6,14 @@
 $db_field = "";
 $role = "";
 $email = "";
-$password = "";
+$Password = "";
 $email2 = "";
 
 //RETURNING USER LOGIN PROCEDURE
 	if (isset($_POST['LogIn'])) 
 	{
 		$email = $_POST['email'];
-		$Password = $_POST['password'];
+		$Password = $_POST['Password'];
 		
 		if($email=="" && $Password == "")//display error message in case username and password fields are left blank
 		{
@@ -214,12 +214,12 @@ $email2 = "";
 		<td rowspan="5">
 			<img src="Assets/LogIn_05.gif" width="185" height="627" alt=""></td>
 		<td width="174" height="37" colspan="2" background="Assets/LogIn_06.gif">&nbsp;
-        <input type="text" name="email" id="email" style="color: #FFFFFF;border:none;background-color:transparent;" size="16">
+        <input name="email" type="text" id="email" style="color: #FFFFFF;border:none;background-color:transparent;">
       </td>
 		<td rowspan="2">
 			<img src="Assets/LogIn_07.gif" width="5" height="81" alt=""></td>
 		<td width="173" height="37" colspan="3" background="Assets/LogIn_08.gif">&nbsp;
-        <input type="password" name="password" id="password" style="color: #FFFFFF;border:none;background-color:transparent;" size="16">
+        <input type="password" name="Password" id="Password" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td><input type="image" name="login" value="login" src="Assets/LogIn_09.gif" id="login"></td>
 		<td rowspan="5">
