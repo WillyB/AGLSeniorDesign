@@ -8,6 +8,21 @@ $email = $_COOKIE["email"];
 $role = 2; //Any new registration starts as a regular user
 			 //and then can be promoted by an admin to either
 			 //Director or another admin access. 
+			 
+
+//remove cookies and redirect to login.php when "LOGOUT" button is clicked
+if (isset($_POST['logout'])) 
+{
+	unset($_COOKIE['email']);
+		
+	setcookie('email', '', time() - 3600);
+	
+	echo "<script type='text/javascript'>
+		  alert('Goodbye!');".
+		 "window.location = 'LogIn.php';</script>";//redirect to login page
+	exit;	
+}
+
 if (isset($_POST['register'])) 
 {
 	$firstname = $_POST['firstname'];
