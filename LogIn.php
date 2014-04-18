@@ -8,6 +8,7 @@ $role = "";
 $email = "";
 $Password = "";
 $email2 = "";
+
 //RETURNING USER LOGIN PROCEDURE
 	if (isset($_POST['login'])) 
 	{
@@ -213,12 +214,12 @@ $email2 = "";
 		<td rowspan="5">
 			<img src="Assets/LogIn_05.gif" width="185" height="627" alt=""></td>
 		<td width="174" height="37" colspan="2" background="Assets/LogIn_06.gif">&nbsp;
-        <input type="text" name="email" id="email" style="color: #FFFFFF;border:none;background-color:transparent;" size="22">
+        <input type="text" name="email" id="email" style="color: #FFFFFF;border:none;background-color:transparent;" size="16">
         </td>
 		<td rowspan="2">
 			<img src="Assets/LogIn_07.gif" width="5" height="81" alt=""></td>
 		<td width="173" height="37" colspan="3" background="Assets/LogIn_08.gif">&nbsp;
-        <input type="text" name="password" id="password" style="color: #FFFFFF;border:none;background-color:transparent;" size="22">
+        <input type="text" name="password" id="password" style="color: #FFFFFF;border:none;background-color:transparent;" size="16">
         </td>
 		<td><input type="image" name="login" value="login" src="Assets/LogIn_09.gif" id="login"></td>
 		<td rowspan="5">
@@ -238,7 +239,7 @@ $email2 = "";
 		<td rowspan="3">
 			<img src="Assets/LogIn_13.gif" width="67" height="546" alt=""></td>
 		<td width="226" height="38" colspan="3" background="Assets/LogIn_14.gif">&nbsp;
-        <input type="text" name="email2" id="email2" style="color: #FFFFFF;border:none;background-color:transparent;" size="32">
+        <input type="text" name="email2" id="email2" style="color: #FFFFFF;border:none;background-color:transparent;" size="28">
         </td>
 		<td rowspan="3">
 			<img src="Assets/LogIn_15.gif" width="11" height="546" alt=""></td>
