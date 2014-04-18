@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <?php
+include 'MasterCode.php';
 $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
@@ -41,6 +42,25 @@ if (isset($_POST['logout']))
 	exit;	
 }
 
+if(isset($_POST['View']))
+{
+    $who = $_POST['UserEmail0'];
+	setCookie('who', $who);//set cookie to pass use on the next page
+	echo  "<script type='text/javascript'>
+			window.location = 'EditProfile.php';</script>";
+	exit;
+}
+
+if(isset($_POST['Admin Options']))
+{
+    //$who = $_POST['UserEmail0'];
+	//setCookie('who', $who);//set cookie to pass use on the next page
+	echo "<script type='text/javascript'>
+            alert('This will eventually give you the admin options...');".
+            "window.location = 'ListUsers.php';</script>";		
+	exit;
+}
+
 if(isset($_POST['Delete']))
 {
 	$who = $_POST['UserEmail0'];
@@ -52,12 +72,12 @@ if(isset($_POST['Delete']))
 			 "window.location = 'ListUsers.php';</script>";		
 		exit;			
 	}
-	//data to login into mysql server on multilab machine
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
+//	//data to login into mysql server on multilab machine
+//	$user_name = 'actorsgu_data';
+//	$pass_word = 'cliffy36&winepress';
+//	$database = 'actorsgu_data';
+//	//$server = 'box293.bluehost.com:3306';
+//	$server = 'localhost:3306';
 
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
@@ -113,12 +133,12 @@ if(isset($_POST['Promote']))
 {
 	$who = $_POST['UserEmail2'];
 
-	//data to login into mysql server on multilab machine
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
+//	//data to login into mysql server on multilab machine
+//	$user_name = 'actorsgu_data';
+//	$pass_word = 'cliffy36&winepress';
+//	$database = 'actorsgu_data';
+//	//$server = 'box293.bluehost.com:3306';
+//	$server = 'localhost:3306';
 
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
@@ -179,11 +199,11 @@ if(isset($_POST['Demote']))
 		exit;			
 	}
 	//data to login into mysql server on multilab machine
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
+//	$user_name = 'actorsgu_data';
+//	$pass_word = 'cliffy36&winepress';
+//	$database = 'actorsgu_data';
+//	//$server = 'box293.bluehost.com:3306';
+//	$server = 'localhost:3306';
 
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
@@ -275,7 +295,7 @@ if(isset($_POST['Demote']))
 			<img src="Assets/ListUsers_07.gif" width="384" height="712" alt=""></td>
 		<td width="654" height="564" background="Assets/ListUsers_08.gif">
         <?php
-            include 'MasterCod.php';
+            include 'MasterCode.php';
         	if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
 			{
 			     //Establish the initial connection:
@@ -298,10 +318,8 @@ if(isset($_POST['Demote']))
                                 <th>Email</th>
 								<th>Name</th>
 								<th>Role</th>
-								<th>Delete</th>
-								<th>Edit</th>
-								<th>Promote</th>
-								<th>Demote</th>
+                                <th>View</th>
+								<th>Admin Options</th>
 								</tr>";
 								while($row = mysql_fetch_array($result))
 								{
@@ -309,18 +327,26 @@ if(isset($_POST['Demote']))
 									echo "<tr><td>".$row['Contact_Email']."</td><td>".
                                                     $row['First_Name']." ".$row['Last_Name']."</td><td>".
 													$row['Role']."</td>";
-									echo "<form action='ListUsers.php' method='post'>
-										 <td><input type='SUBMIT' name='Delete' value='Delete'/>
-											 <input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
-											 
-											 <td><input type='SUBMIT' name='Edit' value='Edit'/>
-											 <input type='HIDDEN' name='UserEmail1' value='" .$value. "'/></td>
-											 
-											 <td><input type='SUBMIT' name='Promote' value='Promote to Director'/>
-											 <input type='HIDDEN' name='UserEmail2' value='" .$value. "'/></td>
-											 
-											 <td><input type='SUBMIT' name='Demote' value='Demote to User'/>
-											 <input type='HIDDEN' name='UserEmail3' value='" .$value. "'/></td></td></form>";	 						
+                                    echo "<form action='ListUsers.php' method='post'>
+                                            <td><input type='BUTTON' name='View' value='View'/>
+//											<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
+                                    
+                                            <td><input type='BUTTON' name='Admin Options' value='Admin Options'/>
+										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'/></td>
+                                    
+                                                            ";
+									//echo "<form action='ListUsers.php' method='post'>
+									//	 <td><input type='SUBMIT' name='Delete' value='Delete'/>
+										//	 <input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
+											
+//											 <td><input type='SUBMIT' name='Edit' value='Edit'/>
+//											 <input type='HIDDEN' name='UserEmail1' value='" .$value. "'/></td>
+//											 
+//											 <td><input type='SUBMIT' name='Promote' value='Promote to Director'/>
+//											 <input type='HIDDEN' name='UserEmail2' value='" .$value. "'/></td>
+//											 
+//											 <td><input type='SUBMIT' name='Demote' value='Demote to User'/>
+//											 <input type='HIDDEN' name='UserEmail3' value='" .$value. "'/></td></td></form>";	 						
 								}
 								echo "</table>";
 								echo "<br>"."<br>";
