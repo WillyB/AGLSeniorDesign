@@ -243,7 +243,7 @@ if(isset($_POST['Demote']))
 		<td colspan="3" rowspan="3">
 			<img src="Assets/ListUsers_02.gif" width="1211" height="185" alt=""></td>
 		<td>
-			<input type="image" name="home" value="home" src="Assets/ListUsers_03.gif"></td>
+			<input type="image" name="home" value="home" src="Assets/ListUsers_03.gif" id="home"></td>
 		<td rowspan="5">
 			<img src="Assets/ListUsers_04.gif" width="83" height="897" alt=""></td>
 		<td>
@@ -251,7 +251,7 @@ if(isset($_POST['Demote']))
 	</tr>
 	<tr>
 		<td>
-			<input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif"></td>
+			<input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif" id="logout"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
 	</tr>
