@@ -1,3 +1,7 @@
+// This page can be accessed through any of the pages that include the option
+// to edit a profile.  Any information that is added or removed when the save
+// button is pressed will be sent to the database to be changed and then the 
+// user will be redirected to the user/admin home depending on the access.
 <html>
 <head>
 <title>AGL: Edit Profile</title>

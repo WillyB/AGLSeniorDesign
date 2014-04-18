@@ -1,3 +1,8 @@
+// When a new user attempts to register from the LogIn.php, they will be
+// directed to this page where they will enter a fist name, last name, and
+// password for the account.  When the user submits the changes they will be
+// directed to the EditProfile.php page to enter their personal information for
+// the new profile.
 <html>
 <head>
 <title>AGL: Registration</title>
