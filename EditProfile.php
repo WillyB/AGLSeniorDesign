@@ -60,8 +60,8 @@ if (isset($_POST['save']))
     $ConfirmPassword = $_POST['confirmpassword'];
 	$Contact_Phone = $_POST['phone'];	
 	$Contact_Email = $_POST['email'];
-	$First_Name = $_POST['firstname'];//not there
-	$Last_Name = $_POST['lastname'];//not there
+	$First_Name = $_POST['firstname'];
+	$Last_Name = $_POST['lastname'];
 	$Height = $_POST['height'];	
 	$Weight = $_POST['weight'];
 	$Hair_Color = $_POST['haircolor'];
@@ -69,16 +69,13 @@ if (isset($_POST['save']))
 	$Eye_Color = $_POST['eyecolor'];
     $Ethnicity = $_POST['ethnicity'];
 	$Previous_Work = $_POST['previousexperience'];//need to fix
-	
 	$Age = $_POST['age'];
 	$Street_Address = $_POST['streetaddress'];
 	$State = $_POST['state'];
 	$Zip_Code = $_POST['zip'];
 	$City = $_POST['city'];
 	
-    $con = mysql_connect($server, $user_name, $pass_word, $database);
-	$db_handle = mysql_connect($server, $user_name, $pass_word);
-	$db_found = mysql_select_db($database, $db_handle);
+
     
     if($Password != $ConfirmPassword)
     {
@@ -125,7 +122,7 @@ if (isset($_POST['save']))
         //$SQL1 = "SELECT MAX(idPersonnel) FROM Personnel";//find maximum of user's id
 		//$result1 = mysql_query($con,$SQL1);
 		//$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-		$result1 = mysql_query($con,"INSERT INTO Personnel(Contact_Phone, Contact_Email, Previous_Work, 
+		$result1 = mysql_query($con,"UPDATE Personnel SET(Contact_Phone, Contact_Email, Previous_Work, 
                                                            First_Name, Last_Name, Height, Weight, Hair_Color,
                                                            Eye_Color, Previous_Work, password, Age,
                                                            Street_Address, State, Zip_Code, City)
@@ -135,8 +132,8 @@ if (isset($_POST['save']))
                                                             '$Street_Address', '$State', '$Zip_Code', '$City')");
 		$result2 = mysql_query($con,"SELECT * 
 										FROM Personnel
-									   WHERE username = '$username'
-									     AND password = '$hashedPassword'
+									   WHERE Contact_Email = '$Contact_Email'
+									     AND password = '$Password'
 							   ");									
 					
 		if (!$result2)//if there is no result returned, display error message
