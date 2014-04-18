@@ -112,13 +112,13 @@ $email2 = "";
 								exit;
 					endswitch;							
 				}
-				else //if user is not in DB, redirect to LogIn page
-				{							
-					echo "<script type='text/javascript'>
-						 alert('Error has occured. Try to login again or register as a new user');".
-						 "window.location = 'LogIn.php';</script>";//redirect back to login page 
-					exit;
-				}
+			}
+			else //if user is not in DB, redirect to LogIn page
+			{							
+				echo "<script type='text/javascript'>
+					 alert('Error has occured. Try to login again or register as a new user');".
+					 "window.location = 'LogIn.php';</script>";//redirect back to login page 
+				exit;
 			}
 		}
 		else//if DB was not found
