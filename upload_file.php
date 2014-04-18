@@ -1,4 +1,5 @@
 <?php
+echo "<h1>v5</h1>";
 $allowedExts = array("gif", "jpeg", "jpg", "png");
 $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
@@ -32,6 +33,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
 			list($width, $height) = getimagesize($tmpFile);
 
 			if ($width >= 400 && $height >= 400) {
+				echo "<h1>bigger than 400x400</h1>";
 				$image = new Imagick($tmpFile);
 				$image->thumbnailImage(400, 400);
 				$image->writeImage($fileName);
@@ -42,7 +44,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
 	}
 }
 else
-  {
-  echo "Invalid file";
-  }
+{
+	echo "Invalid file";
+}
 ?>
