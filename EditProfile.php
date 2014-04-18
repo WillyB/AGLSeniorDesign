@@ -7,6 +7,7 @@
 <title>AGL: Edit Profile</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
+include 'MasterCode.php';
 $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
@@ -55,43 +56,49 @@ if (isset($_POST['logout']))
 
 if (isset($_POST['save'])) 
 {
-	$idPersonnel = "";
+    $Password = $_POST['password'];//use sessions to save login data
+    $ConfirmPassword = $_POST['confirmpassword'];
 	$Contact_Phone = $_POST['phone'];	
 	$Contact_Email = $_POST['email'];
-	$First_Name = $_POST['fname'];//not there
-	$Last_Name = $_POST['lname'];//not there
+	$First_Name = $_POST['firstname'];//not there
+	$Last_Name = $_POST['lastname'];//not there
 	$Height = $_POST['height'];	
 	$Weight = $_POST['weight'];
-	$Hair_Color = $_POST['hair'];
+	$Hair_Color = $_POST['haircolor'];
+    $Hair_Style = $_POST['hairstyle'];
 	$Eye_Color = $_POST['eyecolor'];
+    $Ethnicity = $_POST['ethnicity'];
 	$Previous_Work = $_POST['previousexperience'];//need to fix
-	$password = $_POST['password'];//use sessions to save login data
+	
 	$Age = $_POST['age'];
 	$Street_Address = $_POST['streetaddress'];
 	$State = $_POST['state'];
 	$Zip_Code = $_POST['zip'];
 	$City = $_POST['city'];
- 
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	$server ='localhost:3306';
 	
     $con = mysql_connect($server, $user_name, $pass_word, $database);
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
-	
-	if($Contact_Phone = "" || $Contact_Email = "" || $Previous_Work = "" ||
-	   $First_Name = "" || $Last_Name = "" || $admin = "" ||
-	   $Height = "" || $Weight = "" || $Hair_Color = "" || $Eye_Color = "" ||
-       $Previous_Work = "" || $username = "" || $passwork = "" || $Age = "" ||
-	   $Street_Address = "" || $State = "" || $Zip_Code = "" || $City = "")
-	{
-		echo "<script type='text/javascript'>
-			 alert('Please, make sure you fill out all the fields');".
+    
+    if($Password != $ConfirmPassword)
+    {
+  		echo "<script type='text/javascript'>
+			 alert('Error, passwords do not match!');".
 			 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
 		exit;//exit, so that the following code is not executed
-	}
+    }
+	
+//	if($Contact_Phone = "" || $Contact_Email = "" || $Previous_Work = "" ||
+//	   $First_Name = "" || $Last_Name = "" || $admin = "" ||
+//	   $Height = "" || $Weight = "" || $Hair_Color = "" || $Eye_Color = "" ||
+//        $username = "" || $passwork = "" || $Age = "" ||
+//	   $Street_Address = "" || $State = "" || $Zip_Code = "" || $City = "")
+//	{
+//		echo "<script type='text/javascript'>
+//			 alert('Please, make sure you fill out all the fields');".
+//			 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
+//		exit;//exit, so that the following code is not executed
+//	}
 
 	if ($db_found) 
 	{
@@ -101,36 +108,31 @@ if (isset($_POST['save']))
 	$Contact_Email = mysql_real_escape_string($Contact_Email, $db_handle);
 	$Previous_Work = mysql_real_escape_string($Previous_Work, $db_handle);
 	$First_Name = mysql_real_escape_string($First_Name, $db_handle);
-	$Last_Name = mysql_real_escape_string($Last_Name, $db_handle); 
-	$admin = mysql_real_escape_string($admin, $db_handle);
+	$Last_Name = mysql_real_escape_string($Last_Name, $db_handle);
 	$Height = mysql_real_escape_string($Height, $db_handle);	
 	$Weight = mysql_real_escape_string($Weight, $db_handle);
 	$Hair_Color = mysql_real_escape_string($Hair_Color, $db_handle);
+    $Hair_Style = mysql_real_escape_string($Hair_Style, $db_handle);
 	$Eye_Color = mysql_real_escape_string($Eye_Color, $db_handle);
-	$Previous_Work = mysql_real_escape_string($Previous_Work, $db_handle);
-	$username = mysql_real_escape_string($username, $db_handle);
-	$password = mysql_real_escape_string($password, $db_handle);
+	$Password = mysql_real_escape_string($password, $db_handle);
 	$Age = mysql_real_escape_string($Age, $db_handle);
 	$Street_Address = mysql_real_escape_string($Street_Address, $db_handle);
 	$State = mysql_real_escape_string($State, $db_handle);
 	$Zip_Code = mysql_real_escape_string($Zip_Code, $db_handle);
 	$City = mysql_real_escape_string($City, $db_handle);
-	
-		$admin = 0;//person who is registering on the website, ALWAYS A USER
-				 //registration of admin is internal to the AGL
-		//check if uset already exist
-        $SQL1 = "SELECT MAX(idPersonnel) FROM Personnel";//find maximum of user's id
-		$result1 = mysql_query($con,$SQL1);
-		$idPersonnel = $result1 + 1;//increment maximum user id and assign it to the registering user
-		$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+		//The database is auto-incrementing, it should set the id value
+        //$SQL1 = "SELECT MAX(idPersonnel) FROM Personnel";//find maximum of user's id
+		//$result1 = mysql_query($con,$SQL1);
+		//$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 		$result1 = mysql_query($con,"INSERT INTO Personnel(Contact_Phone, Contact_Email, Previous_Work, 
                                                            First_Name, Last_Name, Height, Weight, Hair_Color,
-                                                           Eye_Color, Previous_Work, username, password, Age,
+                                                           Eye_Color, Previous_Work, password, Age,
                                                            Street_Address, State, Zip_Code, City)
-									                VALUES ('$Contact_Phone', '$Contact_Email', 'Previous_Work', 
-                                                            'First_Name', 'Last_Name', 'Height', 'Weight', 'Hair_Color',
-                                                            'Eye_Color', 'Previous_Work', 'username', 'hashedPassword', 'Age',
-                                                            'Street_Address', 'State', 'Zip_Code', 'City')");
+									                VALUES ('$Contact_Phone', '$Contact_Email', '$Previous_Work', 
+                                                            '$First_Name', '$Last_Name', '$Height', '$Weight', '$Hair_Color',
+                                                            '$Eye_Color', '$Password', '$Age',
+                                                            '$Street_Address', '$State', '$Zip_Code', '$City')");
 		$result2 = mysql_query($con,"SELECT * 
 										FROM Personnel
 									   WHERE username = '$username'
@@ -149,7 +151,7 @@ if (isset($_POST['save']))
 			//after successful registration, display "thank you" message
 			print "<h2>Thank you for regestering</h2>";
 			echo "<script type='text/javascript'>
-				 alert('Thank you for regestering');".
+				 alert('Profile Edit Saved!');".
 				 "window.location = 'ViewProfile.php';</script>";//redirect back to ViewProfile.php   
 			exit;//exit, so that the following code is not executed
 		}
