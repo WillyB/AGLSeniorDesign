@@ -38,8 +38,10 @@ if ((($_FILES["file"]["type"] == "image/gif")
 				$image->thumbnailImage(100, 100);
 				$image->writeImage($fileName);
 			}
-			
-			move_uploaded_file($tmpFile, $fileName);
+			else
+			{
+				move_uploaded_file($tmpFile, $fileName);
+			}
 			echo "Stored in: " . $fileName;
 			echo "<img src=/" . $fileName . " alt=''>";
 		}
