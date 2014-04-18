@@ -3,9 +3,18 @@
 <title>AGL: User Home</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
-$role = $_COOKIE['role'];
-$email = $_COOKIE['email'];
-$password = $_COOKIE['password'];
+	$role = $_COOKIE['role'];
+	$email = $_COOKIE['email'];
+	$password = $_COOKIE['password'];
+
+
+	//No unauthorized access
+	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
+	{
+		echo "<script type='text/javascript'>
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+		exit;
+	}
 
 	if (isset($_POST['viewprofile'])) 
 	{
