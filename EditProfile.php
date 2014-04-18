@@ -84,7 +84,7 @@ if (isset($_POST['save']))
 			 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
 		exit;//exit, so that the following code is not executed
     }
-	
+	connectToDatabase();
 //	if($Contact_Phone = "" || $Contact_Email = "" || $Previous_Work = "" ||
 //	   $First_Name = "" || $Last_Name = "" || $admin = "" ||
 //	   $Height = "" || $Weight = "" || $Hair_Color = "" || $Eye_Color = "" ||

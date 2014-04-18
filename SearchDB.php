@@ -48,6 +48,14 @@ if (isset($_POST['logout']))
 		 "window.location = 'LogIn.php';</script>";//redirect to login page
 	exit;	
 }
+if(isset($_POST['View']))
+{
+    $who = $_POST['UserEmail0'];
+	setCookie('who', $who);//set cookie to pass use on the next page
+	echo  "<script type='text/javascript'>
+			window.location = 'ViewProfile.php';</script>";
+	exit;
+}
 
 ?>
 
@@ -462,6 +470,9 @@ if (isset($_POST['Search']))
 						echo "<tr><td>".$row['Contact_Email']."</td><td>".
                                         $row['First_Name']." ".$row['Last_Name']."</td><td>".
 										$row['Age']."</td></tr>";
+                        echo "<form action='ListUsers.php' method='post'>
+                                        <td><input type='SUBMIT' name='View' value='View'/>
+										<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td></form>";
 					}
 				echo "</table>";
 				echo "<br>"."<br>";
