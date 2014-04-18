@@ -290,7 +290,7 @@ if(isset($_POST['Demote']))
 					{
 							echo "<body bgcolor='silver'>";
 							echo "
-							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
+							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='left' cellpadding='20' >
 								<tr>
 								<th>first name</th>
 								<th>last name</th>
