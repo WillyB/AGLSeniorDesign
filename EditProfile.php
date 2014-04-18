@@ -3,6 +3,34 @@
 <title>AGL: Edit Profile</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
+$role = $_COOKIE['role'];
+$email = $_COOKIE['email'];
+$password = $_COOKIE['password'];
+
+//redirect to ListUsers.php when "HOME" button is clicked
+if (isset($_POST['home'])) 
+{
+	echo "<script type='text/javascript'>
+		  window.location = 'AdminTools.php';</script>";
+	exit;
+}
+
+//remove cookies and redirect to login.php when "LOGOUT" button is clicked
+if (isset($_POST['logout'])) 
+{
+	unset($_COOKIE['role']);
+	unset($_COOKIE['email']);
+	unset($_COOKIE['password']);
+
+	setcookie('role', '', time() - 3600);		
+	setcookie('email', '', time() - 3600);
+	setcookie('password', '', time() - 3600);	
+	
+	echo "<script type='text/javascript'>
+		  alert('Goodbye!');".
+		 "window.location = 'LogIn.php';</script>";//redirect to login page
+	exit;	
+}
 
 if (isset($_POST['Submit'])) 
 {
@@ -505,7 +533,7 @@ if (isset($_POST['Submit']))
 	<tr>
 		<td colspan="11" rowspan="2">
 			<img src="Assets/EditProfile_57.gif" width="577" height="153" alt=""></td>
-		<td><input type="image" name="save" id="save" src="Assets/EditProfile_58.gif"></td>
+		<td><input type="image" name="save" value="save" src="Assets/EditProfile_58.gif" id="save"></td>
 		<td rowspan="2">
 			<img src="Assets/EditProfile_59.gif" width="6" height="153" alt=""></td>
 		<td>
