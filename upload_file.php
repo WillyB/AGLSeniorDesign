@@ -28,15 +28,16 @@ if ((($_FILES["file"]["type"] == "image/gif")
       }
     else
       {
-		// Resample
-		list($width, $height) = getimagesize($_FILES["file"]["tmp_name"]);
-		$new_width = 200;
-		$new_height = 200;
-		$image_p = imagecreatetruecolor($new_width, $new_height);
-		$image = imagecreatefromjpeg($_FILES["file"]["tmp_name"]);
-		imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-
-      move_uploaded_file($_FILES["file"]["tmp_name"],
+		$tmpFile = $_FILES["file"]["tmp_name"];
+		list($width, $height) = getimagesize($tmpFile);
+		
+	if ($width >= 400 && $height >= 400) {
+        $image = new Imagick($tmpFile);
+        $image->thumbnailImage(400, 400);
+        $image->writeImage($fileName);
+    }
+    else {
+        move_uploaded_file($tmpFile, 
       "upload/" . $_FILES["file"]["name"]);
       echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
       }
