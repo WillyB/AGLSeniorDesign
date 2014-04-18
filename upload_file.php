@@ -32,12 +32,12 @@ if ((($_FILES["file"]["type"] == "image/gif")
 			$fileName = "upload/" . $_FILES["file"]["name"];
 			list($width, $height) = getimagesize($tmpFile);
 
-			if ($width >= 100 && $height >= 100) {
-				echo "<h1>bigger than 400x400</h1>";
-				$image = new Imagick($tmpFile);
-				$image->thumbnailImage(100, 100);
-				$image->writeImage($fileName);
-			}
+			//if ($width >= 100 && $height >= 100) {
+			//	echo "<h1>bigger than 400x400</h1>";
+			//	$image = new Imagick($tmpFile);
+			//	$image->thumbnailImage(100, 100);
+			//	$image->writeImage($fileName);
+			//}
 			
 			move_uploaded_file($tmpFile, $fileName);
 			echo "Stored in: " . $fileName;
