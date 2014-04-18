@@ -73,14 +73,14 @@ $password = $_COOKIE['password'];
 	<tr>
 		<td colspan="5" rowspan="3">
 			<img src="Assets/AdminTools_02.gif" width="1211" height="272" alt=""></td>
-		<td><input type="image" name="myprofile" value="myprofile" src="Assets/AdminTools_03.gif"></td>
+		<td><input type="image" name="myprofile" value="myprofile" src="Assets/AdminTools_03.gif" id="myprofile"></td>
 		<td rowspan="7">
 			<img src="Assets/AdminTools_04.gif" width="83" height="931" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-		<td><input type="image" name="logout" value="logout" src="Assets/AdminTools_05.gif"></td>
+		<td><input type="image" name="logout" value="logout" src="Assets/AdminTools_05.gif" id="logout"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
@@ -93,10 +93,10 @@ $password = $_COOKIE['password'];
 	<tr>
 		<td rowspan="4">
 			<img src="Assets/AdminTools_07.gif" width="381" height="659" alt=""></td>
-		<td><input type="image" name="ListUsers" value="ListUsers" src="Assets/AdminTools_08.gif"></td>
+		<td><input type="image" name="ListUsers" value="ListUsers" src="Assets/AdminTools_08.gif" id="ListUsers"></td>
 		<td rowspan="4">
 			<img src="Assets/AdminTools_09.gif" width="173" height="659" alt=""></td>
-		<td><input type="image" name="ListShows" value="ListShows" src="Assets/AdminTools_10.gif"></td>
+		<td><input type="image" name="ListShows" value="ListShows" src="Assets/AdminTools_10.gif" id="ListShows"></td>
 		<td rowspan="4">
 			<img src="Assets/AdminTools_11.gif" width="162" height="659" alt=""></td>
 		<td>
@@ -111,8 +111,8 @@ $password = $_COOKIE['password'];
 			<img src="Assets/spacer.gif" width="1" height="44" alt=""></td>
 	</tr>
 	<tr>
-		<td><input type="image" name="createshow" value="createshow" src="Assets/AdminTools_14.gif"></td>
-		<td><input type="image" name="search" value="search" src="Assets/AdminTools_15.gif"></td>
+		<td><input type="image" name="createshow" value="createshow" src="Assets/AdminTools_14.gif" id="createshow"></td>
+		<td><input type="image" name="search" value="search" src="Assets/AdminTools_15.gif" id="search"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="59" alt=""></td>
 	</tr>
