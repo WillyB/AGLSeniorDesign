@@ -36,7 +36,6 @@ if (isset($_POST['logout']))
 if(isset($_POST['Delete']))
 {
 	$who = $_POST['UserEmail0'];
-
 	if($who == $email)
 	{
 		echo "<script type='text/javascript'>
@@ -44,12 +43,17 @@ if(isset($_POST['Delete']))
 			 "window.location = 'ListUsers.php';</script>";		
 		exit;			
 	}
+
+    echo "<script type='text/javascript'>
+	var r = confirm('Are you sure you want to delete the user profile?');
+	if (r==true)
+	{";
 	//data to login into mysql server on multilab machine
 	$user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
 	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
+	$server = 'box293.bluehost.com:3306';
+	//$server = 'localhost:3306';
 
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
@@ -87,7 +91,15 @@ if(isset($_POST['Delete']))
 			  alert("Database is not found");
 			  </script>';				  
 	}	
-	mysql_close($db_handle);	
+	mysql_close($db_handle);
+    
+    echo"	
+		  }
+		else
+		{
+			window.location = 'ListUsers.php';		
+		}
+		";
 }
 
 //If "EDIT" button was pressed
@@ -109,8 +121,8 @@ if(isset($_POST['Promote']))
 	$user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
 	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
+	$server = 'box293.bluehost.com:3306';
+	//$server = 'localhost:3306';
 
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
@@ -174,8 +186,8 @@ if(isset($_POST['Demote']))
 	$user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
 	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
+	$server = 'box293.bluehost.com:3306';
+	//$server = 'localhost:3306';
 
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
@@ -273,8 +285,8 @@ if(isset($_POST['Demote']))
 				$user_name = 'actorsgu_data';
 				$pass_word = 'cliffy36&winepress';
 				$database = 'actorsgu_data';
-				//$server = 'box293.bluehost.com:3306';
-				$server = 'localhost:3306';
+				$server = 'box293.bluehost.com:3306';
+				//$server = 'localhost:3306';
 			
 				$db_handle = mysql_connect($server, $user_name, $pass_word);
 				$db_found = mysql_select_db($database, $db_handle);
