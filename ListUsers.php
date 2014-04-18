@@ -317,16 +317,29 @@ if(isset($_POST['Demote']))
 								<tr>
                                 <th>Email</th>
 								<th>Name</th>
-								<th>Role</th>
+								<th>Access Level</th>
                                 <th>View</th>
 								<th>Admin Options</th>
 								</tr>";
 								while($row = mysql_fetch_array($result))
 								{
+								    if ($row['Role'] == 0)
+                                    {
+                                        $StringRole = "Admin";
+                                    }
+                                    else if ($row['Role'] == 1)
+                                    {
+                                        $StringRole = "Director";
+                                    }
+                                    else 
+                                    {
+                                        $StringRole = "Actor"; 
+                                    }
+                                    
 									$value = $row['Contact_Email'];
 									echo "<tr><td>".$row['Contact_Email']."</td><td>".
                                                     $row['First_Name']." ".$row['Last_Name']."</td><td>".
-													$row['Role']."</td>";
+													$StringRole."</td>";
                                     echo "<form action='ListUsers.php' method='post'>
                                             <td><input type='SUBMIT' name='View' value='View'/>
 											<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
