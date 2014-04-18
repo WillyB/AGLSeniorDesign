@@ -20,9 +20,18 @@ $password = $_COOKIE['password'];
 //redirect to ListUsers.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
 {
-	echo "<script type='text/javascript'>
+    //First check to see which "Home" the user is going to
+    if($role == 0 || $role == 1){
+        echo "<script type='text/javascript'>
 		  window.location = 'AdminTools.php';</script>";
-	exit;
+	   exit;
+    }
+    else if($role == 2){
+        echo "<script type='text/javascript'>
+		  window.location = 'UserTools.php';</script>";
+	   exit;
+    }
+	
 }
 
 //remove cookies and redirect to login.php when "LOGOUT" button is clicked

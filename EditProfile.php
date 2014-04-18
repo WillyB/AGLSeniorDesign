@@ -22,9 +22,18 @@ $password = $_COOKIE['password'];
 //redirect to ListUsers.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
 {
-	echo "<script type='text/javascript'>
+    //First check to see which "Home" the user is going to
+    if($role == 0 || $role == 1){
+        echo "<script type='text/javascript'>
 		  window.location = 'AdminTools.php';</script>";
-	exit;
+	   exit;
+    }
+    else if($role == 2){
+        echo "<script type='text/javascript'>
+		  window.location = 'UserTools.php';</script>";
+	   exit;
+    }
+	
 }
 
 //remove cookies and redirect to login.php when "LOGOUT" button is clicked
@@ -49,16 +58,13 @@ if (isset($_POST['save']))
 	$idPersonnel = "";
 	$Contact_Phone = $_POST['phone'];	
 	$Contact_Email = $_POST['email'];
-	$Notes = $_POST['fullname'];//fix that
 	$First_Name = $_POST['fname'];//not there
 	$Last_Name = $_POST['lname'];//not there
-	$admin = $_POST['admin'];//not there
 	$Height = $_POST['height'];	
 	$Weight = $_POST['weight'];
 	$Hair_Color = $_POST['hair'];
 	$Eye_Color = $_POST['eyecolor'];
 	$Previous_Work = $_POST['previousexperience'];//need to fix
-	$username = $_POST['username'];//use sessions to save login data
 	$password = $_POST['password'];//use sessions to save login data
 	$Age = $_POST['age'];
 	$Street_Address = $_POST['streetaddress'];
@@ -75,7 +81,7 @@ if (isset($_POST['save']))
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
 	
-	if($Contact_Phone = "" || $Contact_Email = "" || $Notes = "" ||
+	if($Contact_Phone = "" || $Contact_Email = "" || $Previous_Work = "" ||
 	   $First_Name = "" || $Last_Name = "" || $admin = "" ||
 	   $Height = "" || $Weight = "" || $Hair_Color = "" || $Eye_Color = "" ||
        $Previous_Work = "" || $username = "" || $passwork = "" || $Age = "" ||
@@ -93,7 +99,7 @@ if (isset($_POST['save']))
 		//==== YOU NEED TO USE OT FOR ALL VALUES YOU WANT TO CHECK
 	$Contact_Phone = mysql_real_escape_string($Contact_Phone, $db_handle);	
 	$Contact_Email = mysql_real_escape_string($Contact_Email, $db_handle);
-	$Notes = mysql_real_escape_string($Notes, $db_handle);
+	$Previous_Work = mysql_real_escape_string($Previous_Work, $db_handle);
 	$First_Name = mysql_real_escape_string($First_Name, $db_handle);
 	$Last_Name = mysql_real_escape_string($Last_Name, $db_handle); 
 	$admin = mysql_real_escape_string($admin, $db_handle);
@@ -117,11 +123,11 @@ if (isset($_POST['save']))
 		$result1 = mysql_query($con,$SQL1);
 		$idPersonnel = $result1 + 1;//increment maximum user id and assign it to the registering user
 		$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-		$result1 = mysql_query($con,"INSERT INTO Personnel(admin, idPersonnel,Contact_Phone, Contact_Email, Notes, 
+		$result1 = mysql_query($con,"INSERT INTO Personnel(Contact_Phone, Contact_Email, Previous_Work, 
                                                            First_Name, Last_Name, Height, Weight, Hair_Color,
                                                            Eye_Color, Previous_Work, username, password, Age,
                                                            Street_Address, State, Zip_Code, City)
-									                VALUES ('admin','idPersonnel','Contact_Phone', 'Contact_Email', 'Notes', 
+									                VALUES ('$Contact_Phone', '$Contact_Email', 'Previous_Work', 
                                                             'First_Name', 'Last_Name', 'Height', 'Weight', 'Hair_Color',
                                                             'Eye_Color', 'Previous_Work', 'username', 'hashedPassword', 'Age',
                                                             'Street_Address', 'State', 'Zip_Code', 'City')");
