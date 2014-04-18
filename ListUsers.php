@@ -313,7 +313,7 @@ if(isset($_POST['Demote']))
 					{
 							echo "<body bgcolor='silver'>";
 							echo "
-							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='left' cellpadding='2' >
+							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='2' >
 								<tr>
                                 <th>Email</th>
 								<th>Name</th>
@@ -328,10 +328,10 @@ if(isset($_POST['Demote']))
                                                     $row['First_Name']." ".$row['Last_Name']."</td><td>".
 													$row['Role']."</td>";
                                     echo "<form action='ListUsers.php' method='post'>
-                                            <td><input type='BUTTON' name='View' value='View'/>
+                                            <td><input type='SUBMIT' name='View' value='View'/>
 //											<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
                                     
-                                            <td><input type='BUTTON' name='Admin Options' value='Admin Options'/>
+                                            <td><input type='SUBMIT' name='Admin Options' value='Admin Options'/>
 										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'</td></td></form>";
 									//echo "<form action='ListUsers.php' method='post'>
 									//	 <td><input type='SUBMIT' name='Delete' value='Delete'/>
