@@ -146,7 +146,7 @@ if (isset($_POST['save']))
 		else
 		{
 			//after successful registration, display "thank you" message
-			print "<h2>Thank you for regestering</h2>";
+			print "<h2>Thank you for registering</h2>";
 			echo "<script type='text/javascript'>
 				 alert('Profile Edit Saved!');".
 				 "window.location = 'ViewProfile.php';</script>";//redirect back to ViewProfile.php   
