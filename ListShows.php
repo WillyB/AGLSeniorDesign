@@ -116,6 +116,7 @@ if(isset($_POST['Cast']))
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ListShows.psd) -->
+<form name="form" method="post" action="ListShows.php">
 <table width="1400" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="5">
@@ -125,13 +126,13 @@ if(isset($_POST['Cast']))
 		<td colspan="3" rowspan="3">
 			<img src="Assets/ListShows_02.gif" width="1211" height="150" alt=""></td>
 		<td>
-			<input type="image" name="home" value="home" src="Assets/ListShows_03.gif"></td>
+			<input type="image" name="home" value="home" src="Assets/ListShows_03.gif" id="home"></td>
 		<td rowspan="3">
 			<img src="Assets/ListShows_04.gif" width="83" height="150" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<input type="image" name="logout" value="logout" src="Assets/ListShows_05.gif"></td>
+			<input type="image" name="logout" value="logout" src="Assets/ListShows_05.gif" id="logout"></td>
 	</tr>
 	<tr>
 		<td>
@@ -159,8 +160,7 @@ if(isset($_POST['Cast']))
 				if($num_rows > 0)
 				{	
 					echo "<body bgcolor='silver'>";
-					echo "<h2>All Shows:</h2>";
-					echo "<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
+					echo "<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='left' cellpadding='20' >
 					<tr>
 							<th>ID</th>
 							<th>Title</th>
@@ -233,6 +233,7 @@ if(isset($_POST['Cast']))
 			<img src="Assets/spacer.gif" width="83" height="1" alt=""></td>
 	</tr>
 </table>
+</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>

@@ -116,156 +116,411 @@ if (isset($_POST['Submit']))
     }
 }
 ?>
-
-
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<!-- Save for Web Slices (CreateProfile_Layout.psd) -->
-<table width="1400" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
+<!-- Save for Web Slices (CreateProfile_Layout2.psd) -->
+<table width="1401" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
-		<td colspan="14">
-			<img src="Assets/EditProfile_01.gif" width="1400" height="208" alt=""></td>
+		<td colspan="19">
+			<img src="Assets/EditProfile_01.gif" width="1400" height="70" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="70" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="6" rowspan="4">
-			<img src="Assets/EditProfile_02.gif" width="484" height="114" alt=""></td>
-		<td width="453" height="42" colspan="7" background="EditProfile_03.gif"><label for="name"></label>
-      .
-      <input type="text" name="name" id="name" style="color: #FFFFFF;border:none;background-color:transparent;" size="65"></td>
-		<td rowspan="18">
-			<img src="Assets/EditProfile_04.gif" width="463" height="759" alt=""></td>
+		<td colspan="16" rowspan="3">
+			<img src="Assets/EditProfile_02.gif" width="1211" height="138" alt=""></td>
+		<td><input type="image" name="home" id="home" src="Assets/EditProfile_03.gif"></td>
+		<td colspan="2" rowspan="3">
+			<img src="Assets/EditProfile_04.gif" width="83" height="138" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="7">
-			<img src="Assets/EditProfile_05.gif" width="453" height="16" alt=""></td>
+		<td><input type="image" name="logout" id="logout" src="Assets/EditProfile_05.gif"></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-		<td width="453" height="42" colspan="7" background="EditProfile_06.gif">.
-		  <label for="streetaddress"></label>
-	    <input type="text" name="streetaddress" id="streetaddress" style="color: #FFFFFF;border:none;background-color:transparent;" size="65"></td>
+		<td>
+			<img src="Assets/EditProfile_06.gif" width="106" height="70" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="70" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="7">
-			<img src="Assets/EditProfile_07.gif" width="453" height="14" alt=""></td>
+		<td colspan="4" rowspan="4">
+			<img src="Assets/EditProfile_07.gif" width="484" height="114" alt=""></td>
+		<td width="203" height="42" colspan="4" background="Assets/EditProfile_08.gif">&nbsp;
+        <label for="firstname"></label>
+	   <input type="text" name="firstname" id="firstname" style="color: #FFFFFF;border:none;background-color:transparent;" size="26">
+        </td>
+		<td width="250" height="42" colspan="6" background="Assets/EditProfile_09.gif">&nbsp;
+        <label for="lastname"></label>
+	      <input type="text" name="lastname" id="lastname" style="color: #FFFFFF;border:none;background-color:transparent;" size="30">
+        </td>
+		<td colspan="5" rowspan="5">
+			<img src="Assets/EditProfile_10.gif" width="463" height="116" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="4" rowspan="10">
-			<img src="Assets/EditProfile_08.gif" width="352" height="313" alt=""></td>
-		<td width="142" height="42" colspan="3" background="EditProfile_09.gif"><label for="city"></label>
-	    .
-	    <input type="text" name="city" id="city" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
-		<td rowspan="2">
-			<img src="Assets/EditProfile_10.gif" width="75" height="56" alt=""></td>
-		<td width="145" height="42" colspan="2" background="EditProfile_11.gif">.
-		  <label for="state"></label>
-	    <input type="text" name="state" id="state" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
-		<td colspan="2" rowspan="2">
-			<img src="Assets/EditProfile_12.gif" width="77" height="56" alt=""></td>
-		<td width="146" height="42" background="EditProfile_13.gif">.
-		  <label for="zip"></label>
-	    <input type="text" name="zip" id="zip" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
+		<td colspan="10">
+			<img src="Assets/EditProfile_11.gif" width="453" height="16" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="16" alt=""></td>
+	</tr>
+	<tr>
+		<td width="453" height="42" colspan="10" background="Assets/EditProfile_12.gif">&nbsp;
+        <label for="streetaddress"></label>
+	    <input type="text" name="streetaddress" id="streetaddress" style="color: #FFFFFF;border:none;background-color:transparent;" size="65">
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="10">
+			<img src="Assets/EditProfile_13.gif" width="453" height="14" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="14" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="16">
+			<img src="Assets/EditProfile_14.gif" width="352" height="303" alt=""></td>
+		<td width="142" height="42" colspan="3" rowspan="2" background="Assets/EditProfile_15.gif">&nbsp;
+        <label for="city"></label>
+	    <input type="text" name="city" id="city" size="15" style="color: #FFFFFF;border:none;background-color:transparent;">
+        </td>
+		<td rowspan="5">
+			<img src="Assets/EditProfile_16.gif" width="75" height="57" alt=""></td>
+		<td width="145" height="42" colspan="3" rowspan="2" background="Assets/EditProfile_17.gif">&nbsp;
+        <label for="state"></label>
+		  <select name="state" id="state">
+		    <option value="" selected> </option>
+		    <option value="AL">AL</option>
+		    <option value="AK">AK</option>
+		    <option value="AZ">AZ</option>
+		    <option value="AR">AR</option>
+		    <option value="CA">CA</option>
+		    <option value="CO">CO</option>
+		    <option value="CT">CT</option>
+		    <option value="DE">DE</option>
+		    <option value="DC">DC</option>
+		    <option value="FL">FL</option>
+		    <option value="GA">GA</option>
+		    <option value="HI">HI</option>
+		    <option value="ID">ID</option>
+		    <option value="IL">IL</option>
+		    <option value="IN">IN</option>
+		    <option value="IA">IA</option>
+		    <option value="KS">KS</option>
+		    <option value="KY">KY</option>
+		    <option value="LA">LA</option>
+		    <option value="ME">ME</option>
+		    <option value="MD">MD</option>
+		    <option value="MA">MA</option>
+		    <option value="MI">MI</option>
+		    <option value="MN">MN</option>
+		    <option value="MS">MS</option>
+		    <option value="MO">MO</option>
+		    <option value="MT">MT</option>
+		    <option value="NE">NE</option>
+		    <option value="NV">NV</option>
+		    <option value="NH">NH</option>
+		    <option value="NJ">NJ</option>
+		    <option value="NM">NM</option>
+		    <option value="NY">NY</option>
+		    <option value="NC">NC</option>
+		    <option value="ND">ND</option>
+		    <option value="OH">OH</option>
+		    <option value="OK">OK</option>
+		    <option value="OR">OR</option>
+		    <option value="PA">PA</option>
+		    <option value="RI">RI</option>
+		    <option value="SC">SC</option>
+		    <option value="SD">SD</option>
+		    <option value="TN">TN</option>
+		    <option value="TX">TX</option>
+		    <option value="UT">UT</option>
+		    <option value="VT">VT</option>
+		    <option value="VA">VA</option>
+		    <option value="WA">WA</option>
+		    <option value="WV">WV</option>
+		    <option value="WI">WI</option>
+		    <option value="WY">WY</option>
+        </select>
+        </td>
+		<td colspan="2" rowspan="5">
+			<img src="Assets/EditProfile_18.gif" width="77" height="57" alt=""></td>
+		<td width="146" height="42" colspan="3" rowspan="2" background="Assets/EditProfile_19.gif">&nbsp;
+        <label for="zip"></label>
+	    <input type="text" name="zip" id="zip" size="15" style="color: #FFFFFF;border:none;background-color:transparent;">
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="2" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="19">
+			<img src="Assets/EditProfile_20.gif" width="142" height="643" alt=""></td>
+		<td width="249" height="42" colspan="3" rowspan="2" background="Assets/EditProfile_21.gif">&nbsp;
+        <label for="email"></label>
+	   <input type="text" name="email" id="email" style="color: #FFFFFF;border:none;background-color:transparent;" size="30">
+        </td>
+		<td rowspan="19">
+			<img src="Assets/EditProfile_22.gif" width="72" height="643" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="40" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="3">
+			<img src="Assets/EditProfile_23.gif" width="142" height="15" alt=""></td>
+		<td colspan="3" rowspan="3">
+			<img src="Assets/EditProfile_24.gif" width="145" height="15" alt=""></td>
+		<td colspan="3" rowspan="3">
+			<img src="Assets/EditProfile_25.gif" width="146" height="15" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="2" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="3">
-			<img src="Assets/EditProfile_14.gif" width="142" height="14" alt=""></td>
-		<td colspan="2">
-			<img src="Assets/EditProfile_15.gif" width="145" height="14" alt=""></td>
+			<img src="Assets/EditProfile_26.gif" width="249" height="10" alt=""></td>
 		<td>
-			<img src="Assets/EditProfile_16.gif" width="146" height="14" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="10" alt=""></td>
+	</tr>
+	<tr>
+		<td width="249" height="40" colspan="3" rowspan="2" background="Assets/EditProfile_27.gif">&nbsp;
+         <label for="password"></label>
+	   <input type="password" name="password" id="password" style="color: #FFFFFF;border:none;background-color:transparent;" size="30">
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="3" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="2" rowspan="4">
-			<img src="Assets/EditProfile_17.gif" width="132" height="107" alt=""></td>
-		<td width="453" height="42" colspan="7" background="EditProfile_18.gif">.
-		  <label for="email"></label>
-	    <input type="text" name="email" id="email" size="65" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
+			<img src="Assets/EditProfile_28.gif" width="132" height="53" alt=""></td>
+		<td width="453" height="42" colspan="10" rowspan="2" background="Assets/EditProfile_29.gif">&nbsp;
+        <label for="phone"></label>
+	    <input type="text" name="phone" id="phone" size="65" style="color: #FFFFFF;border:none;background-color:transparent;">
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="7">
-			<img src="Assets/EditProfile_19.gif" width="453" height="12" alt=""></td>
+		<td colspan="3" rowspan="2">
+			<img src="Assets/EditProfile_30.gif" width="249" height="12" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="5" alt=""></td>
 	</tr>
 	<tr>
-		<td width="453" height="42" colspan="7" background="EditProfile_20.gif">.
-		  <label for="phone"></label>
-	    <input type="text" name="phone" id="phone" size="65" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
+		<td colspan="10" rowspan="2">
+			<img src="Assets/EditProfile_31.gif" width="453" height="11" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="7" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="7">
-			<img src="Assets/EditProfile_21.gif" width="453" height="11" alt=""></td>
+		<td width="249" height="39" colspan="3" rowspan="2" background="Assets/EditProfile_32.gif">&nbsp;
+         <label for="confirmpassword"></label>
+	   <input type="password" name="confirmpassword" id="confirmpassword" style="color: #FFFFFF;border:none;background-color:transparent;" size="30">
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="4" alt=""></td>
 	</tr>
 	<tr>
-		<td width="142" height="42" colspan="3" background="EditProfile_22.gif">.
-		  <label for="height"></label>
-	    <input type="text" name="height" id="height" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
-		<td rowspan="2">
-			<img src="Assets/EditProfile_23.gif" width="75" height="56" alt=""></td>
-		<td width="145" height="42" colspan="2" background="EditProfile_24.gif"><label for="weight"></label>
-	    .
-	    <input type="text" name="weight" id="weight" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
-		<td colspan="2" rowspan="2">
-			<img src="Assets/EditProfile_25.gif" width="77" height="56" alt=""></td>
-		<td width="146" height="42" background="EditProfile_26.gif">.
-		  <label for="age"></label>
-	    <input type="text" name="age" id="age" size="15" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
+		<td width="142" height="42" colspan="3" rowspan="2" background="Assets/EditProfile_33.gif">&nbsp;
+        <label for="height"></label>
+        <select name="height" id="height">
+          <option value="" selected> </option>
+          <option value="4.00">4'0&quot;</option>
+          <option value="4.01">4'1&quot;</option>
+          <option value="4.02">4'2&quot;</option>
+          <option value="4.03">4'3&quot;</option>
+          <option value="4.04">4'4&quot;</option>
+          <option value="4.05">4'5&quot;</option>
+          <option value="4.06">4'6&quot;</option>
+          <option value="4.07">4'7&quot;</option>
+          <option value="4.08">4'8&quot;</option>
+          <option value="4.09">4'9&quot;</option>
+          <option value="4.10">4'10&quot;</option>
+          <option value="4.11">4'11&quot;</option>
+          <option value="5.00">5'0&quot;</option>
+          <option value="5.01">5'1&quot;</option>
+          <option value="5.02">5'2&quot;</option>
+          <option value="5.03">5'3&quot;</option>
+          <option value="5.04">5'4&quot;</option>
+          <option value="5.05">5'5&quot;</option>
+          <option value="5.06">5'6&quot;</option>
+          <option value="5.07">5'7&quot;</option>
+          <option value="5.08">5'8&quot;</option>
+          <option value="5.09">5'9&quot;</option>
+          <option value="5.10">5'10&quot;</option>
+          <option value="5.11">5'11&quot;</option>
+          <option value="6.00">6'0&quot;</option>
+          <option value="6.01">6'1&quot;</option>
+          <option value="6.02">6'2&quot;</option>
+          <option value="6.03">6'3&quot;</option>
+          <option value="6.04">6'4&quot;</option>
+          <option value="6.05">6'5&quot;</option>
+          <option value="6.06">6'6&quot;</option>
+          <option value="6.07">6'7&quot;</option>
+          <option value="6.08">6'8&quot;</option>
+          <option value="6.09">6'9&quot;</option>
+          <option value="6.10">6'10&quot;</option>
+          <option value="6.11">6'11&quot;</option>
+          <option value="7.00">7'0&quot;</option>
+        </select>
+        </td>
+		<td rowspan="5">
+			<img src="Assets/EditProfile_34.gif" width="75" height="110" alt=""></td>
+		<td width="145" height="42" colspan="3" rowspan="2" background="Assets/EditProfile_35.gif">&nbsp;
+        <label for="weight"></label>
+	    <input type="text" name="weight" id="weight" size="15" style="color: #FFFFFF;border:none;background-color:transparent;">
+        </td>
+		<td colspan="2" rowspan="5">
+			<img src="Assets/EditProfile_36.gif" width="77" height="110" alt=""></td>
+		<td width="146" height="42" colspan="3" rowspan="2" background="Assets/EditProfile_37.gif">&nbsp;
+        <label for="age"></label>
+	    <input type="text" name="age" id="age" size="15" style="color: #FFFFFF;border:none;background-color:transparent;">
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="10">
+			<img src="Assets/EditProfile_38.gif" width="249" height="500" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="7" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="3">
-			<img src="Assets/EditProfile_27.gif" width="142" height="14" alt=""></td>
-		<td colspan="2">
-			<img src="Assets/EditProfile_28.gif" width="145" height="14" alt=""></td>
+			<img src="Assets/EditProfile_39.gif" width="142" height="11" alt=""></td>
+		<td colspan="3">
+			<img src="Assets/EditProfile_40.gif" width="145" height="11" alt=""></td>
+		<td colspan="3">
+			<img src="Assets/EditProfile_41.gif" width="146" height="11" alt=""></td>
 		<td>
-			<img src="Assets/EditProfile_29.gif" width="146" height="14" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="11" alt=""></td>
+	</tr>
+	<tr>
+		<td width="142" height="43" colspan="3" background="Assets/EditProfile_42.gif">&nbsp;
+        <label for="haircolor"></label>
+        <select name="haircolor" id="haircolor">
+          <option value="" selected> </option>
+          <option value="blonde">Blonde</option>
+          <option value="brown">Brown</option>
+          <option value="red">Red</option>
+          <option value="black">Black</option>
+          <option value="gray">Gray</option>
+          <option value="other">Other</option>
+        </select>
+        </td>
+		<td width="145" height="43" colspan="3" background="Assets/EditProfile_43.gif">&nbsp;
+        <label for="hairstyle"></label>
+        <select name="hairstyle" id="hairstyle">
+          <option value="" selected> </option>
+          <option value="long">Long</option>
+          <option value="short">Short</option>
+          <option value="buzz">Buzz</option>
+          <option value="blad">Bald</option>
+          <option value="other">Other</option>
+        </select>
+        </td>
+		<td width="146" height="43" colspan="3" background="Assets/EditProfile_44.gif">&nbsp;
+        <label for="eyecolor"></label>
+		  <select name="eyecolor" id="eyecolor">
+		    <option value="" selected> </option>
+		    <option value="blue">Blue</option>
+		    <option value="brown">Brown</option>
+		    <option value="green">Green</option>
+		    <option value="gray">Gray</option>
+		    <option value="other">Other</option>
+        </select>
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<img src="Assets/EditProfile_45.gif" width="142" height="14" alt=""></td>
+		<td colspan="3">
+			<img src="Assets/EditProfile_46.gif" width="145" height="14" alt=""></td>
+		<td colspan="3">
+			<img src="Assets/EditProfile_47.gif" width="146" height="14" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="14" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="2">
-			<img src="Assets/EditProfile_30.gif" width="38" height="94" alt=""></td>
-		<td width="218" height="42" colspan="4" background="EditProfile_31.gif">.
-		  <label for="hair"></label>
-	    <input type="text" name="hair" id="hair" size="25" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
-		<td colspan="2" rowspan="2">
-			<img src="Assets/EditProfile_32.gif" width="115" height="94" alt=""></td>
-		<td width="214" height="42" colspan="2" background="EditProfile_33.gif">.
-		  <label for="eyecolor"></label>
-	    <input type="text" name="eyecolor" id="eyecolor" size="25" style="color: #FFFFFF;border:none;background-color:transparent;"></td>
+			<img src="Assets/EditProfile_48.gif" width="38" height="83" alt=""></td>
+		<td width="228" height="43" colspan="4" background="Assets/EditProfile_49.gif">&nbsp;
+        <label for="ethnicity"></label>
+		  <select name="ethnicity" id="ethnicity">
+		    <option value="" selected> </option>
+		    <option value="hispanic">Hispanic/Latino</option>
+		    <option value="african american">African American</option>
+		    <option value="asian">Asian</option>
+		    <option value="oceania">Native Hawaiian/Pacific Islander</option>
+		    <option value="american indian">American Indian</option>
+		    <option value="alaskan native">Alaskan Native</option>
+		    <option value="caucasian">Caucasian</option>
+		    <option value="middle eastern">Middle Eastern</option>
+		    <option value="other">Other</option>
+        </select>
+        </td>
+		<td colspan="3" rowspan="2">
+			<img src="Assets/EditProfile_50.gif" width="105" height="83" alt=""></td>
+		<td width="214" height="43" colspan="4" background="Assets/EditProfile_51.gif">&nbsp;
+        <label for="gender"></label>
+		  <select name="gender" id="gender">
+		    <option value="" selected> </option>
+		    <option value="male">Male</option>
+		    <option value="female">Female</option>
+        </select>
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="4">
-			<img src="Assets/EditProfile_34.gif" width="218" height="52" alt=""></td>
-		<td colspan="2">
-			<img src="Assets/EditProfile_35.gif" width="214" height="52" alt=""></td>
+			<img src="Assets/EditProfile_52.gif" width="228" height="40" alt=""></td>
+		<td colspan="4">
+			<img src="Assets/EditProfile_53.gif" width="214" height="40" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="40" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="4">
-			<img src="Assets/EditProfile_36.gif" width="286" height="332" alt=""></td>
-		<td width="651" height="173" colspan="12" background="EditProfile_37.gif"><label for="previousexperience"></label>
-	    .
-	    <textarea name="previousexperience" id="previousexperience" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea></td>
+			<img src="Assets/EditProfile_54.gif" width="286" height="342" alt=""></td>
+		<td width="651" height="174" colspan="13" background="Assets/EditProfile_55.gif">&nbsp;
+        <label for="previousexperience"></label>
+	    <textarea name="previousexperience" id="previousexperience" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea>
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="174" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="12">
-			<img src="Assets/EditProfile_38.gif" width="651" height="15" alt=""></td>
+		<td colspan="13">
+			<img src="Assets/EditProfile_56.gif" width="651" height="15" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="15" alt=""></td>
 	</tr>
 	<tr>
+		<td colspan="11" rowspan="2">
+			<img src="Assets/EditProfile_57.gif" width="577" height="153" alt=""></td>
+		<td><input type="image" name="save" id="save" src="Assets/EditProfile_58.gif"></td>
 		<td rowspan="2">
-			<img src="Assets/EditProfile_39.gif" width="16" height="144" alt=""></td>
-		<td width="30" height="28" background="EditProfile_40.gif"><input type="checkbox" name="notifications" id="notifications">
-	    <label for="notifications"></label></td>
-		<td colspan="10" rowspan="2">
-			<img src="Assets/EditProfile_41.gif" width="605" height="144" alt=""></td>
+			<img src="Assets/EditProfile_59.gif" width="6" height="153" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="41" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="Assets/EditProfile_42.gif" width="30" height="116" alt=""></td>
+			<img src="Assets/EditProfile_60.gif" width="68" height="112" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="112" alt=""></td>
 	</tr>
 	<tr>
 		<td>
 			<img src="Assets/spacer.gif" width="286" height="1" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="16" height="1" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="30" height="1" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="20" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="66" height="1" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="38" height="1" alt=""></td>
 		<td>
@@ -275,17 +530,32 @@ if (isset($_POST['Submit']))
 		<td>
 			<img src="Assets/spacer.gif" width="75" height="1" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="39" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="49" height="1" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="106" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="69" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="27" height="1" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="9" height="1" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="68" height="1" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="146" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="72" height="1" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="463" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="68" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="6" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="142" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="132" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="106" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="11" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="72" height="1" alt=""></td>
+		<td></td>
 	</tr>
 </table>
 <!-- End Save for Web Slices -->

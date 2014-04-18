@@ -232,6 +232,7 @@ if(isset($_POST['Demote']))
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ListUsers.psd) -->
+<form name="form" method="post" action="ListUsers.php">
 <table width="1401" height="967" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="5">
@@ -243,7 +244,7 @@ if(isset($_POST['Demote']))
 		<td colspan="3" rowspan="3">
 			<img src="Assets/ListUsers_02.gif" width="1211" height="185" alt=""></td>
 		<td>
-			<input type="image" name="home" value="home" src="Assets/ListUsers_03.gif"></td>
+			<input type="image" name="home" value="home" src="Assets/ListUsers_03.gif" id="home"></td>
 		<td rowspan="5">
 			<img src="Assets/ListUsers_04.gif" width="83" height="897" alt=""></td>
 		<td>
@@ -251,7 +252,7 @@ if(isset($_POST['Demote']))
 	</tr>
 	<tr>
 		<td>
-			<input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif"></td>
+			<input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif" id="logout"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
 	</tr>
@@ -288,9 +289,8 @@ if(isset($_POST['Demote']))
 					if($num_rows > 0)
 					{
 							echo "<body bgcolor='silver'>";
-							echo "<h2 style='color: #ffffff;'>All Users:</h2>";
 							echo "
-							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
+							<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='left' cellpadding='20' >
 								<tr>
 								<th>first name</th>
 								<th>last name</th>
@@ -354,6 +354,7 @@ if(isset($_POST['Demote']))
 			<img src="Assets/spacer.gif" width="1" height="148" alt=""></td>
 	</tr>
 </table>
+</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>
