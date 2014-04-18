@@ -444,22 +444,14 @@ if (isset($_POST['Search']))
 				echo "
 				<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='center' cellpadding='20' >
 					<tr>
-					<th>first name</th>
-					<th>last name</th>
-					<th>email</th>
-					<th>phone</th>
-					<th>height</th>
-					<th>weight</th>
-					<th>age</th>
+                    <th>Email</th>
+					<th>Name</th>
+					<th>Age</th>
 					</tr>";
 					while($row = mysql_fetch_array($final))
 					{
-						echo "<tr><td>".$row['First_Name']."</td><td>".
-										$row['Last_Name']."</td><td>".
-										$row['Contact_Email']."</td><td>".
-										$row['Contact_Phone']."</td><td>".
-										$row['Height']."</td><td>".
-										$row['Weight']."</td><td>".
+						echo "<tr><td>".$row['Contact_Email']."</td><td>".
+                                        $row['First_Name']." ".$row['Last_Name']."</td><td>".
 										$row['Age']."</td></tr>";
 					}
 				echo "</table>";
