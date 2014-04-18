@@ -1,5 +1,4 @@
 <?php
-echo "<h1>v5</h1>";
 $allowedExts = array("gif", "jpeg", "jpg", "png");
 $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
@@ -32,14 +31,15 @@ if ((($_FILES["file"]["type"] == "image/gif")
 			$tmpFile = $_FILES["file"]["tmp_name"];
 			list($width, $height) = getimagesize($tmpFile);
 
-			if ($width >= 400 && $height >= 400) {
+			if ($width >= 100 && $height >= 100) {
 				echo "<h1>bigger than 400x400</h1>";
 				$image = new Imagick($tmpFile);
-				$image->thumbnailImage(400, 400);
+				$image->thumbnailImage(100, 100);
 				$image->writeImage($fileName);
 			}
 			move_uploaded_file($tmpFile, "upload/" . $_FILES["file"]["name"]);
 			echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+			echo "<img src=\"$image" title=\"img\" alt=\"img\" />";  
 		}
 	}
 }
