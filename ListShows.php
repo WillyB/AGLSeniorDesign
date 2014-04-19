@@ -179,13 +179,9 @@ if(isset($_POST['Cast']))
 					echo "<body bgcolor='silver'>";
 					echo "<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='left' cellpadding='20' >
 					<tr>
-							<th>ID</th>
-							<th>Title</th>
-							<th>Rehearsal start</th>
-							<th>Rehearsal End</th>			
+							<th>Title</th>			
 							<th>Director</th>
 							<th>Playwright</th>
-							<th>Notes</th>
 							<th>Delete Show</th>
 							<th>Edit Show</th>
 							<th>Cast Show</th></tr>";
@@ -193,13 +189,9 @@ if(isset($_POST['Cast']))
 					while($row = mysql_fetch_array($result))
 					{
 						$value = $row['idShows'];
-						echo "<tr><td>".$row['idShows']."</td><td>".
-										$row['Show_Name']."</td><td>".
-										$row['Rehearsal_Start']."</td><td>".
-										$row['Rehearsal_End']."</td><td>".
+						echo "<tr><td>".$row['Show_Name']."</td><td>".
 										$row['Director']."</td><td>".
-										$row['Playwright']."</td><td>".
-										$row['Audition_Notes']."</td>";
+										$row['Playwright']."</td><td>";
 						echo "<form action='ListShows.php' method='post'>
 								 <td><input type='SUBMIT' name='Delete' value='Delete'/>
 								 <input type='HIDDEN' name='ShowID1' value='" .$value. "'/></td>
