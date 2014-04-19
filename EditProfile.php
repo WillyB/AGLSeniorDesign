@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile 11:05</title>
+<title>AGL: Edit Profile</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -526,11 +526,23 @@
 		<td colspan="3" rowspan="2">
 			<img src="Assets/EditProfile_45.gif" width="105" height="83" alt=""></td>
 		<td width="214" height="43" colspan="4" background="Assets/EditProfile_46.gif">&nbsp;
-        <select name="gender" id="gender">
+        <!--<select name="gender" id="gender">
 		    <option value="" selected> </option>
 		    <option value="male">Male</option>
 		    <option value="female">Female</option>
-        </select>
+        </select>-->
+        <?php
+			$genders = array('male' => 'Male', 'female' => 'Female');
+			$gender = $Gender;
+			echo '<select class="select" name="gender">';
+			foreach ($genders as $genderKey => $genderName) {
+				$line = '<option value="' . $genderKey . '"';
+				$line .= ($gender == $genderKey) ? ' selected="selected">' : '>';
+				$line .= $genderName . '</option>';
+				echo $line . "\n"; 
+			}
+			echo '</select>';
+		?>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
