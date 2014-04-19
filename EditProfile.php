@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile 10:07</title>
+<title>AGL: Edit Profile 10:08</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -168,7 +168,7 @@
 				$result = mysql_query($SQL);
 				
 				echo "<script type='text/javascript'>
-					 alert('Your profile has been updated.');".
+					 alert('Your profile has been updated - $Street_Address.');".
 					 "window.location = 'EditProfile.php';</script>";//redirect back to EditProfile.php   
 				exit;
 			}
