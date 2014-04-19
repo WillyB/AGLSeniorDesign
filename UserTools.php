@@ -18,6 +18,7 @@
 
 	if (isset($_POST['viewprofile'])) 
 	{
+	   setcookie('target_email',$email); //So View Profile knows who we are
 		echo "<script type='text/javascript'>
 	          window.location = 'ViewProfile.php';</script>";
 		exit;	

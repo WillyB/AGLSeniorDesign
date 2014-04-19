@@ -51,7 +51,7 @@ if (isset($_POST['logout']))
 if(isset($_POST['View']))
 {
     $who = $_POST['UserEmail0'];
-	setCookie('who', $who);//set cookie to pass use on the next page
+	setCookie('target_email', $who);//set cookie to pass use on the next page
 	echo  "<script type='text/javascript'>
 			window.location = 'ViewProfile.php';</script>";
 	exit;
