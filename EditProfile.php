@@ -11,7 +11,7 @@
     if(isset($_COOKIE['target_email'])&& ($_COOKIE['target_email'] != ''))
     {
         $lookupEmail = $_COOKIE['target_email'];
-        setcookie('target_email','',time() - 3600); //After we grab the target email, clear it. Note this means if they refresh the page they will be directed to their own profile
+        //setcookie('target_email','',time() - 3600); //After we grab the target email, clear it. Note this means if they refresh the page they will be directed to their own profile
     }
     else
     {
@@ -201,6 +201,7 @@
 	
 	if (isset($_POST['uploadheadshot'])) 
 	{
+	   setcookie('target_email',$lookupEmail);
 		echo "<script type='text/javascript'>
 			  window.location = 'browsepicture.php';</script>";
 	}

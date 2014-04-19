@@ -4,6 +4,15 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
+if(isset($_COOKIE['target_email'])&& ($_COOKIE['target_email'] != ''))
+    {
+        $lookupEmail = $_COOKIE['target_email'];
+    }
+    else
+    {
+        $lookupEmail = $_COOKIE['email'];
+    }
+
 //No unauthorized access
 if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
 {
@@ -68,11 +77,12 @@ if ($db_found) {
 				//echo "Stored in: " . $fileName;
 				//echo "<img src=/" . $fileName . " alt=''>";
 				
-				$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'"; 
+				$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$lookupEmail'"; 
 				$result = mysql_query($SQL);
 				if (!$result)
 					echo "<h1>Failed to store changes to database.</h1>";
-				echo "<script type='text/javascript'>
+				setcookie('target_email',$lookupEmail);
+                echo "<script type='text/javascript'>
 				window.location = 'EditProfile.php';</script>";//redirect back to Edit Profile page    
 	exit;
 			}
