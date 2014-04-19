@@ -9,7 +9,7 @@
     
     
     //If we're coming from the ListUser page, it sets a target, otherwise, use the current user to login
-    if(isset($_COOKIE['target_email']) && ($_COOKIE['target_email'] != ''))
+    if(isset($_COOKIE['target_email']))
     {
         $lookupEmail = $_COOKIE['target_email'];
         unset($_COOKIE['target_email']);            //After we grab the target email, clear it. Note this means if they refresh the page they will be directed to their own profile
@@ -78,7 +78,7 @@
 	
 	if ($db_found) 
 	{
-		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$lookupEmail' AND password = '$password'";	
+		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$lookupEmail'";	
 		$result = mysql_query($SQL);
 		$num_rows = mysql_num_rows($result);
 		$db_field = mysql_fetch_array($result);
@@ -103,11 +103,19 @@
 			$Previous_Work = $db_field['Previous_Work'];//need to fix
 		}
 		else
-		{
-			echo "<script type='text/javascript'>
-				 alert('There was an error retreiving your information.');".
-				 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
-			exit;//exit, so that the following code is not executed
+		{ 
+            //First check to see which "Home" the user is going to
+ 	      if($role == 0 || $role == 1){
+                echo "<script type='text/javascript'>
+                    alert('There was an error retreiving your information.');".
+                    "window.location = 'AdminTools.php';</script>";
+		       exit;
+            }
+		  else if($role == 2){
+                echo "<script type='text/javascript'>
+                        alert('There was an error retreiving your information.');".
+			         "window.location = 'UserTools.php';</script>";
+                exit;
 		}
 	}
 	mysql_close($db_handle);
