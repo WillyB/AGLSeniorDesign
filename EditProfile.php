@@ -168,7 +168,7 @@
 		
 			//$admin = 0;//person who is registering on the website, ALWAYS A USER
 					 //registration of admin is internal to the AGL
-			$SQL = "SELECT * FROM Personnel WHERE Contact_Email ='$lookupEmail' AND password = '$password'";
+			$SQL = "SELECT * FROM Personnel WHERE Contact_Email ='$lookupEmail'";
 			$result = mysql_query($SQL);
 			$num_rows = mysql_num_rows($result);
 			if($num_rows > 0)
