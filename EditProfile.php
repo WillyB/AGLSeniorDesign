@@ -157,7 +157,7 @@
 		
 			$admin = 0;//person who is registering on the website, ALWAYS A USER
 					 //registration of admin is internal to the AGL
-
+			echo $Age;
 			//Update the info in the database
 			$SQL = ("UPDATE Personnel SET Street_Address = $Street_Address,
 											City = $City,
