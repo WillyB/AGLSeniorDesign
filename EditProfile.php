@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile</title>
+<title>AGL: Edit Profile 10:14</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -124,9 +124,9 @@
 			$Gender = $_POST['gender'];
 			$Previous_Work = $_POST['previousexperience'];
 		
-		/*if($Contact_Phone = "" || $First_Name = "" || $Last_Name = "" || $Ethnicity = "" || $Gender = "" ||
-		   $Height = "" || $Weight = "" || $Hair_Color = "" || $Eye_Color = "" || $Hair_Style = "" ||
-		   $Age = "" || $Street_Address = "" || $State = "" || $Zip_Code = "" || $City = "")
+		/*if($Contact_Phone == "" || $First_Name == "" || $Last_Name == "" || $Ethnicity == "" || $Gender == "" ||
+		   $Height == "" || $Weight == "" || $Hair_Color == "" || $Eye_Color == "" || $Hair_Style == "" ||
+		   $Age == "" || $Street_Address == "" || $State == "" || $Zip_Code == "" || $City == "")
 		{
 			echo "<script type='text/javascript'>
 				 alert('Please, make sure you fill out all the fields');".
@@ -138,7 +138,7 @@
 		{
 			//==== USE THE FUNCTION BELOW TO ESCAPE ANY DANGEROUS CHARACTERS
 			//==== YOU NEED TO USE OT FOR ALL VALUES YOU WANT TO CHECK
-			/*$Contact_Phone = mysql_real_escape_string($Contact_Phone, $db_handle);	
+			$Contact_Phone = mysql_real_escape_string($Contact_Phone, $db_handle);	
 			$First_Name = mysql_real_escape_string($First_Name, $db_handle);
 			$Last_Name = mysql_real_escape_string($Last_Name, $db_handle); 
 			$Height = mysql_real_escape_string($Height, $db_handle);	
@@ -153,7 +153,7 @@
 			$Zip_Code = mysql_real_escape_string($Zip_Code, $db_handle);
 			$City = mysql_real_escape_string($City, $db_handle);
 			$Ethnicity = mysql_real_escape_string($Ethnicity, $db_handle);
-			$Gender = mysql_real_escape_string($Gender, $db_handle);*/
+			$Gender = mysql_real_escape_string($Gender, $db_handle);
 		
 			//$admin = 0;//person who is registering on the website, ALWAYS A USER
 					 //registration of admin is internal to the AGL
@@ -164,7 +164,7 @@
 			{
 				//Update the info in the database
 				//$SQL = "UPDATE Personnel SET Street_Address = $Street_Address, City = $City, State = $State, Zip_Code = $Zip_Code, Contact_Phone = $Contact_Phone, Height = $Height,Weight = $Weight, Age = $Age, Hair_Color = $Hair_Color, Hair_Style = $Hair_Style, Eye_Color = $Eye_Color, Ethnicity = $Ethnicity, Gender = $Gender, Previous_Work = $Previous_Work WHERE Contact_Email = '$email'";
-				$SQL = "UPDATE Personnel SET Street_Address = '$Street_Address' WHERE Contact_Email = '$email'";		
+				$SQL = "UPDATE Personnel SET Street_Address = '$Street_Address', City = '$City', State = '$State', Zip_Code = '$Zip_Code', Contact_Phone = '$Contact_Phone', Height = '$Height', Weight = '$Weight', Age = '$Age', Hair_Color = '$Hair_Color', Hair_Style = '$Hair_Style', Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', Gender = '$Gender', Previous_Work = '$Previous_Work' WHERE Contact_Email = '$email'";		
 				$result = mysql_query($SQL);
 				
 				echo "<script type='text/javascript'>
