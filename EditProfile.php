@@ -104,7 +104,7 @@
 		$database = 'actorsgu_data';
 		$server ='localhost:3306';
 		
-		$con = mysql_connect($server, $user_name, $pass_word, $database);
+		//$con = mysql_connect($server, $user_name, $pass_word, $database);
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 		
@@ -159,19 +159,19 @@
 					 //registration of admin is internal to the AGL
 
 			//Update the info in the database
-			$SQL = ("UPDATE Personnel SET Street_Address = '$Street_Address' AND
-											City = '$City' AND
-											State = '$State' AND
-											Zip_Code = '$Zip_Code' AND
-											Contact_Phone = '$Contact_Phone' AND
-											Height = '$Height' AND
-											Weight = '$Weight' AND
-											Age = '$Age' AND
-											Hair_Color = '$Hair_Color' AND
-											Hair_Style = '$Hair_Style' AND
-											Eye_Color = '$Eye_Color' AND
-											Ethnicity = '$Ethnicity' AND
-											Gender = '$Gender' AND
+			$SQL = ("UPDATE Personnel SET Street_Address = '$Street_Address',
+											City = '$City',
+											State = '$State',
+											Zip_Code = '$Zip_Code',
+											Contact_Phone = '$Contact_Phone',
+											Height = '$Height',
+											Weight = '$Weight',
+											Age = '$Age',
+											Hair_Color = '$Hair_Color',
+											Hair_Style = '$Hair_Style',
+											Eye_Color = '$Eye_Color',
+											Ethnicity = '$Ethnicity',
+											Gender = '$Gender',
 											Previous_Work = '$Previous_Work'
 											");	
 			$result = mysql_query($SQL);
