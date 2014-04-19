@@ -63,6 +63,8 @@ if ($db_found) {
 					//	echo "<h1>Did not work</h1>";
 					$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'"; 
 					$result = mysql_query($SQL);
+					if (!$result)
+						echo "<h1>fail</h1>";
 			}
 		}
 	}
