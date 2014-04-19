@@ -1,7 +1,8 @@
-//This is the first file that the user will see when navigating to
-//http://blue.actors-guild.org/LogIn.php. To gain access to the 
-//other web pages, the user must authenticate themself by logging
-//in or registering a new account.
+<!--	This is the first file that the user will see when navigating to
+	http://blue.actors-guild.org/LogIn.php. To gain access to the 
+	other web pages, the user must authenticate themself by logging
+	in or registering a new account.
+-->
 <html>
 <head>
 <title>AGL: Log In</title>
