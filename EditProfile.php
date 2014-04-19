@@ -113,6 +113,22 @@
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 		
+		//Read in the fields
+			$Street_Address = $_POST['streetaddress'];
+			$City = $_POST['city'];
+			$State = $_POST['state'];
+			$Zip_Code = $_POST['zip'];
+			$Contact_Phone = $_POST['phone'];
+			$Height = $_POST['height'];	
+			$Weight = $_POST['weight'];
+			$Age = $_POST['age'];
+			$Hair_Color = $_POST['haircolor'];
+			$Hair_Style = $_POST['hairstyle'];
+			$Eye_Color = $_POST['eyecolor'];
+			$Ethnicity = $_POST['ethnicity'];
+			$Gender = $_POST['gender'];
+			$Previous_Work = $_POST['previousexperience'];
+		
 		if($Contact_Phone = "" || $First_Name = "" || $Last_Name = "" || $Ethnicity = "" || $Gender = "" ||
 		   $Height = "" || $Weight = "" || $Hair_Color = "" || $Eye_Color = "" || $Hair_Style = "" ||
 		   $Age = "" || $Street_Address = "" || $State = "" || $Zip_Code = "" || $City = "")
@@ -146,21 +162,7 @@
 		
 			$admin = 0;//person who is registering on the website, ALWAYS A USER
 					 //registration of admin is internal to the AGL
-			//Read in the fields
-			$Street_Address = $_POST['streetaddress'];
-			$City = $_POST['city'];
-			$State = $_POST['state'];
-			$Zip_Code = $_POST['zip'];
-			$Contact_Phone = $_POST['phone'];
-			$Height = $_POST['height'];	
-			$Weight = $_POST['weight'];
-			$Age = $_POST['age'];
-			$Hair_Color = $_POST['haircolor'];
-			$Hair_Style = $_POST['hairstyle'];
-			$Eye_Color = $_POST['eyecolor'];
-			$Ethnicity = $_POST['ethnicity'];
-			$Gender = $_POST['gender'];
-			$Previous_Work = $_POST['previousexperience'];//need to fix
+
 			//Update the info in the database
 			$SQL = ("UPDATE Personnel SET Street_Address = '$Street_Address' AND
 											City = '$City' AND
@@ -180,20 +182,19 @@
 			$result = mysql_query($SQL);
 			$num_rows = mysql_num_rows($result);
 				
-			if ($num_rows > 0)//if there is no result returned, display error message
+			if ($num_rows > 0)//Successful Update
 			{
 				echo "<script type='text/javascript'>
 					 alert('Your profile as been updated.');".
-					 "window.location = 'ViewProfile.php';</script>";//redirect back to login page    
+					 "window.location = 'ViewProfile.php';</script>";//redirect back to View Profile page    
 				exit;//exit, so that the following code is not executed
 			}
 			else
 			{
-				//after successful registration, display "thank you" message
-				print "<h2>Thank you for regestering</h2>";
+				//Unsuccessful Update
 				echo "<script type='text/javascript'>
 					 alert('There was a problem updating your profile.');".
-					 "window.location = 'EditProfile.php';</script>";//redirect back to ViewProfile.php   
+					 "window.location = 'EditProfile.php';</script>";//redirect back to EditProfile.php   
 				exit;//exit, so that the following code is not executed
 			}
 		mysql_close($db_handle);
