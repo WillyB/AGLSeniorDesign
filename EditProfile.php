@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile 9:57</title>
+<title>AGL: Edit Profile 10:02</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -157,34 +157,19 @@
 		
 			$admin = 0;//person who is registering on the website, ALWAYS A USER
 					 //registration of admin is internal to the AGL
-			echo $Age;
-			//Update the info in the database
-			$SQL = ("UPDATE Personnel SET Street_Address = $Street_Address,
-											City = $City,
-											State = $State,
-											Zip_Code = $Zip_Code,
-											Contact_Phone = $Contact_Phone,
-											Height = $Height,
-											Weight = $Weight,
-											Age = $Age,
-											Hair_Color = $Hair_Color,
-											Hair_Style = $Hair_Style,
-											Eye_Color = $Eye_Color,
-											Ethnicity = $Ethnicity,
-											Gender = $Gender,
-											Previous_Work = $Previous_Work
-											WHERE Contact_Email = '$email'
-											AND password = '$password'
-											");	
+			$SQL = "SELECT * FROM Personnel WHERE Contact_Email ='$email' AND password = '$password'";
 			$result = mysql_query($SQL);
 			$num_rows = mysql_num_rows($result);
-				
-			if ($result)//Successful Update
+			if($num_rows > 0)
 			{
+				//Update the info in the database
+				$SQL = "UPDATE Personnel SET Street_Address = $Street_Address, City = $City, State = $State, Zip_Code = $Zip_Code, Contact_Phone = $Contact_Phone, Height = $Height,Weight = $Weight, Age = $Age, Hair_Color = $Hair_Color, Hair_Style = $Hair_Style, Eye_Color = $Eye_Color, Ethnicity = $Ethnicity, Gender = $Gender, Previous_Work = $Previous_Work WHERE Contact_Email = '$email'";	
+				$result = mysql_query($SQL);
+				
 				echo "<script type='text/javascript'>
-					 alert('Your profile as been updated.');".
-					 "window.location = 'ViewProfile.php';</script>";//redirect back to View Profile page    
-				exit;//exit, so that the following code is not executed
+					 alert('Your profile has been updated.');".
+					 "window.location = 'ViewProfile.php';</script>";//redirect back to EditProfile.php   
+				exit;
 			}
 			else
 			{
