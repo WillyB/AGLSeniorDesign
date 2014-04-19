@@ -182,25 +182,27 @@ if(isset($_POST['Cast']))
 							<th>Title</th>			
 							<th>Director</th>
 							<th>Playwright</th>
-							<th>Delete Show</th>
+							<th>Cast Show</th>
 							<th>Edit Show</th>
-							<th>Cast Show</th></tr>";
+                            <th>Delete Show</th></tr>";
 							
 					while($row = mysql_fetch_array($result))
 					{
 						$value = $row['idShows'];
 						echo "<tr><td>".$row['Show_Name']."</td><td>".
 										$row['Director']."</td><td>".
-										$row['Playwright']."</td><td>";
+										$row['Playwright']."</td>";
 						echo "<form action='ListShows.php' method='post'>
-								 <td><input type='SUBMIT' name='Delete' value='Delete'/>
-								 <input type='HIDDEN' name='ShowID1' value='" .$value. "'/></td>
+                                 <td><input type='SUBMIT' name='Cast' value='Cast Show'/>
+								 <input type='HIDDEN' name='ShowID3' value='" .$value. "'/></td>
+                                 
 								 
 								 <td><input type='SUBMIT' name='Edit' value='Edit'/>
 								 <input type='HIDDEN' name='ShowID2' value='" .$value. "'/></td>
 								 
-								 <td><input type='SUBMIT' name='Cast' value='Cast Show'/>
-								 <input type='HIDDEN' name='ShowID3' value='" .$value. "'/></td></td></form>";	 						
+								 
+								 <td><input type='SUBMIT' name='Delete' value='Delete'/>
+								 <input type='HIDDEN' name='ShowID1' value='" .$value. "'/></td></td></form>";	 						
 					}
 					echo "</table>";
 					echo "<br>"."<br>";
