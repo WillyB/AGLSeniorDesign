@@ -7,17 +7,17 @@
 <!-- Save for Web Slices (ViewShow.psd) -->
 <table width="1401" height="880" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
-		<td colspan="6">
+		<td colspan="7">
 			<img src="Assets/ViewShow_01.gif" width="1400" height="71" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="71" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="4" rowspan="3">
+		<td colspan="5" rowspan="3">
 			<img src="Assets/ViewShow_02.gif" width="1211" height="187" alt=""></td>
 		<td>
 			<input type="image" name="home" value="home" src="Assets/ViewShow_03.gif" id="home"></td>
-		<td rowspan="15">
+		<td rowspan="17">
 			<img src="Assets/ViewShow_04.gif" width="83" height="809" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="33" alt=""></td>
@@ -29,92 +29,106 @@
 			<img src="Assets/spacer.gif" width="1" height="33" alt=""></td>
 	</tr>
 	<tr>
-		<td rowspan="13">
+		<td rowspan="15">
 			<img src="Assets/ViewShow_06.gif" width="106" height="743" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="121" alt=""></td>
 	</tr>
 	<tr>
-		<td rowspan="12">
+		<td rowspan="14">
 			<img src="Assets/ViewShow_07.gif" width="396" height="622" alt=""></td>
-		<td width="676" height="245" colspan="2" background="Assets/ViewShow_08.gif">&nbsp;</td>
-		<td rowspan="12">
+		<td width="676" height="245" colspan="3" background="Assets/ViewShow_08.gif">&nbsp;</td>
+		<td rowspan="14">
 			<img src="Assets/ViewShow_09.gif" width="139" height="622" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="245" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="2">
+		<td colspan="3">
 			<img src="Assets/ViewShow_10.gif" width="676" height="61" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="61" alt=""></td>
 	</tr>
 	<tr>
-		<td rowspan="10">
+		<td rowspan="12">
 			<img src="Assets/ViewShow_11.gif" width="167" height="316" alt=""></td>
-		<td width="509" height="34" background="Assets/ViewShow_12.gif">&nbsp;
+		<td width="509" height="34" colspan="2" background="Assets/ViewShow_12.gif">&nbsp;
         <input name="title" type="text" id="title" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2">
 			<img src="Assets/ViewShow_13.gif" width="509" height="5" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="5" alt=""></td>
 	</tr>
 	<tr>
-		<td width="509" height="34" background="Assets/ViewShow_14.gif">&nbsp;
-        <input name="playwright" type="text" id="playwright" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
+		<td width="509" height="34" colspan="2" background="Assets/ViewShow_14.gif">&nbsp;
+         <input name="playwright" type="text" id="playwright" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2">
 			<img src="Assets/ViewShow_15.gif" width="509" height="5" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="5" alt=""></td>
 	</tr>
 	<tr>
-		<td width="509" height="34" background="Assets/ViewShow_16.gif">&nbsp;
+		<td width="509" height="34" colspan="2" background="Assets/ViewShow_16.gif">&nbsp;
         <input name="director" type="text" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2">
 			<img src="Assets/ViewShow_17.gif" width="509" height="5" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="5" alt=""></td>
 	</tr>
 	<tr>
-		<td width="509" height="34" background="Assets/ViewShow_18.gif">&nbsp;
+		<td width="509" height="34" colspan="2" background="Assets/ViewShow_18.gif">&nbsp;
         <input name="auditiondates" type="text" id="auditiondates" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2">
 			<img src="Assets/ViewShow_19.gif" width="509" height="5" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="5" alt=""></td>
 	</tr>
 	<tr>
-		<td width="509" height="34" background="Assets/ViewShow_20.gif">&nbsp;
+		<td width="509" height="34" colspan="2" background="Assets/ViewShow_20.gif">&nbsp;
         <input name="showdates" type="text" id="showdates" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
+		<td colspan="2">
+			<img src="Assets/ViewShow_21.gif" width="509" height="18" alt=""></td>
 		<td>
-			<img src="Assets/ViewShow_21.gif" width="509" height="126" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="18" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="2">
+			<img src="Assets/ViewShow_22.gif" width="419" height="108" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="126" alt=""></td>
+			<input type="image" name="audition" value="audition" src="Assets/ViewShow_23.gif" id"audition"></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="Assets/ViewShow_24.gif" width="90" height="71" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="71" alt=""></td>
 	</tr>
 </table>
 <!-- End Save for Web Slices -->
