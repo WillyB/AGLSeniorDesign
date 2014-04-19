@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile 10:14</title>
+<title>AGL: Edit Profile</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -187,6 +187,29 @@
 			print "Database NOT Found ";
 			mysql_close($db_handle);
 		}
+	}
+	
+	if (isset($_POST['upload'])) 
+	{
+		
+		/*$user_name = 'actorsgu_data';
+		$pass_word = 'cliffy36&winepress';
+		$database = 'actorsgu_data';
+		$server ='localhost:3306';
+		
+		//$con = mysql_connect($server, $user_name, $pass_word, $database);
+		$db_handle = mysql_connect($server, $user_name, $pass_word);
+		$db_found = mysql_select_db($database, $db_handle);
+		
+		if ($db_found) 
+		{
+			mysql_close($db_handle);
+		}
+		else 
+		{
+			print "Database NOT Found ";
+			mysql_close($db_handle);
+		}*/
 	}
 ?>
 </head>
@@ -556,7 +579,7 @@
 		<td rowspan="5">
 			<img src="Assets/EditProfile_52.gif" width="180" height="271" alt=""></td>
 		<td colspan="2">
-			<input type="image" name="uploadheadshot" value="uploadheadshot" src="Assets/EditProfile_53.gif" id"uploadheadshot"></td>
+			<input type="file" name="uploadheadshot" value="upload" src="Assets/EditProfile_53.gif" id"upload"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
 	</tr>
