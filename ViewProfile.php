@@ -116,6 +116,7 @@
                         alert('There was an error retreiving your information.');".
 			         "window.location = 'UserTools.php';</script>";
                 exit;
+                }
 		}
 	}
 	mysql_close($db_handle);
