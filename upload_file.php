@@ -58,9 +58,11 @@ if ($db_found) {
 				
 				//$email = $_POST('Contact_Email');
 					$email = "joss@actors.com";
-					$result1 = mysql_query($con,"UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'");
-					if (!$result1)
-						echo "<h1>Did not work</h1>";
+					//$result = mysql_query($con,"UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'");
+					//if (!$result)
+					//	echo "<h1>Did not work</h1>";
+					$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'"; 
+					$result = mysql_query($SQL);
 			}
 		}
 	}
