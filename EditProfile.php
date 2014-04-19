@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile 11:34</title>
+<title>AGL: Edit Profile 11:36</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -511,7 +511,7 @@
 			<img src="Assets/EditProfile_43.gif" width="38" height="83" alt=""></td>
 		<td width="228" height="43" colspan="4" background="Assets/EditProfile_44.gif">&nbsp;
         <?php
-			$ethnicitiess = array('' => '', 
+			$ethnicities = array('' => '', 
 								'Hispanic/Latino' => 'Hispanic/Latino',
 								'African American' => 'African American',
 								'Asian' => 'Asian',
@@ -523,7 +523,7 @@
 								'Other' => 'Other');
 			$ethnicity = $Ethnicity;
 			echo '<select class="select" name="ethnicity">';
-			foreach ($ethnicitys as $ethnicityKey => $ethnicityName) {
+			foreach ($ethnicities as $ethnicityKey => $ethnicityName) {
 				$line = '<option value="' . $ethnicityKey . '"';
 				$line .= ($ethnicity == $ethnicityKey) ? ' selected="selected">' : '>';
 				$line .= $ethnicityName . '</option>';
