@@ -9,9 +9,10 @@
     
     
     //If we're coming from the ListUser page, it sets a target, otherwise, use the current user to login
-    if(isset($_COOKIE['target_email']))
+    if(isset($_COOKIE['target_email'])&& ($_COOKIEp['target_email'] != ''))
     {
         $lookupEmail = $_COOKIE['target_email'];
+        setcookie('target_email','',time() - 3600);
         unset($_COOKIE['target_email']);            //After we grab the target email, clear it. Note this means if they refresh the page they will be directed to their own profile
     }
     else
