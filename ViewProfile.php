@@ -167,7 +167,7 @@
 		<td rowspan="35">
 			<img src="Assets/ViewProfile_10.gif" width="21" height="1422" alt=""></td>
 		<td width="676" height="245" colspan="3" background="Assets/ViewProfile_11.gif">&nbsp;
-        <textarea name="previousexperience" id="previousexperience" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent;"><?php echo $Previous_Work ?></textarea>
+        <textarea name="previousexperience" id="previousexperience" cols="75" rows="13" style="color: #FFFFFF;border:none;background-color:transparent;"><?php echo $Previous_Work ?></textarea>
         </td>
 		<td rowspan="35">
 			<img src="Assets/ViewProfile_12.gif" width="52" height="1422" alt=""></td>
