@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile</title>
+<title>AGL: Edit Profile 11:34</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -278,7 +278,7 @@
 				
 				
 		   ?> 
-		 alt="Headshot"></img>
+		width="335" height="415" alt="Headshot"></img>
         </td>
 		<td colspan="2" rowspan="20">
 			<img src="Assets/EditProfile_14.gif" width="107" height="703" alt=""></td>
@@ -510,18 +510,27 @@
 		<td rowspan="2">
 			<img src="Assets/EditProfile_43.gif" width="38" height="83" alt=""></td>
 		<td width="228" height="43" colspan="4" background="Assets/EditProfile_44.gif">&nbsp;
-        <select name="ethnicity" id="ethnicity">
-		    <option value="" selected> </option>
-		    <option value="hispanic">Hispanic/Latino</option>
-		    <option value="african american">African American</option>
-		    <option value="asian">Asian</option>
-		    <option value="oceania">Native Hawaiian/Pacific Islander</option>
-		    <option value="american indian">American Indian</option>
-		    <option value="alaskan native">Alaskan Native</option>
-		    <option value="caucasian">Caucasian</option>
-		    <option value="middle eastern">Middle Eastern</option>
-		    <option value="other">Other</option>
-        </select>
+        <?php
+			$ethnicitiess = array('' => '', 
+								'Hispanic/Latino' => 'Hispanic/Latino',
+								'African American' => 'African American',
+								'Asian' => 'Asian',
+								'Native Hawaiian/Pacific Islander' => 'Native Hawaiian/Pacific Islander',
+								'American Indian' => 'American Indian',
+								'Alaskan Native' => 'Alaskan Native',
+								'Caucasian' => 'Caucasian',
+								'Middle Eastern' => 'Middle Eastern',
+								'Other' => 'Other');
+			$ethnicity = $Ethnicity;
+			echo '<select class="select" name="ethnicity">';
+			foreach ($ethnicitys as $ethnicityKey => $ethnicityName) {
+				$line = '<option value="' . $ethnicityKey . '"';
+				$line .= ($ethnicity == $ethnicityKey) ? ' selected="selected">' : '>';
+				$line .= $ethnicityName . '</option>';
+				echo $line . "\n"; 
+			}
+			echo '</select>';
+		?>
         </td>
 		<td colspan="3" rowspan="2">
 			<img src="Assets/EditProfile_45.gif" width="105" height="83" alt=""></td>
