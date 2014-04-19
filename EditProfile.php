@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile 11:56</title>
+<title>AGL: Edit Profile</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -307,60 +307,69 @@
 		<td rowspan="2">
 			<img src="Assets/EditProfile_19.gif" width="75" height="57" alt=""></td>
 		<td width="145" height="42" colspan="3" background="Assets/EditProfile_20.gif">&nbsp;
-         <select name="state" id="state">
-		    <option value="" selected> </option>
-		    <option value="AL">AL</option>
-		    <option value="AK">AK</option>
-		    <option value="AZ">AZ</option>
-		    <option value="AR">AR</option>
-		    <option value="CA">CA</option>
-		    <option value="CO">CO</option>
-		    <option value="CT">CT</option>
-		    <option value="DE">DE</option>
-		    <option value="DC">DC</option>
-		    <option value="FL">FL</option>
-		    <option value="GA">GA</option>
-		    <option value="HI">HI</option>
-		    <option value="ID">ID</option>
-		    <option value="IL">IL</option>
-		    <option value="IN">IN</option>
-		    <option value="IA">IA</option>
-		    <option value="KS">KS</option>
-		    <option value="KY">KY</option>
-		    <option value="LA">LA</option>
-		    <option value="ME">ME</option>
-		    <option value="MD">MD</option>
-		    <option value="MA">MA</option>
-		    <option value="MI">MI</option>
-		    <option value="MN">MN</option>
-		    <option value="MS">MS</option>
-		    <option value="MO">MO</option>
-		    <option value="MT">MT</option>
-		    <option value="NE">NE</option>
-		    <option value="NV">NV</option>
-		    <option value="NH">NH</option>
-		    <option value="NJ">NJ</option>
-		    <option value="NM">NM</option>
-		    <option value="NY">NY</option>
-		    <option value="NC">NC</option>
-		    <option value="ND">ND</option>
-		    <option value="OH">OH</option>
-		    <option value="OK">OK</option>
-		    <option value="OR">OR</option>
-		    <option value="PA">PA</option>
-		    <option value="RI">RI</option>
-		    <option value="SC">SC</option>
-		    <option value="SD">SD</option>
-		    <option value="TN">TN</option>
-		    <option value="TX">TX</option>
-		    <option value="UT">UT</option>
-		    <option value="VT">VT</option>
-		    <option value="VA">VA</option>
-		    <option value="WA">WA</option>
-		    <option value="WV">WV</option>
-		    <option value="WI">WI</option>
-		    <option value="WY">WY</option>
-        </select>
+        <?php
+			$states = array('' => '', 
+								'AL' => 'AL',
+								'AK' => 'AK',
+								'AZ' => 'AZ',
+								'AR' => 'AR',
+								'CA' => 'CA',
+								'CO' => 'CO',
+								'CT' => 'CT',
+								'DE' => 'DE',
+								'DC' => 'DC',
+								'FL' => 'FL',
+								'GA' => 'GA',
+								'HI' => 'HI',
+								'ID' => 'ID',
+								'IL' => 'IL',
+								'IN' => 'IN',
+								'IA' => 'IA',
+								'KS' => 'KS',
+								'KY' => 'KY',
+								'LA' => 'LA',
+								'ME' => 'ME',
+								'MD' => 'MD',
+								'MA' => 'MA',
+								'MI' => 'MI',
+								'MN' => 'MN',
+								'MS' => 'MS',
+								'MO' => 'MO',
+								'MT' => 'MT',
+								'NE' => 'NE',
+								'NV' => 'NV',
+								'NH' => 'NH',
+								'NJ' => 'NJ',
+								'NM' => 'NM',
+								'NY' => 'NY',
+								'NC' => 'NC',
+								'ND' => 'ND',
+								'OH' => 'OH',
+								'OK' => 'OK',
+								'OR' => 'OR',
+								'PA' => 'PA',
+								'RI' => 'RI',
+								'SC' => 'SC',
+								'SD' => 'SD',
+								'TN' => 'TN',
+								'TX' => 'TX',
+								'UT' => 'UT',
+								'VT' => 'VT',
+								'VA' => 'VA',
+								'WA' => 'WA',
+								'WV' => 'WV',
+								'WI' => 'WI',
+								'WY' => 'WY');
+			$state = $State;
+			echo '<select class="select" name="state">';
+			foreach ($states as $stateKey => $stateName) {
+				$line = '<option value="' . $stateKey . '"';
+				$line .= ($state == $statetKey) ? ' selected="selected">' : '>';
+				$line .= $stateName . '</option>';
+				echo $line . "\n"; 
+			}
+			echo '</select>';
+		?>
         </td>
 		<td colspan="2" rowspan="2">
 			<img src="Assets/EditProfile_21.gif" width="77" height="57" alt=""></td>
@@ -399,12 +408,43 @@
 		<td width="142" height="42" colspan="3" background="Assets/EditProfile_29.gif">&nbsp;
         <?php
 			$heights = array('' => '', 
-								'Blonde' => 'Blonde',
-								'Brown' => 'Brown',
-								'Red' => 'Red',
-								'Black' => 'Black',
-								'Gray' => 'Gray',
-								'Other' => 'Other');
+								'4.00' => '4\'0"',
+								'4.01' => '4\'1"',
+								'4.02' => '4\'2"',
+								'4.03' => '4\'3"',
+								'4.04' => '4\'4"',
+								'4.05' => '4\'5"',
+								'4.06' => '4\'6"',
+								'4.07' => '4\'7"',
+								'4.08' => '4\'8"',
+								'4.09' => '4\'9"',
+								'4.10' => '4\'10"',
+								'4.11' => '4\'11"',
+								'5.00' => '5\'0"',
+								'5.01' => '5\'1"',
+								'5.02' => '5\'2"',
+								'5.03' => '5\'3"',
+								'5.04' => '5\'4"',
+								'5.05' => '5\'5"',
+								'5.06' => '5\'6"',
+								'5.07' => '5\'7"',
+								'5.08' => '5\'8"',
+								'5.09' => '5\'9"',
+								'5.10' => '5\'10"',
+								'5.11' => '5\'11"',
+								'6.00' => '6\'0"',
+								'6.01' => '6\'1"',
+								'6.02' => '6\'2"',
+								'6.03' => '6\'3"',
+								'6.04' => '6\'4"',
+								'6.05' => '6\'5"',
+								'6.06' => '6\'6"',
+								'6.07' => '6\'7"',
+								'6.08' => '6\'8"',
+								'6.09' => '6\'9"',
+								'6.10' => '6\'10"',
+								'6.11' => '6\'11"',
+								'7.00' => '7\'0"');
 			$height = $Height;
 			echo '<select class="select" name="height">';
 			foreach ($heights as $heightKey => $heightName) {
