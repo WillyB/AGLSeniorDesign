@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile 10:08</title>
+<title>AGL: Edit Profile</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -164,7 +164,7 @@
 			{
 				//Update the info in the database
 				//$SQL = "UPDATE Personnel SET Street_Address = $Street_Address, City = $City, State = $State, Zip_Code = $Zip_Code, Contact_Phone = $Contact_Phone, Height = $Height,Weight = $Weight, Age = $Age, Hair_Color = $Hair_Color, Hair_Style = $Hair_Style, Eye_Color = $Eye_Color, Ethnicity = $Ethnicity, Gender = $Gender, Previous_Work = $Previous_Work WHERE Contact_Email = '$email'";
-				$SQL = "UPDATE Personnel SET Street_Address = $Street_Address WHERE Contact_Email = '$email'";		
+				$SQL = "UPDATE Personnel SET Street_Address = '$Street_Address' WHERE Contact_Email = '$email'";		
 				$result = mysql_query($SQL);
 				
 				echo "<script type='text/javascript'>
