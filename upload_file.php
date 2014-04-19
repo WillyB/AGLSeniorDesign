@@ -37,14 +37,14 @@ if ($db_found) {
 	{
 		if ($_FILES["file"]["error"] > 0)
 		{
-			echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+			//echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 		}
 		else
 		{
-			echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-			echo "Type: " . $_FILES["file"]["type"] . "<br>";
-			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-			echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+			//echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+			//echo "Type: " . $_FILES["file"]["type"] . "<br>";
+			//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+			//echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
 
 			if (file_exists("upload/" . $_FILES["file"]["name"]))
 			{
@@ -65,19 +65,25 @@ if ($db_found) {
 				{
 					move_uploaded_file($tmpFile, $fileName);
 				}
-				echo "Stored in: " . $fileName;
-				echo "<img src=/" . $fileName . " alt=''>";
+				//echo "Stored in: " . $fileName;
+				//echo "<img src=/" . $fileName . " alt=''>";
 				
 				$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'"; 
 				$result = mysql_query($SQL);
 				if (!$result)
-					echo "<h1>fail</h1>";
+					echo "<h1>Failed to store changes to database.</h1>";
+				echo "<script type='text/javascript'>
+				window.location = 'EditProfile.php';</script>";//redirect back to Edit Profile page    
+	exit;
 			}
 		}
 	}
 	else
 	{
 		echo "Invalid file";
+		echo "<script type='text/javascript'>
+		window.location = 'browsepicture.php';</script>";//redirect back to browse picture page    
+	exit;
 	}
 }
 else 
