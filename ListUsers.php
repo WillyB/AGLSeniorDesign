@@ -327,9 +327,16 @@ if(isset($_POST['Demote']))
                                 <th>Email</th>
 								<th>Name</th>
 								<th>Access Level</th>
-                                <th>View</th>
-								<th>Admin Options</th>
-								</tr>";
+                                <th>View</th>";
+                                if($role == 0) //Only show the admin column if they are an admin
+                                {
+                                   echo "<th>Admin Options</th>
+								    </tr>"; 
+                                }
+                                else{
+                                    echo "</tr>";
+                                }
+								
 								while($row = mysql_fetch_array($result))
 								{
 								    if ($row['Role'] == 0)
@@ -351,10 +358,18 @@ if(isset($_POST['Demote']))
 													$StringRole."</td>";
                                     echo "<form action='ListUsers.php' method='post'>
                                             <td><input type='SUBMIT' name='View' value='View'/>
-											<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
-                                    
-                                            <td><input type='SUBMIT' name='Admin_Options' value='Admin Options'/>
+											<input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>";
+                                            
+                                    if($role == 0) //If the user is an admin, show them the admin options
+                                    {
+                                        echo "<td><input type='SUBMIT' name='Admin_Options' value='Admin Options'/>
 										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'</td></td></form>";
+                                    }
+                                    else //Otherwise, we close the field
+                                    {
+                                        echo "</td></form>";
+                                    }
+                                            
 									//echo "<form action='ListUsers.php' method='post'>
 									//	 <td><input type='SUBMIT' name='Delete' value='Delete'/>
 										//	 <input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
