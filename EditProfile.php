@@ -245,7 +245,34 @@
 	<tr>
 		<td rowspan="20">
 			<img src="Assets/EditProfile_12.gif" width="21" height="703" alt=""></td>
-		<td width="335" height="415" colspan="3" rowspan="14" background="Assets/EditProfile_13.gif">&nbsp;
+		<td width="335" height="415" colspan="3" rowspan="14" background="Assets/EditProfile_13.gif">
+			<img src=
+			<?php
+				$user_name = 'actorsgu_data';
+				$pass_word = 'cliffy36&winepress';
+				$database = 'actorsgu_data';
+				$server ='localhost:3306';
+					
+				$db_handle = mysql_connect($server, $user_name, $pass_word);
+				$db_found = mysql_select_db($database, $db_handle);
+				
+				if($db_found)
+				{
+					$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email'";	
+					$result = mysql_query($SQL);
+					$db_field = mysql_fetch_array($result);
+					$num_rows = mysql_num_rows($result);
+					if($num_rows > 0)
+					{
+						$pic = $db_field['Picture'];
+						echo $pic;
+					}
+				}
+				mysql_close($db_handle);
+				
+				
+		   ?> 
+		width="335" height="415" alt="Headshot"></img>
         </td>
 		<td colspan="2" rowspan="20">
 			<img src="Assets/EditProfile_14.gif" width="107" height="703" alt=""></td>

@@ -44,9 +44,9 @@ if ($db_found) {
 				$fileName = "upload/" . $_FILES["file"]["name"];
 				list($width, $height) = getimagesize($tmpFile);
 				
-				if ($width >= 100 && $height >= 100) {
+				if ($width >= 335 || $height >= 415) {
 					$image = new Imagick($tmpFile);
-					$image->thumbnailImage(100, 100);
+					$image->thumbnailImage(335, 415);
 					$image->writeImage($fileName);
 				}
 				else
@@ -57,14 +57,11 @@ if ($db_found) {
 				echo "<img src=/" . $fileName . " alt=''>";
 				
 				//$email = $_POST('Contact_Email');
-					$email = "joss@actors.com";
-					//$result = mysql_query($con,"UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'");
-					//if (!$result)
-					//	echo "<h1>Did not work</h1>";
-					$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'"; 
-					$result = mysql_query($SQL);
-					if (!$result)
-						echo "<h1>fail</h1>";
+				$email = "joss@actors.com";
+				$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'"; 
+				$result = mysql_query($SQL);
+				if (!$result)
+					echo "<h1>fail</h1>";
 			}
 		}
 	}
