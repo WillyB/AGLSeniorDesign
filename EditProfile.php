@@ -173,6 +173,8 @@
 											Ethnicity = '$Ethnicity',
 											Gender = '$Gender',
 											Previous_Work = '$Previous_Work'
+											WHERE Contact_Email = '$email'
+											AND password = '$password'
 											");	
 			$result = mysql_query($SQL);
 			$num_rows = mysql_num_rows($result);
