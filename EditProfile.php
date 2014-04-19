@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile 11:36</title>
+<title>AGL: Edit Profile</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -463,35 +463,62 @@
 	</tr>
 	<tr>
 		<td width="142" height="43" colspan="3" background="Assets/EditProfile_37.gif">&nbsp;
-        <select name="haircolor" id="haircolor">
-          <option value="" selected> </option>
-          <option value="blonde">Blonde</option>
-          <option value="brown">Brown</option>
-          <option value="red">Red</option>
-          <option value="black">Black</option>
-          <option value="gray">Gray</option>
-          <option value="other">Other</option>
-        </select>
+        <?php
+			$haircolors = array('' => '', 
+								'Blonde' => 'Blonde',
+								'Brown' => 'Brown',
+								'Red' => 'Red',
+								'Black' => 'Black',
+								'Gray' => 'Gray',
+								'Other' => 'Other');
+			$haircolor = $Hair_Color;
+			echo '<select class="select" name="hairstyle">';
+			foreach ($haircolors as $haircolorKey => $haircolorName) {
+				$line = '<option value="' . $haircolorKey . '"';
+				$line .= ($haircolor == $haircolorKey) ? ' selected="selected">' : '>';
+				$line .= $haircolorName . '</option>';
+				echo $line . "\n"; 
+			}
+			echo '</select>';
+		?>
         </td>
 		<td width="145" height="43" colspan="3" background="Assets/EditProfile_38.gif">&nbsp;
-        <select name="hairstyle" id="hairstyle">
-          <option value="" selected> </option>
-          <option value="long">Long</option>
-          <option value="short">Short</option>
-          <option value="buzz">Buzz</option>
-          <option value="blad">Bald</option>
-          <option value="other">Other</option>
-        </select>
+        <?php
+			$hairstyles = array('' => '', 
+								'Long' => 'Long',
+								'Short' => 'Short',
+								'Buzz' => 'Buzz',
+								'Bald' => 'Bald',
+								'Other' => 'Other');
+			$hairstyle = $Hair_Style;
+			echo '<select class="select" name="hairstyle">';
+			foreach ($hairstyles as $hairstyleKey => $hairstyleName) {
+				$line = '<option value="' . $hairstyleKey . '"';
+				$line .= ($hairstyle == $hairstyleKey) ? ' selected="selected">' : '>';
+				$line .= $hairstyleName . '</option>';
+				echo $line . "\n"; 
+			}
+			echo '</select>';
+		?>
         </td>
 		<td width="146" height="43" colspan="3" background="Assets/EditProfile_39.gif">&nbsp;
-        <select name="eyecolor" id="eyecolor">
-		    <option value="" selected> </option>
-		    <option value="blue">Blue</option>
-		    <option value="brown">Brown</option>
-		    <option value="green">Green</option>
-		    <option value="gray">Gray</option>
-		    <option value="other">Other</option>
-        </select>
+        <?php
+			$eyecolors = array('' => '', 
+								'Blue' => 'Blue',
+								'Brown' => 'Brown',
+								'Green' => 'Green',
+								'Gray' => 'Gray',
+								'Other' => 'Other');
+			$eyecolor = $Eye_Color;
+			echo '<select class="select" name="eyecolor">';
+			foreach ($eyecolors as $eyecolorKey => $eyecolorName) {
+				$line = '<option value="' . $eyecolorKey . '"';
+				$line .= ($eyecolor == $eyecolorKey) ? ' selected="selected">' : '>';
+				$line .= $eyecolorName . '</option>';
+				echo $line . "\n"; 
+			}
+			echo '</select>';
+		?>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
