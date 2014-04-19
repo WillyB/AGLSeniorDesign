@@ -278,7 +278,7 @@
 				
 				
 		   ?> 
-		width="335" height="415" alt="Headshot"></img>
+		 alt="Headshot"></img>
         </td>
 		<td colspan="2" rowspan="20">
 			<img src="Assets/EditProfile_14.gif" width="107" height="703" alt=""></td>
