@@ -1,7 +1,6 @@
 <?php
 
 include 'MasterCode.php';
-connectToDatabase();
 if ($dbFound)
 {
 	echo "<h1>7</h1>";
