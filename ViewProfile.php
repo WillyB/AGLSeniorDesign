@@ -328,7 +328,7 @@
 	</tr>
 	<tr>
 		<td width="509" height="34" colspan="2" background="Assets/ViewProfile_33.gif">&nbsp;
-        <input name="email" type="text" id="email" style="color: #FFFFFF;border:none;background-color:transparent;" size="75" value="<?php echo $looupEmail ?>" readonly>
+        <input name="email" type="text" id="email" style="color: #FFFFFF;border:none;background-color:transparent;" size="75" value="<?php echo $lookupEmail ?>" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
