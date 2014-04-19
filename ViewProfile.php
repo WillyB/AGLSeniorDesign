@@ -12,8 +12,7 @@
     if(isset($_COOKIE['target_email'])&& ($_COOKIE['target_email'] != ''))
     {
         $lookupEmail = $_COOKIE['target_email'];
-        setcookie('target_email','',time() - 3600);
-        unset($_COOKIE['target_email']);            //After we grab the target email, clear it. Note this means if they refresh the page they will be directed to their own profile
+        //setcookie('target_email','',time() - 3600); //After we grab the target email, clear it. Note this means if they refresh the page they will be directed to their own profile
     }
     else
     {
