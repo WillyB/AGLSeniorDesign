@@ -255,7 +255,7 @@
 	</tr>
 	<tr>
 		<td width="509" height="34" colspan="2" background="Assets/ViewProfile_26.gif">&nbsp;
-        <input name="zipcode" type="text" id="zipcode" style="color: #FFFFFF;border:none;background-color:transparent;" size="75" value="<?php echo $Zip_code ?>" readonly>
+        <input name="zipcode" type="text" id="zipcode" style="color: #FFFFFF;border:none;background-color:transparent;" size="75" value="<?php echo $Zip_Code ?>" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
