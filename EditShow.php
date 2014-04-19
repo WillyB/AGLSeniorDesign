@@ -5,9 +5,56 @@
 <script src="jquery.ui-1.5.2/jquery-1.2.6.js" type="text/javascript"></script>
 <script src="jquery.ui-1.5.2/ui/ui.datepicker.js" type="text/javascript"></script>
 <link href="jquery.ui-1.5.2/themes/ui.datepicker.css" rel="stylesheet" type="text/css">
+<?php
+	$role = $_COOKIE['role'];
+	$email = $_COOKIE['email'];
+	$password = $_COOKIE['password'];
+
+	//No unauthorized access
+	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
+	{
+		echo "<script type='text/javascript'>
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+		exit;
+	}
+	//redirect to ListUsers.php when "HOME" button is clicked
+	if (isset($_POST['home'])) 
+	{
+		//First check to see which "Home" the user is going to
+		if($role == 0 || $role == 1){
+			echo "<script type='text/javascript'>
+			  window.location = 'AdminTools.php';</script>";
+		   exit;
+		}
+		else if($role == 2){
+			echo "<script type='text/javascript'>
+			  window.location = 'UserTools.php';</script>";
+		   exit;
+		}
+		
+	}
+	
+	//remove cookies and redirect to login.php when "LOGOUT" button is clicked
+	if (isset($_POST['logout'])) 
+	{
+		unset($_COOKIE['role']);
+		unset($_COOKIE['email']);
+		unset($_COOKIE['password']);
+	
+		setcookie('role', '', time() - 3600);		
+		setcookie('email', '', time() - 3600);
+		setcookie('password', '', time() - 3600);	
+		
+		echo "<script type='text/javascript'>
+			  alert('Goodbye!');".
+			 "window.location = 'LogIn.php';</script>";//redirect to login page
+		exit;	
+	}
+?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (EditShow.psd) -->
+<form name="form1" method="post" action="EditShow.php">
 <table width="1401" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="13">
@@ -18,14 +65,14 @@
 	<tr>
 		<td colspan="11" rowspan="3">
 			<img src="Assets/EditShow_02.gif" width="1211" height="162" alt=""></td>
-		<td><input type="image" name="home" id="home" src="Assets/EditShow_03.gif"></td>
+		<td><input type="image" name="home" value="home" src="Assets/EditShow_03.gif" id="home"></td>
 		<td rowspan="21">
 			<img src="Assets/EditShow_04.gif" width="82" height="897" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
 	</tr>
 	<tr>
-		<td><input type="image" name="logout" id="logout" src="Assets/EditShow_05.gif"></td>
+		<td><input type="image" name="logout" value="logout" src="Assets/EditShow_05.gif" id"logout"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
 	</tr>
@@ -302,6 +349,7 @@ jQuery("#jQueryUICalendar12").datepicker();
 		<td></td>
 	</tr>
 </table>
+</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>
