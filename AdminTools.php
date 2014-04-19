@@ -18,7 +18,7 @@ $password = $_COOKIE['password'];
 	if (isset($_POST['myprofile'])) 
 	{
 		echo "<script type='text/javascript'>
-	          window.location = 'EditProfile.php';</script>";		
+	          window.location = 'ViewProfile.php';</script>";		
 		exit;
 	}
 	
