@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile 10:04</title>
+<title>AGL: Edit Profile 10:07</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -124,7 +124,7 @@
 			$Gender = $_POST['gender'];
 			$Previous_Work = $_POST['previousexperience'];
 		
-		if($Contact_Phone = "" || $First_Name = "" || $Last_Name = "" || $Ethnicity = "" || $Gender = "" ||
+		/*if($Contact_Phone = "" || $First_Name = "" || $Last_Name = "" || $Ethnicity = "" || $Gender = "" ||
 		   $Height = "" || $Weight = "" || $Hair_Color = "" || $Eye_Color = "" || $Hair_Style = "" ||
 		   $Age = "" || $Street_Address = "" || $State = "" || $Zip_Code = "" || $City = "")
 		{
@@ -132,13 +132,13 @@
 				 alert('Please, make sure you fill out all the fields');".
 				 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
 			exit;//exit, so that the following code is not executed
-		}
+		}*/
 	
 		if ($db_found) 
 		{
 			//==== USE THE FUNCTION BELOW TO ESCAPE ANY DANGEROUS CHARACTERS
 			//==== YOU NEED TO USE OT FOR ALL VALUES YOU WANT TO CHECK
-			$Contact_Phone = mysql_real_escape_string($Contact_Phone, $db_handle);	
+			/*$Contact_Phone = mysql_real_escape_string($Contact_Phone, $db_handle);	
 			$First_Name = mysql_real_escape_string($First_Name, $db_handle);
 			$Last_Name = mysql_real_escape_string($Last_Name, $db_handle); 
 			$Height = mysql_real_escape_string($Height, $db_handle);	
@@ -153,9 +153,9 @@
 			$Zip_Code = mysql_real_escape_string($Zip_Code, $db_handle);
 			$City = mysql_real_escape_string($City, $db_handle);
 			$Ethnicity = mysql_real_escape_string($Ethnicity, $db_handle);
-			$Gender = mysql_real_escape_string($Gender, $db_handle);
+			$Gender = mysql_real_escape_string($Gender, $db_handle);*/
 		
-			$admin = 0;//person who is registering on the website, ALWAYS A USER
+			//$admin = 0;//person who is registering on the website, ALWAYS A USER
 					 //registration of admin is internal to the AGL
 			$SQL = "SELECT * FROM Personnel WHERE Contact_Email ='$email' AND password = '$password'";
 			$result = mysql_query($SQL);
