@@ -532,7 +532,7 @@
 		    <option value="female">Female</option>
         </select>-->
         <?php
-			$genders = array('male' => 'Male', 'female' => 'Female');
+			$genders = array('' => '', 'male' => 'Male', 'female' => 'Female');
 			$gender = $Gender;
 			echo '<select class="select" name="gender">';
 			foreach ($genders as $genderKey => $genderName) {
