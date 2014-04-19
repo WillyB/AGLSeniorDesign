@@ -181,7 +181,6 @@ if(isset($_POST['Cast']))
 					<tr>
 							<th>Title</th>			
 							<th>Director</th>
-							<th>Playwright</th>
 							<th>Cast Show</th>
 							<th>Edit Show</th>
                             <th>Delete Show</th></tr>";
@@ -190,8 +189,7 @@ if(isset($_POST['Cast']))
 					{
 						$value = $row['idShows'];
 						echo "<tr><td>".$row['Show_Name']."</td><td>".
-										$row['Director']."</td><td>".
-										$row['Playwright']."</td>";
+										$row['Director']."</td>";
 						echo "<form action='ListShows.php' method='post'>
                                  <td><input type='SUBMIT' name='Cast' value='Cast Show'/>
 								 <input type='HIDDEN' name='ShowID3' value='" .$value. "'/></td>

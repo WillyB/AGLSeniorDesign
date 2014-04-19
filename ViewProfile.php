@@ -46,6 +46,8 @@
 	//Redirect to EditProfile.php
 	if (isset($_POST['editprofile'])) 
 	{
+	   //carry over our set target (which will either be the current user or their target)
+       setcookie('target_email',$lookupEmail);
 		echo "<script type='text/javascript'>
 			window.location = 'EditProfile.php';</script>";
 		

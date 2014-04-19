@@ -6,7 +6,19 @@
 	$role = $_COOKIE['role'];
 	$email = $_COOKIE['email'];
 	$password = $_COOKIE['password'];
-
+    
+    //If we're coming from the ListUser page, it sets a target, otherwise, use the current user to login
+    if(isset($_COOKIE['target_email'])&& ($_COOKIE['target_email'] != ''))
+    {
+        $lookupEmail = $_COOKIE['target_email'];
+        setcookie('target_email','',time() - 3600);
+        unset($_COOKIE['target_email']);            //After we grab the target email, clear it. Note this means if they refresh the page they will be directed to their own profile
+    }
+    else
+    {
+        $lookupEmail = $_COOKIE['email'];
+    }
+    
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
 	{
@@ -60,7 +72,7 @@
 	
 	if ($db_found) 
 	{
-		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email' AND password = '$password'";	
+		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$lookupEmail' AND password = '$password'";	
 		$result = mysql_query($SQL);
 		$num_rows = mysql_num_rows($result);
 		$db_field = mysql_fetch_array($result);
@@ -157,7 +169,7 @@
 		
 			//$admin = 0;//person who is registering on the website, ALWAYS A USER
 					 //registration of admin is internal to the AGL
-			$SQL = "SELECT * FROM Personnel WHERE Contact_Email ='$email' AND password = '$password'";
+			$SQL = "SELECT * FROM Personnel WHERE Contact_Email ='$lookupEmail' AND password = '$password'";
 			$result = mysql_query($SQL);
 			$num_rows = mysql_num_rows($result);
 			if($num_rows > 0)
@@ -263,7 +275,7 @@
 				
 				if($db_found)
 				{
-					$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email'";	
+					$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$lookupEmail'";	
 					$result = mysql_query($SQL);
 					$db_field = mysql_fetch_array($result);
 					$num_rows = mysql_num_rows($result);
