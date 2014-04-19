@@ -99,11 +99,6 @@
 	
 	if (isset($_POST['save'])) 
 	{
-		$idPersonnel = "";
-
-		$username = $_POST['username'];//use sessions to save login data
-		$password = $_POST['password'];//use sessions to save login data
-	 
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
