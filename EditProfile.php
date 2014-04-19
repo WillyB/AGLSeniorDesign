@@ -12,13 +12,13 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
-//No unauthorized access
-if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
-{
-	echo "<script type='text/javascript'>
-			window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
-	exit;
-}
+	//No unauthorized access
+	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
+	{
+		echo "<script type='text/javascript'>
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+		exit;
+	}
 
 //redirect to ListUsers.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
@@ -74,6 +74,8 @@ if (isset($_POST['save']))
 	$State = $_POST['state'];
 	$Zip_Code = $_POST['zip'];
 	$City = $_POST['city'];
+	
+
     
     if($Password != $ConfirmPassword)
     {
@@ -82,6 +84,7 @@ if (isset($_POST['save']))
 			 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
 		exit;//exit, so that the following code is not executed
     }
+	connectToDatabase();
 //	if($Contact_Phone = "" || $Contact_Email = "" || $Previous_Work = "" ||
 //	   $First_Name = "" || $Last_Name = "" || $admin = "" ||
 //	   $Height = "" || $Weight = "" || $Hair_Color = "" || $Eye_Color = "" ||
@@ -94,63 +97,68 @@ if (isset($_POST['save']))
 //		exit;//exit, so that the following code is not executed
 //	}
 
-	$connection = new createConnection();
-	$connection->connectToDatabase();
-	
+	if ($db_found) 
+	{
 		//==== USE THE FUNCTION BELOW TO ESCAPE ANY DANGEROUS CHARACTERS
 		//==== YOU NEED TO USE OT FOR ALL VALUES YOU WANT TO CHECK
-	$Contact_Phone = mysql_real_escape_string($Contact_Phone, $connection->db_handle);	
-	$Contact_Email = mysql_real_escape_string($Contact_Email, $connection->db_handle);
-	$Previous_Work = mysql_real_escape_string($Previous_Work, $connection->db_handle);
-	$First_Name = mysql_real_escape_string($First_Name, $connection->db_handle);
-	$Last_Name = mysql_real_escape_string($Last_Name, $connection->db_handle);
-	$Height = mysql_real_escape_string($Height, $connection->db_handle);	
-	$Weight = mysql_real_escape_string($Weight, $connection->db_handle);
-	$Hair_Color = mysql_real_escape_string($Hair_Color, $connection->db_handle);
-	$Hair_Style = mysql_real_escape_string($Hair_Style, $connection->db_handle);
-	$Eye_Color = mysql_real_escape_string($Eye_Color, $connection->db_handle);
-	$Password = mysql_real_escape_string($password, $connection->db_handle);
-	$Age = mysql_real_escape_string($Age, $connection->db_handle);
-	$Street_Address = mysql_real_escape_string($Street_Address, $connection->db_handle);
-	$State = mysql_real_escape_string($State, $connection->db_handle);
-	$Zip_Code = mysql_real_escape_string($Zip_Code, $connection->db_handle);
-	$City = mysql_real_escape_string($City, $connection->db_handle);
+	$Contact_Phone = mysql_real_escape_string($Contact_Phone, $db_handle);	
+	$Contact_Email = mysql_real_escape_string($Contact_Email, $db_handle);
+	$Previous_Work = mysql_real_escape_string($Previous_Work, $db_handle);
+	$First_Name = mysql_real_escape_string($First_Name, $db_handle);
+	$Last_Name = mysql_real_escape_string($Last_Name, $db_handle);
+	$Height = mysql_real_escape_string($Height, $db_handle);	
+	$Weight = mysql_real_escape_string($Weight, $db_handle);
+	$Hair_Color = mysql_real_escape_string($Hair_Color, $db_handle);
+    $Hair_Style = mysql_real_escape_string($Hair_Style, $db_handle);
+	$Eye_Color = mysql_real_escape_string($Eye_Color, $db_handle);
+	$Password = mysql_real_escape_string($password, $db_handle);
+	$Age = mysql_real_escape_string($Age, $db_handle);
+	$Street_Address = mysql_real_escape_string($Street_Address, $db_handle);
+	$State = mysql_real_escape_string($State, $db_handle);
+	$Zip_Code = mysql_real_escape_string($Zip_Code, $db_handle);
+	$City = mysql_real_escape_string($City, $db_handle);
 
-	//The database is auto-incrementing, it should set the id value
-	//$SQL1 = "SELECT MAX(idPersonnel) FROM Personnel";//find maximum of user's id
-	//$result1 = mysql_query($con,$SQL1);
-	//$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-	$result1 = mysql_query($connection->con,"UPDATE Personnel SET(Contact_Phone, Contact_Email, Previous_Work, 
-													   First_Name, Last_Name, Height, Weight, Hair_Color,
-													   Eye_Color, Previous_Work, password, Age,
-													   Street_Address, State, Zip_Code, City)
-												VALUES ('$Contact_Phone', '$Contact_Email', '$Previous_Work', 
-														'$First_Name', '$Last_Name', '$Height', '$Weight', '$Hair_Color',
-														'$Eye_Color', '$Password', '$Age',
-														'$Street_Address', '$State', '$Zip_Code', '$City')");
-	$result2 = mysql_query($connection->con,"SELECT * 
-									FROM Personnel
-								   WHERE Contact_Email = '$Contact_Email'
-									 AND password = '$Password'
-						   ");									
-				
-	if (!$result2)//if there is no result returned, display error message
+		//The database is auto-incrementing, it should set the id value
+        //$SQL1 = "SELECT MAX(idPersonnel) FROM Personnel";//find maximum of user's id
+		//$result1 = mysql_query($con,$SQL1);
+		//$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+		$result1 = mysql_query($con,"UPDATE Personnel SET(Contact_Phone, Contact_Email, Previous_Work, 
+                                                           First_Name, Last_Name, Height, Weight, Hair_Color,
+                                                           Eye_Color, Previous_Work, password, Age,
+                                                           Street_Address, State, Zip_Code, City)
+									                VALUES ('$Contact_Phone', '$Contact_Email', '$Previous_Work', 
+                                                            '$First_Name', '$Last_Name', '$Height', '$Weight', '$Hair_Color',
+                                                            '$Eye_Color', '$Password', '$Age',
+                                                            '$Street_Address', '$State', '$Zip_Code', '$City')");
+		$result2 = mysql_query($con,"SELECT * 
+										FROM Personnel
+									   WHERE Contact_Email = '$Contact_Email'
+									     AND password = '$Password'
+							   ");									
+					
+		if (!$result2)//if there is no result returned, display error message
+		{
+			echo "<script type='text/javascript'>
+				 alert('Error has occured, try again to submit your data');".
+				 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
+			exit;//exit, so that the following code is not executed
+		}
+		else
+		{
+			//after successful registration, display "thank you" message
+			print "<h2>Thank you for registering</h2>";
+			echo "<script type='text/javascript'>
+				 alert('Profile Edit Saved!');".
+				 "window.location = 'ViewProfile.php';</script>";//redirect back to ViewProfile.php   
+			exit;//exit, so that the following code is not executed
+		}
+	mysql_close($db_handle);
+    }
+	else 
 	{
-		echo "<script type='text/javascript'>
-			 alert('Error has occured, try again to submit your data');".
-			 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
-		exit;//exit, so that the following code is not executed
-	}
-	else
-	{
-		//after successful registration, display "thank you" message
-		print "<h2>Thank you for registering</h2>";
-		echo "<script type='text/javascript'>
-			 alert('Profile Edit Saved!');".
-			 "window.location = 'ViewProfile.php';</script>";//redirect back to ViewProfile.php   
-		exit;//exit, so that the following code is not executed
-	}
-	$connection->closeConnection();
+		print "Database NOT Found ";
+		mysql_close($db_handle);
+    }
 }
 ?>
 </head>
