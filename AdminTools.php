@@ -17,6 +17,7 @@ $password = $_COOKIE['password'];
 
 	if (isset($_POST['myprofile'])) 
 	{
+        setcookie('target_email',$email);
 		echo "<script type='text/javascript'>
 	          window.location = 'ViewProfile.php';</script>";		
 		exit;
