@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile</title>
+<title>AGL: Edit Profile 9:57</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
