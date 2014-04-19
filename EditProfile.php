@@ -179,7 +179,7 @@
 			$result = mysql_query($SQL);
 			$num_rows = mysql_num_rows($result);
 				
-			if ($num_rows > 0)//Successful Update
+			if ($result)//Successful Update
 			{
 				echo "<script type='text/javascript'>
 					 alert('Your profile as been updated.');".
