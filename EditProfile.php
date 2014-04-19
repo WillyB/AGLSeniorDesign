@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AGL: Edit Profile</title>
+<title>AGL: Edit Profile 12:10</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 	$role = $_COOKIE['role'];
@@ -168,7 +168,7 @@
 				$result = mysql_query($SQL);
 				
 				echo "<script type='text/javascript'>
-					 alert('Your profile has been updated - $Street_Address.');".
+					 alert('Your profile has been updated.');".
 					 "window.location = 'EditProfile.php';</script>";//redirect back to EditProfile.php   
 				exit;
 			}
@@ -308,64 +308,16 @@
 			<img src="Assets/EditProfile_19.gif" width="75" height="57" alt=""></td>
 		<td width="145" height="42" colspan="3" background="Assets/EditProfile_20.gif">&nbsp;
         <?php
-			$states = array('' => '', 
+			$stateArray = array('' => '', 
 								'AL' => 'AL',
 								'AK' => 'AK',
-								'AZ' => 'AZ',
-								'AR' => 'AR',
-								'CA' => 'CA',
-								'CO' => 'CO',
-								'CT' => 'CT',
-								'DE' => 'DE',
-								'DC' => 'DC',
-								'FL' => 'FL',
-								'GA' => 'GA',
-								'HI' => 'HI',
-								'ID' => 'ID',
-								'IL' => 'IL',
-								'IN' => 'IN',
-								'IA' => 'IA',
-								'KS' => 'KS',
-								'KY' => 'KY',
-								'LA' => 'LA',
-								'ME' => 'ME',
-								'MD' => 'MD',
-								'MA' => 'MA',
-								'MI' => 'MI',
-								'MN' => 'MN',
-								'MS' => 'MS',
-								'MO' => 'MO',
-								'MT' => 'MT',
-								'NE' => 'NE',
-								'NV' => 'NV',
-								'NH' => 'NH',
-								'NJ' => 'NJ',
-								'NM' => 'NM',
-								'NY' => 'NY',
-								'NC' => 'NC',
-								'ND' => 'ND',
-								'OH' => 'OH',
-								'OK' => 'OK',
-								'OR' => 'OR',
-								'PA' => 'PA',
-								'RI' => 'RI',
-								'SC' => 'SC',
-								'SD' => 'SD',
-								'TN' => 'TN',
-								'TX' => 'TX',
-								'UT' => 'UT',
-								'VT' => 'VT',
-								'VA' => 'VA',
-								'WA' => 'WA',
-								'WV' => 'WV',
-								'WI' => 'WI',
 								'WY' => 'WY');
-			$state = $State;
+			$stateUnit = $State;
 			echo '<select class="select" name="state">';
-			foreach ($states as $stateKey => $stateName) {
-				$line = '<option value="' . $stateKey . '"';
-				$line .= ($state == $statetKey) ? ' selected="selected">' : '>';
-				$line .= $stateName . '</option>';
+			foreach ($stateArray as $stateUnitKey => $stateUnitName) {
+				$line = '<option value="' . $stateUnitKey . '"';
+				$line .= ($stateUnit == $stateUnitKey) ? ' selected="selected">' : '>';
+				$line .= $stateUnitName . '</option>';
 				echo $line . "\n"; 
 			}
 			echo '</select>';
