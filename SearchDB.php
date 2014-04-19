@@ -468,6 +468,7 @@ if (isset($_POST['Search']))
 					</tr>";
 					while($row = mysql_fetch_array($final))
 					{
+					   $value = $row['Contact_Email'];
 						echo "<tr><td>".$row['Contact_Email']."</td><td>".
                                         $row['First_Name']." ".$row['Last_Name']."</td><td>".
 										$row['Age']."</td>";
