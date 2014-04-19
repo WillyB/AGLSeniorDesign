@@ -397,46 +397,56 @@
 	</tr>
 	<tr>
 		<td width="142" height="42" colspan="3" background="Assets/EditProfile_29.gif">&nbsp;
-        <select name="height" id="height">
-          <option value="" selected> </option>
-          <option value="4.00">4'0&quot;</option>
-          <option value="4.01">4'1&quot;</option>
-          <option value="4.02">4'2&quot;</option>
-          <option value="4.03">4'3&quot;</option>
-          <option value="4.04">4'4&quot;</option>
-          <option value="4.05">4'5&quot;</option>
-          <option value="4.06">4'6&quot;</option>
-          <option value="4.07">4'7&quot;</option>
-          <option value="4.08">4'8&quot;</option>
-          <option value="4.09">4'9&quot;</option>
-          <option value="4.10">4'10&quot;</option>
-          <option value="4.11">4'11&quot;</option>
-          <option value="5.00">5'0&quot;</option>
-          <option value="5.01">5'1&quot;</option>
-          <option value="5.02">5'2&quot;</option>
-          <option value="5.03">5'3&quot;</option>
-          <option value="5.04">5'4&quot;</option>
-          <option value="5.05">5'5&quot;</option>
-          <option value="5.06">5'6&quot;</option>
-          <option value="5.07">5'7&quot;</option>
-          <option value="5.08">5'8&quot;</option>
-          <option value="5.09">5'9&quot;</option>
-          <option value="5.10">5'10&quot;</option>
-          <option value="5.11">5'11&quot;</option>
-          <option value="6.00">6'0&quot;</option>
-          <option value="6.01">6'1&quot;</option>
-          <option value="6.02">6'2&quot;</option>
-          <option value="6.03">6'3&quot;</option>
-          <option value="6.04">6'4&quot;</option>
-          <option value="6.05">6'5&quot;</option>
-          <option value="6.06">6'6&quot;</option>
-          <option value="6.07">6'7&quot;</option>
-          <option value="6.08">6'8&quot;</option>
-          <option value="6.09">6'9&quot;</option>
-          <option value="6.10">6'10&quot;</option>
-          <option value="6.11">6'11&quot;</option>
-          <option value="7.00">7'0&quot;</option>
-        </select>
+        <?php
+			$heights = array('' => '', 
+								'4.00' => '4\'0"',
+								'4.01' => '4\'1"',
+								'4.02' => '4\'2"',
+								'4.03' => '4\'3"',
+								'4.04' => '4\'4"',
+								'4.05' => '4\'5"',
+								'4.06' => '4\'6"',
+								'4.07' => '4\'7"',
+								'4.08' => '4\'8"',
+								'4.09' => '4\'9"',
+								'4.10' => '4\'10"',
+								'4.11' => '4\'11"',
+								'5.00' => '5\'0"',
+								'5.01' => '5\'1"',
+								'5.02' => '5\'2"',
+								'5.03' => '5\'3"',
+								'5.04' => '5\'4"',
+								'5.05' => '5\'5"',
+								'5.06' => '5\'6"',
+								'5.07' => '5\'7"',
+								'5.08' => '5\'8"',
+								'5.09' => '5\'9"',
+								'5.10' => '5\'10"',
+								'5.11' => '5\'11"',
+								'6.00' => '6\'0"',
+								'6.01' => '6\'1"',
+								'6.02' => '6\'2"',
+								'6.03' => '6\'3"',
+								'6.04' => '6\'4"',
+								'6.05' => '6\'5"',
+								'6.06' => '6\'6"',
+								'6.07' => '6\'7"',
+								'6.08' => '6\'8"',
+								'6.09' => '6\'9"',
+								'6.10' => '6\'10"',
+								'6.11' => '6\'11"',
+								'7.00' => '7\'0"',
+								'Other' => 'Other');
+			$height = $Height;
+			echo '<select class="select" name="height">';
+			foreach ($heights as $heightKey => $heightName) {
+				$line = '<option value="' . $haircolorKey . '"';
+				$line .= ($height == $heightKey) ? ' selected="selected">' : '>';
+				$line .= $heightName . '</option>';
+				echo $line . "\n"; 
+			}
+			echo '</select>';
+		?>
         </td>
 		<td rowspan="4">
 			<img src="Assets/EditProfile_30.gif" width="75" height="110" alt=""></td>
@@ -472,7 +482,7 @@
 								'Gray' => 'Gray',
 								'Other' => 'Other');
 			$haircolor = $Hair_Color;
-			echo '<select class="select" name="hairstyle">';
+			echo '<select class="select" name="haircolor">';
 			foreach ($haircolors as $haircolorKey => $haircolorName) {
 				$line = '<option value="' . $haircolorKey . '"';
 				$line .= ($haircolor == $haircolorKey) ? ' selected="selected">' : '>';
