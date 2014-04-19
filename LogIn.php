@@ -121,7 +121,7 @@ $email2 = "";
 			else //if user is not in DB, redirect to LogIn page
 			{							
 				echo "<script type='text/javascript'>
-					 alert('Error has occured. Try to login again or register as a new user');".
+					 alert('Error has occurred. Try to login again or register as a new user');".
 					 "window.location = 'LogIn.php';</script>";//redirect back to login page 
 				exit;
 			}
@@ -147,7 +147,7 @@ $email2 = "";
 			exit;//exit, so that the following code is not executed
 		}
 
-		//data to login into mysql server on multilab machine
+		//database login
 		$user_name = 'actorsgu_data';
 		$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
