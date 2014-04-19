@@ -124,7 +124,7 @@
 			$Gender = $_POST['gender'];
 			$Previous_Work = $_POST['previousexperience'];
 		
-		/*if($Contact_Phone == "" || $First_Name == "" || $Last_Name == "" || $Ethnicity == "" || $Gender == "" ||
+		if($Contact_Phone == "" || $First_Name == "" || $Last_Name == "" || $Ethnicity == "" || $Gender == "" ||
 		   $Height == "" || $Weight == "" || $Hair_Color == "" || $Eye_Color == "" || $Hair_Style == "" ||
 		   $Age == "" || $Street_Address == "" || $State == "" || $Zip_Code == "" || $City == "")
 		{
@@ -132,7 +132,7 @@
 				 alert('Please, make sure you fill out all the fields');".
 				 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
 			exit;//exit, so that the following code is not executed
-		}*/
+		}
 	
 		if ($db_found) 
 		{
@@ -163,13 +163,12 @@
 			if($num_rows > 0)
 			{
 				//Update the info in the database
-				//$SQL = "UPDATE Personnel SET Street_Address = $Street_Address, City = $City, State = $State, Zip_Code = $Zip_Code, Contact_Phone = $Contact_Phone, Height = $Height,Weight = $Weight, Age = $Age, Hair_Color = $Hair_Color, Hair_Style = $Hair_Style, Eye_Color = $Eye_Color, Ethnicity = $Ethnicity, Gender = $Gender, Previous_Work = $Previous_Work WHERE Contact_Email = '$email'";
 				$SQL = "UPDATE Personnel SET Street_Address = '$Street_Address', City = '$City', State = '$State', Zip_Code = '$Zip_Code', Contact_Phone = '$Contact_Phone', Height = '$Height', Weight = '$Weight', Age = '$Age', Hair_Color = '$Hair_Color', Hair_Style = '$Hair_Style', Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', Gender = '$Gender', Previous_Work = '$Previous_Work' WHERE Contact_Email = '$email'";		
 				$result = mysql_query($SQL);
 				
 				echo "<script type='text/javascript'>
 					 alert('Your profile has been updated.');".
-					 "window.location = 'EditProfile.php';</script>";//redirect back to EditProfile.php   
+					 "window.location = 'ViewProfile.php';</script>";//redirect back to EditProfile.php   
 				exit;
 			}
 			else
@@ -407,7 +406,7 @@
 	<tr>
 		<td width="142" height="42" colspan="3" background="Assets/EditProfile_29.gif">&nbsp;
         <?php
-			$heights = array('' => '', 
+			$heightArray = array('' => '', 
 								'4.00' => '4\'0"',
 								'4.01' => '4\'1"',
 								'4.02' => '4\'2"',
@@ -445,12 +444,12 @@
 								'6.10' => '6\'10"',
 								'6.11' => '6\'11"',
 								'7.00' => '7\'0"');
-			$height = $Height;
+			$heightUnit = $Height;
 			echo '<select class="select" name="height">';
-			foreach ($heights as $heightKey => $heightName) {
-				$line = '<option value="' . $haircolorKey . '"';
-				$line .= ($height == $heightKey) ? ' selected="selected">' : '>';
-				$line .= $heightName . '</option>';
+			foreach ($heightArray as $heightUnitKey => $heightUnitName) {
+				$line = '<option value="' . $heightUnitKey . '"';
+				$line .= ($heightUnit == $heightUnitKey) ? ' selected="selected">' : '>';
+				$line .= $heightUnitName . '</option>';
 				echo $line . "\n"; 
 			}
 			echo '</select>';
@@ -580,11 +579,6 @@
 		<td colspan="3" rowspan="2">
 			<img src="Assets/EditProfile_45.gif" width="105" height="83" alt=""></td>
 		<td width="214" height="43" colspan="4" background="Assets/EditProfile_46.gif">&nbsp;
-        <!--<select name="gender" id="gender">
-		    <option value="" selected> </option>
-		    <option value="male">Male</option>
-		    <option value="female">Female</option>
-        </select>-->
         <?php
 			$genders = array('' => '', 'male' => 'Male', 'female' => 'Female');
 			$gender = $Gender;
@@ -613,7 +607,7 @@
 		<td rowspan="7">
 			<img src="Assets/EditProfile_49.gif" width="286" height="342" alt=""></td>
 		<td width="651" height="174" colspan="13" rowspan="4" background="Assets/EditProfile_50.gif">&nbsp;
-        <textarea name="previousexperience" id="previousexperience" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Previous_Work ?>"></textarea>
+        <textarea name="previousexperience" id="previousexperience" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent;"><?php echo $Previous_Work ?></textarea>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="54" alt=""></td>
