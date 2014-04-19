@@ -1,5 +1,17 @@
 <?php
 
+$role = $_COOKIE['role'];
+$email = $_COOKIE['email'];
+$password = $_COOKIE['password'];
+
+//No unauthorized access
+if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
+{
+	echo "<script type='text/javascript'>
+			window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+	exit;
+}
+
 $user_name = 'actorsgu_data';
 $pass_word = 'cliffy36&winepress';
 $database = 'actorsgu_data';
@@ -56,8 +68,6 @@ if ($db_found) {
 				echo "Stored in: " . $fileName;
 				echo "<img src=/" . $fileName . " alt=''>";
 				
-				//$email = $_POST('Contact_Email');
-				$email = "joss@actors.com";
 				$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$email'"; 
 				$result = mysql_query($SQL);
 				if (!$result)
