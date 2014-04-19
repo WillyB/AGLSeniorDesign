@@ -57,15 +57,16 @@ if ($db_found) {
 				{
 					echo "<h1>51</h1>";
 					move_uploaded_file($tmpFile, $fileName);
-					//$email = $_POST('Contact_Email');
+				}
+				echo "Stored in: " . $fileName;
+				echo "<img src=/" . $fileName . " alt=''>";
+				
+				//$email = $_POST('Contact_Email');
 					$email = "joss@actors.com";
 					$result1 = mysql_query($con,"UPDATE Personnel SET Picture = '" . $fileName . "' WHERE Contact_Email = '$email'");
 					echo "<h1>56</h1>";
 					if (!$result1)
 						echo "<h1>Did not work</h1>";
-				}
-				echo "Stored in: " . $fileName;
-				echo "<img src=/" . $fileName . " alt=''>";
 			}
 		}
 	}
