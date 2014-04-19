@@ -11,8 +11,7 @@
     if(isset($_COOKIE['target_email'])&& ($_COOKIE['target_email'] != ''))
     {
         $lookupEmail = $_COOKIE['target_email'];
-        setcookie('target_email','',time() - 3600);
-        unset($_COOKIE['target_email']);            //After we grab the target email, clear it. Note this means if they refresh the page they will be directed to their own profile
+        setcookie('target_email','',time() - 3600); //After we grab the target email, clear it. Note this means if they refresh the page they will be directed to their own profile
     }
     else
     {
@@ -72,7 +71,7 @@
 	
 	if ($db_found) 
 	{
-		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$lookupEmail' AND password = '$password'";	
+		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$lookupEmail'";	
 		$result = mysql_query($SQL);
 		$num_rows = mysql_num_rows($result);
 		$db_field = mysql_fetch_array($result);
@@ -175,7 +174,7 @@
 			if($num_rows > 0)
 			{
 				//Update the info in the database
-				$SQL = "UPDATE Personnel SET Street_Address = '$Street_Address', City = '$City', State = '$State', Zip_Code = '$Zip_Code', Contact_Phone = '$Contact_Phone', Height = '$Height', Weight = '$Weight', Age = '$Age', Hair_Color = '$Hair_Color', Hair_Style = '$Hair_Style', Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', Gender = '$Gender', Previous_Work = '$Previous_Work' WHERE Contact_Email = '$email'";		
+				$SQL = "UPDATE Personnel SET Street_Address = '$Street_Address', City = '$City', State = '$State', Zip_Code = '$Zip_Code', Contact_Phone = '$Contact_Phone', Height = '$Height', Weight = '$Weight', Age = '$Age', Hair_Color = '$Hair_Color', Hair_Style = '$Hair_Style', Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', Gender = '$Gender', Previous_Work = '$Previous_Work' WHERE Contact_Email = '$lookupEmail'";		
 				$result = mysql_query($SQL);
 				
 				echo "<script type='text/javascript'>
