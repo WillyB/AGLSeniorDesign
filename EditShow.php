@@ -1,3 +1,8 @@
+<!--	This page can be reached by the ListShows.php page or AdminTools.php page.
+        The user will be able to create or edit the information pertaining to the selected
+        show, and administrative access is required to view this page. The save button will
+        redirect the user to the ViewShows.php page.
+-->
 <html>
 <head>
 <title>AGL: Edit Show</title>

@@ -1,3 +1,6 @@
+<!--	This is the page that allows a user to upload a picture to their profile.
+        It is reached from EditProfile.php and redirects back to EditProfile.php.
+-->
 <?php
 
 $role = $_COOKIE['role'];

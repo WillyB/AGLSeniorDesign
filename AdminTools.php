@@ -1,3 +1,8 @@
+<!--	Once a user logs in with administrative or director access,
+        this will be the first page they see and this page will allow
+        the user to navigate to the view users, view shows, create show,
+        search, and view profile pages.
+-->
 <html>
 <head>
 <title>AGL: Admin Tools</title>
@@ -7,7 +12,7 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 
-	//No unauthorized access
+	//Does not allow anyone to view this page who does not have admin access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
 	{
 		echo "<script type='text/javascript'>
@@ -15,6 +20,7 @@ $password = $_COOKIE['password'];
 		exit;
 	}
 
+        //redirect to ViewProfile.php when this button is clicked
 	if (isset($_POST['myprofile'])) 
 	{
         setcookie('target_email',$email);

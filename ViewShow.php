@@ -1,3 +1,5 @@
+<!--	This page displays the information that is stored for the show.
+-->
 <html>
 <head>
 <title>AGL: View Show</title>

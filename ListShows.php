@@ -1,3 +1,9 @@
+<!--	This page can be reached from the UserTools.php or AdminTools.php page
+        and displays a list of all the shows that are in the database. The user
+        will have the option to View the information about the show and those
+        with admin access can cast their show, edit the information, or delete
+        the show.
+-->
 <html>
 <head>
 <title>AGL: List Shows</title>

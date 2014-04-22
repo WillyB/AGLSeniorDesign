@@ -1,3 +1,6 @@
+<!--	This page can be reached from AdminTools.php and allows the user to 
+        search all of the actors for specific attributes in their profile.
+-->
 <html>
 <head>
 <title>AGL: Search Database</title>

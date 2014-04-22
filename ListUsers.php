@@ -1,3 +1,9 @@
+<!--	This page can be accessed from the AdminTools.php and lists all of the
+        users that are in the database.  Admin access is required to view this
+        page. Clicking on Edit will redirect to EditProfile.php for the selected
+        user, and selecting delete will delete the user from the database. Users
+        can also be promoted to director or demoted to user from this page.
+-->
 <html>
 <head>
 <title>AGL: List Users</title>

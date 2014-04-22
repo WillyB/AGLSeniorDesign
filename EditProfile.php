@@ -1,3 +1,8 @@
+<!--	This page can be reached from the Register.php, ViewUsers.php, ViewProfile.php
+        and SearchDB.php pages.  On this page, the use can edit the fields that described
+        the profile of the user. Saving the changes will redirect the user to the
+        ViewProfile.php page.
+-->
 <html>
 <head>
 <title>AGL: Edit Profile</title>

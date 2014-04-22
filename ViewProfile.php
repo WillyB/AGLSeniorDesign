@@ -1,3 +1,7 @@
+<!--	This page can be accessed from UserTools.php or AdminTools.php.
+        This page will display all the information that is stored for the user.
+        The user can logout or return to the home page from this page.
+-->
 <html>
 <head>
 <title>AGL: View Profile</title>

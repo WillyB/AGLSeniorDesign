@@ -1,3 +1,7 @@
+<!--	This is the page that a user with basic access will see when they login.
+        This is also the page that will be shown when a user completes registration.
+        The user can navigate to ViewProfile.php and ListShows.php from this page.
+-->
 <html>
 <head>
 <title>AGL: User Home</title>
