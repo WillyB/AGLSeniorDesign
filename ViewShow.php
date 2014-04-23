@@ -108,7 +108,7 @@
 	<tr>
 		<td colspan="5" rowspan="3">
 			<img src="Assets/ViewShow_02.gif" width="1211" height="187" alt=""></td>
-		<td colspan="2">
+		<td>
 			<input type="image" name="home" value="home" src="Assets/ViewShow_03.gif" id="home"></td>
 		<td rowspan="17">
 			<img src="Assets/ViewShow_04.gif" width="83" height="809" alt=""></td>
@@ -116,7 +116,7 @@
 			<img src="Assets/spacer.gif" width="1" height="33" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="2">
+		<td>
 			<input type="image" name="logout" value="logout" src="Assets/ViewShow_05.gif" id"logout"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="33" alt=""></td>
@@ -159,7 +159,7 @@
 	</tr>
 	<tr>
 		<td width="509" height="34" colspan="2" background="Assets/ViewShow_14.gif">&nbsp;
-         <input name="playwright" type="text" id="playwright" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" value="<?php echo $Playright ?>" readonly>
+         <input name="playwright" type="text" id="playwright" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" value="<?php echo $Playwright ?>" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
