@@ -51,7 +51,7 @@
 		exit;	
 	}
     
-    $showID = $_POST['showID'];
+    $showID = $_COOKIE['showID'];
     $user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
 	$database = 'actorsgu_data';
