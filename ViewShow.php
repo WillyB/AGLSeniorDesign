@@ -51,8 +51,47 @@
 		exit;	
 	}
     
-    
-    
+    $showID = $_POST['showID'];
+    $user_name = 'actorsgu_data';
+	$pass_word = 'cliffy36&winepress';
+	$database = 'actorsgu_data';
+	$server ='localhost:3306';
+		
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+	
+	if ($db_found) 
+	{
+		$SQL = "SELECT * FROM Shows WHERE idShows = '$showID'";	
+		$result = mysql_query($SQL);
+		$num_rows = mysql_num_rows($result);
+		$db_field = mysql_fetch_array($result);
+		if($num_rows > 0) // if show exists in the data base
+		{
+		//Fill in that info
+			//$First_Name = $db_field['First_Name'];//not there
+			$Show_Name = $db_field['Show_Name'];
+            $Director  = $db_field['Director'];
+            $Playwright = $db_field['Playwright'];
+            $Audition_Notes = $db_field['Audition_Notes'];
+		}
+		else
+		{ 
+            //First check to see which "Home" the user is going to
+ 	      if($role == 0 || $role == 1){
+                echo "<script type='text/javascript'>
+                    alert('There was an error retreiving your information.');".
+                    "window.location = 'AdminTools.php';</script>";
+		       exit;
+            }
+		  else if($role == 2){
+                echo "<script type='text/javascript'>
+                        alert('There was an error retreiving your information.');".
+			         "window.location = 'UserTools.php';</script>";
+                exit;
+                }
+		}
+	}
     
     
 ?>
@@ -107,7 +146,7 @@
 		<td rowspan="12">
 			<img src="Assets/ViewShow_11.gif" width="167" height="316" alt=""></td>
 		<td width="509" height="34" colspan="2" background="Assets/ViewShow_12.gif">&nbsp;
-        <input name="title" type="text" id="title" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
+        <input name="title" type="text" id="title" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" value="<?php echo $Show_Name ?>" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
@@ -120,7 +159,7 @@
 	</tr>
 	<tr>
 		<td width="509" height="34" colspan="2" background="Assets/ViewShow_14.gif">&nbsp;
-         <input name="playwright" type="text" id="playwright" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
+         <input name="playwright" type="text" id="playwright" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" value="<?php echo $Playright ?>" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
@@ -133,7 +172,7 @@
 	</tr>
 	<tr>
 		<td width="509" height="34" colspan="2" background="Assets/ViewShow_16.gif">&nbsp;
-        <input name="director" type="text" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
+        <input name="director" type="text" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" value="<?php echo $Director ?>" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
@@ -146,7 +185,7 @@
 	</tr>
 	<tr>
 		<td width="509" height="34" colspan="2" background="Assets/ViewShow_18.gif">&nbsp;
-        <input name="auditiondates" type="text" id="auditiondates" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
+        <input name="auditiondates" type="text" id="auditiondates" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" value="<?php echo $Audition_Notes ?>" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>

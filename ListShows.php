@@ -108,7 +108,7 @@ if(isset($_POST['Edit']))
 
 if(isset($_POST['View']))
 {
-	$showID = $_POST['ShowID2'];
+	$showID = $_POST['ShowID'];
 	setCookie('showID', $showID);//set cookie to pass use on the next page
 	echo  "<script type='text/javascript'>
 			window.location = 'ViewShow.php';</script>";
@@ -205,7 +205,7 @@ if(isset($_POST['Cast']))
 										$row['Director']."</td>";
 						echo "<form action='ListShows.php' method='post'>
                                  <td><input type='SUBMIT' name='View' value='View'/>
-								 <input type='HIDDEN' name='ShowID3' value='" .$value. "'/></td></form>";
+								 <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td></form>";
                                  
                                  
                                  //<td><input type='SUBMIT' name='Cast' value='Cast Show'/>
