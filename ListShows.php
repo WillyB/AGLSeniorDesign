@@ -106,6 +106,15 @@ if(isset($_POST['Edit']))
 	exit;
 }
 
+if(isset($_POST['View']))
+{
+	$showID = $_POST['ShowID2'];
+	setCookie('showID', $showID);//set cookie to pass use on the next page
+	echo  "<script type='text/javascript'>
+			window.location = 'ViewShow.php';</script>";
+	exit;
+}
+
 if(isset($_POST['Cast']))
 {
 	$user_name = 'actorsgu_data';
@@ -187,9 +196,7 @@ if(isset($_POST['Cast']))
 					<tr>
 							<th>Title</th>			
 							<th>Director</th>
-							<th>Cast Show</th>
-							<th>Edit Show</th>
-                            <th>Delete Show</th></tr>";
+							<th>View</th></tr>";
 							
 					while($row = mysql_fetch_array($result))
 					{
@@ -197,16 +204,19 @@ if(isset($_POST['Cast']))
 						echo "<tr><td>".$row['Show_Name']."</td><td>".
 										$row['Director']."</td>";
 						echo "<form action='ListShows.php' method='post'>
-                                 <td><input type='SUBMIT' name='Cast' value='Cast Show'/>
-								 <input type='HIDDEN' name='ShowID3' value='" .$value. "'/></td>
+                                 <td><input type='SUBMIT' name='View' value='View'/>
+								 <input type='HIDDEN' name='ShowID3' value='" .$value. "'/></td></form>";
                                  
+                                 
+                                 //<td><input type='SUBMIT' name='Cast' value='Cast Show'/>
+								 //<input type='HIDDEN' name='ShowID3' value='" .$value. "'/></td>
 								 
-								 <td><input type='SUBMIT' name='Edit' value='Edit'/>
-								 <input type='HIDDEN' name='ShowID2' value='" .$value. "'/></td>
+								 //<td><input type='SUBMIT' name='Edit' value='Edit'/>
+								 //<input type='HIDDEN' name='ShowID2' value='" .$value. "'/></td>
 								 
 								 
-								 <td><input type='SUBMIT' name='Delete' value='Delete'/>
-								 <input type='HIDDEN' name='ShowID1' value='" .$value. "'/></td></td></form>";	 						
+								 //<td><input type='SUBMIT' name='Delete' value='Delete'/>
+								 //<input type='HIDDEN' name='ShowID1' value='" .$value. "'/></td></td></form>";	 						
 					}
 					echo "</table>";
 					echo "<br>"."<br>";

@@ -4,6 +4,58 @@
 <head>
 <title>AGL: View Show</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<?php
+	$role = $_COOKIE['role'];
+	$email = $_COOKIE['email'];
+	$password = $_COOKIE['password'];
+    
+    
+	//No unauthorized access
+	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
+	{
+		echo "<script type='text/javascript'>
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+		exit;
+	}
+	//redirect to ListUsers.php when "HOME" button is clicked
+	if (isset($_POST['home'])) 
+	{
+		//First check to see which "Home" the user is going to
+		if($role == 0 || $role == 1){
+			echo "<script type='text/javascript'>
+			  window.location = 'AdminTools.php';</script>";
+		   exit;
+		}
+		else if($role == 2){
+			echo "<script type='text/javascript'>
+			  window.location = 'UserTools.php';</script>";
+		   exit;
+		}
+		
+	}
+    
+    	//remove cookies and redirect to login.php when "LOGOUT" button is clicked
+	if (isset($_POST['logout'])) 
+	{
+		unset($_COOKIE['role']);
+		unset($_COOKIE['email']);
+		unset($_COOKIE['password']);
+	
+		setcookie('role', '', time() - 3600);		
+		setcookie('email', '', time() - 3600);
+		setcookie('password', '', time() - 3600);	
+		
+		echo "<script type='text/javascript'>
+			  alert('Goodbye!');".
+			 "window.location = 'LogIn.php';</script>";//redirect to login page
+		exit;	
+	}
+    
+    
+    
+    
+    
+?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ViewShow.psd) -->
