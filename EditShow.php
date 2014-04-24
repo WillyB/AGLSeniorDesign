@@ -82,108 +82,6 @@ Include JQuery Core (Required for calendar plugin)
 		exit;	
 	}
 ?>
-</head>
-<body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<!-- Save for Web Slices (EditShow.psd) -->
-<form name="form1" method="post" action="EditShow.php">
-<table width="1401" height="1441" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
-	<tr>
-		<td colspan="10">
-			<img src="Assets/EditShow_01.gif" width="1400" height="71" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="71" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="7" rowspan="3">
-			<img src="Assets/EditShow_02.gif" width="1211" height="162" alt=""></td>
-		<td colspan="2">
-			<input type="image" name="home" value="home" src="Assets/EditShow_03.gif" id="home"></td>
-		<td rowspan="10">
-			<img src="Assets/EditShow_04.gif" width="82" height="459" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<input type="image" name="logout" value="logout" src="Assets/EditShow_05.gif" id"logout"></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="2" rowspan="8">
-			<img src="Assets/EditShow_06.gif" width="107" height="392" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="95" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="3" rowspan="6">
-			<img src="Assets/EditShow_07.gif" width="506" height="173" alt=""></td>
-		<td width="589" height="42" background="Assets/EditShow_08.gif">&nbsp;
-        <input type="text" name="showtitle" id="showtitle" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
-        </td>
-		<td colspan="3" rowspan="2">
-			<img src="Assets/EditShow_09.gif" width="116" height="47" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
-	</tr>
-	<tr>
-		<td>
-			<img src="Assets/EditShow_10.gif" width="589" height="5" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="5" alt=""></td>
-	</tr>
-	<tr>
-		<td width="590" height="43" colspan="2" background="Assets/EditShow_11.gif">&nbsp;
-        <input type="text" name="author" id="author" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
-        </td>
-		<td colspan="2" rowspan="5">
-			<img src="Assets/EditShow_12.gif" width="115" height="250" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<img src="Assets/EditShow_13.gif" width="590" height="4" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="4" alt=""></td>
-	</tr>
-	<tr>
-		<td width="590" height="42" colspan="2" background="Assets/EditShow_14.gif">&nbsp;
-        <input type="text" name="director" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
-        </td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<img src="Assets/EditShow_15.gif" width="590" height="37" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<img src="Assets/EditShow_16.gif" width="327" height="124" alt=""></td>
-		<td width="768" height="124" colspan="2" background="Assets/EditShow_17.gif">&nbsp;
-        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea>
-        </td>
-		<td>
-			<img src="Assets/EditShow_18.gif" width="1" height="124" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="124" alt=""></td>
-	</tr>
-	<tr>
-		<td width="1400" height="57" colspan="10" background="Assets/EditShow_19.gif">&nbsp;</td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="57" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="4">
-			<img src="Assets/EditShow_20.gif" width="116" height="853" alt=""></td>
-		<td width="1163" height="712" colspan="7" background="Assets/EditShow_21.gif">
-        <!--
-        CALENDAR SPACE
-        -->
-        </style>
 
 <script type="text/javascript">
 $(document).ready(function(){	
@@ -688,6 +586,274 @@ $(document).ready(function(){
 	
 });
 </script>
+</head>
+<body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- Save for Web Slices (EditShow.psd) -->
+<form name="form1" method="post" action="EditShow.php">
+<table width="1401" height="1441" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
+	<tr>
+		<td colspan="10">
+			<img src="Assets/EditShow_01.gif" width="1400" height="71" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="71" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="7" rowspan="3">
+			<img src="Assets/EditShow_02.gif" width="1211" height="162" alt=""></td>
+		<td colspan="2">
+			<input type="image" name="home" value="home" src="Assets/EditShow_03.gif" id="home"></td>
+		<td rowspan="10">
+			<img src="Assets/EditShow_04.gif" width="82" height="459" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="35" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="image" name="logout" value="logout" src="Assets/EditShow_05.gif" id"logout"></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="32" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="8">
+			<img src="Assets/EditShow_06.gif" width="107" height="392" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="95" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="6">
+			<img src="Assets/EditShow_07.gif" width="506" height="173" alt=""></td>
+		<td width="589" height="42" background="Assets/EditShow_08.gif">&nbsp;
+        <input type="text" name="showtitle" id="showtitle" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
+        </td>
+		<td colspan="3" rowspan="2">
+			<img src="Assets/EditShow_09.gif" width="116" height="47" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="Assets/EditShow_10.gif" width="589" height="5" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="5" alt=""></td>
+	</tr>
+	<tr>
+		<td width="590" height="43" colspan="2" background="Assets/EditShow_11.gif">&nbsp;
+        <input type="text" name="author" id="author" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
+        </td>
+		<td colspan="2" rowspan="5">
+			<img src="Assets/EditShow_12.gif" width="115" height="250" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<img src="Assets/EditShow_13.gif" width="590" height="4" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="4" alt=""></td>
+	</tr>
+	<tr>
+		<td width="590" height="42" colspan="2" background="Assets/EditShow_14.gif">&nbsp;
+        <input type="text" name="director" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
+        </td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<img src="Assets/EditShow_15.gif" width="590" height="37" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<img src="Assets/EditShow_16.gif" width="327" height="124" alt=""></td>
+		<td width="768" height="124" colspan="2" background="Assets/EditShow_17.gif">&nbsp;
+        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea>
+        </td>
+		<td>
+			<img src="Assets/EditShow_18.gif" width="1" height="124" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="124" alt=""></td>
+	</tr>
+	<tr>
+		<td width="1400" height="57" colspan="10" background="Assets/EditShow_19.gif">&nbsp;</td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="57" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="4">
+			<img src="Assets/EditShow_20.gif" width="116" height="853" alt=""></td>
+		<td width="1163" height="712" colspan="7" background="Assets/EditShow_21.gif">
+        <!--
+        CALENDAR SPACE
+        -->
+        <div id="example" style="margin: auto; width:80%;">
+		
+		<br>
+		
+		<div class="shadow" style="border: 1px solid #aaaaaa; padding: 3px;">
+			<b>
+			Click the calendar to add some agenda items.
+			<br><br>
+			Please note that Chrome prevents AJAX calls from reading local files on disk so the iCal example will not work. Try in Firefox, Safari, Opera, or IE.
+			For Chrome it should work when the iCal file is hosted online from your domain.
+			</b>
+		</div>
+		
+		<br><br>
+
+		<div id="toolbar" class="ui-widget-header ui-corner-all" style="padding:3px; vertical-align: middle; white-space:nowrap; overflow: hidden;">
+			<button id="BtnPreviousMonth">Previous Month</button>
+			<button id="BtnNextMonth">Next Month</button>
+			&nbsp;&nbsp;&nbsp;
+			Date: <input type="text" id="dateSelect" size="20"/>
+			&nbsp;&nbsp;&nbsp;
+			<button id="BtnDeleteAll">Delete All</button>
+			<button id="BtnICalTest">iCal Test</button>
+			<input type="text" id="iCalSource" size="30" value="extra/fifa-world-cup-2010.ics"/>
+		</div>
+
+		<br>
+
+		<!--
+		You can use pixel widths or percentages. Calendar will auto resize all sub elements.
+		Height will be calculated by aspect ratio. Basically all day cells will be as tall
+		as they are wide.
+		-->
+		<div id="mycal"></div>
+
+		</div>
+
+		<!-- debugging-->
+		<div id="calDebug"></div>
+
+		<!-- Add event modal form -->
+		<style type="text/css">
+			//label, input.text, select { display:block; }
+			fieldset { padding:0; border:0; margin-top:25px; }
+			.ui-dialog .ui-state-error { padding: .3em; }
+			.validateTips { border: 1px solid transparent; padding: 0.3em; }
+		</style>
+		<div id="add-event-form" title="Add New Event">
+			<p class="validateTips">All form fields are required.</p>
+			<form>
+			<fieldset>
+				<label for="name">What?</label>
+				<input type="text" name="what" id="what" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>
+				<table style="width:100%; padding:5px;">
+					<tr>
+						<td>
+							<label>Start Date</label>
+							<input type="text" name="startDate" id="startDate" value="" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>				
+						</td>
+						<td>&nbsp;</td>
+						<td>
+							<label>Start Hour</label>
+							<select id="startHour" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;">
+								<option value="12" SELECTED>12</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+							</select>				
+						<td>
+						<td>
+							<label>Start Minute</label>
+							<select id="startMin" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;">
+								<option value="00" SELECTED>00</option>
+								<option value="10">10</option>
+								<option value="20">20</option>
+								<option value="30">30</option>
+								<option value="40">40</option>
+								<option value="50">50</option>
+							</select>				
+						<td>
+						<td>
+							<label>Start AM/PM</label>
+							<select id="startMeridiem" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;">
+								<option value="AM" SELECTED>AM</option>
+								<option value="PM">PM</option>
+							</select>				
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>End Date</label>
+							<input type="text" name="endDate" id="endDate" value="" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>				
+						</td>
+						<td>&nbsp;</td>
+						<td>
+							<label>End Hour</label>
+							<select id="endHour" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;">
+								<option value="12" SELECTED>12</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+							</select>				
+						<td>
+						<td>
+							<label>End Minute</label>
+							<select id="endMin" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;">
+								<option value="00" SELECTED>00</option>
+								<option value="10">10</option>
+								<option value="20">20</option>
+								<option value="30">30</option>
+								<option value="40">40</option>
+								<option value="50">50</option>
+							</select>				
+						<td>
+						<td>
+							<label>End AM/PM</label>
+							<select id="endMeridiem" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;">
+								<option value="AM" SELECTED>AM</option>
+								<option value="PM">PM</option>
+							</select>				
+						</td>				
+					</tr>			
+				</table>
+				<table>
+					<tr>
+						<td>
+							<label>Background Color</label>
+						</td>
+						<td>
+							<div id="colorSelectorBackground"><div style="background-color: #333333; width:30px; height:30px; border: 2px solid #000000;"></div></div>
+							<input type="hidden" id="colorBackground" value="#333333">
+						</td>
+						<td>&nbsp;&nbsp;&nbsp;</td>
+						<td>
+							<label>Text Color</label>
+						</td>
+						<td>
+							<div id="colorSelectorForeground"><div style="background-color: #ffffff; width:30px; height:30px; border: 2px solid #000000;"></div></div>
+							<input type="hidden" id="colorForeground" value="#ffffff">
+						</td>						
+					</tr>				
+				</table>
+			</fieldset>
+			</form>
+		</div>
+		
+		<div id="display-event-form" title="View Agenda Item">
+			
+		</div>		
+
+		<p>&nbsp;</p>
         </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/EditShow_22.gif" width="121" height="853" alt=""></td>
