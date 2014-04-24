@@ -185,7 +185,7 @@
 	</tr>
 	<tr>
 		<td width="509" height="34" colspan="2" background="Assets/ViewShow_18.gif">&nbsp;
-        <input name="auditiondates" type="text" id="auditiondates" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" value="<?php echo $Audition_Notes ?>" readonly>
+        <input name="auditiondates" type="text" id="auditiondates" style="color: #FFFFFF;border:none;background-color:transparent;" size="70" readonly>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>

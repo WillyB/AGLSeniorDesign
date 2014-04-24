@@ -117,31 +117,11 @@ if(isset($_POST['View']))
 
 if(isset($_POST['Cast']))
 {
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	//$server = 'box293.bluehost.com:3306';
-	$server = 'localhost:3306';
-
-	$db_handle = mysql_connect($server, $user_name, $pass_word);
-	$db_found = mysql_select_db($database, $db_handle);
-
-	if ($db_found) 
-	{
-	    $showID = $_POST['ShowID3'];
-		echo "<script type='text/javascript'>
-			  alert('SOME MAGIC HAPPENS WHEN YOU PUSH cast BUTTON');".
-			 "window.location = 'AdminTools.php';</script>";	//redirect to AdminTools for now	
-		exit;
-	}
-	else//if DB was not found
-	{
-		echo '<script type="text/javascript"> 
-			  alert("Database is not found");
-			  </script>';
-		exit;
-	}	
-	mysql_close($db_handle);
+	$showID = $_POST['ShowID'];
+    setCookie('showID', $showID);
+    echo  "<script type='text/javascript'>
+			window.location = 'ViewShow.php';</script>";
+	exit;
 }		
 ?>
 
@@ -195,17 +175,33 @@ if(isset($_POST['Cast']))
 					echo "<table border='1' bordercolor='#ffffff' style='color: #ffffff;border:none;background-color:#transparent;' align='left' cellpadding='20' >
 					<tr>
 							<th>Title</th>			
-							<th>Director</th>
-							<th>View</th></tr>";
+							<th>Director</th>";
+					if ($role == 0 || $role == 1){
+					   echo "<th>View</th>
+                            <th>Cast</th></tr>";
+					}
+                    else
+                        "<th>View</th></tr>";
+                            
 							
 					while($row = mysql_fetch_array($result))
 					{
 						$value = $row['idShows'];
 						echo "<tr><td>".$row['Show_Name']."</td><td>".
 										$row['Director']."</td>";
-						echo "<form action='ListShows.php' method='post'>
-                                 <td><input type='SUBMIT' name='View' value='View'/>
-								 <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td></form>";
+						echo "<form action='ListShows.php' method='post'>";
+                                 if ($role == 0 || $role == 1){
+                                    echo "<td><input type='SUBMIT' name='View' value='View'/>
+								         <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td>
+                                        
+                                        <td><input type='SUBMIT' name='Cast' value='Cast Show'/>
+								        <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td></form>";
+                                 }
+                                 else{
+                                    echo "<td><input type='SUBMIT' name='View' value='View'/>
+								            <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td></form>";
+                                 }
+                                 
                                  
                                  
                                  //<td><input type='SUBMIT' name='Cast' value='Cast Show'/>
