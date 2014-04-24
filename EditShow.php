@@ -687,7 +687,7 @@ $(document).ready(function(){
         <!--
         CALENDAR SPACE
         -->
-        <div id="example" style="margin: auto; width:95%;">
+        <div id="example" style="margin: auto; width:100%;">
 		
 
 		<div id="toolbar" class="ui-widget-header ui-corner-all" style="padding:3px; vertical-align: middle; white-space:nowrap; overflow: hidden;">
