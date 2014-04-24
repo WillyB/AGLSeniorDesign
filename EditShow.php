@@ -687,20 +687,8 @@ $(document).ready(function(){
         <!--
         CALENDAR SPACE
         -->
-        <div id="example" style="margin: auto; width:80%;">
+        <div id="example" style="margin: auto; width:95%;">
 		
-		<br>
-		
-		<div class="shadow" style="border: 1px solid #aaaaaa; padding: 3px;">
-			<b>
-			Click the calendar to add some agenda items.
-			<br><br>
-			Please note that Chrome prevents AJAX calls from reading local files on disk so the iCal example will not work. Try in Firefox, Safari, Opera, or IE.
-			For Chrome it should work when the iCal file is hosted online from your domain.
-			</b>
-		</div>
-		
-		<br><br>
 
 		<div id="toolbar" class="ui-widget-header ui-corner-all" style="padding:3px; vertical-align: middle; white-space:nowrap; overflow: hidden;">
 			<button id="BtnPreviousMonth">Previous Month</button>
@@ -709,8 +697,6 @@ $(document).ready(function(){
 			Date: <input type="text" id="dateSelect" size="20"/>
 			&nbsp;&nbsp;&nbsp;
 			<button id="BtnDeleteAll">Delete All</button>
-			<button id="BtnICalTest">iCal Test</button>
-			<input type="text" id="iCalSource" size="30" value="extra/fifa-world-cup-2010.ics"/>
 		</div>
 
 		<br>
@@ -854,6 +840,7 @@ $(document).ready(function(){
 		</div>		
 
 		<p>&nbsp;</p>
+        <!--End Calendar Slice -->
         </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/EditShow_22.gif" width="121" height="853" alt=""></td>
