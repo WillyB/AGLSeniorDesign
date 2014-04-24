@@ -120,7 +120,7 @@ if(isset($_POST['Cast']))
 	$showID = $_POST['ShowID'];
     setCookie('showID', $showID);
     echo  "<script type='text/javascript'>
-			window.location = 'ViewShow.php';</script>";
+			window.location = 'CastShow.php';</script>";
 	exit;
 }		
 ?>
