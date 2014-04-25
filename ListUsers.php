@@ -267,6 +267,7 @@ if(isset($_POST['Demote']))
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ListUsers.psd) -->
+<form name="form" method="post" action="ListUsers.php">
 <table width="1400" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="5">
@@ -276,13 +277,13 @@ if(isset($_POST['Demote']))
 		<td colspan="3" rowspan="3">
 			<img src="Assets/ListUsers_02.gif" width="1211" height="150" alt=""></td>
 		<td>
-			<img src="Assets/ListUsers_03.gif" width="106" height="35" alt=""></td>
+			<input type="image" name="home" value="home" src="Assets/ListUsers_03.gif" id="home"></td>
 		<td rowspan="3">
 			<img src="Assets/ListUsers_04.gif" width="83" height="150" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="Assets/ListUsers_05.gif" width="106" height="32" alt=""></td>
+			<input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif" id"logout"></td>
 	</tr>
 	<tr>
 		<td>
@@ -419,6 +420,7 @@ if(isset($_POST['Demote']))
 			<img src="Assets/spacer.gif" width="83" height="1" alt=""></td>
 	</tr>
 </table>
+</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>
