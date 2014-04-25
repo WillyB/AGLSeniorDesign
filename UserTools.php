@@ -16,7 +16,7 @@
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
 	{
 		echo "<script type='text/javascript'>
-			 	window.location = 'errorLog.php';</script>";//redirect back to Inventory page    
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
 		exit;
 	}
 
