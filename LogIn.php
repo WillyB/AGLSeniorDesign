@@ -86,7 +86,7 @@ $email2 = "";
 								setCookie('password',$Password);//delete later
 						        //setCookie('password',$hashedPassword);//uncomment later
 								
-								echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
+								echo "<script type='text/javascript'> location.href = 'AdminTools.php';</script>";//redirect to admin page 
 								exit;
 								
 						case 1://director login
@@ -96,7 +96,7 @@ $email2 = "";
 								setCookie('password',$Password);//delete later
 						        //setCookie('password',$hashedPassword); uncomment later
 								
-								echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
+								echo "<script type='text/javascript'> location.href = 'AdminTools.php';</script>";//redirect to admin page 
 								exit;
 								
 						case 2://regular user login
@@ -107,7 +107,7 @@ $email2 = "";
 								setCookie('password',$Password);//delete later
 						        //setCookie('password',$hashedPassword); uncomment later
 								
-								echo "<script type='text/javascript'> window.location.href = 'UserTools.php';</script>";//redirect to user page  
+								echo "<script type='text/javascript'> location.href = 'UserTools.php';</script>";//redirect to user page  
 								exit;
 					endswitch;							
 				}
