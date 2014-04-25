@@ -19,7 +19,7 @@ $role = 2; //Any new registration starts as a regular user
 	if(!isset($_COOKIE['email']))
 	{
 		echo "<script type='text/javascript'>
-			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+			 	window.location = 'LogIn.php';</script>";//redirect back to log in page    
 		exit;
 	}
 //remove cookies and redirect to login.php when "LOGOUT" button is clicked
@@ -57,54 +57,14 @@ if (isset($_POST['register']))
 			 "window.location = 'Register.php';</script>";//redirect back to login page    
 		exit;//exit, so that the following code is not executed
 	}
-	//data to login into mysql server on multilab machine
-	$user_name = 'actorsgu_data';
-	$pass_word = 'cliffy36&winepress';
-	$database = 'actorsgu_data';
-	$server = 'localhost:3306';//change back to 'localhost:3306';
-
-	$con = mysql_connect($server, $user_name, $pass_word, $database);
-	$db_handle = mysql_connect($server, $user_name, $pass_word);
-	$db_found = mysql_select_db($database, $db_handle);
-		
-	if ($db_found)
-	{
-		//this function is used to escape any dangerous strings (SQL injections)
-		$password = mysql_real_escape_string($password, $db_handle);
-		$confirmpassword = mysql_real_escape_string($confirmpassword, $db_handle);
-		$firstname = mysql_real_escape_string($firstname, $db_handle);
-		$lastname = mysql_real_escape_string($lastname, $db_handle);
-			
-		$SQL = "INSERT INTO Personnel (First_Name, Last_Name, Contact_Email, password, Role) 
-								VALUES ('$firstname', '$lastname', '$email', '$password', 2)";
-		$result = mysql_query($SQL);
-		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email' AND password = '$password'";
-		$result = mysql_query($SQL);
-		$num_rows = mysql_num_rows($result);
-		if ($num_rows > 0)//if there is no result returned, display error message
-		{
-			echo "<script type='text/javascript'>
-				 alert('Thank you for registering. You may log in now using your entered information.');".
-				 "window.location = 'LogIn.php';</script>";//redirect back to Register page    
-			exit;//exit, so that the following code is not executed
-		}
-		else
-		{
-			//after successful registration, display "thank you" message
-			echo "<script type='text/javascript'>
-				 alert('An error has occured. $email already exists.');".
-				 "window.location = 'Register.php';</script>";//redirect back to LogIn.php   
-			exit;//exit, so that the following code is not executed
-		}			
-		
-	}
-	else//if DB was not found
-	{
-		echo '<script type="text/javascript"> 
-			  alert("Database was not found");
-			  </script>';
-	}
-	mysql_close($db_handle);
+	//Redirect to terms of use
+	setcookie('temp_email', $email);
+	setcookie('temp_fname', $firstname);
+	setcookie('temp_lname', $lastname);
+	setcookie('temp_password', $password);
+	echo "<script type='text/javascript'>
+			 	window.location = 'TermsOfUse.php';</script>";//redirect back to Terms Of Use page    
+		exit;
 }
 ?>
 </head>
