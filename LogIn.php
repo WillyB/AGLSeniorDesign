@@ -17,6 +17,7 @@ $email2 = "";
 //RETURNING USER LOGIN PROCEDURE
 	if (isset($_POST['LogIn'])) 
 	{
+		echo "<script type='text/javascript'> location.href = 'AdminTools.php';</script>";
 		$email = $_POST['email'];
 		$Password = $_POST['Password'];
 		
