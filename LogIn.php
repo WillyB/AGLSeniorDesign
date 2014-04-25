@@ -88,7 +88,8 @@ $email2 = "";
 								
 								echo "<script type='text/javascript'>
 									 alert('admin has logged in');".//debug statement
-									  "window.location = 'AdminTools.php';</script>";//redirect to admin page 
+									  "window.location = 'AdminTools.php';
+                                      return false;</script>";//redirect to admin page 
 								exit;
 								
 						case 1://director login
@@ -100,7 +101,8 @@ $email2 = "";
 								
 								echo "<script type='text/javascript'>
 									 alert('director has logged in');".//debug statement
-									  "window.location = 'AdminTools.php';</script>";//redirect to admin page 
+									  "window.location = 'AdminTools.php';
+                                      return false;</script>";//redirect to admin page 
 								exit;
 								
 						case 2://regular user login
@@ -180,7 +182,8 @@ $email2 = "";
 				setcookie('email',$email2);
 				echo "<script type='text/javascript'>
 					 alert('Please fill out the following registration form.');".
-					 "window.location = 'Register.php';</script>";  	
+					 "window.location = 'Register.php';
+                     return false;</script>";  	
 				exit;			
 			}			
 		}
