@@ -132,8 +132,8 @@
 		<td rowspan="14">
 			<img src="Assets/ViewShow_07.gif" width="396" height="622" alt=""></td>
             <!--Here goes the description -->
-		<td width="676" height="245" colspan="3" background="Assets/ViewShow_08.gif"><a style="color:#FFFFFF;">
-		<textarea name="showdescription" id="showdescription" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent;"><?php echo $Audition_Notes ?></textarea>
+		<td width="676" height="245" colspan="3" background="Assets/ViewShow_08.gif">
+		<textarea name="showdescription" id="showdescription" cols="82" rows="13" style="color: #FFFFFF;border:none;background-color:transparent;"><?php echo $Audition_Notes ?></textarea>
         </td>
 		<td rowspan="14">
 			<img src="Assets/ViewShow_09.gif" width="139" height="622" alt=""></td>
