@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>AGL: Log In</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 $db_field = "";
 $role = "";
@@ -195,94 +195,94 @@ $email2 = "";
 <table width="1401" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="11">
-			<img src="Assets/LogIn_01.gif" width="1400" height="295" alt=""></td>
+			<img src="Assets/LogIn_01.gif" width="1400" height="295" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="295" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="295" alt="" /></td>
 	</tr>
 	<tr>
 		<td rowspan="6">
-			<img src="Assets/LogIn_02.gif" width="209" height="672" alt=""></td>
+			<img src="Assets/LogIn_02.gif" width="209" height="672" alt="" /></td>
 		<td rowspan="5">
-			<img src="Assets/LogIn_03.gif" width="340" height="170" alt=""></td>
+			<img src="Assets/LogIn_03.gif" width="340" height="170" alt="" /></td>
 		<td colspan="9">
-			<img src="Assets/LogIn_04.gif" width="851" height="45" alt=""></td>
+			<img src="Assets/LogIn_04.gif" width="851" height="45" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="45" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="45" alt="" /></td>
 	</tr>
 	<tr>
 		<td rowspan="5">
-			<img src="Assets/LogIn_05.gif" width="185" height="627" alt=""></td>
+			<img src="Assets/LogIn_05.gif" width="185" height="627" alt="" /></td>
 		<td width="174" height="37" colspan="2" background="Assets/LogIn_06.gif">&nbsp;
-        <input name="email" type="text" id="email" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input name="email" type="text" id="email" style="color: #FFFFFF;border:none;background-color:transparent;" />
       </td>
 		<td rowspan="2">
-			<img src="Assets/LogIn_07.gif" width="5" height="81" alt=""></td>
+			<img src="Assets/LogIn_07.gif" width="5" height="81" alt="" /></td>
 		<td width="173" height="37" colspan="3" background="Assets/LogIn_08.gif">&nbsp;
-        <input type="password" name="Password" id="Password" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="password" name="Password" id="Password" style="color: #FFFFFF;border:none;background-color:transparent;" />
         </td>
 		<td><input type="image" name="LogIn" value="login" src="Assets/LogIn_09.gif" width="66" height="37"/></td>
 		<td rowspan="5">
-			<img src="Assets/LogIn_10.gif" width="248" height="627" alt=""></td>
+			<img src="Assets/LogIn_10.gif" width="248" height="627" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="37" alt="" /></td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<img src="Assets/LogIn_11.gif" width="174" height="44" alt=""></td>
+			<img src="Assets/LogIn_11.gif" width="174" height="44" alt="" /></td>
 		<td colspan="4">
-			<img src="Assets/LogIn_12.gif" width="239" height="44" alt=""></td>
+			<img src="Assets/LogIn_12.gif" width="239" height="44" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="44" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="44" alt="" /></td>
 	</tr>
 	<tr>
 		<td rowspan="3">
-			<img src="Assets/LogIn_13.gif" width="67" height="546" alt=""></td>
+			<img src="Assets/LogIn_13.gif" width="67" height="546" alt="" /></td>
 		<td width="226" height="38" colspan="3" background="Assets/LogIn_14.gif">&nbsp;
-        <input type="text" name="email2" id="email2" style="color: #FFFFFF;border:none;background-color:transparent;" size="28">
+        <input type="text" name="email2" id="email2" style="color: #FFFFFF;border:none;background-color:transparent;" size="28" />
         </td>
 		<td rowspan="3">
-			<img src="Assets/LogIn_15.gif" width="11" height="546" alt=""></td>
-		<td colspan="2"><input type="image" name="register" value="register" src="Assets/LogIn_16.gif" id="register"></td>
+			<img src="Assets/LogIn_15.gif" width="11" height="546" alt="" /></td>
+		<td colspan="2"><input type="image" name="register" value="register" src="Assets/LogIn_16.gif" id="register" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="38" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="38" alt="" /></td>
 	</tr>
 	<tr>
 		<td colspan="3" rowspan="2">
-			<img src="Assets/LogIn_17.gif" width="226" height="508" alt=""></td>
+			<img src="Assets/LogIn_17.gif" width="226" height="508" alt="" /></td>
 		<td colspan="2" rowspan="2">
-			<img src="Assets/LogIn_18.gif" width="114" height="508" alt=""></td>
+			<img src="Assets/LogIn_18.gif" width="114" height="508" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="6" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="6" alt="" /></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="Assets/LogIn_19.gif" width="340" height="502" alt=""></td>
+			<img src="Assets/LogIn_19.gif" width="340" height="502" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="502" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="502" alt="" /></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="Assets/spacer.gif" width="209" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="209" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="340" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="340" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="185" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="185" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="67" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="67" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="107" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="107" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="5" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="5" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="114" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="114" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="11" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="11" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="48" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="48" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="66" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="66" height="1" alt="" /></td>
 		<td>
-			<img src="Assets/spacer.gif" width="248" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="248" height="1" alt="" /></td>
 		<td></td>
 	</tr>
 </table>
