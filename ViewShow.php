@@ -132,7 +132,7 @@
 		<td rowspan="14">
 			<img src="Assets/ViewShow_07.gif" width="396" height="622" alt=""></td>
             <!--Here goes the description -->
-		<td width="676" height="245" colspan="3" background="Assets/ViewShow_08.gif"><?php echo $Audition_Notes ?></td>
+		<td width="676" height="245" colspan="3" background="Assets/ViewShow_08.gif"><a style="color:#FFFFFF;"><?php echo $Audition_Notes ?></a></td>
 		<td rowspan="14">
 			<img src="Assets/ViewShow_09.gif" width="139" height="622" alt=""></td>
 		<td>
