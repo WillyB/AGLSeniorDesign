@@ -88,7 +88,7 @@ $email2 = "";
 								
 								echo "<script type='text/javascript'>
 									 alert('admin has logged in');".//debug statement
-									  "window.location = 'AdminTools.php';</script>";//redirect to admin page 
+									  "location = 'AdminTools.php';</script>";//redirect to admin page 
 								exit;
 								
 						case 1://director login
@@ -100,7 +100,7 @@ $email2 = "";
 								
 								echo "<script type='text/javascript'>
 									 alert('director has logged in');".//debug statement
-									  "window.location = 'AdminTools.php';</script>";//redirect to admin page 
+									  "location = 'AdminTools.php';</script>";//redirect to admin page 
 								exit;
 								
 						case 2://regular user login
@@ -113,7 +113,7 @@ $email2 = "";
 								
 								echo "<script type='text/javascript'>
 									 alert('User has logged in');".//debug statement
-									  "window.location = 'UserTools.php';</script>";//redirect to user page  
+									  "location = 'UserTools.php';</script>";//redirect to user page  
 								exit;
 					endswitch;							
 				}
