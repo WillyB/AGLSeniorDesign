@@ -35,11 +35,6 @@ if (isset($_POST['accept']))
 		
 	if ($db_found)
 	{
-		//this function is used to escape any dangerous strings (SQL injections)
-		$password = mysql_real_escape_string($password, $db_handle);
-		$confirmpassword = mysql_real_escape_string($confirmpassword, $db_handle);
-		$firstname = mysql_real_escape_string($firstname, $db_handle);
-		$lastname = mysql_real_escape_string($lastname, $db_handle);
 			
 		$SQL = "INSERT INTO Personnel (First_Name, Last_Name, Contact_Email, password, Role) 
 								VALUES ('$temp_fname', '$temp_lname', '$temp_email', '$temp_password', 2)";
