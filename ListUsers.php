@@ -1,9 +1,3 @@
-<!--	This page can be accessed from the AdminTools.php and lists all of the
-        users that are in the database.  Admin access is required to view this
-        page. Clicking on Edit will redirect to EditProfile.php for the selected
-        user, and selecting delete will delete the user from the database. Users
-        can also be promoted to director or demoted to user from this page.
--->
 <html>
 <head>
 <title>AGL: List Users</title>
@@ -273,7 +267,6 @@ if(isset($_POST['Demote']))
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ListUsers.psd) -->
-<form name="form" method="post" action="ListUsers.php">
 <table width="1400" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="5">
@@ -283,13 +276,13 @@ if(isset($_POST['Demote']))
 		<td colspan="3" rowspan="3">
 			<img src="Assets/ListUsers_02.gif" width="1211" height="150" alt=""></td>
 		<td>
-			<input type="image" name="home" value="home" src="Assets/ListUsers_03.gif" id="home"></td>
+			<img src="Assets/ListUsers_03.gif" width="106" height="35" alt=""></td>
 		<td rowspan="3">
 			<img src="Assets/ListUsers_04.gif" width="83" height="150" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif" id="logout"></td>
+			<img src="Assets/ListUsers_05.gif" width="106" height="32" alt=""></td>
 	</tr>
 	<tr>
 		<td>
@@ -300,13 +293,9 @@ if(isset($_POST['Demote']))
 			<img src="Assets/ListUsers_07.gif" width="1400" height="35" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="5">
-			<img src="Assets/ListUsers_08.gif" width="1400" height="4" alt=""></td>
-	</tr>
-	<tr>
 		<td rowspan="2">
-			<img src="Assets/ListUsers_09.gif" width="390" height="708" alt=""></td>
-		<td width="645" height="557" background="Assets/ListUsers_10.gif">&nbsp;
+			<img src="Assets/ListUsers_08.gif" width="384" height="712" alt=""></td>
+		<td width="654" height="564" background="Assets/ListUsers_09.gif">&nbsp;
         <?php
             include 'MasterCode.php';
         	if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
@@ -391,6 +380,7 @@ if(isset($_POST['Demote']))
 								echo "<br>"."<br>";
 					}
 
+
 					else//if there is no specified user found in DB
 					{							
 						echo "<script type='text/javascript'>
@@ -410,26 +400,25 @@ if(isset($_POST['Demote']))
 		?>
         </td>
 		<td colspan="3" rowspan="2">
-			<img src="Assets/ListUsers_11.gif" width="365" height="708" alt=""></td>
+			<img src="Assets/ListUsers_10.gif" width="362" height="712" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="Assets/ListUsers_12.gif" width="645" height="151" alt=""></td>
+			<img src="Assets/ListUsers_11.gif" width="654" height="148" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="Assets/spacer.gif" width="390" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="384" height="1" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="645" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="654" height="1" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="176" height="1" alt=""></td>
+			<img src="Assets/spacer.gif" width="173" height="1" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="106" height="1" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="83" height="1" alt=""></td>
 	</tr>
 </table>
-</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>
