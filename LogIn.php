@@ -55,6 +55,7 @@ $email2 = "";
 		$db_found = mysql_select_db($database, $db_handle);
 		if ($db_found)
 		{
+			echo "<script type='text/javascript'> window.location.href = 'UserTools.php';</script>";
 			//this function is used to escape any dangerous strings (SQL injections)
 			$email = mysql_real_escape_string($email, $db_handle);
 			$password = mysql_real_escape_string($Password, $db_handle);
