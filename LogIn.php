@@ -15,7 +15,7 @@ $Password = "";
 $email2 = "";
 
 //RETURNING USER LOGIN PROCEDURE
-	if (isset($_POST['submit_LogIn'])) 
+	if (isset($_POST['LogIn'])) 
 	{
 		$email = $_POST['email'];
 		$Password = $_POST['Password'];
@@ -191,7 +191,7 @@ $email2 = "";
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (LogIn.psd) -->
-<form name="form1" method="post" action="LogIn.php">
+<form id="form1" name="form1" method="post" action="LogIn.php">
 <table width="1401" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="11">
