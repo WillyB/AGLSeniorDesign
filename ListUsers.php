@@ -264,40 +264,21 @@ if(isset($_POST['Demote']))
 
 
 ?>
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	left: 523px;
+	top: 259px;
+	width: 641px;
+	height: 551px;
+	z-index: 1;
+}
+</style>
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ListUsers.psd) -->
-<form name="form" method="post" action="ListUsers.php">
-<table width="1400" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
-	<tr>
-		<td colspan="5">
-			<img src="Assets/ListUsers_01.gif" width="1400" height="70" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="3" rowspan="3">
-			<img src="Assets/ListUsers_02.gif" width="1211" height="150" alt=""></td>
-		<td>
-			<input type="image" name="home" value="home" src="Assets/ListUsers_03.gif" id="home"></td>
-		<td rowspan="3">
-			<img src="Assets/ListUsers_04.gif" width="83" height="150" alt=""></td>
-	</tr>
-	<tr>
-		<td>
-			<input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif" id"logout"></td>
-	</tr>
-	<tr>
-		<td>
-			<img src="Assets/ListUsers_06.gif" width="106" height="83" alt=""></td>
-	</tr>
-	<tr>
-		<td colspan="5">
-			<img src="Assets/ListUsers_07.gif" width="1400" height="35" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="Assets/ListUsers_08.gif" width="384" height="712" alt=""></td>
-		<td width="654" height="564" background="Assets/ListUsers_09.gif">&nbsp;
-        <?php
+<div id="apDiv1">
+<?php
             include 'MasterCode.php';
         	if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
 			{
@@ -379,6 +360,7 @@ if(isset($_POST['Demote']))
 								}
 								echo "</table>";
 								echo "<br>"."<br>";
+
 					}
 
 
@@ -399,7 +381,39 @@ if(isset($_POST['Demote']))
 				mysql_close($db_handle);
 			}
 		?>
-        </td>
+</div>
+<form name="form" method="post" action="ListUsers.php">
+<table width="1400" height="968" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
+	<tr>
+		<td colspan="5">
+			<img src="Assets/ListUsers_01.gif" width="1400" height="70" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="3">
+			<img src="Assets/ListUsers_02.gif" width="1211" height="150" alt=""></td>
+		<td>
+			<input type="image" name="home" value="home" src="Assets/ListUsers_03.gif" id="home"></td>
+		<td rowspan="3">
+			<img src="Assets/ListUsers_04.gif" width="83" height="150" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<input type="image" name="logout" value="logout" src="Assets/ListUsers_05.gif" id"logout"></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="Assets/ListUsers_06.gif" width="106" height="83" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="5">
+			<img src="Assets/ListUsers_07.gif" width="1400" height="35" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="2">
+			<img src="Assets/ListUsers_08.gif" width="384" height="712" alt=""></td>
+		<td width="654" height="564" background="Assets/ListUsers_09.gif">&nbsp;
+		
+      </td>
 		<td colspan="3" rowspan="2">
 			<img src="Assets/ListUsers_10.gif" width="362" height="712" alt=""></td>
 	</tr>
