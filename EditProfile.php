@@ -624,7 +624,7 @@
 		<td rowspan="7">
 			<img src="Assets/EditProfile_49.gif" width="286" height="342" alt=""></td>
 		<td width="651" height="174" colspan="13" rowspan="4" background="Assets/EditProfile_50.gif">&nbsp;
-        <textarea name="previousexperience" id="previousexperience" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent;"><?php echo $Previous_Work ?></textarea>
+        <textarea name="previousexperience" id="previousexperience" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent; resize:none"><?php echo $Previous_Work ?></textarea>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="54" alt=""></td>
