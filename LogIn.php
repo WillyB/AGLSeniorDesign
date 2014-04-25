@@ -15,7 +15,7 @@ $Password = "";
 $email2 = "";
 
 //RETURNING USER LOGIN PROCEDURE
-	if (isset($_POST['LogIn'])) 
+	if($_SERVER['LogIn'] == 'POST')
 	{
 		$email = $_POST['email'];
 		$Password = $_POST['Password'];
