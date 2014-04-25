@@ -133,7 +133,7 @@
 			<img src="Assets/ViewShow_07.gif" width="396" height="622" alt=""></td>
             <!--Here goes the description -->
 		<td width="676" height="245" colspan="3" background="Assets/ViewShow_08.gif">
-		<textarea name="showdescription" cols="82" rows="13" disabled readonly id="showdescription" style="color: #FFFFFF;border:none;background-color:transparent;"><?php echo $Audition_Notes ?></textarea>
+		<textarea name="showdescription" cols="82" rows="13" disabled readonly id="showdescription" style="color: #FFFFFF;border:none;background-color:transparent; resize:none"><?php echo $Audition_Notes ?></textarea>
       </td>
 		<td rowspan="14">
 			<img src="Assets/ViewShow_09.gif" width="139" height="622" alt=""></td>
