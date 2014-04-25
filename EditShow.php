@@ -166,7 +166,7 @@ Include JQuery Core (Required for calendar plugin)
 		<td colspan="2">
 			<img src="Assets/EditShow_16.gif" width="327" height="124" alt=""></td>
 		<td width="768" height="124" colspan="2" background="Assets/EditShow_17.gif">&nbsp;
-        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" style="color: #FFFFFF;border:none;background-color:transparent;"></textarea>
+        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" style="color: #FFFFFF;border:none;background-color:transparent; resize:none"></textarea>
         </td>
 		<td>
 			<img src="Assets/EditShow_18.gif" width="1" height="124" alt=""></td>
