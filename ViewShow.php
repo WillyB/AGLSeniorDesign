@@ -131,7 +131,8 @@
 	<tr>
 		<td rowspan="14">
 			<img src="Assets/ViewShow_07.gif" width="396" height="622" alt=""></td>
-		<td width="676" height="245" colspan="3" background="Assets/ViewShow_08.gif">&nbsp;</td>
+            <!--Here goes the description -->
+		<td width="676" height="245" colspan="3" background="Assets/ViewShow_08.gif"><?php echo $Audition_Notes ?></td>
 		<td rowspan="14">
 			<img src="Assets/ViewShow_09.gif" width="139" height="622" alt=""></td>
 		<td>
