@@ -98,6 +98,7 @@
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ViewShow.psd) -->
+<form name="form" method="post" action="ViewShow.php">
 <table width="1401" height="880" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="7">
@@ -224,6 +225,7 @@
 			<img src="Assets/spacer.gif" width="1" height="71" alt=""></td>
 	</tr>
 </table>
+</form>
 <!-- End Save for Web Slices -->
 </body>
 </html>
