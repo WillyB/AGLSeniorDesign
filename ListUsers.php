@@ -296,8 +296,7 @@ if(isset($_POST['Demote']))
 	<tr>
 		<td rowspan="2">
 			<img src="Assets/ListUsers_08.gif" width="384" height="712" alt=""></td>
-		<!-- <td width="654" height="564" background="Assets/ListUsers_09.gif">&nbsp; -->
-        <div id="" style="overflow: scroll; height: 564; width: 654; background: 'Assests/ListUsers_09';">
+		<td width="654" height="564" background="Assets/ListUsers_09.gif">&nbsp;
         <?php
             include 'MasterCode.php';
         	if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
@@ -400,8 +399,7 @@ if(isset($_POST['Demote']))
 				mysql_close($db_handle);
 			}
 		?>
-        </div>
-        <!-- </td> -->
+        </td>
 		<td colspan="3" rowspan="2">
 			<img src="Assets/ListUsers_10.gif" width="362" height="712" alt=""></td>
 	</tr>
