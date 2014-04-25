@@ -267,9 +267,9 @@ if(isset($_POST['Demote']))
 <style type="text/css">
 #apDiv1 {
 	position: absolute;
-	left: 523px;
-	top: 259px;
-	width: 641px;
+	left: 609px;
+	top: 258px;
+	width: 595px;
 	height: 551px;
 	z-index: 1;
 }
