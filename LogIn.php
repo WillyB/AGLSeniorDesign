@@ -13,7 +13,6 @@ $role = "";
 $email = "";
 $Password = "";
 $email2 = "";
-echo "<script type='text/javascript'> location.href = 'AdminTools.php';</script>";
 //RETURNING USER LOGIN PROCEDURE
 	if (isset($_POST['LogIn'])) 
 	{
