@@ -18,6 +18,7 @@ $email2 = "";
 	if (isset($_POST['LogIn'])) 
 	{
 		echo "<script type='text/javascript'> location.href = 'AdminTools.php';</script>";
+		exit;
 		$email = $_POST['email'];
 		$Password = $_POST['Password'];
 		
