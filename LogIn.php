@@ -111,7 +111,9 @@ $email2 = "";
 								setCookie('password',$Password);//delete later
 						        //setCookie('password',$hashedPassword); uncomment later
 								
-								header("UserTools.php");
+								echo "<script type='text/javascript'>
+									 alert('User has logged in');".//debug statement
+									  "window.location = 'UserTools.php';</script>";//redirect to user page  
 								exit;
 					endswitch;							
 				}
