@@ -416,7 +416,6 @@ $(document).ready(function(){
 						{
 							fname: "Santa",
 							lname: "Claus",
-							leadReindeer: "Rudolph",
 							myDate: new Date(),
 							myNum: 42
 						},
@@ -698,8 +697,6 @@ $(document).ready(function(){
 			&nbsp;&nbsp;&nbsp;
 			<button id="BtnDeleteAll">Delete All</button>
 		</div>
-
-		<br>
 
 		<!--
 		You can use pixel widths or percentages. Calendar will auto resize all sub elements.
