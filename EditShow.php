@@ -85,7 +85,11 @@ Include JQuery Core (Required for calendar plugin)
 
 <script src="Calendar.js"></script>
 
-
+<script type="text/javascript">
+$(document).ready(function(){
+    addGivenAgenda();    
+})
+</script>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (EditShow.psd) -->
