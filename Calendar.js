@@ -503,8 +503,8 @@ $(document).ready(function(){
         jfcalplugin.addAgendaItem(
 	       "#mycal",
 	       "Christmas Eve",
-	       new Date(2010,11,24,20,0,0,0),
-	       new Date(2010,11,24,23,59,59,999),
+	       new Date(2014,3,24,20,0,0,0),
+	       new Date(2014,3,24,23,59,59,999),
 	       false,
 	       {
 		      fname: "Santa",
