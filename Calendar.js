@@ -1,7 +1,11 @@
 //Functions needed to be avalible outside of the document ready closure
 
+$(document).ready(function(){	
 
-    function addGivenAgenda() {
+    var clickDate = "";
+var clickAgendaItem = "";
+
+        function addGivenAgenda() {
         //Won't do a goddamn thing
         //var c = a + b;
         //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
@@ -23,20 +27,13 @@
 	       }	
         );
     }
-    
-var clickDate = "";
-var clickAgendaItem = "";
-var jfcalplugin;
-$(document).ready(function(){	
-
-
 	
 	/**
 	 * Initializes calendar with current year & month
 	 * specifies the callbacks for day click & agenda item click events
 	 * then returns instance of plugin object
 	 */
-	jfcalplugin = $("#mycal").jFrontierCal({
+	var jfcalplugin = $("#mycal").jFrontierCal({
 		date: new Date(),
 		dayClickCallback: myDayClickHandler,
 		agendaClickCallback: myAgendaClickHandler,
@@ -275,6 +272,12 @@ $(document).ready(function(){
 		jfcalplugin.loadICalSource("#mycal",$("#iCalSource").val(),"html");	
 		return false;
 	});	
+    
+    $("#addKnownEvent").button();
+    $("#addKnownEvent").click(function() {
+        addGivenAgenda();
+        return false;
+    });
 
 	/**
 	 * Initialize add event modal form

@@ -82,12 +82,12 @@ Include JQuery Core (Required for calendar plugin)
 		exit;	
 	}
     
-    if (isset($_POST['save']))
-    {
-        echo "<script type='text/javascript'
-            addGivenAgenda();
-            </script>";
-    }
+//    if (isset($_POST['save']))
+//    {
+//        echo "<script type='text/javascript'
+//            addGivenAgenda();
+//            </script>";
+//    }
 ?>
 
 <script src="Calendar.js" type="text/javascript"></script>
@@ -208,6 +208,7 @@ Include JQuery Core (Required for calendar plugin)
 			Date: <input type="text" id="dateSelect" size="20"/>
 			&nbsp;&nbsp;&nbsp;
 			<button id="BtnDeleteAll">Delete All</button>
+            <button id="addKnownEvent">Load Events</button>
 		</div>
 
 		<!--
