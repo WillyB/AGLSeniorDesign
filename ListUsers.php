@@ -61,13 +61,47 @@ if(isset($_POST['View']))
 
 if(isset($_POST['Admin_Options']))
 {
-    //$who = $_POST['UserEmail0'];
+    $who = $_POST['UserEmail1'];
 	//setCookie('who', $who);//set cookie to pass use on the next page
+	$action = $_POST['options'];
+	
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+
+	if ($db_found) 
+	{		
+		if($action == "deleteuser")
+		{
+			$SQL = "DELETE FROM Personnel WHERE Contact_Email = '$who'";
+			$result = mysql_query($SQL);
+		}
+		elseif($action == "makeactor")
+		{
+			$SQL = "UPDATE Personnel SET Role = 2 WHERE Contact_Email = '$who'";
+			$result = mysql_query($SQL);	
+		}
+		elseif($action == "makedirector")
+		{
+			$SQL = "UPDATE Personnel SET Role = 1 WHERE Contact_Email = '$who'";
+			$result = mysql_query($SQL);
+		}
+		elseif($action == "makeadmin")
+		{
+			$SQL = "UPDATE Personnel SET Role = 0 WHERE Contact_Email = '$who'";
+			$result = mysql_query($SQL);
+		}
+	}
+	else//if DB was not found
+	{
+		echo '<script type="text/javascript"> 
+			  alert("Database is not found");
+			  </script>';				  
+	}	
+	mysql_close($db_handle);
+	
 	echo "<script type='text/javascript'>
-             window.open‘AdminOptions.html’,‘Admin Options’,
-			‘menubar=no,width=430,height=360,toolbar=no’);
-			</script>";
-					
+			 window.location = 'ListUsers.php';</script>"; // reload to reflect changes
+	
 	exit;
 }
 
