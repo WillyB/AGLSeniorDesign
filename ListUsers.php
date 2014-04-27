@@ -69,8 +69,13 @@ if(isset($_POST['Admin_Options']))
 	$db_found = mysql_select_db($database, $db_handle);
 
 	if ($db_found) 
-	{		
-		if($action == "deleteuser")
+	{	
+		if($email == $who)
+		{
+			echo "<script type='text/javascript'>
+			  	alert('You cannot modify your own profile!');</script>";
+		}
+		elseif($action == "deleteuser")
 		{
 			$SQL = "DELETE FROM Personnel WHERE Contact_Email = '$who'";
 			$result = mysql_query($SQL);
