@@ -943,7 +943,7 @@ var clickAgendaItem = "";
     function displayEvent(){
         var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         laItems.forEach(function(entry) {
-            alert(entry);
+            alert(entry['title']);
         });
     }
 </script>
