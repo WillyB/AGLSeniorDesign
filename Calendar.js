@@ -500,6 +500,23 @@ $(document).ready(function(){
     function useless() {
         //Won't do a goddamn thing
         var a = 5;
+        jfcalplugin.addAgendaItem(
+	       "#mycal",
+	       "Christmas Eve",
+	       new Date(2010,11,24,20,0,0,0),
+	       new Date(2010,11,24,23,59,59,999),
+	       false,
+	       {
+		      fname: "Santa",
+		      lname: "Claus",
+		      leadReindeer: "Rudolph",
+		      myExampleDate: new Date()
+	       },
+	       {
+		      backgroundColor: "#FF0000",
+		      foregroundColor: "#FFFFFF"
+	       }	
+        );
     };
     
     
