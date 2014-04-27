@@ -83,7 +83,7 @@ Include JQuery Core (Required for calendar plugin)
 	}
 ?>
 
-<script src="Calendar.js"></script>
+<script src="Calendar.js" type="text/javascript"></script>
 
 
 </head>
