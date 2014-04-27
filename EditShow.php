@@ -687,7 +687,7 @@ var clickAgendaItem = "";
     
     $("#save").button();
     $("#save").click(function() {
-       displayEvent();
+       saveEvent();
        return false; 
     });
 
