@@ -7,6 +7,7 @@ include 'MasterCode.php';
 $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
+$showtitle = $_COOKIE['showtitle'];
 
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
@@ -39,15 +40,23 @@ if (isset($_POST['logout']))
 	unset($_COOKIE['role']);
 	unset($_COOKIE['email']);
 	unset($_COOKIE['password']);
+	unset($_COOKIE['showtitle']);
 
 	setcookie('role', '', time() - 3600);		
 	setcookie('email', '', time() - 3600);
-	setcookie('password', '', time() - 3600);	
+	setcookie('password', '', time() - 3600);
+	setcookie('showtitle', '', time() - 3600);	
 	
 	echo "<script type='text/javascript'>
 		  alert('Goodbye!');".
 		 "window.location = 'LogIn.php';</script>";//redirect to login page
 	exit;	
+}
+//Code for submitting an audition
+if(isset($_POST['save']))
+{
+	echo "<script type='text/javascript'>
+		  alert('You have auditioned for $showtitle');</script>";
 }
 ?>
 </head>

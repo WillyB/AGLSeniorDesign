@@ -93,6 +93,14 @@
 		}
 	}
     
+	if (isset($_POST['audition'])) 
+	{
+		$showtitle = $_POST['title'];
+		setcookie('showtitle', $showtitle);
+		echo "<script type='text/javascript'>
+			  window.location = 'Audition.php';</script>";//redirect to login page
+		exit;	
+	}
     
 ?>
 </head>
