@@ -944,8 +944,8 @@ var clickAgendaItem = "";
         var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         laItems.forEach(function(entry) {
             lsDate = entry['startDate'].toJSON();
-            alert(entry['title']);
-            alert(entry['backgroundColor']);
+            alert(lsDate);
+            alert(entry.displayProp.backgroundColor);
         });
     }
 </script>
