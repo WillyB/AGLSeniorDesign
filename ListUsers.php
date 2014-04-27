@@ -84,8 +84,6 @@ if(isset($_POST['Admin_Options']))
 			if($num_rows > 0)
 			{
 				$id = $db_field['idPersonnel'];
-				echo "<script type='text/javascript'>
-			  		alert('$id.');</script>";
 				$SQL = "DELETE FROM Personnel WHERE idPersonnel='$id'";
 				$result = mysql_query($SQL);
 			}
