@@ -505,7 +505,7 @@ $(document).ready(function(){
 	       "#mycal",
 	       "Christmas Eve",
 	       new Date(2014,3,24,20,0,0,0),
-	       new Date(2014,3,24,23,59,59,999),
+	       new Date(2014,3,24,23,59,59,0),
 	       false,
 	       {
 		      fname: "Santa",
