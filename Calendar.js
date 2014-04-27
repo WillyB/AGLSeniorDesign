@@ -1,5 +1,3 @@
-$(document).ready(function(){	
-
 	var clickDate = "";
 	var clickAgendaItem = "";
 	
@@ -521,7 +519,3 @@ $(document).ready(function(){
     }
     
     //addGivenAgenda();
-    
-    
-	
-});
