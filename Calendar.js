@@ -1,23 +1,5 @@
 //Functions needed to be avalible outside of the document ready closure
-    var clickDate = "";
-	var clickAgendaItem = "";
-	
-	/**
-	 * Initializes calendar with current year & month
-	 * specifies the callbacks for day click & agenda item click events
-	 * then returns instance of plugin object
-	 */
-	var jfcalplugin = $("#mycal").jFrontierCal({
-		date: new Date(),
-		dayClickCallback: myDayClickHandler,
-		agendaClickCallback: myAgendaClickHandler,
-		agendaDropCallback: myAgendaDropHandler,
-		agendaMouseoverCallback: myAgendaMouseoverHandler,
-		applyAgendaTooltipCallback: myApplyTooltip,
-		agendaDragStartCallback : myAgendaDragStart,
-		agendaDragStopCallback : myAgendaDragStop,
-		dragAndDropEnabled: true
-	}).data("plugin");
+
 
     function addGivenAgenda() {
         //Won't do a goddamn thing
@@ -44,7 +26,25 @@
 
 $(document).ready(function(){	
 
+	    var clickDate = "";
+	var clickAgendaItem = "";
 	
+	/**
+	 * Initializes calendar with current year & month
+	 * specifies the callbacks for day click & agenda item click events
+	 * then returns instance of plugin object
+	 */
+	var jfcalplugin = $("#mycal").jFrontierCal({
+		date: new Date(),
+		dayClickCallback: myDayClickHandler,
+		agendaClickCallback: myAgendaClickHandler,
+		agendaDropCallback: myAgendaDropHandler,
+		agendaMouseoverCallback: myAgendaMouseoverHandler,
+		applyAgendaTooltipCallback: myApplyTooltip,
+		agendaDragStartCallback : myAgendaDragStart,
+		agendaDragStopCallback : myAgendaDragStop,
+		dragAndDropEnabled: true
+	}).data("plugin");
 	
 	/**
 	 * Do something when dragging starts on agenda div
