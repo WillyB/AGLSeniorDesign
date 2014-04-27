@@ -57,15 +57,21 @@ if ($db_found) {
 			//echo "Type: " . $_FILES["file"]["type"] . "<br>";
 			//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 			//echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+			
+			//GET Contact_Email and idPersonnel
+			$SQL = "SELECT idPersonnel FROM Personnel WHERE Contact_Email='$lookupEmail'";
+			$result = mysql_query($SQL);
+			$db_field = mysql_fetch_array($result);
+			$Contact_id = $db_field['idPersonnel'];
 
-			if (file_exists("upload/" . $_FILES["file"]["name"]))
+			if (file_exists("upload/" . $_FILES["file"]["name"] . $lookupEmail . $Contact_id))
 			{
 				echo $_FILES["file"]["name"] . " already exists. ";
 			}
 			else
 			{
 				$tmpFile = $_FILES["file"]["tmp_name"];
-				$fileName = "upload/" . $_FILES["file"]["name"];
+				$fileName = "upload/" . $_FILES["file"]["name"] . $lookupEmail . $Contact_id;
 				list($width, $height) = getimagesize($tmpFile);
 				
 				if ($width >= 335 || $height >= 415) {
