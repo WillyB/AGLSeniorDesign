@@ -497,9 +497,9 @@ $(document).ready(function(){
 		}	
 	});
     
-    function useless(a, b) {
+    function useless(vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray) {
         //Won't do a goddamn thing
-        var c = a + b;
+        //var c = a + b;
         jfcalplugin.addAgendaItem(
 	       "#mycal",
 	       "Christmas Eve",
