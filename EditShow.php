@@ -85,13 +85,13 @@ Include JQuery Core (Required for calendar plugin)
 
 <script src="Calendar.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function(){
-    addGivenAgenda();    
-})
-</script>
+
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<script type="text/javascript">
+    addGivenAgenda(); 
+</script>
+
 <!-- Save for Web Slices (EditShow.psd) -->
 <form name="form1" method="post" action="EditShow.php">
 <table width="1401" height="1441" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
