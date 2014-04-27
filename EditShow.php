@@ -40,6 +40,10 @@ Include JQuery Core (Required for calendar plugin)
 	$role = $_COOKIE['role'];
 	$email = $_COOKIE['email'];
 	$password = $_COOKIE['password'];
+    
+    //Test variables:
+$startDate = array("2014","03","14","12","0","0","0");
+$endDate = array("2014","03","30","12","0","0","0");
 
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
@@ -81,6 +85,8 @@ Include JQuery Core (Required for calendar plugin)
 			 "window.location = 'LogIn.php';</script>";//redirect to login page
 		exit;	
 	}
+    
+                
     
 //    if (isset($_POST['save']))
 //    {
@@ -208,7 +214,6 @@ Include JQuery Core (Required for calendar plugin)
 			Date: <input type="text" id="dateSelect" size="20"/>
 			&nbsp;&nbsp;&nbsp;
 			<button id="BtnDeleteAll">Delete All</button>
-            <button id="addKnownEvent">Load Events</button>
 		</div>
 
 		<!--
