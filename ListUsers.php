@@ -277,7 +277,7 @@ if(isset($_POST['Demote']))
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ListUsers.psd) -->
-<div id="apDiv1" style="overflow: scroll; alignment-adjust: central;">
+<div id="apDiv1" style="overflow: scroll; alignment-adjust: left;">
 <?php
             include 'MasterCode.php';
         	if($role == 0 || $role == 1)//check, just in case, if user is a director or admin to execute following actions
