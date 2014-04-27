@@ -497,6 +497,11 @@ $(document).ready(function(){
 		}	
 	});
     
+    function useless() {
+        //Won't do a goddamn thing
+        var a = 5;
+    };
+    
     
 	
 });
