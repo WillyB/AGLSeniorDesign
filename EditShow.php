@@ -84,12 +84,12 @@ Include JQuery Core (Required for calendar plugin)
 		exit;	
 	}
     
-    if (isset($_POST['save']))
-    {
-        echo "<script type='text/javascript'
-            displayEvent();
-            </script>";
-    }
+//    if (isset($_POST['save']))
+//    {
+//        echo "<script type='text/javascript'
+//            displayEvent();
+//            </script>";
+//    }
 ?>
 
 <!-- <script src="Calendar.js" type="text/javascript"></script> -->
@@ -683,6 +683,12 @@ var clickAgendaItem = "";
     $("#addKnownEvent").click(function() {
         addGivenAgenda();
         return false;
+    });
+    
+    $("#save").button();
+    $("#save").click(function() {
+       displayEvent();
+       return false; 
     });
 
 	/**
