@@ -940,10 +940,12 @@ var clickAgendaItem = "";
 		}	
 	});
     
-    function displayEvent(){
+    function saveEvent(){
         var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         laItems.forEach(function(entry) {
+            lsDate = entry['startDate'].toJSON();
             alert(entry['title']);
+            alert(entry['backgroundColor']);
         });
     }
 </script>
