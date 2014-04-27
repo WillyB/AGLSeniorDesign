@@ -497,9 +497,9 @@ $(document).ready(function(){
 		}	
 	});
     
-    function useless() {
+    function useless(a, b) {
         //Won't do a goddamn thing
-        var a = 5;
+        var c = a + b;
         jfcalplugin.addAgendaItem(
 	       "#mycal",
 	       "Christmas Eve",
@@ -517,7 +517,7 @@ $(document).ready(function(){
 		      foregroundColor: "#FFFFFF"
 	       }	
         );
-    };
+    }
     
     
 	
