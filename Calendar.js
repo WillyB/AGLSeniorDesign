@@ -275,8 +275,8 @@ var clickAgendaItem = "";
 		return false;
 	});	
     
-    $("#save").button();
-    $("#save").click(function() {
+    $("#addKnownEvent").button();
+    $("#addKnownEvent").click(function() {
         addGivenAgenda();
         return false;
     });
