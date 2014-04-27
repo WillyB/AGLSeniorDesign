@@ -497,14 +497,14 @@ $(document).ready(function(){
 		}	
 	});
     
-    //function addGivenAgenda() {
+    function addGivenAgenda() {
         //Won't do a goddamn thing
         //var c = a + b;
         //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
         jfcalplugin.addAgendaItem(
 	       "#mycal",
 	       "Christmas Eve",
-	       new Date(2014,3,24,20,0,0,0),
+	       new Date(2014,3,14,20,0,0,0),
 	       new Date(2014,3,24,23,59,59,0),
 	       false,
 	       {
@@ -518,7 +518,9 @@ $(document).ready(function(){
 		      foregroundColor: "#FFFFFF"
 	       }	
         );
-    //}
+    }
+    
+    addGivenAgenda();
     
     
 	
