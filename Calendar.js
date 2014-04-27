@@ -507,6 +507,6 @@ $(document).ready(function(){
 	       dataArray,
 	       colorArray,	
         );
-    }
+    };
 	
 });
