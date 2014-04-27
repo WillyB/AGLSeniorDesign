@@ -9,7 +9,7 @@ var clickAgendaItem = "";
         //Won't do a goddamn thing
         //var c = a + b;
         //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
-        newVariable = <?php echo $newVariables; ?>;
+        newVariable = <?php echo 'hello'; ?>;
         jfcalplugin.addAgendaItem(
 	       "#mycal",
 	       "Christmas Eve",
