@@ -82,7 +82,13 @@ if (isset($_POST['logout']))
 	<tr>
 		<td rowspan="4">
 			<img src="Assets/Audition_08.gif" width="116" height="877" alt=""></td>
-		<td width="1163" height="712" colspan="3" background="Assets/Audition_09.gif">&nbsp;</td>
+		<td width="1163" height="712" colspan="3" background="Assets/Audition_09.gif">&nbsp;
+        <!--
+        CALENDAR GOES HE'A 
+        OR CALENDAR CAN GO HERE
+        OR HERE!
+        -->
+        </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/Audition_10.gif" width="121" height="877" alt=""></td>
 	</tr>
