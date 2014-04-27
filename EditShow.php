@@ -81,6 +81,13 @@ Include JQuery Core (Required for calendar plugin)
 			 "window.location = 'LogIn.php';</script>";//redirect to login page
 		exit;	
 	}
+    
+    if (isset($_POST['save']))
+    {
+        echo "<script type='text/javascript'
+            addGivenAgenda();
+            </script>";
+    }
 ?>
 
 <script src="Calendar.js" type="text/javascript"></script>
@@ -359,7 +366,7 @@ Include JQuery Core (Required for calendar plugin)
 		<td colspan="5" rowspan="2">
 			<img src="Assets/EditShow_24.gif" width="1047" height="110" alt=""></td>
 		<td colspan="2">
-			<input type="image" name="home" value="home" src="Assets/EditShow_25.gif" id="home"></td>
+			<input type="image" name="save" value="home" src="Assets/EditShow_25.gif" id="save"></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
 	</tr>

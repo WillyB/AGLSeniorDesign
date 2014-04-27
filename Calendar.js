@@ -1,28 +1,28 @@
 //Functions needed to be avalible outside of the document ready closure
 
 
-//    function addGivenAgenda() {
-//        //Won't do a goddamn thing
-//        //var c = a + b;
-//        //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
-//        jfcalplugin.addAgendaItem(
-//	       "#mycal",
-//	       "Christmas Eve",
-//	       new Date(2014,3,14,20,0,0,0),
-//	       new Date(2014,3,24,23,59,59,0),
-//	       false,
-//	       {
-//		      fname: "Santa",
-//		      lname: "Claus",
-//		      leadReindeer: "Rudolph",
-//		      myExampleDate: new Date()
-//	       },
-//	       {
-//		      backgroundColor: "#FF0F00",
-//		      foregroundColor: "#FFFFFF"
-//	       }	
-//        );
-//    }
+    function addGivenAgenda() {
+        //Won't do a goddamn thing
+        //var c = a + b;
+        //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
+        jfcalplugin.addAgendaItem(
+	       "#mycal",
+	       "Christmas Eve",
+	       new Date(2014,3,14,20,0,0,0),
+	       new Date(2014,3,24,23,59,59,0),
+	       false,
+	       {
+		      fname: "Santa",
+		      lname: "Claus",
+		      leadReindeer: "Rudolph",
+		      myExampleDate: new Date()
+	       },
+	       {
+		      backgroundColor: "#FF0F00",
+		      foregroundColor: "#FFFFFF"
+	       }	
+        );
+    }
     
 var clickDate = "";
 var clickAgendaItem = "";
