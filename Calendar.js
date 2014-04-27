@@ -520,7 +520,7 @@ $(document).ready(function(){
         );
     }
     
-    addGivenAgenda();
+    //addGivenAgenda();
     
     
 	
