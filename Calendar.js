@@ -23,11 +23,13 @@
 	       }	
         );
     }
+    
+var clickDate = "";
+var clickAgendaItem = "";
 
 $(document).ready(function(){	
 
-	    var clickDate = "";
-	var clickAgendaItem = "";
+
 	
 	/**
 	 * Initializes calendar with current year & month
