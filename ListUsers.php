@@ -64,8 +64,10 @@ if(isset($_POST['Admin_Options']))
     //$who = $_POST['UserEmail0'];
 	//setCookie('who', $who);//set cookie to pass use on the next page
 	echo "<script type='text/javascript'>
-            alert('This will eventually give you the admin options...');".
-            "window.location = 'ListUsers.php';</script>";		
+             window.open‘AdminOptions.php’,‘Admin Options’,
+			‘menubar=no,width=430,height=360,toolbar=no’);
+			</script>";
+					
 	exit;
 }
 
