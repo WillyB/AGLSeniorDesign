@@ -77,6 +77,9 @@ if(isset($_POST['Admin_Options']))
 		}
 		elseif($action == "deleteuser")
 		{
+			echo '<script type="text/javascript"> 
+			  alert("DELETE USER BRANCH");
+			  </script>';
 			$SQL = "DELETE FROM Personnel WHERE Contact_Email = '$who'";
 			$result = mysql_query($SQL);
 		}
