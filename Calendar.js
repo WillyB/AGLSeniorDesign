@@ -273,8 +273,8 @@ var clickAgendaItem = "";
 		return false;
 	});	
     
-    $("#addKnownEvent").button();
-    $("#addKnownEvent").click(function() {
+    $("#save").button();
+    $("#save").click(function() {
         addGivenAgenda();
         return false;
     });
