@@ -497,23 +497,15 @@ $(document).ready(function(){
 		}	
 	});
     
-    function addGivenAgenda () {
+    function addGivenAgenda (title, startDate, endDate, boolAllDay,dataArray, colorArray) {
         jfcalplugin.addAgendaItem(
 	       "#mycal",
-	       "Christmas Eve",
-	       new Date(2014,4,24,20,0,0,0),
-	       new Date(2014,4,24,23,59,59,0),
-	       false,
-	       {
-		  fname: "Santa",
-		  lname: "Claus",
-		  leadReindeer: "Rudolph",
-		  myExampleDate: new Date()
-	       },
-	       {
-		  backgroundColor: "#FF0F00",
-		  foregroundColor: "#FFFFFF"
-	       }	
+	       title,
+	       startDate,
+	       endDate,
+	       boolAllDay,
+	       dataArray,
+	       colorArray,	
         );
     }
 	
