@@ -8,12 +8,92 @@
 <title>AGL: Log In</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
+include 'MasterCode.php';
 $db_field = "";
 $role = "";
 $email = "";
 $Password = "";
 $email2 = "";
 
+//If cookies are still set for a user, then just log them in
+//Should select in database and compare for password
+if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['role']))
+{
+		$role = $_COOKIE['role'];
+		$email = $_COOKIE['email'];
+		$Password = $_COOKIE['password'];
+		$db_handle = mysql_connect($server, $user_name, $pass_word);
+		$db_found = mysql_select_db($database, $db_handle);
+		if ($db_found)
+		{
+			//this function is used to escape any dangerous strings (SQL injections)
+			$email = mysql_real_escape_string($email, $db_handle);
+			$password = mysql_real_escape_string($Password, $db_handle);
+			
+			//query database with entered data
+			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
+			//uncomment following statement later
+			//$hashedPassword = mysql_query($SQL);
+			$result = mysql_query($SQL);//delete this statement later 
+			
+			//uncomment the following statement when hash function works
+			//if (password_verify($password, $hashedPassword))
+			$num_rows1 = mysql_num_rows($result);
+			if($num_rows1 > 0)
+			{
+				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND BINARY password='$Password'";			
+				$result = mysql_query($SQL);
+				$num_rows = mysql_num_rows($result);
+				$db_field = mysql_fetch_array($result);
+				if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
+				{	
+					$role = $db_field['Role'];
+					switch ($role):
+						case 0://admin login
+						
+							   //save role, email, and password in a cookie
+							    setCookie('role', $role);
+								setCookie('email',$email);
+								setCookie('password',$Password);//delete later
+						        //setCookie('password',$hashedPassword);//uncomment later
+								
+								echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
+								exit;
+								
+						case 1://director login
+							   //save email and password in a cookie
+							    setCookie('role', $role);
+								setCookie('email',$email);
+								setCookie('password',$Password);//delete later
+						        //setCookie('password',$hashedPassword); uncomment later
+								
+								echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
+								exit;
+								
+						case 2://regular user login
+						
+							   //save email and password in a cookie
+							    setCookie('role', $role);
+								setCookie('email',$email);
+								setCookie('password',$Password);//delete later
+						        //setCookie('password',$hashedPassword); uncomment later
+								
+								echo "<script type='text/javascript'> window.location.href = 'UserTools.php';</script>";//redirect to user page  
+								exit;
+					endswitch;							
+				}
+			}
+		}
+		else//if DB was not found
+		{
+			echo '<script type="text/javascript"> 
+				  alert("Database is not found");
+				  </script>';
+		}
+		mysql_close($db_handle); 
+		exit;
+}
+	
 //RETURNING USER LOGIN PROCEDURE
 	if (isset($_POST['LogIn'])) 
 	{
@@ -45,10 +125,10 @@ $email2 = "";
 		}
 		
 		//data to login into mysql server on multilab machine
-		$user_name = 'actorsgu_data';
-		$pass_word = 'cliffy36&winepress';
-		$database = 'actorsgu_data';
-		$server = 'localhost:3306';
+		//$user_name = 'actorsgu_data';
+		//$pass_word = 'cliffy36&winepress';
+		//$database = 'actorsgu_data';
+		//$server = 'localhost:3306';
 		//$server = 'box293.bluehost.com:3306';
 		
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
