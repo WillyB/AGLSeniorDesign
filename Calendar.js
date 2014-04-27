@@ -497,7 +497,7 @@ $(document).ready(function(){
 		}	
 	});
     
-    function useless(vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray) {
+    function addGivenAgenda(vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray) {
         //Won't do a goddamn thing
         //var c = a + b;
         jfcalplugin.addAgendaItem(
