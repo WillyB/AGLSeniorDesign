@@ -64,7 +64,7 @@ if(isset($_POST['Admin_Options']))
     //$who = $_POST['UserEmail0'];
 	//setCookie('who', $who);//set cookie to pass use on the next page
 	echo "<script type='text/javascript'>
-             window.open‘AdminOptions.php’,‘Admin Options’,
+             window.open‘AdminOptions.html’,‘Admin Options’,
 			‘menubar=no,width=430,height=360,toolbar=no’);
 			</script>";
 					
