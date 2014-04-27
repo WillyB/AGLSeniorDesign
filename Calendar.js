@@ -497,22 +497,24 @@ $(document).ready(function(){
 		}	
 	});
     
-    jfcalplugin.addAgendaItem(
-	   "#mycal",
-	   "Christmas Eve",
-	   new Date(2014,4,24,20,0,0,0),
-	   new Date(2014,4,24,23,59,59,0),
-	   false,
-	   {
-		fname: "Santa",
-		lname: "Claus",
-		leadReindeer: "Rudolph",
-		myExampleDate: new Date()
-	   },
-	   {
-		backgroundColor: "#FF0F00",
-		foregroundColor: "#FFFFFF"
-	   }	
-    );
+    function addGivenAgenda () {
+        jfcalplugin.addAgendaItem(
+	       "#mycal",
+	       "Christmas Eve",
+	       new Date(2014,4,24,20,0,0,0),
+	       new Date(2014,4,24,23,59,59,0),
+	       false,
+	       {
+		  fname: "Santa",
+		  lname: "Claus",
+		  leadReindeer: "Rudolph",
+		  myExampleDate: new Date()
+	       },
+	       {
+		  backgroundColor: "#FF0F00",
+		  foregroundColor: "#FFFFFF"
+	       }	
+        );
+    }
 	
 });
