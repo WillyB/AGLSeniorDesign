@@ -40,6 +40,8 @@ Include JQuery Core (Required for calendar plugin)
 	$role = $_COOKIE['role'];
 	$email = $_COOKIE['email'];
 	$password = $_COOKIE['password'];
+    
+    $randomNess = 'hello';
 
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
