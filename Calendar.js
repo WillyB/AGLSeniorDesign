@@ -497,6 +497,16 @@ $(document).ready(function(){
 		}	
 	});
     
-    
+    function addGivenAgenda (title, startDate, endDate, boolAllDay,dataArray, colorArray) {
+        jfcalplugin.addAgendaItem(
+	       "#mycal",
+	       title,
+	       startDate,
+	       endDate,
+	       boolAllDay,
+	       dataArray,
+	       colorArray,	
+        );
+    };
 	
 });
