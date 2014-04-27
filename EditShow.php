@@ -86,20 +86,20 @@ Include JQuery Core (Required for calendar plugin)
 <script src="Calendar.js"></script>
 
 <script type="text/javascript">
-    title = "Summer Bash";
-    var start   =   new Date(2014,3,14,12,0,0,0);
-    var end     =   new Date(2014,3,15,12,00,0,0);
-    dayBool = false;
-    var dataArray = Array{
-    fname: "Santa",
-    lname: "Claus",
-    leadReindeer: "Rudolph"
-    };
-    var colorArray = Array{
-    backgroundColor: "#FF0F00",
-    foregroundColor: "#FFFFFF"
-    };
-    addGivenAgenda(title,start,end,dayBool,dataArray,colorArray);
+//    title = "Summer Bash";
+//    var start   =   new Date(2014,3,14,12,0,0,0);
+//    var end     =   new Date(2014,3,15,12,00,0,0);
+//    dayBool = false;
+//    var dataArray = Array{
+//    fname: "Santa",
+//    lname: "Claus",
+//    leadReindeer: "Rudolph"
+//    };
+//    var colorArray = Array{
+//    backgroundColor: "#FF0F00",
+//    foregroundColor: "#FFFFFF"
+//    };
+//    addGivenAgenda(title,start,end,dayBool,dataArray,colorArray);
 </script>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
