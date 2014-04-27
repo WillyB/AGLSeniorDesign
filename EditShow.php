@@ -405,8 +405,7 @@ Include JQuery Core (Required for calendar plugin)
 </table>
 </form>
 <!-- End Save for Web Slices -->
-<script type="text/javascript">
-$(document).ready(function(){	
+<script type="text/javascript">	
 
     var clickDate = "";
 var clickAgendaItem = "";
@@ -426,7 +425,7 @@ var clickAgendaItem = "";
 		      fname: "Santa",
 		      lname: "Claus",
 		      leadReindeer: "Rudolph",
-		      myExampleDate: new Date()
+		      randomness: newVariable
 	       },
 	       {
 		      backgroundColor: "#FF0F00",
@@ -934,14 +933,6 @@ var clickAgendaItem = "";
 			}
 		}	
 	});
-    
-
-    
-    //addGivenAgenda();
-    
-    
-	
-});
 </script>
 </body>
 </html>
