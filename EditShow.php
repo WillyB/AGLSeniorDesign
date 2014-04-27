@@ -84,6 +84,26 @@ Include JQuery Core (Required for calendar plugin)
 ?>
 
 <script src="Calendar.js"></script>
+
+<script type="text/javascript"> 
+jfcalplugin.addAgendaItem(
+	"#mycal",
+	"Christmas Eve",
+	new Date(2014,4,24,20,0,0,0),
+	new Date(2014,4,24,23,59,59,0),
+	false,
+	{
+		fname: "Santa",
+		lname: "Claus",
+		leadReindeer: "Rudolph",
+		myExampleDate: new Date()
+	},
+	{
+		backgroundColor: "#FF0000",
+		foregroundColor: "#FFFFFF"
+	}	
+);
+</script>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (EditShow.psd) -->
