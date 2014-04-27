@@ -9,13 +9,11 @@ var clickAgendaItem = "";
         //Won't do a goddamn thing
         //var c = a + b;
         //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
-        someDate = <?php echo json_encode($startDate); ?>;
-        someOtherDate = <?php echo json_encode($endDate); ?>;
         jfcalplugin.addAgendaItem(
 	       "#mycal",
 	       "Christmas Eve",
-	       someDate,
-           someOtherDate,
+	       new Date(2014,3,14,20,0,0,0),
+	       new Date(2014,3,24,23,59,59,0),
 	       false,
 	       {
 		      fname: "Santa",
