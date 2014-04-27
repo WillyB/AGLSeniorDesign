@@ -84,12 +84,12 @@ Include JQuery Core (Required for calendar plugin)
 		exit;	
 	}
     
-//    if (isset($_POST['save']))
-//    {
-//        echo "<script type='text/javascript'
-//            addGivenAgenda();
-//            </script>";
-//    }
+    if (isset($_POST['save']))
+    {
+        echo "<script type='text/javascript'
+            displayEvent();
+            </script>";
+    }
 ?>
 
 <!-- <script src="Calendar.js" type="text/javascript"></script> -->
@@ -933,6 +933,13 @@ var clickAgendaItem = "";
 			}
 		}	
 	});
+    
+    function displayEvent(){
+        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
+        laItems.forEach(function(entry) {
+            alert(entry);
+        });
+    }
 </script>
 </body>
 </html>
