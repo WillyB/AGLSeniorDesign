@@ -339,7 +339,14 @@ if(isset($_POST['Demote']))
                                             
                                     if($role == 0) //If the user is an admin, show them the admin options
                                     {
-                                        echo "<td><input type='SUBMIT' name='Admin_Options' value='Admin Options'/>
+										echo "<td>
+												<select name='options' id='options'>
+  													<option value='deleteuser'>Delete User</option>
+													  <option value='makeactor'>Make Actor</option>
+													  <option value='makedirector'>Make Director</option>
+													  <option value='makeadmin'>Make Admin</option>
+													</select>";
+                                        echo "<input type='SUBMIT' name='Admin_Options' value='Admin Options'/>
 										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'</td></td></form>";
                                     }
                                     else //Otherwise, we close the field
