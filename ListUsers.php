@@ -271,7 +271,7 @@ if(isset($_POST['Demote']))
 	position: absolute;
 	left: 652px;
 	top: 258px;
-	width: 595px;
+	width: 630px;
 	height: 551px;
 	z-index: 1;
 }
@@ -341,12 +341,13 @@ if(isset($_POST['Demote']))
                                     {
 										echo "<td>
 												<select name='options' id='options'>
+												    <option value='' selected></option>
   													<option value='deleteuser'>Delete User</option>
 													  <option value='makeactor'>Make Actor</option>
 													  <option value='makedirector'>Make Director</option>
 													  <option value='makeadmin'>Make Admin</option>
 													</select>";
-                                        echo "<input type='SUBMIT' name='Admin_Options' value='Admin Options'/>
+                                        echo "<input type='SUBMIT' name='Admin_Options' value='submit'/>
 										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'</td></td></form>";
                                     }
                                     else //Otherwise, we close the field
