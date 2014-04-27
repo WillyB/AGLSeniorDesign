@@ -1,3 +1,5 @@
+$(document).ready(function(){	
+
 	var clickDate = "";
 	var clickAgendaItem = "";
 	
@@ -519,3 +521,7 @@
     }
     
     //addGivenAgenda();
+    
+    
+	
+});
