@@ -77,8 +77,21 @@ if(isset($_POST['Admin_Options']))
 		}
 		elseif($action == "deleteuser")
 		{
-			$SQL = "DELETE FROM Personnel where Contact_Email='$who'";
+			$SQL = "SELECT idPersonnel FROM Personnel WHERE Contact_Email='$who'";
 			$result = mysql_query($SQL);
+			$num_rows = mysql_num_rows($result);
+			$db_field = mysql_fetch_array($result);
+			if($num_rows > 0)
+			{
+				$id = $db_field['idPersonnel'];
+				$SQL = "DELETE FROM Personnel WHERE idPersonnel='$id'";
+				$result = mysql_query($SQL);
+			}
+			else
+			{
+				echo "<script type='text/javascript'>
+			  		alert('Could not find user.');</script>";
+			}
 		}
 		elseif($action == "makeactor")
 		{
