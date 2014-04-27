@@ -94,7 +94,7 @@ if (isset($_POST['logout']))
 		<td rowspan="2">
 			<img src="Assets/Audition_12.gif" width="1047" height="134" alt=""></td>
 		<td colspan="2">
-			<input type="image" name="save" value="home" src="Assets/EditShow_13.gif" id="save"></td>
+			<input type="image" name="save" value="home" src="Assets/Audition_13.gif" id="save"></td>
 	</tr>
 	<tr>
 		<td colspan="2">
