@@ -497,7 +497,7 @@ $(document).ready(function(){
 		}	
 	});
     
-    function addGivenAgenda() {
+    //function addGivenAgenda() {
         //Won't do a goddamn thing
         //var c = a + b;
         //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
@@ -518,7 +518,7 @@ $(document).ready(function(){
 		      foregroundColor: "#FFFFFF"
 	       }	
         );
-    }
+    //}
     
     
 	
