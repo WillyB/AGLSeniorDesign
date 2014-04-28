@@ -63,11 +63,11 @@
 	if ($db_found) 
 	{
 		//Load the audition list
-		$SQL = "SELECT * FROM Audition WHERE temp_Cast=0";
+		$SQL = "SELECT * FROM Audition WHERE temp_Cast=0 AND Shows_idShows = '$showID'";
 		$auditionlist = mysql_query($SQL);
 		
 		//load the cast list
-		$SQL = "SELECT * FROM Audition WHERE temp_Cast=1";
+		$SQL = "SELECT * FROM Audition WHERE temp_Cast=1 AND Shows_idShows = '$showID'";
 		$castlist = mysql_query($SQL);
 		
 		$SQL = "SELECT * FROM Shows WHERE idShows = '$showID'";	
@@ -100,8 +100,26 @@
                 }
 		}
 	}
-    
-    
+    //Move someone from auditionlist to castlist
+    if (isset($_POST['cast'])) 
+	{
+		$SQL = "UPDATE Audition SET temp_Cast = 1 WHERE Personnel_idPesonnel = '$personnelID' AND Shows_ShowID = '$showID'";
+		$result = mysql_query($SQL);
+							
+		echo "<script type='text/javascript'>
+			  window.location = 'CastShow.php';</script>";//Reflect Changes
+		exit;	
+	}
+	//Move someone from castlist to auditionlist
+    if (isset($_POST['uncast'])) 
+	{
+		$SQL = "UPDATE Audition SET temp_Cast = 1 WHERE Personnel_idPesonnel = '$personnelID' AND Shows_ShowID = '$showID'";
+		$result = mysql_query($SQL);
+							
+		echo "<script type='text/javascript'>
+			  window.location = 'CastShow.php';</script>";//Reflect Changes
+		exit;	
+	}
 ?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -196,7 +214,9 @@
 							echo "<tr><td>".$db_field['First_Name']."</td><td>".
 										$db_field['Last_Name']."</td><td>".
 										$db_field['Age']."</td><td>".
-										$db_field['Gender']."</td></tr>";
+										$db_field['Gender']."</td></tr>".
+										"<td><input type='SUBMIT' name='cast' value='cast'/>
+								         <input type='HIDDEN' name='$personnelID' value='" .$id. "'/></td>";
 						}
 					}
 				echo "</table>";
@@ -234,7 +254,9 @@
 							echo "<tr><td>".$db_field['First_Name']."</td><td>".
 										$db_field['Last_Name']."</td><td>".
 										$db_field['Age']."</td><td>".
-										$db_field['Gender']."</td></tr>";
+										$db_field['Gender']."</td></tr>".
+										"<td><input type='SUBMIT' name='uncast' value='uncast'/>
+								         <input type='HIDDEN' name='$personnelID' value='" .$id. "'/></td>";
 						}
 					}
 				echo "</table>";
@@ -247,8 +269,7 @@
 	<tr>
 		<td rowspan="7">
 			<img src="Assets/CastShow_16.gif" width="14" height="491" alt=""></td>
-		<td>
-			<input type="image" name="cast" value="cast" src="Assets/CastShow_17.gif" id"cast"></td>
+		<td>&nbsp;</td>
 		<td rowspan="7">
 			<img src="Assets/CastShow_18.gif" width="16" height="491" alt=""></td>
 		<td>
@@ -261,8 +282,7 @@
 			<img src="Assets/spacer.gif" width="1" height="111" alt=""></td>
 	</tr>
 	<tr>
-		<td>
-			<input type="image" name="uncast" value="uncast" src="Assets/CastShow_20.gif" id"uncast"></td>
+		<td>&nbsp;</td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
 	</tr>
