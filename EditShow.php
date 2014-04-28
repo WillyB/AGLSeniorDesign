@@ -943,7 +943,7 @@ var clickAgendaItem = "";
             lsForegroundColor   =   entry.displayProp.foregroundColor;
             //lsShowID            =   < php echo $showID; ?>;
             lsAllDay            =   entry.allDay.toString();
-            var laSingleEvent   =   [entry.title, lsStartDate, lsEndDate, lsAllDay, entry.data.fname, entry.data.lname, lsBackgroundColor, lsForegroundColor, lsShowID];
+            laSingleEvent   =   [entry.title, lsStartDate, lsEndDate, lsAllDay, entry.data.fname, entry.data.lname, lsBackgroundColor, lsForegroundColor, lsShowID];
             alert(entry.displayProp.backgroundColor);
 //            $.ajax({
 //                type:   "POST",
