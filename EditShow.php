@@ -129,9 +129,12 @@ Include JQuery Core (Required for calendar plugin)
     
         //Load in any Show_Events
     $SQL = "SELECT * FROM Show_Events WHERE idShow_Events = $showID";
+    echo "<script type='text/javascript'>";
+        echo "alert('Yay debug code! $SQL');";
+        echo "</script>";
     $result = mysql_query($SQL);
 	$num_rows = mysql_num_rows($result);
-    $db_field = mysql_fetch_array($result);
+    //$db_field = mysql_fetch_array($result);
     $laMegaShowEventArray = array();
     while($row = mysql_fetch_array($result))
     {
