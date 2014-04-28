@@ -958,7 +958,7 @@ var clickAgendaItem = "";
             $.ajax({
                 type:   "POST",
                 url:    "SaveShowEdit.php",
-                data:   { evenData : laSingleEvent },
+                data:   { eventData : laSingleEvent },
                 success: function() {
                     alert('Save successful!');
                 }

@@ -10,7 +10,7 @@
 		$db_found = mysql_select_db($database, $db_handle);
 //SaveShowEdit
 
-$eventArray = $_REQUEST['laSingleEvent'];
+$eventArray = $_REQUEST['eventData'];
 
 // [entry.title, lsStartDate, lsEndDate, entry.allDay, entry.data.fname, entry.data.lname, lsBackgroundColor, lsForegroundColor];
 $title = $eventArray[0];
