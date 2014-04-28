@@ -739,11 +739,11 @@ var clickAgendaItem = "";
 //        return false;
 //    });
 //    
-//    $("#save").button();
-//    $("#save").click(function() {
-//       saveEvent();
-//       return false; 
-//    });
+    $("#save").button();
+    $("#save").click(function() {
+       saveShow();
+       return false; 
+    });
 
 	/**
 	 * Initialize add event modal form
@@ -994,6 +994,28 @@ var clickAgendaItem = "";
 		}	
 	});
     
+    function saveShow(){
+        //Save all the non-calendar items in the database first:
+        lsNewTitle = document.getElementById('showtitle').value;
+        lsNewDirector = document.getElementById('director').value;
+        lsNewPlaywright = document.getElementById('author').value;
+        lsNewAuditionNotes = document.getElementById('auditionnotes').value;
+        lsShowID   =   <?php echo $showID; ?>;
+        
+        //Send them on their way:
+        $.ajax({
+           type: "POST",
+           url: "SaveShowMetrics.php",
+           date: {
+                title: lsNewTitle,
+                director: lsNewDirector,
+                author: lsNewPlaywright,
+                notes: lsNewAuditionNotes,
+                showID: lsShowID
+           } 
+        });
+    }
+    
     function saveEvent(){
         //First clear out any old items:
         lsShowID   =   <?php echo $showID; ?>;
@@ -1104,12 +1126,5 @@ var clickAgendaItem = "";
     
     
 </script>
-
-<?php 
-    if (isset($_POST['save'])){
-        echo "<script type='text/javascript'> alert('Javascript call reached') </script>";
-        echo "<script type='text/javascript'> saveEvent() </script>";
-    }
-?>
 </body>
 </html>
