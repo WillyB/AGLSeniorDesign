@@ -188,10 +188,10 @@
 				//Update the info in the database
 				//'$Street_Address', City = '$City', State = '$State', 
 				//Zip_Code = '$Zip_Code', Contact_Phone = '$Contact_Phone'
-				$update = "UPDATE Personnel SET Street_Address = Height = '$Height', Weight = '$Weight', Age = '$Age', 
-															  Hair_Color = '$Hair_Color', Hair_Style = '$Hair_Style', 
-														      Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', 
-															  Gender = '$Gender', Previous_Work = '$Previous_Work'";
+				$update = "UPDATE Personnel SET Height = '$Height', Weight = '$Weight', Age = '$Age', 
+											Hair_Color = '$Hair_Color', Hair_Style = '$Hair_Style', 
+											Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', 
+											Gender = '$Gender', Previous_Work = '$Previous_Work'";
 															  
 			if(!$Street_Address="")
 				{
