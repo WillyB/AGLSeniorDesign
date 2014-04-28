@@ -8,6 +8,7 @@ $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 $showtitle = $_COOKIE['showtitle'];
+$showID = $_COOKIE['showID'];
 
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
@@ -45,7 +46,8 @@ if (isset($_POST['logout']))
 	setcookie('role', '', time() - 3600);		
 	setcookie('email', '', time() - 3600);
 	setcookie('password', '', time() - 3600);
-	setcookie('showtitle', '', time() - 3600);	
+	setcookie('showtitle', '', time() - 3600);
+	setcookie('showID', '', time() - 3600);		
 	
 	echo "<script type='text/javascript'>
 		  alert('Goodbye!');".
@@ -55,8 +57,54 @@ if (isset($_POST['logout']))
 //Code for submitting an audition
 if(isset($_POST['save']))
 {
-	echo "<script type='text/javascript'>
-		  alert('You have auditioned for $showtitle');</script>";
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+	
+	if ($db_found)
+	{	
+		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email' AND password = '$password'";
+		$result = mysql_query($SQL);
+		$db_field = mysql_fetch_array($result);
+		$num_rows = mysql_num_rows($result);
+		if($num_rows > 0)
+		{
+			$personnelID = $db_field['idPersonnel'];
+			
+			$SQL = "SELECT * FROM Audition WHERE Personnel_idPersonnel = '$personnelID'";
+			$result = mysql_query($SQL);
+			$num_rows = mysql_num_rows($result);
+			if($num_rows > 0)
+			{
+				echo "<script type='text/javascript'>
+		 		 		alert('You have already auditioned for this show!');".
+		 				"window.location = 'ListShows.php';</script>";
+			}
+			else
+			{
+				$SQL = "INSERT INTO Audition (Personnel_idPersonnel, Shows_idShows) VALUES ('$personnelID', '$showID')";
+				$result = mysql_query($SQL);
+			}
+		}
+		else
+		{
+			echo "<script type='text/javascript'>
+				 alert('An error has occured.');".
+				 "window.location = 'Audition.php';</script>";//redirect back to Create Show   
+			exit;//exit, so that the following code is not executed
+		}
+				
+		echo "<script type='text/javascript'>
+			  window.location='ListShows.php';</script>";		
+		exit;	
+    }
+	else//if DB was not found
+	{
+		echo '<script type="text/javascript"> 
+			  alert("Database is not found");
+			  </script>';	
+		exit;
+	}
+	mysql_close($db_handle);
 }
 ?>
 </head>

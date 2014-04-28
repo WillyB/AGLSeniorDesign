@@ -54,12 +54,22 @@
 	$pass_word = 'cliffy36&winepress';
 	$database = 'actorsgu_data';
 	$server ='localhost:3306';
-		
+	$auditionlist = "";
+	$castlist = "";
+	
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
 	
 	if ($db_found) 
 	{
+		//Load the audition list
+		$SQL = "SELECT * FROM Audition WHERE temp_Cast=0";
+		$auditionlist = mysql_query($SQL);
+		
+		//load the cast list
+		$SQL = "SELECT * FROM Audition WHERE temp_Cast=1";
+		$castlist = mysql_query($SQL);
+		
 		$SQL = "SELECT * FROM Shows WHERE idShows = '$showID'";	
 		$result = mysql_query($SQL);
 		$num_rows = mysql_num_rows($result);
@@ -157,10 +167,80 @@
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
 	</tr>
 	<tr>
-		<td width="410" height="566" rowspan="5" background="Assets/CastShow_13.gif">&nbsp;</td>
+		<td width="410" height="566" rowspan="5" background="Assets/CastShow_13.gif">&nbsp;
+        <?php
+				
+				echo "<body bgcolor='blue'>";
+				echo "
+				<table border='1' bordercolor='#FFFFFF' style='color: #FFFFFF;border:none;' align='center' cellpadding='1' >
+					<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					</tr>";
+					while($row = mysql_fetch_array($auditionlist))
+					{
+						$db_handle = mysql_connect($server, $user_name, $pass_word);
+						$db_found = mysql_select_db($database, $db_handle);
+						
+						if ($db_found) 
+						{
+							//Get info from Personnel
+							$id = $row['Personnel_idPersonnel'];
+							$SQL = "SELECT * FROM Personnel WHERE idPersonnel='$id'";
+							$result = mysql_query($SQL);
+							$num_rows = mysql_num_rows($result);
+							$db_field = mysql_fetch_array($result);
+							
+							echo "<tr><td>".$db_field['First_Name']."</td><td>".
+										$db_field['Last_Name']."</td><td>".
+										$db_field['Age']."</td><td>".
+										$db_field['Gender']."</td></tr>";
+						}
+					}
+				echo "</table>";
+				echo "<br>"."<br>";
+		?>
+        </td>
 		<td colspan="3">
 			<img src="Assets/CastShow_14.gif" width="120" height="171" alt=""></td>
-		<td width="408" height="566" colspan="3" rowspan="5" background="Assets/CastShow_15.gif">&nbsp;</td>
+		<td width="408" height="566" colspan="3" rowspan="5" background="Assets/CastShow_15.gif">&nbsp;
+        <?php
+				
+				echo "<body bgcolor='blue'>";
+				echo "
+				<table border='1' bordercolor='#FFFFFF' style='color: #FFFFFF;border:none;' align='center' cellpadding='1' >
+					<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					</tr>";
+					while($row = mysql_fetch_array($castlist))
+					{
+						$db_handle = mysql_connect($server, $user_name, $pass_word);
+						$db_found = mysql_select_db($database, $db_handle);
+						
+						if ($db_found) 
+						{
+							//Get info from Personnel
+							$id = $row['Personnel_idPersonnel'];
+							$SQL = "SELECT * FROM Personnel WHERE idPersonnel='$id'";
+							$result = mysql_query($SQL);
+							$num_rows = mysql_num_rows($result);
+							$db_field = mysql_fetch_array($result);
+							
+							echo "<tr><td>".$db_field['First_Name']."</td><td>".
+										$db_field['Last_Name']."</td><td>".
+										$db_field['Age']."</td><td>".
+										$db_field['Gender']."</td></tr>";
+						}
+					}
+				echo "</table>";
+				echo "<br>"."<br>";
+		?>
+        </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="171" alt=""></td>
 	</tr>

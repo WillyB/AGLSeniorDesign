@@ -97,6 +97,7 @@
 	{
 		$showtitle = $_POST['title'];
 		setcookie('showtitle', $showtitle);
+		setcookie('showID', $showID);
 		echo "<script type='text/javascript'>
 			  window.location = 'Audition.php';</script>";//redirect to login page
 		exit;	
