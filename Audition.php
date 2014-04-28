@@ -884,7 +884,7 @@ var clickAgendaItem = "";
     
     
     function saveEvent(){
-        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
+        var laItems = jfcalplugin.getAgendaItemByDataAttr("#mycal", "fname". 'Actor');
         //First clear out any old items - No need, they can only get here once
         lsShowID   =   <?php echo $showID; ?>;
         lsAuditionID = <?php echo $auditionID ?>;

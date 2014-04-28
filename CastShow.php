@@ -229,7 +229,12 @@ function limitText(limitField, limitCount, limitNum) {
 			exit;
 		}
 	}
-	mysql_close($db_handle);
+    //Now, find every single actor event for anyone who has audition for this show:
+    
+    
+    //Then set them up to be passed off to javascript
+    
+    
 ?>
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
