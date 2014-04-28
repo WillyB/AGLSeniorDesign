@@ -152,10 +152,6 @@ if(isset($_POST['save']))
 			  </script>';	
 		exit;
 	}
-    
-
-    
-	mysql_close($db_handle);
 }
 
         //Load in any Show_Events
@@ -985,19 +981,19 @@ var clickAgendaItem = "";
         laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         
         laEventList.forEach(function(singleEvent) {
-         alert(JSON.stringify(singleEvent, null, 4))   
-        Parse out all our variables
-        
-        $laSingleShowEvent = array (
-            'title' => $row['Title'],
-            'startDate' => $row['Start_Date'],
-            'endDate' => $row['End_Date'],
-            'allDay' => $row['All_Day'],
-            'firstName' => $row['First_Name'],
-            'lastName' => $row['Last_Name'],
-            'backgroundColor' => $row['Background_Color'],
-            'foregroundColor' => $row['Foreground_Color']
-        );
+//         alert(JSON.stringify(singleEvent, null, 4))   
+//        Parse out all our variables
+//        
+//        $laSingleShowEvent = array (
+//            'title' => $row['Title'],
+//            'startDate' => $row['Start_Date'],
+//            'endDate' => $row['End_Date'],
+//            'allDay' => $row['All_Day'],
+//            'firstName' => $row['First_Name'],
+//            'lastName' => $row['Last_Name'],
+//            'backgroundColor' => $row['Background_Color'],
+//            'foregroundColor' => $row['Foreground_Color']
+//        );
         lsTitle = singleEvent['title'];
         ldStartDate = new Date(singleEvent['startDate']);
         ldEndDate   = new Date(singleEvent['endDate']);
