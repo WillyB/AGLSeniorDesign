@@ -230,8 +230,9 @@
 										$db_field['Last_Name']."</td><td>".
 										$db_field['Age']."</td><td>".
 										$db_field['Gender']."</td>".
-										"<td><input type='SUBMIT' name='cast' value='cast'/>
-								         <input type='HIDDEN' name='UserID' value='" .$id. "'/></td></tr>";
+										"<form action='CastShow.php' method='post'>.
+										<td><input type='SUBMIT' name='cast' value='cast'/>
+								         <input type='HIDDEN' name='UserID' value='" .$id. "'/></td></tr></form>";
 						}
 					}
 				echo "</table>";
@@ -271,8 +272,9 @@
 										$db_field['Last_Name']."</td><td>".
 										$db_field['Age']."</td><td>".
 										$db_field['Gender']."</td>".
-										"<td><input type='SUBMIT' name='uncast' value='uncast'/>
-								         <input type='HIDDEN' name='UserID' value='" .$id. "'/></td></tr>";
+										"<form action='CastShow.php' method='post'>.
+										<td><input type='SUBMIT' name='cast' value='cast'/>
+								         <input type='HIDDEN' name='UserID' value='" .$id. "'/></td></tr></form>";
 						}
 					}
 				echo "</table>";
