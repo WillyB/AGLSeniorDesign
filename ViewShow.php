@@ -1078,7 +1078,6 @@ var clickAgendaItem = "";
 //        //Won't do a goddamn thing
 //        //var c = a + b;
 //        //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
-//        newVariable = '<?php echo $randomNess ?>';
 //        jfcalplugin.addAgendaItem(
 //	       "#mycal",
 //	       "Christmas Eve",
@@ -1101,7 +1100,6 @@ var clickAgendaItem = "";
     function addGivenAgenda() {
         alert('Now attempting load');
         var laEventList = new Array();
-        laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         
         laEventList.forEach(function(singleEvent) {
          //alert(JSON.stringify(singleEvent, null, 4))   
