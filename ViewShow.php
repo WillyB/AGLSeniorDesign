@@ -165,7 +165,29 @@ function limitText(limitField, limitCount, limitNum) {
 			}
 		}
 	}
-    mysql_close($db_handle);
+    
+            //Load in any Show_Events
+    $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
+    $result = mysql_query($SQL);
+	$num_rows = mysql_num_rows($result);
+    //$db_field = mysql_fetch_array($result);
+    $laMegaShowEventArray = array();
+    while($row = mysql_fetch_array($result))
+    {
+        $laSingleShowEvent = array (
+            'title' => $row['Title'],
+            'startDate' => $row['Start_Date'],
+            'endDate' => $row['End_Date'],
+            'allDay' => $row['All_Day'],
+            'firstName' => $row['First_Name'],
+            'lastName' => $row['Last_Name'],
+            'backgroundColor' => $row['Background_Color'],
+            'foregroundColor' => $row['Foreground_Color']
+        );
+        $laSingleTitle = $laSingleShowEvent['title'];
+        $laMegaShowEventArray[] = $laSingleShowEvent;
+    }
+    //print_r($laMegaShowEventArray);
 ?>
 <style type="text/css">
 #castDiv {
@@ -390,9 +412,6 @@ function limitText(limitField, limitCount, limitNum) {
 			<button id="BtnNextMonth">Next Month</button>
 			&nbsp;&nbsp;&nbsp;
 			Date: <input type="text" id="dateSelect" size="20"/>
-			&nbsp;&nbsp;&nbsp;
-			<button id="BtnDeleteAll">Delete All</button>
-            <button id="addKnownEvent">Load Events</button>
 		</div>
 
 		<!--
@@ -1023,7 +1042,7 @@ var clickAgendaItem = "";
     function addGivenAgenda() {
         alert('Now attempting load');
         var laEventList = new Array();
-        
+        laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         laEventList.forEach(function(singleEvent) {
          //alert(JSON.stringify(singleEvent, null, 4))   
         //Parse out all our variables
@@ -1064,6 +1083,8 @@ var clickAgendaItem = "";
         );
         });
     }
+    
+    addGivenAgenda();
     
 });    
 </script>
