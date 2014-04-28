@@ -230,10 +230,47 @@ function limitText(limitField, limitCount, limitNum) {
 		}
 	}
     //Now, find every single actor event for anyone who has audition for this show:
-    
-    
+    $SQL = "SELECT * FROM Audition_Events WHERE Audition_Shows_idShows = $showID";
+    $eventList = mysql_query($SQL);
+    $num_rows = mysql_num_rows($eventList);
+    //$db_field = mysql_fetch_array($result);
+    $laMegaConflictEventArray = array();
+    while($row = mysql_fetch_array($eventList))
+    {
+        $laSingleShowEvent = array (
+            'title' => $row['Title'],
+            'startDate' => $row['Start_Date'],
+            'endDate' => $row['End_Date'],
+            'allDay' => $row['All_Day'],
+            'firstName' => $row['First_Name'],
+            'lastName' => $row['Last_Name'],
+            'backgroundColor' => $row['Background_Color'],
+            'foregroundColor' => $row['Foreground_Color']
+        );
+        $laSingleTitle = $laSingleShowEvent['title'];
+        $laMegaConflictEventArray[] = $laSingleShowEvent;
+        }
     //Then set them up to be passed off to javascript
-    
+        $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
+    $result = mysql_query($SQL);
+	$num_rows = mysql_num_rows($result);
+    //$db_field = mysql_fetch_array($result);
+    $laMegaShowEventArray = array();
+    while($row = mysql_fetch_array($result))
+    {
+        $laSingleShowEvent = array (
+            'title' => $row['Title'],
+            'startDate' => $row['Start_Date'],
+            'endDate' => $row['End_Date'],
+            'allDay' => $row['All_Day'],
+            'firstName' => $row['First_Name'],
+            'lastName' => $row['Last_Name'],
+            'backgroundColor' => $row['Background_Color'],
+            'foregroundColor' => $row['Foreground_Color']
+        );
+        $laSingleTitle = $laSingleShowEvent['title'];
+        $laMegaShowEventArray[] = $laSingleShowEvent;
+    }
     
 ?>
 </head>
@@ -1051,6 +1088,50 @@ var clickAgendaItem = "";
 //        );
 //    }
     //Load our events from any previous edits:
+     function addGivenConflicts() {
+        var laEventList = new Array();
+        laEventList = <?php echo json_encode($laMegaConflictEventArray)?>;
+        laEventList.forEach(function(singleEvent) {
+         //alert(JSON.stringify(singleEvent, null, 4))   
+        //Parse out all our variables
+        
+//        $laSingleShowEvent = array (
+//            'title' => $row['Title'],
+//            'startDate' => $row['Start_Date'],
+//            'endDate' => $row['End_Date'],
+//            'allDay' => $row['All_Day'],
+//            'firstName' => $row['First_Name'],
+//            'lastName' => $row['Last_Name'],
+//            'backgroundColor' => $row['Background_Color'],
+//            'foregroundColor' => $row['Foreground_Color']
+//        );
+        lsTitle = singleEvent['title'];
+        ldStartDate = new Date(singleEvent['startDate']);
+        ldEndDate   = new Date(singleEvent['endDate']);
+        firstName = singleEvent['firstName'];
+        lastName  = singleEvent['lastName'];
+        fullName = firstName + " " + lastName;
+        backColor = singleEvent['backgroundColor'];
+        foreColor = singleEvent['foregroundColor'];
+        //alert('Entry found for title ' + $lsTitle + ' with color ' + backColor );
+        
+        jfcalplugin.addAgendaItem(
+	       "#mycal",
+	       lsTitle,
+	       ldStartDate,
+	       ldEndDate,
+	       false,
+	       {
+		      Entered_By: fullName
+	       },
+	       {
+		      backgroundColor: backColor,
+		      foregroundColor: foreColor
+	       }	
+        );
+        });
+    }
+ 
     function addGivenAgenda() {
         var laEventList = new Array();
         //laEventList = < php echo json_encode($laMegaShowEventArray)?>;
@@ -1095,7 +1176,8 @@ var clickAgendaItem = "";
         });
     }
     
-    //addGivenAgenda();
+    addGivenAgenda();
+    addGivenConflicts();
     
 });    
 </script>
