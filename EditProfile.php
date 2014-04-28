@@ -207,11 +207,11 @@
 			}		 
 			if($Zip_Code!="")
 			{       
-					$update.= 'Zip_Code="'.$Zip_Code.'"';
+					$update.= ', Zip_Code="'.$Zip_Code.'"';
 			}		 
 			if($Contact_Phone!="")
 			{       
-					$update.= 'Contact_Phone="'.$Contact_Phone.'"';
+					$update.= ', Contact_Phone="'.$Contact_Phone.'"';
 			}
 			$update.= " WHERE Contact_Email = '$lookupEmail'";
 			$result = mysql_query($update);
