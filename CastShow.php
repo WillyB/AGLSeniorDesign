@@ -109,7 +109,7 @@
 	
 		if ($db_found) 
 		{
-			$SQL = "UPDATE Audition SET temp_Cast = 1 WHERE Personnel_idPesonnel = '$personnelID' AND Shows_ShowID = '$showID'";
+			$SQL = "UPDATE Audition SET temp_Cast = 1 WHERE Personnel_idPersonnel = '$personnelID' AND Shows_ShowID = '$showID'";
 			$result = mysql_query($SQL);
 		}
 		echo "<script type='text/javascript'>
@@ -127,7 +127,7 @@
 	
 		if ($db_found) 
 		{
-			$SQL = "UPDATE Audition SET temp_Cast = 0 WHERE Personnel_idPesonnel = '$personnelID' AND Shows_ShowID = '$showID'";
+			$SQL = "UPDATE Audition SET temp_Cast = 0 WHERE Personnel_idPersonnel = '$personnelID' AND Shows_ShowID = '$showID'";
 			$result = mysql_query($SQL);
 		}
 		
