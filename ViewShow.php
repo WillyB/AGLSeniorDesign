@@ -190,7 +190,8 @@ function limitText(limitField, limitCount, limitNum) {
                 setcookie('personnelID', $personnelID);
 				echo "<script type='text/javascript'>
                       alert('Thank you for signing up to audition! On the next page, please list any conflicts you have with the show calendar \(keep in mind you may need to advance a month or two to see all of it\). When finished hit Save, but you only have one chance to set your conflicts so double check it!');
-					  window.location = 'Audition.php';</script>";//redirect to login page
+					  alert('And one final notice! You HAVE TO include your name in the TITLE of EACH CONFLICT you add to the show calendar!!!');
+                      window.location = 'Audition.php';</script>";//redirect to login page
 			}
 		}
 		else
