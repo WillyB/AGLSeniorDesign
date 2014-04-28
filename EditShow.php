@@ -944,6 +944,12 @@ var clickAgendaItem = "";
             lsShowID            =   <?php echo $showID; ?>;
             lsAllDay            =   entry.allDay.toString();
             var laSingleEvent = new Array();
+            laSingleEvent[0]    = entry.title;
+            laSingleEvent[1]    = lsStartDate;
+            laSingleEvent[2]    = lsEnddate;
+            laSingleEvent[3]    = lsAllDay;
+            laSingleEvent[4]    = entry.data.fname;
+            laSingleEvent[5]    = entry.data.lname;
             //laSingleEvent   =   [entry.title, lsStartDate, lsEndDate, lsAllDay, entry.data.fname, entry.data.lname, lsBackgroundColor, lsForegroundColor, lsShowID];
             alert(entry.displayProp.backgroundColor);
 //            $.ajax({
