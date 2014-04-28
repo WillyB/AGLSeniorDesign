@@ -346,6 +346,9 @@
 			<button id="BtnNextMonth">Next Month</button>
 			&nbsp;&nbsp;&nbsp;
 			Date: <input type="text" id="dateSelect" size="20"/>
+			&nbsp;&nbsp;&nbsp;
+			<button id="BtnDeleteAll">Delete All</button>
+            <button id="addKnownEvent">Load Events</button>
 		</div>
 
 		<!--
@@ -359,8 +362,8 @@
 
 		<!-- debugging-->
 		<div id="calDebug"></div>
-		
-        		<!-- Add event modal form -->
+
+		<!-- Add event modal form -->
 		<style type="text/css">
 			//label, input.text, select { display:block; }
 			fieldset { padding:0; border:0; margin-top:25px; }
@@ -481,7 +484,7 @@
 			</fieldset>
 			</form>
 		</div>
-        
+		
 		<div id="display-event-form" title="View Agenda Item">
 			
 		</div>		
@@ -760,34 +763,34 @@ var clickAgendaItem = "";
 	/**
 	 * Initialize delete all agenda items button
 	 */
-//	$("#BtnDeleteAll").button();
-//	$("#BtnDeleteAll").click(function() {	
-//		jfcalplugin.deleteAllAgendaItems("#mycal");	
-//		return false;
-//	});		
+	$("#BtnDeleteAll").button();
+	$("#BtnDeleteAll").click(function() {	
+		jfcalplugin.deleteAllAgendaItems("#mycal");	
+		return false;
+	});		
 	
 	/**
 	 * Initialize iCal test button
 	 */
-//	$("#BtnICalTest").button();
-//	$("#BtnICalTest").click(function() {
-//		// Please note that in Google Chrome this will not work with a local file. Chrome prevents AJAX calls
-//		// from reading local files on disk.		
-//		jfcalplugin.loadICalSource("#mycal",$("#iCalSource").val(),"html");	
-//		return false;
-//	});	
+	$("#BtnICalTest").button();
+	$("#BtnICalTest").click(function() {
+		// Please note that in Google Chrome this will not work with a local file. Chrome prevents AJAX calls
+		// from reading local files on disk.		
+		jfcalplugin.loadICalSource("#mycal",$("#iCalSource").val(),"html");	
+		return false;
+	});	
     
-//    $("#addKnownEvent").button();
-//    $("#addKnownEvent").click(function() {
-//        addGivenAgenda();
-//        return false;
-//    });
-//    
-//    $("#save").button();
-//    $("#save").click(function() {
-//       saveEvent();
-//       return false; 
-//    });
+    $("#addKnownEvent").button();
+    $("#addKnownEvent").click(function() {
+        addGivenAgenda();
+        return false;
+    });
+    
+    $("#save").button();
+    $("#save").click(function() {
+       saveEvent();
+       return false; 
+    });
 
 	/**
 	 * Initialize add event modal form
