@@ -1021,6 +1021,7 @@ var clickAgendaItem = "";
     }
     
     function saveEvent(){
+        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         //First clear out any old items:
         lsShowID   =   <?php echo $showID; ?>;
         $.ajax({
