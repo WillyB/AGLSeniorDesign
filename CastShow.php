@@ -273,7 +273,7 @@
 										$db_field['Age']."</td><td>".
 										$db_field['Gender']."</td>".
 										"<form action='CastShow.php' method='post'>.
-										<td><input type='SUBMIT' name='cast' value='cast'/>
+										<td><input type='SUBMIT' name='uncast' value='uncast'/>
 								         <input type='HIDDEN' name='UserID' value='" .$id. "'/></td></tr></form>";
 						}
 					}
