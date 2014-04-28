@@ -45,14 +45,14 @@ Include JQuery Core (Required for calendar plugin)
     $showID = $_COOKIE['showID'];
     
     $user_name = 'actorsgu_data';
-//       	$pass_word = 'cliffy36&winepress';
-//		$database = 'actorsgu_data';
-//		//$server = 'box293.bluehost.com:3306';
-//		$server = 'localhost:3306';
-//        
-//		//$con = mysql_connect($server, $user_name, $pass_word, $database);
-//		$db_handle = mysql_connect($server, $user_name, $pass_word);
-//		$db_found = mysql_select_db($database, $db_handle);
+       	$pass_word = 'cliffy36&winepress';
+		$database = 'actorsgu_data';
+		//$server = 'box293.bluehost.com:3306';
+		$server = 'localhost:3306';
+        
+		//$con = mysql_connect($server, $user_name, $pass_word, $database);
+		$db_handle = mysql_connect($server, $user_name, $pass_word);
+		$db_found = mysql_select_db($database, $db_handle);
     //$showID = 1;
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
@@ -95,68 +95,68 @@ Include JQuery Core (Required for calendar plugin)
 		exit;	
 	}
     //Load in the Show fields
-//    $showID = $_COOKIE['showID'];
-//    $user_name = 'actorsgu_data';
-//	$pass_word = 'cliffy36&winepress';
-//	$database = 'actorsgu_data';
-//	$server ='localhost:3306';
-//		
-//	$db_handle = mysql_connect($server, $user_name, $pass_word);
-//	$db_found = mysql_select_db($database, $db_handle);
-//	
-//	if ($db_found) 
-//	{
-//		$SQL = "SELECT * FROM Shows WHERE idShows = '$showID'";	
-//		$result = mysql_query($SQL);
-//		$num_rows = mysql_num_rows($result);
-//		$db_field = mysql_fetch_array($result);
-//		if($num_rows > 0) // if show exists in the data base
-//		{
-//		//Fill in that info
-//			//$First_Name = $db_field['First_Name'];//not there
-//			$Show_Name = $db_field['Show_Name'];
-//            $Director  = $db_field['Director'];
-//            $Playwright = $db_field['Playwright'];
-//            $Audition_Notes = $db_field['Audition_Notes'];
-//		}
-//		else
-//		{ 
-//            //First check to see which "Home" the user is going to
-// 	      if($role == 0 || $role == 1){
-//                echo "<script type='text/javascript'>
-//                    alert('There was an error retreiving your information.');".
-//                    "window.location = 'AdminTools.php';</script>";
-//		       exit;
-//            }
-//		  else if($role == 2){
-//                echo "<script type='text/javascript'>
-//                        alert('There was an error retreiving your information.');".
-//			         "window.location = 'UserTools.php';</script>";
-//                exit;
-//                }
-//		}
-//	}
-//    
-//    //Load in any Show_Events
-//    $SQL = "SELECT * FROM Show_Events WHERE idShow_Events = $showID";
-//    $result = mysql_query($SQL);
-//	$num_rows = mysql_num_rows($result);
-//    $db_field = mysql_fetch_array($result);
-//    $laMegaShowEventArray = array();
-//    while($row = mysql_fetch_array($result))
-//    {
-//        $laSingleShowEvent = array (
-//            'title' => $row['Title'],
-//            'startDate' => $row['Start_Date'],
-//            'endDate' => $row['End_Date'],
-//            'allDay' => $row['All_Day'],
-//            'firstName' => $row['First_Name'],
-//            'lastName' => $row['Last_Name'],
-//            'backgroundColor' => $row['Background_Color'],
-//            'foregroundColor' => $row['Foreground_Color']
-//        );
-//        $laMegaShowEventArray[] = $laSingleShowEvent;
-//    }
+    $showID = $_COOKIE['showID'];
+    $user_name = 'actorsgu_data';
+	$pass_word = 'cliffy36&winepress';
+	$database = 'actorsgu_data';
+	$server ='localhost:3306';
+		
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+	
+	if ($db_found) 
+	{
+		$SQL = "SELECT * FROM Shows WHERE idShows = '$showID'";	
+		$result = mysql_query($SQL);
+		$num_rows = mysql_num_rows($result);
+		$db_field = mysql_fetch_array($result);
+		if($num_rows > 0) // if show exists in the data base
+		{
+		//Fill in that info
+			//$First_Name = $db_field['First_Name'];//not there
+			$Show_Name = $db_field['Show_Name'];
+            $Director  = $db_field['Director'];
+            $Playwright = $db_field['Playwright'];
+            $Audition_Notes = $db_field['Audition_Notes'];
+		}
+		else
+		{ 
+            //First check to see which "Home" the user is going to
+ 	      if($role == 0 || $role == 1){
+                echo "<script type='text/javascript'>
+                    alert('There was an error retreiving your information.');".
+                    "window.location = 'AdminTools.php';</script>";
+		       exit;
+            }
+		  else if($role == 2){
+                echo "<script type='text/javascript'>
+                        alert('There was an error retreiving your information.');".
+			         "window.location = 'UserTools.php';</script>";
+                exit;
+                }
+		}
+	}
+    
+    //Load in any Show_Events
+    $SQL = "SELECT * FROM Show_Events WHERE idShow_Events = $showID";
+    $result = mysql_query($SQL);
+	$num_rows = mysql_num_rows($result);
+    $db_field = mysql_fetch_array($result);
+    $laMegaShowEventArray = array();
+    while($row = mysql_fetch_array($result))
+    {
+        $laSingleShowEvent = array (
+            'title' => $row['Title'],
+            'startDate' => $row['Start_Date'],
+            'endDate' => $row['End_Date'],
+            'allDay' => $row['All_Day'],
+            'firstName' => $row['First_Name'],
+            'lastName' => $row['Last_Name'],
+            'backgroundColor' => $row['Background_Color'],
+            'foregroundColor' => $row['Foreground_Color']
+        );
+        $laMegaShowEventArray[] = $laSingleShowEvent;
+    }
 ?>
 
 <!-- <script src="Calendar.js" type="text/javascript"></script> -->
