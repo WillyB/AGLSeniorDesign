@@ -25,7 +25,7 @@ $personnelID = $eventArray[9];
 $auditionID = $eventArray[10];
 
                 
-$SQL = ("INSERT INTO Audition_Events (Shows_idShows, Audition_idAudition, Audition_Personnel_idPersonnel, Title, Start_Date, End_Date, All_Day, Fisrt_Name, Last_Name, Background_Color, Foreground_Color) 
+$SQL = ("INSERT INTO Audition_Events (Audition_Shows_idShows, Audition_idAudition, Audition_Personnel_idPersonnel, Title, Start_Date, End_Date, All_Day, First_Name, Last_Name, Background_Color, Foreground_Color) 
                          VALUES ($showID, $auditionID, $personnelID, '$title', '$startDate', '$endDate', '$allDay', '$firstName', '$lastName', '$backColor', '$foreColor')");
 
 $result = mysql_query($SQL);
