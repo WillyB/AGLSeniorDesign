@@ -145,6 +145,10 @@ Include JQuery Core (Required for calendar plugin)
             'backgroundColor' => $row['Background_Color'],
             'foregroundColor' => $row['Foreground_Color']
         );
+        $laSingleTitle = $laSingleShowEvent['title'];
+        echo "<script type='text/javascript'>";
+        echo "alert('Saving for title $laSingleTitle');";
+        echo "</script>";
         $laMegaShowEventArray[] = $laSingleShowEvent;
     }
     print_r($laMegaShowEventArray);
