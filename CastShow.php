@@ -229,7 +229,7 @@
 										$db_field['Age']."</td><td>".
 										$db_field['Gender']."</td><td>".
 										"<input type='SUBMIT' name='cast' value='cast'/>
-								         <input type='HIDDEN' name='$personnelID' value='" .$id. "'/></td></tr>";
+								         <input type='HIDDEN' name='personnelID' value='" .$id. "'/></td></tr>";
 						}
 					}
 				echo "</table>";
@@ -269,7 +269,7 @@
 										$db_field['Age']."</td><td>".
 										$db_field['Gender']."</td><td>".
 										"<input type='SUBMIT' name='uncast' value='uncast'/>
-								         <input type='HIDDEN' name='$personnelID' value='" .$id. "'/></td></tr>";
+								         <input type='HIDDEN' name='personnelID' value='" .$id. "'/></td></tr>";
 						}
 					}
 				echo "</table>";

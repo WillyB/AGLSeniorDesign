@@ -70,7 +70,7 @@ if(isset($_POST['save']))
 		{
 			$personnelID = $db_field['idPersonnel'];
 			
-			$SQL = "SELECT * FROM Audition WHERE Personnel_idPersonnel = '$personnelID'";
+			$SQL = "SELECT * FROM Audition WHERE Personnel_idPersonnel = '$personnelID' AND Shows_idShows = '$showID'";
 			$result = mysql_query($SQL);
 			$num_rows = mysql_num_rows($result);
 			if($num_rows > 0)
