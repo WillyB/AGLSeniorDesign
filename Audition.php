@@ -422,9 +422,9 @@ if(isset($_POST['save']))
 
     var clickDate = "";
 var clickAgendaItem = "";
-    var lsFirstName = <?php echo $lsFirstName ?>;
-    var lsLastName  = <?php echo $lsLastName  ?>;
-     var lsUserFullName lsFirstName + " " + lsLastName;
+//    var lsFirstName = <php echo $lsFirstName ?>;
+//    var lsLastName  = <php echo $lsLastName  ?>;
+//     var lsUserFullName lsFirstName + " " + lsLastName;
 	
 	/**
 	 * Initializes calendar with current year & month
@@ -764,7 +764,7 @@ var clickAgendaItem = "";
 						endDateObj,
 						false,
 						{
-							Entered_By: lsUserFullName
+							Entered_By: 'Jack Smith'
 						},
 						{
 							backgroundColor: $("#colorBackground").val(),
