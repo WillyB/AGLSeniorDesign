@@ -153,7 +153,13 @@ if(isset($_POST['save']))
 		exit;
 	}
 }
-
+    $user_name = 'actorsgu_data';
+	$pass_word = 'cliffy36&winepress';
+	$database = 'actorsgu_data';
+	$server ='localhost:3306';
+		
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
         //Load in any Show_Events
     $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
     $result = mysql_query($SQL);
@@ -1002,7 +1008,7 @@ var clickAgendaItem = "";
         fullName = firstName + " " + lastName;
         backColor = singleEvent['backgroundColor'];
         foreColor = singleEvent['foregroundColor'];
-        alert('Entry found for title ' + $lsTitle + ' with color ' + backColor );
+        //alert('Entry found for title ' + $lsTitle + ' with color ' + backColor );
         
         jfcalplugin.addAgendaItem(
 	       "#mycal",
