@@ -98,9 +98,9 @@ function limitText(limitField, limitCount, limitNum) {
 		exit;	
 	}
     
-    echo "<script type='text/javascript>";
-    echo "alert('One last thing! You HAVE TO put your name somewhere in the TITLE of EACH CONFLICT.');";
-    echo "</script>";
+//    echo "<script type='text/javascript>";
+//    echo "alert('One last thing! You HAVE TO put your name somewhere in the TITLE of EACH CONFLICT.');";
+//    echo "</script>";
     
     $showID = $_COOKIE['showID'];
     $user_name = 'actorsgu_data';
