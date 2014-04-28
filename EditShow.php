@@ -955,14 +955,14 @@ var clickAgendaItem = "";
             laSingleEvent[8]    = lsShowID;
             //laSingleEvent   =   [entry.title, lsStartDate, lsEndDate, lsAllDay, entry.data.fname, entry.data.lname, lsBackgroundColor, lsForegroundColor, lsShowID];
             alert(entry.displayProp.backgroundColor);
-//            $.ajax({
-//                type:   "POST",
-//                url:    "SaveShowEdit.php",
-//                data:   { evenData : laSingleEvent },
-//                success: function() {
-//                    alert('Save successful!');
-//                }
-//            });
+            $.ajax({
+                type:   "POST",
+                url:    "SaveShowEdit.php",
+                data:   { evenData : laSingleEvent },
+                success: function() {
+                    alert('Save successful!');
+                }
+            });
         });
     }
 </script>
