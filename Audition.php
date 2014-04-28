@@ -931,6 +931,8 @@ var clickAgendaItem = "";
                 data:   { eventData : laSingleEvent }
             });
         });
+        alert('Conflicts saved!');
+        window.location = 'ViewShows.php';
     }
     
     
