@@ -89,8 +89,8 @@
 		if($num_rows > 0) // if user exists in the data base
 		{
 		//Fill in that info
-			$First_Name = $db_field['First_Name'];//not there
-			$Last_Name = $db_field['Last_Name'];//not there
+			$First_Name = $db_field['First_Name'];
+			$Last_Name = $db_field['Last_Name'];
 			$Street_Address = $db_field['Street_Address'];
 			$City = $db_field['City'];
 			$State = $db_field['State'];
@@ -425,7 +425,7 @@
 		<td colspan="2" rowspan="2">
 			<img src="Assets/EditProfile_21.gif" width="77" height="57" alt=""></td>
 		<td width="146" height="42" colspan="3" background="Assets/EditProfile_22.gif">&nbsp;
-        <input type="text" name="zip" id="zip" size="15" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Zip_Code ?>">
+        <input type="text" name="zip" id="zip" size="15" maxlength="5" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Zip_Code ?>">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
@@ -444,7 +444,7 @@
 		<td colspan="2" rowspan="2">
 			<img src="Assets/EditProfile_26.gif" width="132" height="53" alt=""></td>
 		<td width="453" height="42" colspan="10" background="Assets/EditProfile_27.gif">&nbsp;
-        <input type="text" name="phone" id="phone" size="65" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Contact_Phone ?>">
+        <input type="text" name="phone" id="phone" size="65" maxlength="11" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Contact_Phone ?>">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
@@ -510,12 +510,12 @@
 		<td rowspan="4">
 			<img src="Assets/EditProfile_30.gif" width="75" height="110" alt=""></td>
 		<td width="145" height="42" colspan="3" background="Assets/EditProfile_31.gif">&nbsp;
-        <input type="text" name="weight" id="weight" size="15" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Weight ?>">
+        <input type="text" name="weight" id="weight" size="15" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Weight ?>">
         </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/EditProfile_32.gif" width="77" height="110" alt=""></td>
 		<td width="146" height="42" colspan="3" background="Assets/EditProfile_33.gif">&nbsp;
-        <input type="text" name="age" id="age" size="15" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Age ?>">
+        <input type="text" name="age" id="age" size="15" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Age ?>">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
