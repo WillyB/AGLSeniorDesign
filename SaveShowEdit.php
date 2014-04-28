@@ -21,13 +21,7 @@ $backColor = $eventArray[6];
 $foreColor = $eventArray[7];
 $showID    = $eventArray[8];
 
-
-//First we drop all the previous events connected to the show:
-$SQL = "DELETE FROM Show_Events WHERE Shows_idShows = $showID";
-$result = mysql_query($SQL);
-
-
-//Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.                
+                
 $SQL = ("INSERT INTO Show_Events (Shows_idShows, Title, Start_Date, End_Date, All_Day, First_Name, Last_Name, Background_Color, Foreground_Color) 
                          VALUES ($showID, '$title', '$startDate', '$endDate', '$allDay', '$firstName', '$lastName', '$backColor', '$foreColor')");
 

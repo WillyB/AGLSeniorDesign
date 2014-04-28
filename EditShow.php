@@ -995,6 +995,14 @@ var clickAgendaItem = "";
 	});
     
     function saveEvent(){
+        //First clear out any old items:
+        lsShowID   =   <?php echo $showID; ?>;
+        $.ajax({
+                type:   "POST",
+                url:    "ClearShowEvents.php",
+                data:   { showID : lsShowID }
+            });
+        //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
         var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         laItems.forEach(function(entry) {
             lsStartDate =   entry['startDate'].toJSON();
@@ -1016,10 +1024,7 @@ var clickAgendaItem = "";
             $.ajax({
                 type:   "POST",
                 url:    "SaveShowEdit.php",
-                data:   { eventData : laSingleEvent },
-                success: function() {
-                    alert('Save successful!');
-                }
+                data:   { eventData : laSingleEvent }
             });
         });
     }
@@ -1050,7 +1055,7 @@ var clickAgendaItem = "";
 //    }
     //Load our events from any previous edits:
     function addGivenAgenda() {
-        alert('Now attempting load');
+        //alert('Now attempting load');
         var laEventList = new Array();
         laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         
