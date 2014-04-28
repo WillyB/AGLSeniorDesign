@@ -146,11 +146,11 @@ if(isset($_POST['View']))
 			<img src="Assets/SearchDB_07.gif" width="580" height="56" alt=""></td>
 		<td width="207" height="43" colspan="7" background="Assets/SearchDB_08.gif">&nbsp;
         <input type="text" name="firstname" id="firstname" style="color: #FFFFFF;border:none;background-color:transparent;" size="26" 
-		       value="<?php echo $_COOKIE['firstname']; ?>" readonly>
+		       value="<?php if($_COOKIE['firstname']!="") echo $_COOKIE['firstname']; ?>" readonly>
         </td>
 		<td width="248" height="43" colspan="5" background="Assets/SearchDB_09.gif">&nbsp;
         <input type="text" name="lastname" id="lastname" style="color: #FFFFFF;border:none;background-color:transparent;" size="30"
-			   value="<?php echo $_COOKIE['lastname']; ?>" readonly>
+			   value="<?php if($_COOKIE['lastname']!="") echo $_COOKIE['lastname']; ?>" readonly>
         </td>
 		<td rowspan="10">
 			<img src="Assets/SearchDB_10.gif" width="176" height="390" alt=""></td>
@@ -257,24 +257,24 @@ if(isset($_POST['View']))
 			<img src="Assets/SearchDB_15.gif" width="74" height="110" alt=""></td>
 		<td width="75" height="43" colspan="2" background="Assets/SearchDB_16.gif">&nbsp;
         <input type="text" name="weightf" id="weightf" size="4" 
-		       value="<?php echo $_COOKIE['weightf']; ?>" readonly
+		       value="<?php if($_COOKIE['weightf']!="") echo $_COOKIE['weightf']; ?>" readonly
 		       pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
-		<td width="72" height="43" colspan="3" background="Assets/SearchDB_17.gif">&nbsp;z
+		<td width="72" height="43" colspan="3" background="Assets/SearchDB_17.gif">&nbsp;
         <input type="text" name="weightt" id="weightt" size="4" 
-			   value="<?php echo $_COOKIE['weightt'];?>" readonly
+			   value="<?php if($_COOKIE['weightt']!="") echo $_COOKIE['weightt'];?>" readonly
 			   pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/SearchDB_18.gif" width="76" height="110" alt=""></td>
 		<td width="70" height="43" background="Assets/SearchDB_19.gif">&nbsp;
         <input type="text" name="agef" id="agef" size="4" 
-			   value="<?php echo $_COOKIE['agef'];?>" readonly
+			   value="<?php if($_COOKIE['agef']!="") echo $_COOKIE['agef'];?>" readonly
 			   pattern="[1-9][0-9]?|1[0-1][0-9]|120" title="Enter age from 1 to 120" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td width="76" height="43" background="Assets/SearchDB_20.gif">&nbsp;
         <input type="text" name="aget" id="aget" size="4" 
-			   value="<?php echo $_COOKIE['aget'];?>" readonly
+			   value="<?php if($_COOKIE['aget']!="") echo $_COOKIE['aget'];?>" readonly
 			   pattern="[1-9][0-9]?|1[0-1][0-9]|120" title="Enter age from 1 to 120" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td>
