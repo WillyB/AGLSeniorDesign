@@ -129,7 +129,9 @@
 	<tr>
 		<td rowspan="12">
 			<img src="Assets/CastShow_07.gif" width="217" height="912" alt=""></td>
-		<td width="938" height="44" colspan="7" background="Assets/CastShow_08.gif">&nbsp;</td>
+		<td width="938" height="44" colspan="7" background="Assets/CastShow_08.gif">&nbsp;
+        <a style="color:#FFFFFF;"><?php echo $Show_Name?></a>
+        </td>
 		<td rowspan="12">
 			<img src="Assets/CastShow_09.gif" width="56" height="912" alt=""></td>
 		<td>
@@ -142,7 +144,9 @@
 			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
 	</tr>
 	<tr>
-		<td width="938" height="121" colspan="7" background="Assets/CastShow_11.gif">&nbsp;</td>
+		<td width="938" height="121" colspan="7" background="Assets/CastShow_11.gif">&nbsp;
+        <textarea name="showdescription" id="showdescription" cols="75" rows="9" style="color: #FFFFFF;border:none;background-color:transparent; resize:none"><?php echo $Audition_Notes ?></textarea>
+        </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="121" alt=""></td>
 	</tr>
