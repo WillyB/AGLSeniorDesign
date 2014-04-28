@@ -114,6 +114,14 @@ if(isset($_POST['View']))
 			window.location = 'ViewShow.php';</script>";
 	exit;
 }
+if(isset($_POST['Edit']))
+{
+	$showID = $_POST['ShowID'];
+	setCookie('showID', $showID);//set cookie to pass use on the next page
+	echo  "<script type='text/javascript'>
+			window.location = 'EditShow.php';</script>";
+	exit;
+}
 
 if(isset($_POST['Cast']))
 {
@@ -192,6 +200,9 @@ if(isset($_POST['Cast']))
 						echo "<form action='ListShows.php' method='post'>";
                                  if ($role == 0 || $role == 1){
                                     echo "<td><input type='SUBMIT' name='View' value='View'/>
+								         <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td>
+										 
+										 <td><input type='SUBMIT' name='Edit' value='Edit'/>
 								         <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td>
                                         
                                         <td><input type='SUBMIT' name='Cast' value='Cast Show'/>
