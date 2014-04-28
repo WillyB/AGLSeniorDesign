@@ -937,12 +937,12 @@ var clickAgendaItem = "";
     function saveEvent(){
         var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         laItems.forEach(function(entry) {
-//            lsStartDate =   entry['startDate'].toJSON();
-//            lsEndDate   =   entry['endDate'].toJSON();
-//            lsBacgroundColor    =   entry.displayProp.backgroundColor;
-//            lsForegroundColor   =   entry.displayProp.foregroundColor;
+            lsStartDate =   entry['startDate'].toJSON();
+            lsEndDate   =   entry['endDate'].toJSON();
+            lsBacgroundColor    =   entry.displayProp.backgroundColor;
+            lsForegroundColor   =   entry.displayProp.foregroundColor;
 //            lsShowID            =   < php //echo $showID?>;
-//            lsAllDay            =   entry.allDay.toString();
+            lsAllDay            =   entry.allDay.toString();
 //            var laSingleEvent   =   [entry.title, lsStartDate, lsEndDate, lsAllDay, entry.data.fname, entry.data.lname, lsBackgroundColor, lsForegroundColor, lsShowID];
             alert(entry.displayProp.backgroundColor);
 //            $.ajax({
