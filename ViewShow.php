@@ -107,7 +107,7 @@
 <style type="text/css">
 #castDiv {
 	position: absolute;
-	left: 255px;
+	left: 403px;
 	top: 884px;
 	width: 1157px;
 	height: 383px;
@@ -131,7 +131,7 @@
 		{			
 				echo "<body bgcolor='blue'>";
 				echo "
-				<table border='1' bordercolor='#FFFFFF' style='color: #FFFFFF;border:none;' align='center' cellpadding='1' >
+				<table border='1' bordercolor='#FFFFFF' style='color: #FFFFFF;border:none;' align='center' cellpadding='20' >
 					<tr>
 					<th>First Name</th>
 					<th>Last Name</th>
