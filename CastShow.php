@@ -103,17 +103,17 @@
     //Move someone from auditionlist to castlist
     if (isset($_POST['cast'])) 
 	{
-		$personnelID = $_POST['personnelID'];
+		$UserID = $_POST['UserID'];
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 	
 		if ($db_found) 
 		{
-			$SQL = "UPDATE Audition SET temp_Cast = 1 WHERE Personnel_idPersonnel = '$personnelID' AND Shows_ShowID = '$showID'";
+			$SQL = "UPDATE Audition SET temp_Cast = 1 WHERE Personnel_idPersonnel = 6 AND Shows_ShowID = '$showID'";
 			$result = mysql_query($SQL);
 		}
 		echo "<script type='text/javascript'>
-                        alert('$personnelID. $showID');</script>";
+                        alert('$UserID. $showID');</script>";
 		echo "<script type='text/javascript'>
 			  window.location = 'CastShow.php';</script>";//Reflect Changes
 		exit;	
@@ -121,13 +121,13 @@
 	//Move someone from castlist to auditionlist
     if (isset($_POST['uncast'])) 
 	{
-		$personnelID = $_POST['personnelID'];
+		$UserID = $_POST['UserID'];
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 	
 		if ($db_found) 
 		{
-			$SQL = "UPDATE Audition SET temp_Cast = 0 WHERE Personnel_idPersonnel = '$personnelID' AND Shows_ShowID = '$showID'";
+			$SQL = "UPDATE Audition SET temp_Cast = 0 WHERE Personnel_idPersonnel = 6 AND Shows_ShowID = '$showID'";
 			$result = mysql_query($SQL);
 		}
 		
@@ -229,9 +229,9 @@
 							echo "<tr><td>".$db_field['First_Name']."</td><td>".
 										$db_field['Last_Name']."</td><td>".
 										$db_field['Age']."</td><td>".
-										$db_field['Gender']."</td><td>".
-										"<input type='SUBMIT' name='cast' value='cast'/>
-								         <input type='HIDDEN' name='personnelID' value='" .$id. "'/></td></tr>";
+										$db_field['Gender']."</td>".
+										"<td><input type='SUBMIT' name='cast' value='cast'/>
+								         <input type='HIDDEN' name='UserID' value='" .$id. "'/></td></tr>";
 						}
 					}
 				echo "</table>";
@@ -269,9 +269,9 @@
 							echo "<tr><td>".$db_field['First_Name']."</td><td>".
 										$db_field['Last_Name']."</td><td>".
 										$db_field['Age']."</td><td>".
-										$db_field['Gender']."</td><td>".
-										"<input type='SUBMIT' name='uncast' value='uncast'/>
-								         <input type='HIDDEN' name='personnelID' value='" .$id. "'/></td></tr>";
+										$db_field['Gender']."</td>".
+										"<td><input type='SUBMIT' name='uncast' value='uncast'/>
+								         <input type='HIDDEN' name='UserID' value='" .$id. "'/></td></tr>";
 						}
 					}
 				echo "</table>";
