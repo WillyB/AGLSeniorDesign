@@ -215,7 +215,6 @@
 			}
 			$update.= " WHERE Contact_Email = '$lookupEmail'";
 			$result = mysql_query($update);
-			echo "SQL =".$update."<br> ";
 				
 				echo "<script type='text/javascript'>
 					 alert('Your profile has been updated.');".
@@ -515,7 +514,7 @@
 		<td colspan="2" rowspan="4">
 			<img src="Assets/EditProfile_32.gif" width="77" height="110" alt=""></td>
 		<td width="146" height="42" colspan="3" background="Assets/EditProfile_33.gif">&nbsp;
-        <input type="text" name="age" id="age" size="15" pattern="[0-9]{3}" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Age ?>">
+        <input type="text" name="age" id="age" size="15" pattern="[0-9]{1-3}" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Age ?>">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
