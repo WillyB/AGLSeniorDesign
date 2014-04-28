@@ -36,6 +36,17 @@ Include JQuery Core (Required for calendar plugin)
 <!-- Include JQuery Frontier Calendar plugin -->
 <script type="text/javascript" src="js/frontierCalendar/jquery-frontier-cal-1.3.2.min.js"></script>
 
+<!--this function limits characters possible to enter in the note field -->
+<script language="javascript" type="text/javascript">
+function limitText(limitField, limitCount, limitNum) {
+	if (limitField.value.length > limitNum) {
+		limitField.value = limitField.value.substring(0, limitNum);
+	} else {
+		limitCount.value = limitNum - limitField.value.length;
+	}
+}
+</script>
+
 <?php
 	$role = $_COOKIE['role'];
 	$email = $_COOKIE['email'];
@@ -240,7 +251,9 @@ Include JQuery Core (Required for calendar plugin)
 		<td colspan="2">
 			<img src="Assets/EditShow_16.gif" width="327" height="124" alt=""></td>
 		<td width="768" height="124" colspan="2" background="Assets/EditShow_17.gif">&nbsp;
-        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" style="color: #FFFFFF;border:none;background-color:transparent; resize:none" value="<?php echo $Audition_Notes ?>"></textarea>
+        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" onKeyDown="limitText(this.form.limitedtextarea,this.form.countdown,600);"
+		style="color: #FFFFFF;border:none;background-color:transparent; resize:none" value="<?php echo $Audition_Notes ?>"></textarea>
+		<font size="1">(Maximum characters: 600)&nbsp;&nbsp;You have <input readonly type="text" name="countdown" size="3" value="100"> characters left</font>	
         </td>
 		<td>
 			<img src="Assets/EditShow_18.gif" width="1" height="124" alt=""></td>
