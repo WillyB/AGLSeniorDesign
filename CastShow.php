@@ -159,6 +159,21 @@
 					$SQL = "INSERT INTO Role (Personnel_idPersonnel, Shows_idShows) VALUES ('$UserID', '$showID')";
 					$result = mysql_query($SQL);
 				}
+				$SQL = "SELECT * FROM Role WHERE Shows_idShows = '$showID'";
+				$result = mysql_query($SQL);
+				$num_rows = mysql_num_rows($result);
+				if($num_rows > 0)
+				{
+					echo "<script type='text/javascript'>
+		 		 		alert('Show has been cast.');".
+		 				"window.location = 'ListShows.php';</script>";
+				}
+				else
+				{
+					echo "<script type='text/javascript'>
+		 		 		alert('No actors have been selected. Show has not been cast.');".
+		 				"window.location = 'CastShow.php';</script>";
+				}
 			}
 		}
 		else
