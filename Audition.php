@@ -130,13 +130,13 @@ if (isset($_POST['logout']))
         $laSingleTitle = $laSingleShowEvent['title'];
         $laMegaShowEventArray[] = $laSingleShowEvent;
     }
-    
-    //Grab the users full name:
-    $SQL = "SELECT * FROM Personnel WHERE contact_email = '$email'";
-    $result = mysql_query($SQL);
-    $db_field = mysql_fetch_array($result);
-    $lsFirstName = $db_field['First_Name'];
-    $lsLastName  = $db_field['Last_Name'];
+//    
+//    //Grab the users full name:
+//    $SQL = "SELECT * FROM Personnel WHERE contact_email = '$email'";
+//    $result = mysql_query($SQL);
+//    $db_field = mysql_fetch_array($result);
+//    $lsFirstName = $db_field['First_Name'];
+//    $lsLastName  = $db_field['Last_Name'];
     
 ?>
 </head>
@@ -879,41 +879,37 @@ var clickAgendaItem = "";
 		}	
 	});
     
-    function saveAuditionEvent2(){
-        alert('got to the function!');
-    }
     
-    
-    function saveAuditionEvent(){
-        //First clear out any old items, Dont really need as you can only audition once
-        lsShowID   =   < php echo $showID; ?>;
-       //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
-        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
-        laItems.forEach(function(entry) {
-            lsStartDate =   entry['startDate'].toJSON();
-            lsEndDate   =   entry['endDate'].toJSON();
-            lsBackgroundColor    =   entry.displayProp.backgroundColor;
-            lsForegroundColor   =   entry.displayProp.foregroundColor;
-            lsShowID            =   < php echo $showID; ?>;
-            lsPersonnelID       =   < php echo $personnelID ?>;
-            lsAllDay            =   entry.allDay.toString();
-            var laSingleEvent = new Array();
-            laSingleEvent[0]    = entry.title;
-            laSingleEvent[1]    = lsStartDate;
-            laSingleEvent[2]    = lsEndDate;
-            laSingleEvent[3]    = lsAllDay;
-            laSingleEvent[4]    = entry.data.Full_Name;
-            laSingleEvent[5]    = lsBackgroundColor;
-            laSingleEvent[6]    = lsForegroundColor;
-            laSingleEvent[7]    = lsShowID;
-            laSingleEvent[8]    = lsPersonnelID;
-            $.ajax({
-                type:   "POST",
-                url:    "SaveAuditionEvents.php",
-                data:   { eventData : laSingleEvent }
-            });
-        });
-    }
+//    function saveAuditionEvent(){
+//        //First clear out any old items, Dont really need as you can only audition once
+//        lsShowID   =   < php echo $showID; ?>;
+//       //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
+//        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
+//        laItems.forEach(function(entry) {
+//            lsStartDate =   entry['startDate'].toJSON();
+//            lsEndDate   =   entry['endDate'].toJSON();
+//            lsBackgroundColor    =   entry.displayProp.backgroundColor;
+//            lsForegroundColor   =   entry.displayProp.foregroundColor;
+//            lsShowID            =   < php echo $showID; ?>;
+//            lsPersonnelID       =   < php echo $personnelID ?>;
+//            lsAllDay            =   entry.allDay.toString();
+//            var laSingleEvent = new Array();
+//            laSingleEvent[0]    = entry.title;
+//            laSingleEvent[1]    = lsStartDate;
+//            laSingleEvent[2]    = lsEndDate;
+//            laSingleEvent[3]    = lsAllDay;
+//            laSingleEvent[4]    = entry.data.Full_Name;
+//            laSingleEvent[5]    = lsBackgroundColor;
+//            laSingleEvent[6]    = lsForegroundColor;
+//            laSingleEvent[7]    = lsShowID;
+//            laSingleEvent[8]    = lsPersonnelID;
+//            $.ajax({
+//                type:   "POST",
+//                url:    "SaveAuditionEvents.php",
+//                data:   { eventData : laSingleEvent }
+//            });
+//        });
+//    }
     
     
 //    function addGivenAgenda() {
