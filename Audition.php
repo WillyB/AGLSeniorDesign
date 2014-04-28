@@ -54,6 +54,8 @@ $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];
 $showtitle = $_COOKIE['showtitle'];
 $showID = $_COOKIE['showID'];
+$auditionID = $_COOKIE['auditionID'];
+$personnelID = $_COOKIE['personnelID'];
 
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
@@ -626,11 +628,11 @@ var clickAgendaItem = "";
 //        return false;
 //    });
 //    
-//    $("#save").button();
-//    $("#save").click(function() {
-//       saveEvent();
-//       return false; 
-//    });
+    $("#save").button();
+    $("#save").click(function() {
+       saveEvent();
+       return false; 
+    });
 
 	/**
 	 * Initialize add event modal form
@@ -713,7 +715,8 @@ var clickAgendaItem = "";
 						endDateObj,
 						false,
 						{
-							Entered_By: 'Place Holder'
+							fname = 'Actor';
+                            lname = 'Conflict';
 						},
 						{
 							backgroundColor: $("#colorBackground").val(),
@@ -880,36 +883,38 @@ var clickAgendaItem = "";
 	});
     
     
-//    function saveAuditionEvent(){
-//        //First clear out any old items, Dont really need as you can only audition once
-//        lsShowID   =   < php echo $showID; ?>;
-//       //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
-//        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
-//        laItems.forEach(function(entry) {
-//            lsStartDate =   entry['startDate'].toJSON();
-//            lsEndDate   =   entry['endDate'].toJSON();
-//            lsBackgroundColor    =   entry.displayProp.backgroundColor;
-//            lsForegroundColor   =   entry.displayProp.foregroundColor;
-//            lsShowID            =   < php echo $showID; ?>;
-//            lsPersonnelID       =   < php echo $personnelID ?>;
-//            lsAllDay            =   entry.allDay.toString();
-//            var laSingleEvent = new Array();
-//            laSingleEvent[0]    = entry.title;
-//            laSingleEvent[1]    = lsStartDate;
-//            laSingleEvent[2]    = lsEndDate;
-//            laSingleEvent[3]    = lsAllDay;
-//            laSingleEvent[4]    = entry.data.Full_Name;
-//            laSingleEvent[5]    = lsBackgroundColor;
-//            laSingleEvent[6]    = lsForegroundColor;
-//            laSingleEvent[7]    = lsShowID;
-//            laSingleEvent[8]    = lsPersonnelID;
-//            $.ajax({
-//                type:   "POST",
-//                url:    "SaveAuditionEvents.php",
-//                data:   { eventData : laSingleEvent }
-//            });
-//        });
-//    }
+    function saveEvent(){
+        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
+        //First clear out any old items - No need, they can only get here once
+        lsShowID   =   <?php echo $showID; ?>;
+        lsAuditionID = <?php echo $auditionID ?>;
+        lsPersonnelID = <?php echo $personnelID ?>;
+        //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
+        laItems.forEach(function(entry) {
+            lsStartDate =   entry['startDate'].toJSON();
+            lsEndDate   =   entry['endDate'].toJSON();
+            lsBackgroundColor    =   entry.displayProp.backgroundColor;
+            lsForegroundColor   =   entry.displayProp.foregroundColor;
+            lsAllDay            =   entry.allDay.toString();
+            var laSingleEvent = new Array();
+            laSingleEvent[0]    = entry.title;
+            laSingleEvent[1]    = lsStartDate;
+            laSingleEvent[2]    = lsEndDate;
+            laSingleEvent[3]    = lsAllDay;
+            laSingleEvent[4]    = entry.data.fname;
+            laSingleEvent[5]    = entry.data.lname;
+            laSingleEvent[6]    = lsBackgroundColor;
+            laSingleEvent[7]    = lsForegroundColor;
+            laSingleEvent[8]    = lsShowID;
+            laSingleEvent[9]    = lsAuditionID;
+            laSingleEvent[10]   = lsPersonnelID;
+            $.ajax({
+                type:   "POST",
+                url:    "SaveShowEdit.php",
+                data:   { eventData : laSingleEvent }
+            });
+        });
+    }
     
     
 //    function addGivenAgenda() {

@@ -16,16 +16,17 @@ $title = $eventArray[0];
 $startDate = $eventArray[1];
 $endDate = $eventArray[2];
 $allDay     = $eventArray[3];
-$fullName = $eventArray[4];
-$backColor = $eventArray[5];
-$foreColor = $eventArray[6];
-$showID    = $eventArray[7];
-$personnelID = $eventArray[8];
-$auditionID = $eventArray[9];
+$firstName = $eventArray[4];
+$lastName = $eventArray[5];
+$backColor = $eventArray[6];
+$foreColor = $eventArray[7];
+$showID    = $eventArray[8];
+$personnelID = $eventArray[9];
+$auditionID = $eventArray[10];
 
                 
-$SQL = ("INSERT INTO Audition_Events (Shows_idShows, Audition_idAudition, Audition_Personnel_idPersonnel, Title, Start_Date, End_Date, All_Day, Full_Name, Background_Color, Foreground_Color) 
-                         VALUES ($showID, $auditionID, $personnelID, '$title', '$startDate', '$endDate', '$allDay', '$fullName', '$backColor', '$foreColor')");
+$SQL = ("INSERT INTO Audition_Events (Shows_idShows, Audition_idAudition, Audition_Personnel_idPersonnel, Title, Start_Date, End_Date, All_Day, Fisrt_Name, Last_Name, Background_Color, Foreground_Color) 
+                         VALUES ($showID, $auditionID, $personnelID, '$title', '$startDate', '$endDate', '$allDay', '$firstName', '$lastName', '$backColor', '$foreColor')");
 
 $result = mysql_query($SQL);
 $num_rows = mysql_num_rows($result);
