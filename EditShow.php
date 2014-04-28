@@ -42,7 +42,8 @@ Include JQuery Core (Required for calendar plugin)
 	$password = $_COOKIE['password'];
     
     $randomNess = 'hello';
-
+    //$showID = $_COOKIE['showID'];
+    $showID = 1;
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
 	{
@@ -83,13 +84,6 @@ Include JQuery Core (Required for calendar plugin)
 			 "window.location = 'LogIn.php';</script>";//redirect to login page
 		exit;	
 	}
-    
-//    if (isset($_POST['save']))
-//    {
-//        echo "<script type='text/javascript'
-//            displayEvent();
-//            </script>";
-//    }
 ?>
 
 <!-- <script src="Calendar.js" type="text/javascript"></script> -->
@@ -943,11 +937,22 @@ var clickAgendaItem = "";
     function saveEvent(){
         var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         laItems.forEach(function(entry) {
-            lsDate = entry['startDate'].toJSON();
-            testDate = new Date(lsDate);
-            alert(lsDate);
-            alert(testDate);
+            lsStartDate =   entry['startDate'].toJSON();
+            lsEndDate   =   entry['endDate'].toJSON();
+            lsBacgroundColor    =   entry.displayProp.backgroundColor;
+            lsForegroundColor   =   entry.displayProp.foregroundColor;
+            lsShowID            =   <?php echo $showID?>;
+            lsAllDay            =   entry.allDay.toString();
+            var laSingleEvent   =   [entry.title, lsStartDate, lsEndDate, lsAllDay, entry.data.fname, entry.data.lname, lsBackgroundColor, lsForegroundColor, lsShowID];
             alert(entry.displayProp.backgroundColor);
+            $.ajax({
+                type:   "POST",
+                url:    "SaveShowEdit.php",
+                data:   { evenData : laSingleEvent },
+                success: function() {
+                    alert('Save successful!');
+                }
+            });
         });
     }
 </script>
