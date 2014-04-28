@@ -188,34 +188,34 @@
 				//Update the info in the database
 				//'$Street_Address', City = '$City', State = '$State', 
 				//Zip_Code = '$Zip_Code', Contact_Phone = '$Contact_Phone'
-				$sql = "UPDATE Personnel SET Street_Address = Height = '$Height', Weight = '$Weight', Age = '$Age', 
+				$update = "UPDATE Personnel SET Street_Address = Height = '$Height', Weight = '$Weight', Age = '$Age', 
 															  Hair_Color = '$Hair_Color', Hair_Style = '$Hair_Style', 
 														      Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', 
 															  Gender = '$Gender', Previous_Work = '$Previous_Work'";
 															  
 			if(!$Street_Address="")
 				{
-					$SQL.= ', Street_Address="'.$Street_Address.'"';
+					$update.= ', Street_Address="'.$Street_Address.'"';
 				}    
 			if($City!="")
 			{       
-					$SQL.= ', City="'.$City.'"';
+					$update.= ', City="'.$City.'"';
 			}
 			if($State!="")
 			{       
-					$SQL.= ', State="'.$State.'"';
+					$update.= ', State="'.$State.'"';
 			}		 
 			if($Zip_Code!="")
 			{       
-					$SQL.= 'Zip_Code="'.$Zip_Code.'"';
+					$update.= 'Zip_Code="'.$Zip_Code.'"';
 			}		 
 			if($Contact_Phone!="")
 			{       
-					$SQL.= 'Contact_Phone="'.$Contact_Phone.'"';
+					$update.= 'Contact_Phone="'.$Contact_Phone.'"';
 			}
-			$SQL.= " WHERE Contact_Email = '$lookupEmail'";
-			$result = mysql_query($SQL);
-			echo "SQL =".$SQL."<br> ";
+			$update.= " WHERE Contact_Email = '$lookupEmail'";
+			$result = mysql_query($update);
+			echo "SQL =".$update."<br> ";
 				
 				echo "<script type='text/javascript'>
 					 alert('Your profile has been updated.');".
