@@ -100,6 +100,17 @@ if (isset($_POST['logout']))
 	exit;	
 }
 
+//Grabbing the needed items for loading:
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+    $SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email' AND password = '$password'";
+    $result = mysql_query($SQL);
+    $db_field = mysql_fetch_array($result);
+    $personnelFname = $db_field['First_Name'];
+    $personnelLname = $db_field['Last_Name'];
+    $fullName = $personnelFname . " " . $personnelLname;
+    $personnelID = $db_field['idPersonnel'];
+
 //Code for submitting an audition
 if(isset($_POST['save']))
 {
@@ -152,11 +163,29 @@ if(isset($_POST['save']))
 			  </script>';	
 		exit;
 	}
-    
-
-    
-	mysql_close($db_handle);
 }
+
+                //Load in any Show_Events
+    $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
+    $result = mysql_query($SQL);
+	$num_rows = mysql_num_rows($result);
+    //$db_field = mysql_fetch_array($result);
+    $laMegaShowEventArray = array();
+    while($row = mysql_fetch_array($result))
+    {
+        $laSingleShowEvent = array (
+            'title' => $row['Title'],
+            'startDate' => $row['Start_Date'],
+            'endDate' => $row['End_Date'],
+            'allDay' => $row['All_Day'],
+            'firstName' => $row['First_Name'],
+            'lastName' => $row['Last_Name'],
+            'backgroundColor' => $row['Background_Color'],
+            'foregroundColor' => $row['Foreground_Color']
+        );
+        $laSingleTitle = $laSingleShowEvent['title'];
+        $laMegaShowEventArray[] = $laSingleShowEvent;
+    }
 ?>
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -897,41 +926,41 @@ var clickAgendaItem = "";
 		}	
 	});
     
-//    function saveAuditionEvent(){
-//        //First clear out any old items, Dont really need as you can only audition once
-//        lsShowID   =   < php echo $showID; ?>;
-////        $.ajax({
-////                type:   "POST",
-////                url:    "ClearShowEvents.php",
-////                data:   { showID : lsShowID }
-////            });
-//        //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
-//        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
-//        laItems.forEach(function(entry) {
-//            lsStartDate =   entry['startDate'].toJSON();
-//            lsEndDate   =   entry['endDate'].toJSON();
-//            lsBackgroundColor    =   entry.displayProp.backgroundColor;
-//            lsForegroundColor   =   entry.displayProp.foregroundColor;
-//            lsShowID            =   < php echo $showID; ?>;
-//            lsPersonnelID       =   < php echo $personnelID ?>;
-//            lsAllDay            =   entry.allDay.toString();
-//            var laSingleEvent = new Array();
-//            laSingleEvent[0]    = entry.title;
-//            laSingleEvent[1]    = lsStartDate;
-//            laSingleEvent[2]    = lsEndDate;
-//            laSingleEvent[3]    = lsAllDay;
-//            laSingleEvent[4]    = entry.data.Full_Name;
-//            laSingleEvent[5]    = lsBackgroundColor;
-//            laSingleEvent[6]    = lsForegroundColor;
-//            laSingleEvent[7]    = lsShowID;
-//            laSingleEvent[8]    = lsPersonnelID;
-//            $.ajax({
+    function saveAuditionEvent(){
+        //First clear out any old items, Dont really need as you can only audition once
+        lsShowID   =   <?php echo $showID; ?>;
+//        $.ajax({
 //                type:   "POST",
-//                url:    "SaveAuditionEvents.php",
-//                data:   { eventData : laSingleEvent }
+//                url:    "ClearShowEvents.php",
+//                data:   { showID : lsShowID }
 //            });
-//        });
-//    }
+        //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
+        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
+        laItems.forEach(function(entry) {
+            lsStartDate =   entry['startDate'].toJSON();
+            lsEndDate   =   entry['endDate'].toJSON();
+            lsBackgroundColor    =   entry.displayProp.backgroundColor;
+            lsForegroundColor   =   entry.displayProp.foregroundColor;
+            lsShowID            =   <?php echo $showID; ?>;
+            lsPersonnelID       =   <?php echo $personnelID ?>;
+            lsAllDay            =   entry.allDay.toString();
+            var laSingleEvent = new Array();
+            laSingleEvent[0]    = entry.title;
+            laSingleEvent[1]    = lsStartDate;
+            laSingleEvent[2]    = lsEndDate;
+            laSingleEvent[3]    = lsAllDay;
+            laSingleEvent[4]    = entry.data.Full_Name;
+            laSingleEvent[5]    = lsBackgroundColor;
+            laSingleEvent[6]    = lsForegroundColor;
+            laSingleEvent[7]    = lsShowID;
+            laSingleEvent[8]    = lsPersonnelID;
+            $.ajax({
+                type:   "POST",
+                url:    "SaveAuditionEvents.php",
+                data:   { eventData : laSingleEvent }
+            });
+        });
+    }
     
     
 //    function addGivenAgenda() {
@@ -957,51 +986,51 @@ var clickAgendaItem = "";
 //        );
 //    }
     //Load our events from any previous edits:
-//    function addGivenAgenda() {
-//        //alert('Now attempting load');
-//        //var laEventList = new Array();
-//        //laEventList = < php echo json_encode($laMegaShowEventArray)?>;
-//        
-//        //laEventList.forEach(function(singleEvent) {
-//         //alert(JSON.stringify(singleEvent, null, 4))   
-//        //Parse out all our variables
-//        
-////        $laSingleShowEvent = array (
-////            'title' => $row['Title'],
-////            'startDate' => $row['Start_Date'],
-////            'endDate' => $row['End_Date'],
-////            'allDay' => $row['All_Day'],
-////            'firstName' => $row['First_Name'],
-////            'lastName' => $row['Last_Name'],
-////            'backgroundColor' => $row['Background_Color'],
-////            'foregroundColor' => $row['Foreground_Color']
-////        );
-////        lsTitle = singleEvent['title'];
-////        ldStartDate = new Date(singleEvent['startDate']);
-////        ldEndDate   = new Date(singleEvent['endDate']);
-////        firstName = singleEvent['firstName'];
-////        lastName  = singleEvent['lastName'];
-////        fullName = firstName + " " + lastName;
-////        backColor = singleEvent['backgroundColor'];
-////        foreColor = singleEvent['foregroundColor'];
-//        //alert('Entry found for title ' + $lsTitle + ' with color ' + backColor );
-//        
-////        jfcalplugin.addAgendaItem(
-////	       "#mycal",
-////	       lsTitle,
-////	       ldStartDate,
-////	       ldEndDate,
-////	       false,
-////	       {
-////		      Entered_By: fullName
-////	       },
-////	       {
-////		      backgroundColor: backColor,
-////		      foregroundColor: foreColor
-////	       }	
-////        );
-//        });
-//    }
+    function addGivenAgenda() {
+        //alert('Now attempting load');
+        var laEventList = new Array();
+        laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
+        
+        laEventList.forEach(function(singleEvent) {
+         //alert(JSON.stringify(singleEvent, null, 4))   
+        //Parse out all our variables
+        
+//        $laSingleShowEvent = array (
+//            'title' => $row['Title'],
+//            'startDate' => $row['Start_Date'],
+//            'endDate' => $row['End_Date'],
+//            'allDay' => $row['All_Day'],
+//            'firstName' => $row['First_Name'],
+//            'lastName' => $row['Last_Name'],
+//            'backgroundColor' => $row['Background_Color'],
+//            'foregroundColor' => $row['Foreground_Color']
+//        );
+        lsTitle = singleEvent['title'];
+        ldStartDate = new Date(singleEvent['startDate']);
+        ldEndDate   = new Date(singleEvent['endDate']);
+        firstName = singleEvent['firstName'];
+        lastName  = singleEvent['lastName'];
+        fullName = firstName + " " + lastName;
+        backColor = singleEvent['backgroundColor'];
+        foreColor = singleEvent['foregroundColor'];
+        //alert('Entry found for title ' + $lsTitle + ' with color ' + backColor );
+        
+        jfcalplugin.addAgendaItem(
+	       "#mycal",
+	       lsTitle,
+	       ldStartDate,
+	       ldEndDate,
+	       false,
+	       {
+		      Entered_By: fullName
+	       },
+	       {
+		      backgroundColor: backColor,
+		      foregroundColor: foreColor
+	       }	
+        );
+        });
+    }
     
     //addGivenAgenda();
     
