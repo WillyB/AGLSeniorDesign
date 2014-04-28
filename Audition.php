@@ -982,7 +982,7 @@ var clickAgendaItem = "";
     function addGivenAgenda() {
         //alert('Now attempting load');
         var laEventList = new Array();
-        laEventList = < php echo json_encode($laMegaShowEventArray)?>;
+        laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         
         laEventList.forEach(function(singleEvent) {
          alert(JSON.stringify(singleEvent, null, 4))   
