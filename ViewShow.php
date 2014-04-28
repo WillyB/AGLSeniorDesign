@@ -95,24 +95,30 @@
     
 	if (isset($_POST['audition'])) 
 	{
-		$SQL = "SELECT * FROM Role WHERE idShows = '$showID'";	
-		$result = mysql_query($SQL);
-		$num_rows = mysql_num_rows($result);
-		if($num_rows > 0)
+		$db_handle = mysql_connect($server, $user_name, $pass_word);
+		$db_found = mysql_select_db($database, $db_handle);
+		
+		if ($db_found) 
 		{
-			echo "<script type='text/javascript'>
-                        alert('This show has already been cast.');".
-			         "window.location = 'ViewShow.php';</script>";
-               exit;
-		}
-		else
-		{
-			$showtitle = $_POST['title'];
-			setcookie('showtitle', $showtitle);
-			setcookie('showID', $showID);
-			echo "<script type='text/javascript'>
-				  window.location = 'Audition.php';</script>";//redirect to login page
-			exit;
+			$SQL = "SELECT * FROM Role WHERE idShows = '$showID'";	
+			$result = mysql_query($SQL);
+			$num_rows = mysql_num_rows($result);
+			if($num_rows > 0)
+			{
+				echo "<script type='text/javascript'>
+							alert('This show has already been cast.');".
+						 "window.location = 'ViewShow.php';</script>";
+				   exit;
+			}
+			else
+			{
+				$showtitle = $_POST['title'];
+				setcookie('showtitle', $showtitle);
+				setcookie('showID', $showID);
+				echo "<script type='text/javascript'>
+					  window.location = 'Audition.php';</script>";//redirect to login page
+				exit;
+			}
 		}
 	}
     mysql_close($db_handle);
