@@ -126,10 +126,37 @@ if(isset($_POST['Edit']))
 if(isset($_POST['Cast']))
 {
 	$showID = $_POST['ShowID'];
-    setCookie('showID', $showID);
-    echo  "<script type='text/javascript'>
-			window.location = 'CastShow.php';</script>";
-	exit;
+	
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+	
+	if ($db_found) 
+	{
+		$SQL = "SELECT * FROM Role WHERE Shows_idShows = '$showID'";
+		$result = mysql_query($SQL);
+		$num_rows = mysql_num_rows($result);
+		if($num_rows > 0)
+		{
+			echo "<script type='text/javascript'>
+		 	 		alert('This show has already been cast.');".
+		 			"window.location = 'ListShows.php';</script>";
+		}
+		else
+		{
+			setcookie('showID', $showID);
+			echo  "<script type='text/javascript'>
+					window.location = 'CastShow.php';</script>";
+			exit;
+		}
+	}
+	else//if DB was not found
+	{
+		echo '<script type="text/javascript"> 
+			  alert("Database is not found");
+			  </script>';	
+		exit;
+	}
+	mysql_close($db_handle);
 }		
 ?>
 
