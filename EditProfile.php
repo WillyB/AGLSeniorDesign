@@ -30,7 +30,7 @@
 			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
 		exit;
 	}
-	//redirect to ListUsers.php when "HOME" button is clicked
+	//redirect to appropriate tool page when "HOME" button is clicked
 	if (isset($_POST['home'])) 
 	{
 		//First check to see which "Home" the user is going to
@@ -50,14 +50,17 @@
 	//remove cookies and redirect to login.php when "LOGOUT" button is clicked
 	if (isset($_POST['logout'])) 
 	{
+		//unset cookies
 		unset($_COOKIE['role']);
 		unset($_COOKIE['email']);
 		unset($_COOKIE['password']);
-	
+	    
+		//set cookie value to expired time
 		setcookie('role', '', time() - 3600);		
 		setcookie('email', '', time() - 3600);
 		setcookie('password', '', time() - 3600);	
 		
+		//redirect to login page
 		echo "<script type='text/javascript'>
 			  alert('Goodbye!');".
 			 "window.location = 'LogIn.php';</script>";//redirect to login page
@@ -65,15 +68,18 @@
 	}
 	//-------------------------
 	// Acquire user info from Personnel table
+	//define connection variables
 	$user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
 	$database = 'actorsgu_data';
 	$server ='localhost:3306';
-		
+	
+	//connect to DB
 	$con = mysql_connect($server, $user_name, $pass_word, $database);
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
 	
+	//if DB was found, execude following code
 	if ($db_found) 
 	{
 		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$lookupEmail'";	
@@ -139,13 +145,14 @@
 			$Ethnicity = $_POST['ethnicity'];
 			$Gender = $_POST['gender'];
 			$Previous_Work = $_POST['previousexperience'];
-		
-		if($Contact_Phone == "" || $First_Name == "" || $Last_Name == "" || $Ethnicity == "" || $Gender == "" ||
+			
+		//check if all required fields are filled 
+		if($First_Name == "" || $Last_Name == "" || $Ethnicity == "" || $Gender == "" ||
 		   $Height == "" || $Weight == "" || $Hair_Color == "" || $Eye_Color == "" || $Hair_Style == "" ||
-		   $Age == "" || $Street_Address == "" || $State == "" || $Zip_Code == "" || $City == "")
+		   $Age == "")
 		{
 			echo "<script type='text/javascript'>
-				 alert('Please, make sure you fill out all the fields');".
+				 alert('Please, make sure you fill out mandatory fields');".
 				 "window.location = 'EditProfile.php';</script>";//redirect back to login page    
 			exit;//exit, so that the following code is not executed
 		}
@@ -179,8 +186,36 @@
 			if($num_rows > 0)
 			{
 				//Update the info in the database
-				$SQL = "UPDATE Personnel SET Street_Address = '$Street_Address', City = '$City', State = '$State', Zip_Code = '$Zip_Code', Contact_Phone = '$Contact_Phone', Height = '$Height', Weight = '$Weight', Age = '$Age', Hair_Color = '$Hair_Color', Hair_Style = '$Hair_Style', Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', Gender = '$Gender', Previous_Work = '$Previous_Work' WHERE Contact_Email = '$lookupEmail'";		
-				$result = mysql_query($SQL);
+				//'$Street_Address', City = '$City', State = '$State', 
+				//Zip_Code = '$Zip_Code', Contact_Phone = '$Contact_Phone'
+				$sql = "UPDATE Personnel SET Street_Address = Height = '$Height', Weight = '$Weight', Age = '$Age', 
+															  Hair_Color = '$Hair_Color', Hair_Style = '$Hair_Style', 
+														      Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', 
+															  Gender = '$Gender', Previous_Work = '$Previous_Work'";
+															  
+			if(!$Street_Address="")
+				{
+					$SQL.= ', Street_Address="'.$Street_Address.'"';
+				}    
+			if($City!="")
+			{       
+					$SQL.= ', City="'.$City.'"';
+			}
+			if($State!="")
+			{       
+					$SQL.= ', State="'.$State.'"';
+			}		 
+			if($Zip_Code!="")
+			{       
+					$SQL.= 'Zip_Code="'.$Zip_Code.'"';
+			}		 
+			if($Contact_Phone!="")
+			{       
+					$SQL.= 'Contact_Phone="'.$Contact_Phone.'"';
+			}
+			$SQL.= 'WHERE Contact_Email = '$lookupEmail'"';
+			$result = mysql_query($SQL);
+			$echo "SQL == ".$SQL."<br>";
 				
 				echo "<script type='text/javascript'>
 					 alert('Your profile has been updated.');".
