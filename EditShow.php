@@ -287,7 +287,6 @@ function limitText(limitField, limitCount, limitNum) {
 			Date: <input type="text" id="dateSelect" size="20"/>
 			&nbsp;&nbsp;&nbsp;
 			<button id="BtnDeleteAll">Delete All</button>
-            <button id="addKnownEvent">Load Events</button>
 		</div>
 
 		<!--
@@ -1014,8 +1013,6 @@ var clickAgendaItem = "";
             laSingleEvent[6]    = lsBackgroundColor;
             laSingleEvent[7]    = lsForegroundColor;
             laSingleEvent[8]    = lsShowID;
-            //laSingleEvent   =   [entry.title, lsStartDate, lsEndDate, lsAllDay, entry.data.fname, entry.data.lname, lsBackgroundColor, lsForegroundColor, lsShowID];
-            alert(entry.displayProp.backgroundColor);
             $.ajax({
                 type:   "POST",
                 url:    "SaveShowEdit.php",
@@ -1097,6 +1094,8 @@ var clickAgendaItem = "";
         );
         });
     }
+    
+    addGivenAgenda();
     
     
 </script>

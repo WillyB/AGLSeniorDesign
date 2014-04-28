@@ -1034,7 +1034,6 @@ var clickAgendaItem = "";
 //    }
     //Load our events from any previous edits:
     function addGivenAgenda() {
-        alert('Now attempting load');
         var laEventList = new Array();
         laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         laEventList.forEach(function(singleEvent) {
