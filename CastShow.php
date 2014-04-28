@@ -187,10 +187,10 @@
 	mysql_close($db_handle);
 ?>
 </head>
-<body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (CastShow.psd) -->
 <form name="form" method="post" action="CastShow.php">
-<table width="1401" height="1152" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
+<table width="1401" height="2017" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
 		<td colspan="11">
 			<img src="Assets/CastShow_01.gif" width="1400" height="71" alt=""></td>
@@ -198,12 +198,12 @@
 			<img src="Assets/spacer.gif" width="1" height="71" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="9" rowspan="3">
+		<td colspan="8" rowspan="3">
 			<img src="Assets/CastShow_02.gif" width="1211" height="138" alt=""></td>
 		<td>
 			<input type="image" name="home" value="home" src="Assets/CastShow_03.gif" id="home"></td>
-		<td rowspan="15">
-			<img src="Assets/CastShow_04.gif" width="83" height="1050" alt=""></td>
+		<td colspan="2" rowspan="11">
+			<img src="Assets/CastShow_04.gif" width="83" height="1074" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="33" alt=""></td>
 	</tr>
@@ -214,43 +214,43 @@
 			<img src="Assets/spacer.gif" width="1" height="33" alt=""></td>
 	</tr>
 	<tr>
-		<td rowspan="13">
-			<img src="Assets/CastShow_06.gif" width="106" height="984" alt=""></td>
+		<td rowspan="9">
+			<img src="Assets/CastShow_06.gif" width="106" height="1008" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="72" alt=""></td>
 	</tr>
 	<tr>
-		<td rowspan="12">
-			<img src="Assets/CastShow_07.gif" width="217" height="912" alt=""></td>
-		<td width="938" height="44" colspan="7" background="Assets/CastShow_08.gif">&nbsp;
+		<td colspan="2" rowspan="8">
+			<img src="Assets/CastShow_07.gif" width="217" height="936" alt=""></td>
+		<td width="938" height="44" colspan="5" background="Assets/CastShow_08.gif">&nbsp;
         <a style="color:#FFFFFF;"><?php echo $Show_Name?></a>
         </td>
-		<td rowspan="12">
-			<img src="Assets/CastShow_09.gif" width="56" height="912" alt=""></td>
+		<td rowspan="8">
+			<img src="Assets/CastShow_09.gif" width="56" height="936" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="44" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="7">
+		<td colspan="5">
 			<img src="Assets/CastShow_10.gif" width="938" height="43" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
 	</tr>
 	<tr>
-		<td width="938" height="121" colspan="7" background="Assets/CastShow_11.gif">&nbsp;
+		<td width="938" height="121" colspan="5" background="Assets/CastShow_11.gif">&nbsp;
         <textarea name="showdescription" id="showdescription" cols="110" rows="6" style="color: #FFFFFF;border:none;background-color:transparent; resize:none"><?php echo $Audition_Notes ?></textarea>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="121" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="7">
+		<td colspan="5">
 			<img src="Assets/CastShow_12.gif" width="938" height="42" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
 	</tr>
 	<tr>
-		<td width="410" height="566" rowspan="5" background="Assets/CastShow_13.gif">&nbsp;
+		<td width="410" height="566" background="Assets/CastShow_13.gif">&nbsp;
         <?php
 				
 				echo "<body bgcolor='blue'>";
@@ -291,9 +291,9 @@
 				mysql_close($db_handle);
 		?>
         </td>
-		<td colspan="3">
-			<img src="Assets/CastShow_14.gif" width="120" height="171" alt=""></td>
-		<td width="408" height="566" colspan="3" rowspan="5" background="Assets/CastShow_15.gif">&nbsp;
+		<td rowspan="4">
+			<img src="Assets/CastShow_14.gif" width="120" height="686" alt=""></td>
+		<td width="508" height="566" colspan="3" background="Assets/CastShow_15.gif">&nbsp;
         <?php
 				
 				echo "<body bgcolor='blue'>";
@@ -335,63 +335,71 @@
 		?>
         </td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="171" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="7">
-			<img src="Assets/CastShow_16.gif" width="14" height="491" alt=""></td>
-		<td>&nbsp;</td>
-		<td rowspan="7">
-			<img src="Assets/CastShow_18.gif" width="16" height="491" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="38" alt=""></td>
-	</tr>
-	<tr>
-		<td>
-			<img src="Assets/CastShow_19.gif" width="90" height="111" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="111" alt=""></td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="4">
-			<img src="Assets/CastShow_21.gif" width="90" height="305" alt=""></td>
-		<td>
-			<img src="Assets/spacer.gif" width="1" height="209" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="566" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="3">
-			<img src="Assets/CastShow_22.gif" width="410" height="96" alt=""></td>
+			<img src="Assets/CastShow_16.gif" width="410" height="120" alt=""></td>
 		<td colspan="3">
-			<img src="Assets/CastShow_23.gif" width="408" height="34" alt=""></td>
+			<img src="Assets/CastShow_17.gif" width="408" height="34" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="34" alt=""></td>
 	</tr>
 	<tr>
 		<td rowspan="2">
-			<img src="Assets/CastShow_24.gif" width="241" height="62" alt=""></td>
+			<img src="Assets/CastShow_18.gif" width="241" height="86" alt=""></td>
 		<td>
-			<input type="image" name="castshow" value="castshow" src="Assets/CastShow_25.gif" id"castshow"></td>
+			<input type="image" name="castshow" value="castshow" src="Assets/CastShow_19.gif" id"castshow"></td>
 		<td rowspan="2">
-			<img src="Assets/CastShow_26.gif" width="56" height="62" alt=""></td>
+			<img src="Assets/CastShow_20.gif" width="56" height="86" alt=""></td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="37" alt=""></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="Assets/CastShow_27.gif" width="111" height="25" alt=""></td>
+			<img src="Assets/CastShow_21.gif" width="111" height="49" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="25" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="49" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="11">
-			<img src="Assets/CastShow_28.gif" width="1400" height="31" alt=""></td>
+		<td rowspan="2">
+			<img src="Assets/CastShow_22.gif" width="91" height="871" alt=""></td>
+		<td width="1249" height="712" colspan="9" background="Assets/CastShow_23.gif">&nbsp;</td>
+		<td rowspan="2">
+			<img src="Assets/CastShow_24.gif" width="60" height="871" alt=""></td>
 		<td>
-			<img src="Assets/spacer.gif" width="1" height="31" alt=""></td>
+			<img src="Assets/spacer.gif" width="1" height="712" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="9">
+			<img src="Assets/CastShow_25.gif" width="1249" height="159" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="1" height="159" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="Assets/spacer.gif" width="91" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="126" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="410" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="120" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="241" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="111" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="56" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="56" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="106" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="23" height="1" alt=""></td>
+		<td>
+			<img src="Assets/spacer.gif" width="60" height="1" alt=""></td>
+		<td></td>
 	</tr>
 </table>
 </form>
