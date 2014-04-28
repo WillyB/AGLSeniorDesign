@@ -126,6 +126,27 @@ Include JQuery Core (Required for calendar plugin)
                 }
 		}
 	}
+    
+        //Load in any Show_Events
+    $SQL = "SELECT * FROM Show_Events WHERE idShow_Events = $showID";
+    $result = mysql_query($SQL);
+	$num_rows = mysql_num_rows($result);
+    $db_field = mysql_fetch_array($result);
+    $laMegaShowEventArray = array();
+    while($row = mysql_fetch_array($result))
+    {
+        $laSingleShowEvent = array (
+            'title' => $row['Title'],
+            'startDate' => $row['Start_Date'],
+            'endDate' => $row['End_Date'],
+            'allDay' => $row['All_Day'],
+            'firstName' => $row['First_Name'],
+            'lastName' => $row['Last_Name'],
+            'backgroundColor' => $row['Background_Color'],
+            'foregroundColor' => $row['Foreground_Color']
+        );
+        $laMegaShowEventArray[] = $laSingleShowEvent;
+    }
 ?>
 
 <!-- <script src="Calendar.js" type="text/javascript"></script> -->
