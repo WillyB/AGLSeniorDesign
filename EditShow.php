@@ -1107,6 +1107,7 @@ var clickAgendaItem = "";
 
 <?php 
     if (isset($_POST['save'])){
+        echo "<script type='text/javascript'> alert('Javascript call reached') </script>";
         echo "<script type='text/javascript'> saveEvent() </script>";
     }
 ?>
