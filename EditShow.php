@@ -103,7 +103,7 @@ Include JQuery Core (Required for calendar plugin)
 		if($num_rows > 0)  //if show exists in the data base
 		{
 		//Fill in that info
-			$First_Name = $db_field['First_Name'];
+			//$First_Name = $db_field['First_Name'];
 			$Show_Name = $db_field['Show_Name'];
             $Director  = $db_field['Director'];
             $Playwright = $db_field['Playwright'];
@@ -1028,6 +1028,48 @@ var clickAgendaItem = "";
             });
         });
     }
+    
+    //Load our events from any previous edits:
+    var laEventList = new Array();
+    laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
+    laEventList.forEach(function(singleEvent) {
+        //Parse out all our variables
+        
+//        $laSingleShowEvent = array (
+//            'title' => $row['Title'],
+//            'startDate' => $row['Start_Date'],
+//            'endDate' => $row['End_Date'],
+//            'allDay' => $row['All_Day'],
+//            'firstName' => $row['First_Name'],
+//            'lastName' => $row['Last_Name'],
+//            'backgroundColor' => $row['Background_Color'],
+//            'foregroundColor' => $row['Foreground_Color']
+//        );
+        lsTitle = singleEvent['Title'];
+        ldStartDate = new Date(singleEvent['Start_Date']);
+        ldEndDate   = new Date(singleEvent['End_Date']);
+        firstName = singleEvent['First_Name'];
+        lastName  = singleEvent['Last_Name'];
+        fullName = firstName + " " + lastName;
+        backColor = singleEvent['Background_Color'];
+        foreColor = singleEvent['Foreground_Color'];
+        
+        jfcalplugin.addAgendaItem(
+	       "#mycal",
+	       lsTitle,
+	       ldStartDate,
+	       ldEndDate,
+	       false,
+	       {
+		      Entered_By: fullName
+	       },
+	       {
+		      backgroundColor: backColor,
+		      foregroundColor: foreColor
+	       }	
+        );
+    });
+    
 </script>
 </body>
 </html>
