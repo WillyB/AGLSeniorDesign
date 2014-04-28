@@ -939,7 +939,7 @@ var clickAgendaItem = "";
         laItems.forEach(function(entry) {
             lsStartDate =   entry['startDate'].toJSON();
             lsEndDate   =   entry['endDate'].toJSON();
-            lsBacgroundColor    =   entry.displayProp.backgroundColor;
+            lsBackgroundColor    =   entry.displayProp.backgroundColor;
             lsForegroundColor   =   entry.displayProp.foregroundColor;
             lsShowID            =   <?php echo $showID; ?>;
             lsAllDay            =   entry.allDay.toString();
