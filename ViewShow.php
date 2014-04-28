@@ -484,14 +484,8 @@ var clickAgendaItem = "";
 	 */
 	var jfcalplugin = $("#mycal").jFrontierCal({
 		date: new Date(),
-		dayClickCallback: myDayClickHandler,
-		agendaClickCallback: myAgendaClickHandler,
-		agendaDropCallback: myAgendaDropHandler,
 		agendaMouseoverCallback: myAgendaMouseoverHandler,
-		applyAgendaTooltipCallback: myApplyTooltip,
-		agendaDragStartCallback : myAgendaDragStart,
-		agendaDragStopCallback : myAgendaDragStop,
-		dragAndDropEnabled: true
+		applyAgendaTooltipCallback: myApplyTooltip
 	}).data("plugin");
 	
 	/**
