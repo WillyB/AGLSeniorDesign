@@ -925,7 +925,7 @@ var clickAgendaItem = "";
             laSingleEvent[8]    = lsShowID;
             $.ajax({
                 type:   "POST",
-                url:    "SaveShowEdit.php",
+                url:    "SaveAuditionEvents.php",
                 data:   { eventData : laSingleEvent }
             });
         });
