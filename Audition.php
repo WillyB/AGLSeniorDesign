@@ -48,62 +48,57 @@ function limitText(limitField, limitCount, limitNum) {
 </script>
 
 <?php
-include 'MasterCode.php';
-$role = $_COOKIE['role'];
-$email = $_COOKIE['email'];
-$password = $_COOKIE['password'];
-$showtitle = $_COOKIE['showtitle'];
-$showID = $_COOKIE['showID'];
-$auditionID = $_COOKIE['auditionID'];
-$personnelID = $_COOKIE['personnelID'];
-
+	$role = $_COOKIE['role'];
+	$email = $_COOKIE['email'];
+	$password = $_COOKIE['password'];
+    
+    $randomNess = 'hello';
+    $showID = $_COOKIE['showID'];
+    $auditionID = $_COOKIE['auditionID'];
+    $personnelID = $_COOKIE['personnelID'];
+    //$showID = 1;
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
 	{
 		echo "<script type='text/javascript'>
-			 	window.location = 'LogIn.php';</script>";//redirect back to log in page    
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
 		exit;
 	}
-
-//redirect to ListUsers.php when "HOME" button is clicked
-if (isset($_POST['home'])) 
-{
-    //First check to see which "Home" the user is going to
-    if($role == 0 || $role == 1){
-        echo "<script type='text/javascript'>
-		  window.location = 'AdminTools.php';</script>";
-	   exit;
-    }
-    else if($role == 2){
-        echo "<script type='text/javascript'>
-		  window.location = 'UserTools.php';</script>";
-	   exit;
-    }
+	//redirect to ListUsers.php when "HOME" button is clicked
+	if (isset($_POST['home'])) 
+	{
+		//First check to see which "Home" the user is going to
+		if($role == 0 || $role == 1){
+			echo "<script type='text/javascript'>
+			  window.location = 'AdminTools.php';</script>";
+		   exit;
+		}
+		else if($role == 2){
+			echo "<script type='text/javascript'>
+			  window.location = 'UserTools.php';</script>";
+		   exit;
+		}
+		
+	}
 	
-}
-
-//remove cookies and redirect to login.php when "LOGOUT" button is clicked
-if (isset($_POST['logout'])) 
-{
-	unset($_COOKIE['role']);
-	unset($_COOKIE['email']);
-	unset($_COOKIE['password']);
-	unset($_COOKIE['showtitle']);
-
-	setcookie('role', '', time() - 3600);		
-	setcookie('email', '', time() - 3600);
-	setcookie('password', '', time() - 3600);
-	setcookie('showtitle', '', time() - 3600);
-	setcookie('showID', '', time() - 3600);		
+	//remove cookies and redirect to login.php when "LOGOUT" button is clicked
+	if (isset($_POST['logout'])) 
+	{
+		unset($_COOKIE['role']);
+		unset($_COOKIE['email']);
+		unset($_COOKIE['password']);
 	
-	echo "<script type='text/javascript'>
-		  alert('Goodbye!');".
-		 "window.location = 'LogIn.php';</script>";//redirect to login page
-	exit;	
-}
-
-//Code for submitting an audition
-
+		setcookie('role', '', time() - 3600);		
+		setcookie('email', '', time() - 3600);
+		setcookie('password', '', time() - 3600);	
+		
+		echo "<script type='text/javascript'>
+			  alert('Goodbye!');".
+			 "window.location = 'LogIn.php';</script>";//redirect to login page
+		exit;	
+	}
+    
+        $showID = $_COOKIE['showID'];
     $user_name = 'actorsgu_data';
 	$pass_word = 'cliffy36&winepress';
 	$database = 'actorsgu_data';
@@ -111,6 +106,40 @@ if (isset($_POST['logout']))
 		
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
+	
+	if ($db_found) 
+	{
+		$SQL = "SELECT * FROM Shows WHERE idShows = '$showID'";	
+		$result = mysql_query($SQL);
+		$num_rows = mysql_num_rows($result);
+		$db_field = mysql_fetch_array($result);
+		if($num_rows > 0)  //if show exists in the data base
+		{
+		//Fill in that info
+			//$First_Name = $db_field['First_Name'];
+			$Show_Name = $db_field['Show_Name'];
+            $Director  = $db_field['Director'];
+            $Playwright = $db_field['Playwright'];
+            $Audition_Notes = $db_field['Audition_Notes'];
+		}
+		else
+		{ 
+            //First check to see which "Home" the user is going to
+ 	      if($role == 0 || $role == 1){
+                echo "<script type='text/javascript'>
+                    alert('There was an error retreiving your information.');".
+                    "window.location = 'AdminTools.php';</script>";
+		       exit;
+            }
+		  else if($role == 2){
+                echo "<script type='text/javascript'>
+                        alert('There was an error retreiving your information.');".
+			         "window.location = 'UserTools.php';</script>";
+                exit;
+                }
+		}
+	}
+    
         //Load in any Show_Events
     $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
     $result = mysql_query($SQL);
@@ -132,14 +161,7 @@ if (isset($_POST['logout']))
         $laSingleTitle = $laSingleShowEvent['title'];
         $laMegaShowEventArray[] = $laSingleShowEvent;
     }
-//    
-//    //Grab the users full name:
-//    $SQL = "SELECT * FROM Personnel WHERE contact_email = '$email'";
-//    $result = mysql_query($SQL);
-//    $db_field = mysql_fetch_array($result);
-//    $lsFirstName = $db_field['First_Name'];
-//    $lsLastName  = $db_field['Last_Name'];
-    
+    //print_r($laMegaShowEventArray);
 ?>
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
