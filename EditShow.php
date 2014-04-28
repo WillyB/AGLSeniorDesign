@@ -1038,8 +1038,9 @@ var clickAgendaItem = "";
         alert('Now attempting load');
         var laEventList = new Array();
         laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
+        
         laEventList.forEach(function(singleEvent) {
-            
+         alert(JSON.stringify(singleEvent, null, 4))   
         //Parse out all our variables
         
 //        $laSingleShowEvent = array (
@@ -1052,15 +1053,15 @@ var clickAgendaItem = "";
 //            'backgroundColor' => $row['Background_Color'],
 //            'foregroundColor' => $row['Foreground_Color']
 //        );
-        lsTitle = singleEvent['Title'];
-        ldStartDate = new Date(singleEvent['Start_Date']);
-        ldEndDate   = new Date(singleEvent['End_Date']);
-        firstName = singleEvent['First_Name'];
-        lastName  = singleEvent['Last_Name'];
-        //fullName = firstName + " " + lastName;
-        backColor = singleEvent['Background_Color'];
-        foreColor = singleEvent['Foreground_Color'];
-        alert('Entry found for title ' + $lsTitle + ' with color ' + backColor );
+//        lsTitle = singleEvent['Title'];
+//        ldStartDate = new Date(singleEvent['Start_Date']);
+//        ldEndDate   = new Date(singleEvent['End_Date']);
+//        firstName = singleEvent['First_Name'];
+//        lastName  = singleEvent['Last_Name'];
+//        //fullName = firstName + " " + lastName;
+//        backColor = singleEvent['Background_Color'];
+//        foreColor = singleEvent['Foreground_Color'];
+        //alert('Entry found for title ' + $lsTitle + ' with color ' + backColor );
         
 //        jfcalplugin.addAgendaItem(
 //	       "#mycal",
