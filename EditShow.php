@@ -253,7 +253,7 @@ function limitText(limitField, limitCount, limitNum) {
 		<td width="768" height="124" colspan="2" background="Assets/EditShow_17.gif">&nbsp;
         <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" onKeyDown="limitText(this.form1.limitedtextarea,this.form1.countdown,600);"
 		style="color: #FFFFFF;border:none;background-color:transparent; resize:none" value="<?php echo $Audition_Notes ?>"></textarea>
-		<font size="1">(Maximum characters: 50)&nbsp;&nbsp;You have <input readonly type="text" name="countdown" size="3" value="50"> characters left</font>	
+		<font size="1" align="right" color="#E6E6FA">(Maximum characters: 50)&nbsp;&nbsp;You have <input readonly type="text" name="countdown" size="3" value="50"> characters left</font>	
         </td>
 		<td>
 			<img src="Assets/EditShow_18.gif" width="1" height="124" alt=""></td>
