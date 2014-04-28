@@ -109,6 +109,7 @@ if (isset($_POST['logout']))
     $personnelFname = $db_field['First_Name'];
     $personnelLname = $db_field['Last_Name'];
     $fullName = $personnelFname . " " . $personnelLname;
+    $personnelID = $db_field['idPersonnel'];
 
 //Code for submitting an audition
 if(isset($_POST['save']))
@@ -958,7 +959,6 @@ var clickAgendaItem = "";
             laSingleEvent[6]    = lsForegroundColor;
             laSingleEvent[7]    = lsShowID;
             laSingleEvent[8]    = lsPersonnelID;
-            laSingleEvent[9]    = lsAuditionID; 
             $.ajax({
                 type:   "POST",
                 url:    "SaveAuditionEvents.php",
@@ -972,7 +972,6 @@ var clickAgendaItem = "";
 //        //Won't do a goddamn thing
 //        //var c = a + b;
 //        //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
-//        newVariable = '<?php echo $randomNess ?>';
 //        jfcalplugin.addAgendaItem(
 //	       "#mycal",
 //	       "Christmas Eve",
