@@ -181,6 +181,14 @@ if(isset($_POST['save']))
         $laSingleTitle = $laSingleShowEvent['title'];
         $laMegaShowEventArray[] = $laSingleShowEvent;
     }
+    
+    //Grab the users full name:
+    $SQL = "SELECT * FROM Personnel WHERE contact_email = '$email'";
+    $result = mysql_query($SQL);
+    $db_field = mysql_fetch_array($result);
+    $lsFirstName = $db_field['First_Name'];
+    $lsLastName  = $db_field['Last_Name'];
+    
 ?>
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -414,8 +422,9 @@ if(isset($_POST['save']))
 
     var clickDate = "";
 var clickAgendaItem = "";
-
-     //var lsUserFullName = < php echo $fullName ?>;   
+    var lsFirstName = <?php echo $lsFirstName ?>;
+    var lsLastName  = <?php echo $lsLastName  ?>;
+     var lsUserFullName lsFirstName + " " + lsLastName;
 	
 	/**
 	 * Initializes calendar with current year & month
@@ -755,7 +764,7 @@ var clickAgendaItem = "";
 						endDateObj,
 						false,
 						{
-							Full_Name: lsUserFullName
+							Entered_By: lsUserFullName
 						},
 						{
 							backgroundColor: $("#colorBackground").val(),
