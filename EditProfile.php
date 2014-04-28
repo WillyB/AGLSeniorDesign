@@ -213,7 +213,7 @@
 			{       
 					$SQL.= 'Contact_Phone="'.$Contact_Phone.'"';
 			}
-			$SQL.= 'WHERE Contact_Email = '$lookupEmail'"';
+			$SQL.= "WHERE Contact_Email = '$lookupEmail'";
 			$result = mysql_query($SQL);
 			$echo "SQL == ".$SQL."<br>";
 				
