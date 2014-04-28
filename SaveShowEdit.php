@@ -5,7 +5,7 @@
 		//$server = 'box293.bluehost.com:3306';
 		$server = 'localhost:3306';
         
-		$con = mysql_connect($server, $user_name, $pass_word, $database);
+		//$con = mysql_connect($server, $user_name, $pass_word, $database);
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 //SaveShowEdit
@@ -29,8 +29,7 @@ $showID    = $eventArray[8];
 //$SQL = "INSERT INTO Show_Events (Shows_idShows, Title, Start_Date, End_Date, All_Day, First_Name, Last_Name, Background_Color, Foreground_Color) 
 //                         VALUES ($showID, '$title', '$startDate', '$endDate', '$allDay', '$firstName', '$lastName', '$backColor', '$foreColor')";
 
-$SQL = "INSERT INTO Show_Events (Shows_idShows, Title, Start_Date, End_Date, All_Day, First_Name, Last_Name, Background_Color, Foreground_Color) 
-                         VALUES (1, 'FooBar', 'tomorrow', 'yesterday', 'true', 'Mr', 'RainMan', 'Mauve', 'LimeYellow')";
+$SQL = ("INSERT INTO Show_Events (Shows_idShows, Title, Start_Date, End_Date, All_Day, First_Name, Last_Name, Background_Color, Foreground_Color) VALUES (11, 'FooBar', 'tomorrow', 'yesterday', 'true', 'Mr', 'RainMan', 'Mauve', 'LimeYellow')");
 $result = mysql_query($SQL);
 $num_rows = mysql_num_rows($result);
 
