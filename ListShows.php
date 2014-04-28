@@ -99,7 +99,7 @@ if(isset($_POST['Delete']))
 //If "EDIT" button was pressed
 if(isset($_POST['Edit']))
 {
-	$showID = $_POST['ShowID2'];
+	$showID = $_POST['ShowID'];
 	setCookie('showID', $showID);//set cookie to pass use on the next page
 	echo  "<script type='text/javascript'>
 			window.location = 'EditShow.php';</script>";
