@@ -138,7 +138,7 @@
 					<th>Age</th>
 					<th>Gender</th>
 					</tr>";
-					while($row = mysql_fetch_array($result))
+					while($row = mysql_fetch_array($castlist))
 					{
 							//Get info from Personnel
 							$id = $row['Personnel_idPersonnel'];
