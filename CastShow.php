@@ -251,7 +251,7 @@ function limitText(limitField, limitCount, limitNum) {
         $laMegaConflictEventArray[] = $laSingleShowEvent;
         }
     //Then set them up to be passed off to javascript
-        $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
+    $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
     $result = mysql_query($SQL);
 	$num_rows = mysql_num_rows($result);
     //$db_field = mysql_fetch_array($result);
@@ -1134,7 +1134,7 @@ var clickAgendaItem = "";
  
     function addGivenAgenda() {
         var laEventList = new Array();
-        //laEventList = < php echo json_encode($laMegaShowEventArray)?>;
+        laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         laEventList.forEach(function(singleEvent) {
          //alert(JSON.stringify(singleEvent, null, 4))   
         //Parse out all our variables
