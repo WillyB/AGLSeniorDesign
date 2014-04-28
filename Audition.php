@@ -936,7 +936,7 @@ var clickAgendaItem = "";
             });
         });
         alert('Conflicts saved!');
-        window.location = 'ViewShows.php';
+        window.location = 'ListShows.php';
     }
     
     
