@@ -473,7 +473,7 @@ Include JQuery Core (Required for calendar plugin)
 </form>
 <!-- End Save for Web Slices -->
 <script type="text/javascript">	
-$(document).ready(function(){
+
     var clickDate = "";
 var clickAgendaItem = "";
 
@@ -1044,8 +1044,6 @@ var clickAgendaItem = "";
             });
         });
     }
-    
- });
 </script>
 </body>
 </html>
