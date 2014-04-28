@@ -95,12 +95,25 @@
     
 	if (isset($_POST['audition'])) 
 	{
-		$showtitle = $_POST['title'];
-		setcookie('showtitle', $showtitle);
-		setcookie('showID', $showID);
-		echo "<script type='text/javascript'>
-			  window.location = 'Audition.php';</script>";//redirect to login page
-		exit;	
+		$SQL = "SELECT * FROM Role WHERE idShows = '$showID'";	
+		$result = mysql_query($SQL);
+		$num_rows = mysql_num_rows($result);
+		if($num_rows > 0)
+		{
+			echo "<script type='text/javascript'>
+                        alert('This show has already been cast.');".
+			         "window.location = 'ViewShow.php';</script>";
+               exit;
+		}
+		else
+		{
+			$showtitle = $_POST['title'];
+			setcookie('showtitle', $showtitle);
+			setcookie('showID', $showID);
+			echo "<script type='text/javascript'>
+				  window.location = 'Audition.php';</script>";//redirect to login page
+			exit;
+		}
 	}
     mysql_close($db_handle);
 ?>
@@ -131,7 +144,7 @@
 		{			
 				echo "<body bgcolor='blue'>";
 				echo "
-				<table border='1' bordercolor='#FFFFFF' style='color: #FFFFFF;border:none;' align='center' cellpadding='20' >
+				<table border='1' bordercolor='#FFFFFF' style='color: #FFFFFF;border:none;' cellpadding='20' >
 					<tr>
 					<th>First Name</th>
 					<th>Last Name</th>
