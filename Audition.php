@@ -163,6 +163,10 @@ if(isset($_POST['save']))
 			  </script>';	
 		exit;
 	}
+    
+
+    
+	mysql_close($db_handle);
 }
 
                 //Load in any Show_Events
@@ -1032,7 +1036,7 @@ var clickAgendaItem = "";
         });
     }
     
-    //addGivenAgenda();
+    addGivenAgenda();
     
     
 </script>
