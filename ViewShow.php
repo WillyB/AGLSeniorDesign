@@ -125,8 +125,8 @@
 	if ($db_found) 
 	{
 		$SQL = "SELECT * FROM Role WHERE Shows_idShows = '$showID'";
-		$result = mysql_query($SQL);
-		$num_rows = mysql_num_rows($result);
+		$castlist = mysql_query($SQL);
+		$num_rows = mysql_num_rows($castlist);
 		if($num_rows > 0)
 		{			
 				echo "<body bgcolor='blue'>";
@@ -140,11 +140,6 @@
 					</tr>";
 					while($row = mysql_fetch_array($result))
 					{
-						$db_handle = mysql_connect($server, $user_name, $pass_word);
-						$db_found = mysql_select_db($database, $db_handle);
-						
-						if ($db_found) 
-						{
 							//Get info from Personnel
 							$id = $row['Personnel_idPersonnel'];
 							$SQL = "SELECT * FROM Personnel WHERE idPersonnel='$id'";
@@ -156,7 +151,6 @@
 										$db_field['Last_Name']."</td><td>".
 										$db_field['Age']."</td><td>".
 										$db_field['Gender']."</td></tr>";
-						}
 					}
 				echo "</table>";
 				echo "<br>"."<br>";
