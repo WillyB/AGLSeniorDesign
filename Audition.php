@@ -391,7 +391,7 @@ if(isset($_POST['save']))
     var clickDate = "";
 var clickAgendaItem = "";
 
-     var lsUserFullName = <?php echo $fullName ?>;   
+     //var lsUserFullName = < php echo $fullName ?>;   
 	
 	/**
 	 * Initializes calendar with current year & month
