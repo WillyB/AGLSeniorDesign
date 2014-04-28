@@ -203,6 +203,7 @@ Include JQuery Core (Required for calendar plugin)
 		<td colspan="3" rowspan="6">
 			<img src="Assets/EditShow_07.gif" width="506" height="173" alt=""></td>
 		<td width="589" height="42" background="Assets/EditShow_08.gif">&nbsp;
+        <!-- value="< php echo $Director ?>" -->
         <input type="text" name="showtitle" id="showtitle" style="color: #FFFFFF;border:none;background-color:transparent;" size="85" value="<?php echo $Show_Name ?>">
         </td>
 		<td colspan="3" rowspan="2">
@@ -218,6 +219,7 @@ Include JQuery Core (Required for calendar plugin)
 	</tr>
 	<tr>
 		<td width="590" height="43" colspan="2" background="Assets/EditShow_11.gif">&nbsp;
+        <!-- value="< php echo $Director ?>" -->
         <input type="text" name="author" id="author" style="color: #FFFFFF;border:none;background-color:transparent;" size="85" value="<?php echo $Playwright ?>">
         </td>
 		<td colspan="2" rowspan="5">
@@ -233,7 +235,8 @@ Include JQuery Core (Required for calendar plugin)
 	</tr>
 	<tr>
 		<td width="590" height="42" colspan="2" background="Assets/EditShow_14.gif">&nbsp;
-        <input type="text" name="director" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="85" value="<?php echo $Director ?>">
+        <!-- value="< php echo $Director ?>" -->
+        <input type="text" name="director" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
@@ -248,7 +251,8 @@ Include JQuery Core (Required for calendar plugin)
 		<td colspan="2">
 			<img src="Assets/EditShow_16.gif" width="327" height="124" alt=""></td>
 		<td width="768" height="124" colspan="2" background="Assets/EditShow_17.gif">&nbsp;
-        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" style="color: #FFFFFF;border:none;background-color:transparent; resize:none" value="<?php echo $Audition_Notes ?>"></textarea>
+        <!-- value="< php echo $Audition_Notes ?>" -->
+        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" style="color: #FFFFFF;border:none;background-color:transparent; resize:none"></textarea>
         </td>
 		<td>
 			<img src="Assets/EditShow_18.gif" width="1" height="124" alt=""></td>
