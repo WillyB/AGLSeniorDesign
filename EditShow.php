@@ -147,6 +147,7 @@ Include JQuery Core (Required for calendar plugin)
         );
         $laMegaShowEventArray[] = $laSingleShowEvent;
     }
+    print_r($laMegaShowEventArray);
 ?>
 
 <!-- <script src="Calendar.js" type="text/javascript"></script> -->
