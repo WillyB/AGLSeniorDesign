@@ -103,6 +103,7 @@
     //Move someone from auditionlist to castlist
     if (isset($_POST['cast'])) 
 	{
+		$personnelID = $_POST['personnelID'];
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 	
@@ -110,9 +111,7 @@
 		{
 			$SQL = "UPDATE Audition SET temp_Cast = 1 WHERE Personnel_idPesonnel = '$personnelID' AND Shows_ShowID = '$showID'";
 			$result = mysql_query($SQL);
-		}
-		echo "<script type='text/javascript'>
-                        alert('CASTING.');</script>";				
+		}			
 		echo "<script type='text/javascript'>
 			  window.location = 'CastShow.php';</script>";//Reflect Changes
 		exit;	
@@ -120,6 +119,7 @@
 	//Move someone from castlist to auditionlist
     if (isset($_POST['uncast'])) 
 	{
+		$personnelID = $_POST['personnelID'];
 		$db_handle = mysql_connect($server, $user_name, $pass_word);
 		$db_found = mysql_select_db($database, $db_handle);
 	
