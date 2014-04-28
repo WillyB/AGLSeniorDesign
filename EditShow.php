@@ -722,28 +722,28 @@ var clickAgendaItem = "";
 		return false;
 	});		
 	
-	/**
-	 * Initialize iCal test button
-	 */
-	$("#BtnICalTest").button();
-	$("#BtnICalTest").click(function() {
-		// Please note that in Google Chrome this will not work with a local file. Chrome prevents AJAX calls
-		// from reading local files on disk.		
-		jfcalplugin.loadICalSource("#mycal",$("#iCalSource").val(),"html");	
-		return false;
-	});	
-    
-    $("#addKnownEvent").button();
-    $("#addKnownEvent").click(function() {
-        addGivenAgenda();
-        return false;
-    });
-    
-    $("#save").button();
-    $("#save").click(function() {
-       saveEvent();
-       return false; 
-    });
+//	/**
+//	 * Initialize iCal test button
+//	 */
+//	$("#BtnICalTest").button();
+//	$("#BtnICalTest").click(function() {
+//		// Please note that in Google Chrome this will not work with a local file. Chrome prevents AJAX calls
+//		// from reading local files on disk.		
+//		jfcalplugin.loadICalSource("#mycal",$("#iCalSource").val(),"html");	
+//		return false;
+//	});	
+//    
+//    $("#addKnownEvent").button();
+//    $("#addKnownEvent").click(function() {
+//        addGivenAgenda();
+//        return false;
+//    });
+//    
+//    $("#save").button();
+//    $("#save").click(function() {
+//       saveEvent();
+//       return false; 
+//    });
 
 	/**
 	 * Initialize add event modal form
@@ -1104,5 +1104,11 @@ var clickAgendaItem = "";
     
     
 </script>
+
+<?php 
+    if (isset($_POST['save'])){
+        echo "<script type='text/javascript'> saveEvent() </script>";
+    }
+?>
 </body>
 </html>

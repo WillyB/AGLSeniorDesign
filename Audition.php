@@ -99,6 +99,17 @@ if (isset($_POST['logout']))
 		 "window.location = 'LogIn.php';</script>";//redirect to login page
 	exit;	
 }
+
+//Grabbing the needed items for loading:
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+    $SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email' AND password = '$password'";
+    $db_field = mysql_fetch_array($result);
+	$result = mysql_query($SQL);
+    $personnelFname = $db_field['First_Name'];
+    $personnelLname = $db_field['Last_Name'];
+    $fullName = $personnelFname . " " . $personnelLname;
+
 //Code for submitting an audition
 if(isset($_POST['save']))
 {
@@ -126,8 +137,10 @@ if(isset($_POST['save']))
 			}
 			else
 			{
-				$SQL = "INSERT INTO Audition (Personnel_idPersonnel, Shows_idShows) VALUES ('$personnelID', '$showID')";
+				$SQL = "INSERT INTO Audition (Personnel_idPersonnel, Shows_idShows) VALUES ('$personnelID', '$showID') ";
 				$result = mysql_query($SQL);
+                $auditionID = mysql_insert_id();
+                echo "<script type='text/javascript'> saveAuditionEvent(); </script>";
 			}
 		}
 		else
@@ -149,6 +162,29 @@ if(isset($_POST['save']))
 			  </script>';	
 		exit;
 	}
+    
+                //Load in any Show_Events
+    $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
+    $result = mysql_query($SQL);
+	$num_rows = mysql_num_rows($result);
+    //$db_field = mysql_fetch_array($result);
+    $laMegaShowEventArray = array();
+    while($row = mysql_fetch_array($result))
+    {
+        $laSingleShowEvent = array (
+            'title' => $row['Title'],
+            'startDate' => $row['Start_Date'],
+            'endDate' => $row['End_Date'],
+            'allDay' => $row['All_Day'],
+            'firstName' => $row['First_Name'],
+            'lastName' => $row['Last_Name'],
+            'backgroundColor' => $row['Background_Color'],
+            'foregroundColor' => $row['Foreground_Color']
+        );
+        $laSingleTitle = $laSingleShowEvent['title'];
+        $laMegaShowEventArray[] = $laSingleShowEvent;
+    }
+    
 	mysql_close($db_handle);
 }
 ?>
@@ -385,7 +421,7 @@ if(isset($_POST['save']))
     var clickDate = "";
 var clickAgendaItem = "";
 
-        
+     var lsUserFullName = <?php echo $fullName ?>;   
 	
 	/**
 	 * Initializes calendar with current year & month
@@ -615,34 +651,34 @@ var clickAgendaItem = "";
 	/**
 	 * Initialize delete all agenda items button
 	 */
-	$("#BtnDeleteAll").button();
-	$("#BtnDeleteAll").click(function() {	
-		jfcalplugin.deleteAllAgendaItems("#mycal");	
-		return false;
-	});		
-	
-	/**
-	 * Initialize iCal test button
-	 */
-	$("#BtnICalTest").button();
-	$("#BtnICalTest").click(function() {
-		// Please note that in Google Chrome this will not work with a local file. Chrome prevents AJAX calls
-		// from reading local files on disk.		
-		jfcalplugin.loadICalSource("#mycal",$("#iCalSource").val(),"html");	
-		return false;
-	});	
-    
-    $("#addKnownEvent").button();
-    $("#addKnownEvent").click(function() {
-        addGivenAgenda();
-        return false;
-    });
-    
-    $("#save").button();
-    $("#save").click(function() {
-       saveEvent();
-       return false; 
-    });
+//	$("#BtnDeleteAll").button();
+//	$("#BtnDeleteAll").click(function() {	
+//		jfcalplugin.deleteAllAgendaItems("#mycal");	
+//		return false;
+//	});		
+//	
+//	/**
+//	 * Initialize iCal test button
+//	 */
+//	$("#BtnICalTest").button();
+//	$("#BtnICalTest").click(function() {
+//		// Please note that in Google Chrome this will not work with a local file. Chrome prevents AJAX calls
+//		// from reading local files on disk.		
+//		jfcalplugin.loadICalSource("#mycal",$("#iCalSource").val(),"html");	
+//		return false;
+//	});	
+//    
+//    $("#addKnownEvent").button();
+//    $("#addKnownEvent").click(function() {
+//        addGivenAgenda();
+//        return false;
+//    });
+//    
+//    $("#save").button();
+//    $("#save").click(function() {
+//       saveEvent();
+//       return false; 
+//    });
 
 	/**
 	 * Initialize add event modal form
@@ -717,6 +753,7 @@ var clickAgendaItem = "";
 					var endDateObj = new Date(parseInt(endYear),parseInt(endMonth)-1,parseInt(endDay),endHour,endMin,0,0);
 
 					// add new event to the calendar
+                    
 					jfcalplugin.addAgendaItem(
 						"#mycal",
 						what,
@@ -724,10 +761,7 @@ var clickAgendaItem = "";
 						endDateObj,
 						false,
 						{
-							fname: "Santa",
-							lname: "Claus",
-							myDate: new Date(),
-							myNum: 42
+							Full_Name: lsUserFullName
 						},
 						{
 							backgroundColor: $("#colorBackground").val(),
@@ -893,14 +927,14 @@ var clickAgendaItem = "";
 		}	
 	});
     
-    function saveEvent(){
-        //First clear out any old items:
+    function saveAuditionEvent(){
+        //First clear out any old items, Dont really need as you can only audition once
         lsShowID   =   <?php echo $showID; ?>;
-        $.ajax({
-                type:   "POST",
-                url:    "ClearShowEvents.php",
-                data:   { showID : lsShowID }
-            });
+//        $.ajax({
+//                type:   "POST",
+//                url:    "ClearShowEvents.php",
+//                data:   { showID : lsShowID }
+//            });
         //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
         var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         laItems.forEach(function(entry) {
@@ -909,20 +943,23 @@ var clickAgendaItem = "";
             lsBackgroundColor    =   entry.displayProp.backgroundColor;
             lsForegroundColor   =   entry.displayProp.foregroundColor;
             lsShowID            =   <?php echo $showID; ?>;
+            lsPersonnelID       =   <?php echo $personnelID ?>;
+            lsAuditionID        =   <?php echo $auditionID ?>;
             lsAllDay            =   entry.allDay.toString();
             var laSingleEvent = new Array();
             laSingleEvent[0]    = entry.title;
             laSingleEvent[1]    = lsStartDate;
             laSingleEvent[2]    = lsEndDate;
             laSingleEvent[3]    = lsAllDay;
-            laSingleEvent[4]    = entry.data.fname;
-            laSingleEvent[5]    = entry.data.lname;
-            laSingleEvent[6]    = lsBackgroundColor;
-            laSingleEvent[7]    = lsForegroundColor;
-            laSingleEvent[8]    = lsShowID;
+            laSingleEvent[4]    = entry.data.Full_Name;
+            laSingleEvent[5]    = lsBackgroundColor;
+            laSingleEvent[6]    = lsForegroundColor;
+            laSingleEvent[7]    = lsShowID;
+            laSingleEvent[8]    = lsPersonnelID;
+            laSingleEvent[9]    = lsAuditionID; 
             $.ajax({
                 type:   "POST",
-                url:    "SaveShowEdit.php",
+                url:    "SaveAuditionEvents.php",
                 data:   { eventData : laSingleEvent }
             });
         });
