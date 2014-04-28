@@ -100,7 +100,7 @@
 		
 		if ($db_found) 
 		{
-			$SQL = "SELECT * FROM Role WHERE idShows = '$showID'";	
+			$SQL = "SELECT * FROM Role WHERE Shows_idShows = '$showID'";	
 			$result = mysql_query($SQL);
 			$num_rows = mysql_num_rows($result);
 			if($num_rows > 0)
