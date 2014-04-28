@@ -59,6 +59,13 @@
 			$showname = $_POST['showtitle'];
 			$director = $_POST['director'];
 			$playwright = $_POST['author'];
+			if($showname == "" || $director == "" || $playwright == "")
+			{
+				echo "<script type='text/javascript'>
+					 	alert('Please make sure you fill out all the fields.');".
+						 "window.location = 'CreateShow.php';</script>";//redirect back to Create Show page 
+				exit;
+			}
 			$SQL = "SELECT * FROM Shows WHERE Show_Name = '$showname'";
 			$result = mysql_query($SQL);
 			$num_rows = mysql_num_rows($result);
