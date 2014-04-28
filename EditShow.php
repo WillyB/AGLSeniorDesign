@@ -825,8 +825,8 @@ var clickAgendaItem = "";
 						endDateObj,
 						false,
 						{
-							fname: "Santa",
-							lname: "Claus",
+							fname: "Place Holder",
+							lname: "",
 							myDate: new Date(),
 							myNum: 42
 						},
