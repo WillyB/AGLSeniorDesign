@@ -128,7 +128,7 @@ Include JQuery Core (Required for calendar plugin)
 	}
     
         //Load in any Show_Events
-    $SQL = "SELECT * FROM Show_Events WHERE idShow_Events = $showID";
+    $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
     echo "<script type='text/javascript'>";
         echo "alert('Yay debug code! $SQL');";
         echo "</script>";
