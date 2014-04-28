@@ -1039,7 +1039,7 @@ var clickAgendaItem = "";
         var laEventList = new Array();
         laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         laEventList.forEach(function(singleEvent) {
-            alert('found an entry!');
+            
         //Parse out all our variables
         
 //        $laSingleShowEvent = array (
@@ -1057,24 +1057,25 @@ var clickAgendaItem = "";
         ldEndDate   = new Date(singleEvent['End_Date']);
         firstName = singleEvent['First_Name'];
         lastName  = singleEvent['Last_Name'];
-        fullName = firstName + " " + lastName;
+        //fullName = firstName + " " + lastName;
         backColor = singleEvent['Background_Color'];
         foreColor = singleEvent['Foreground_Color'];
+        alert('Entry found for title ' + $lsTitle + ' with color ' + backColor );
         
-        jfcalplugin.addAgendaItem(
-	       "#mycal",
-	       lsTitle,
-	       ldStartDate,
-	       ldEndDate,
-	       false,
-	       {
-		      Entered_By: fullName
-	       },
-	       {
-		      backgroundColor: backColor,
-		      foregroundColor: foreColor
-	       }	
-            );
+//        jfcalplugin.addAgendaItem(
+//	       "#mycal",
+//	       lsTitle,
+//	       ldStartDate,
+//	       ldEndDate,
+//	       false,
+//	       {
+//		      Entered_By: fullName
+//	       },
+//	       {
+//		      backgroundColor: backColor,
+//		      foregroundColor: foreColor
+//	       }	
+//        );
         });
     }
     
