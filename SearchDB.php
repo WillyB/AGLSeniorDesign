@@ -20,23 +20,7 @@
 	}
 //redirect to AdminTools.php when "HOME" button is clicked
 if (isset($_POST['home'])) 
-{
-	//set cookie value to expired time
-	unset($_COOKIE['firstname']);     setcookie('firstname', '', time() - 3600);
-	unset($_COOKIE['lastname']);      setcookie('lastname', '', time() - 3600);
-	unset($_COOKIE['heightf']);       setcookie('heightf', '', time() - 3600);
-	unset($_COOKIE['heightt']);       setcookie('heightt', '', time() - 3600);
-	unset($_COOKIE['weightf']);       setcookie('weightf', '', time() - 3600);
-	unset($_COOKIE['weightt']);       setcookie('weightt', '', time() - 3600);
-	unset($_COOKIE['agef']);          setcookie('agef', '', time() - 3600);
-	unset($_COOKIE['aget']);          setcookie('aget', '', time() - 3600);
-	unset($_COOKIE['haircolor']);     setcookie('haircolor', '', time() - 3600);
-	unset($_COOKIE['hairstyle']);     setcookie('hairstyle', '', time() - 3600);
-	unset($_COOKIE['eyecolor']);      setcookie('eyecolor', '', time() - 3600);
-	unset($_COOKIE['ethnicity']);     setcookie('ethnicity', '', time() - 3600);
-	unset($_COOKIE['gender']);        setcookie('gender', '', time() - 3600);
-	
-	
+{	
     //First check to see which "Home" the user is going to
     if($role == 0 || $role == 1){
         echo "<script type='text/javascript'>
@@ -61,21 +45,6 @@ if (isset($_POST['logout']))
 	setcookie('role', '', time() - 3600);		
 	setcookie('email', '', time() - 3600);
 	setcookie('password', '', time() - 3600);	
-	
-	//set cookie value to expired time
-	unset($_COOKIE['firstname']);     setcookie('firstname', '', time() - 3600);
-	unset($_COOKIE['lastname']);      setcookie('lastname', '', time() - 3600);
-	unset($_COOKIE['heightf']);       setcookie('heightf', '', time() - 3600);
-	unset($_COOKIE['heightt']);       setcookie('heightt', '', time() - 3600);
-	unset($_COOKIE['weightf']);       setcookie('weightf', '', time() - 3600);
-	unset($_COOKIE['weightt']);       setcookie('weightt', '', time() - 3600);
-	unset($_COOKIE['agef']);          setcookie('agef', '', time() - 3600);
-	unset($_COOKIE['aget']);          setcookie('aget', '', time() - 3600);
-	unset($_COOKIE['haircolor']);     setcookie('haircolor', '', time() - 3600);
-	unset($_COOKIE['hairstyle']);     setcookie('hairstyle', '', time() - 3600);
-	unset($_COOKIE['eyecolor']);      setcookie('eyecolor', '', time() - 3600);
-	unset($_COOKIE['ethnicity']);     setcookie('ethnicity', '', time() - 3600);
-	unset($_COOKIE['gender']);        setcookie('gender', '', time() - 3600);
 
 	echo "<script type='text/javascript'>
 		  alert('Goodbye!');".
@@ -84,21 +53,6 @@ if (isset($_POST['logout']))
 }
 if(isset($_POST['View']))
 {
-	//set cookie value to expired time
-	unset($_COOKIE['firstname']);     setcookie('firstname', '', time() - 3600);
-	unset($_COOKIE['lastname']);      setcookie('lastname', '', time() - 3600);
-	unset($_COOKIE['heightf']);       setcookie('heightf', '', time() - 3600);
-	unset($_COOKIE['heightt']);       setcookie('heightt', '', time() - 3600);
-	unset($_COOKIE['weightf']);       setcookie('weightf', '', time() - 3600);
-	unset($_COOKIE['weightt']);       setcookie('weightt', '', time() - 3600);
-	unset($_COOKIE['agef']);          setcookie('agef', '', time() - 3600);
-	unset($_COOKIE['aget']);          setcookie('aget', '', time() - 3600);
-	unset($_COOKIE['haircolor']);     setcookie('haircolor', '', time() - 3600);
-	unset($_COOKIE['hairstyle']);     setcookie('hairstyle', '', time() - 3600);
-	unset($_COOKIE['eyecolor']);      setcookie('eyecolor', '', time() - 3600);
-	unset($_COOKIE['ethnicity']);     setcookie('ethnicity', '', time() - 3600);
-	unset($_COOKIE['gender']);        setcookie('gender', '', time() - 3600);
-
     $who = $_POST['UserEmail0'];
 	setCookie('target_email', $who);//set cookie to pass use on the next page
 	echo  "<script type='text/javascript'>
@@ -145,12 +99,10 @@ if(isset($_POST['View']))
 		<td colspan="5" rowspan="2">
 			<img src="Assets/SearchDB_07.gif" width="580" height="56" alt=""></td>
 		<td width="207" height="43" colspan="7" background="Assets/SearchDB_08.gif">&nbsp;
-        <input type="text" name="firstname" id="firstname" style="color: #FFFFFF;border:none;background-color:transparent;" size="26" 
-		       value="<?php echo $_COOKIE['firstname']; ?>" readonly>
+        <input type="text" name="firstname" id="firstname" style="color: #FFFFFF;border:none;background-color:transparent;" size="26">
         </td>
 		<td width="248" height="43" colspan="5" background="Assets/SearchDB_09.gif">&nbsp;
-        <input type="text" name="lastname" id="lastname" style="color: #FFFFFF;border:none;background-color:transparent;" size="30"
-			   value="<?php echo $_COOKIE['lastname']; ?>" readonly>
+        <input type="text" name="lastname" id="lastname" style="color: #FFFFFF;border:none;background-color:transparent;" size="30">
         </td>
 		<td rowspan="10">
 			<img src="Assets/SearchDB_10.gif" width="176" height="390" alt=""></td>
@@ -256,26 +208,18 @@ if(isset($_POST['View']))
 		<td colspan="2" rowspan="4">
 			<img src="Assets/SearchDB_15.gif" width="74" height="110" alt=""></td>
 		<td width="75" height="43" colspan="2" background="Assets/SearchDB_16.gif">&nbsp;
-        <input type="text" name="weightf" id="weightf" size="4" 
-		       value="<?php echo $_COOKIE['weightf']; ?>" readonly
-		       pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="weightf" id="weightf" size="4" pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td width="72" height="43" colspan="3" background="Assets/SearchDB_17.gif">&nbsp;z
-        <input type="text" name="weightt" id="weightt" size="4" 
-			   value="<?php echo $_COOKIE['weightt'];?>" readonly
-			   pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="weightt" id="weightt" size="4" pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/SearchDB_18.gif" width="76" height="110" alt=""></td>
 		<td width="70" height="43" background="Assets/SearchDB_19.gif">&nbsp;
-        <input type="text" name="agef" id="agef" size="4" 
-			   value="<?php echo $_COOKIE['agef'];?>" readonly
-			   pattern="[1-9][0-9]?|1[0-1][0-9]|120" title="Enter age from 1 to 120" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="agef" id="agef" size="4" pattern="[1-9][0-9]?|1[0-1][0-9]|120" title="Enter age from 1 to 120" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td width="76" height="43" background="Assets/SearchDB_20.gif">&nbsp;
-        <input type="text" name="aget" id="aget" size="4" 
-			   value="<?php echo $_COOKIE['aget'];?>" readonly
-			   pattern="[1-9][0-9]?|1[0-1][0-9]|120" title="Enter age from 1 to 120" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
+        <input type="text" name="aget" id="aget" size="4" pattern="[1-9][0-9]?|1[0-1][0-9]|120" title="Enter age from 1 to 120" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="43" alt=""></td>
@@ -406,34 +350,6 @@ if(isset($_POST['View']))
         <?php
 if (isset($_POST['Search'])) 
 {
-	$firstname = $_POST['firstname'];
-	$lastname = $_POST['lastname'];
-	$heightf = $_POST['heightf'];
-	$heightt = $_POST['heightt'];
-	$weightf = $_POST['weightf'];
-	$weightt = $_POST['weightt'];
-	$agef = $_POST['agef'];
-	$aget = $_POST['aget'];
-	$haircolor = $_POST['haircolor'];
-	$hairstyle = $_POST['hairstyle'];
-	$eyecolor = $_POST['eyecolor'];
-	$ethnicity = $_POST['ethnicity'];
-	$gender = $_POST['gender'];
-	
-	setCookie('firstname', $firstname);
-	setCookie('lastname', $lastname);
-	setCookie('heightf', $heightf);
-	setCookie('heightt', $heightt);
-	setCookie('weightf', $weightf);
-	setCookie('weightt', $weightt);
-	setCookie('agef', $agef);
-	setCookie('aget', $aget);
-	setCookie('haircolor', $haircolor);
-	setCookie('hairstyle', $hairstyle);
-	setCookie('eyecolor', $eyecolor);
-	setCookie('ethnicity', $ethnicity);
-	setCookie('gender', $gender);
-
 	if($firstname == "" && $lastname == "" && $heightf == "" && $heightt == "" && 
        $weightf == "" && $weightt == "" && $agef == "" && $aget == "" &&	
 	   $haircolor == "" && $hairstyle == "" && $eyecolor == "" && $ethnicity == "" &&
