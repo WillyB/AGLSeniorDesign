@@ -256,7 +256,7 @@ function limitText(limitField, limitCount, limitNum) {
 		onKeyDown="limitText(this.form.auditionnotes,this.form.countdown,600);"
 		onKeyUp="limitText(this.form.auditionnotes,this.form.countdown,600);"
 		style="color: #FFFFFF;border:none;background-color:transparent; resize:none" value="<?php echo $Audition_Notes ?>"></textarea>
-		<font size="2" align="right" color="#E6E6FA">(Maximum characters: 600)&nbsp;&nbsp;You have <input readonly type="text" name="countdown" 
+		<font size="2" align="right" color="#E6E6FA">Maximum 600 characters:&nbsp;&nbsp;You have <input readonly type="text" name="countdown" 
 		size="3" value="600" align="right"> characters left</font>	
         </td>
 		</form>
