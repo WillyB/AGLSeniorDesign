@@ -1006,7 +1006,7 @@ var clickAgendaItem = "";
         $.ajax({
            type: "POST",
            url: "SaveShowMetrics.php",
-           date: {
+           data: {
                 title: lsNewTitle,
                 director: lsNewDirector,
                 author: lsNewPlaywright,
@@ -1014,6 +1014,10 @@ var clickAgendaItem = "";
                 showID: lsShowID
            } 
         });
+        //Then we save the event:
+        saveEvent();
+        //And then we're done!
+        alert('Saved!!');
     }
     
     function saveEvent(){
