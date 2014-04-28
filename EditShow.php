@@ -208,7 +208,7 @@ Include JQuery Core (Required for calendar plugin)
 	</tr>
 	<tr>
 		<td width="590" height="43" colspan="2" background="Assets/EditShow_11.gif">&nbsp;
-        <input type="text" name="author" id="author" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
+        <input type="text" name="author" id="author" style="color: #FFFFFF;border:none;background-color:transparent;" size="85" value="<?php echo $Playwright ?>">
         </td>
 		<td colspan="2" rowspan="5">
 			<img src="Assets/EditShow_12.gif" width="115" height="250" alt=""></td>
@@ -223,7 +223,7 @@ Include JQuery Core (Required for calendar plugin)
 	</tr>
 	<tr>
 		<td width="590" height="42" colspan="2" background="Assets/EditShow_14.gif">&nbsp;
-        <input type="text" name="director" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
+        <input type="text" name="director" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="85" value="<?php echo $Director ?>">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
