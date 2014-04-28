@@ -923,6 +923,8 @@ var clickAgendaItem = "";
             laSingleEvent[6]    = lsBackgroundColor;
             laSingleEvent[7]    = lsForegroundColor;
             laSingleEvent[8]    = lsShowID;
+            laSingleEvent[9]    = lsPersonnelID;
+            laSingleEvent[10]   = lsAuditionID;
             $.ajax({
                 type:   "POST",
                 url:    "SaveAuditionEvents.php",
