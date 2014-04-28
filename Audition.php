@@ -735,10 +735,8 @@ var clickAgendaItem = "";
 						endDateObj,
 						false,
 						{
-							fname: "Place Holder",
-							lname: "",
-							myDate: new Date(),
-							myNum: 42
+							fname: "Actor",
+							lname: ""
 						},
 						{
 							backgroundColor: $("#colorBackground").val(),
@@ -905,21 +903,15 @@ var clickAgendaItem = "";
 	});
     
     function saveEvent(){
-        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
-        //First clear out any old items:
-        lsShowID   =   <?php echo $showID; ?>;
-        $.ajax({
-                type:   "POST",
-                url:    "ClearShowEvents.php",
-                data:   { showID : lsShowID }
-            });
-        //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
+        var laItems = jfcalplugin.getAgendaItemByDataAttr("#mycal","fname","Actor");
         laItems.forEach(function(entry) {
             lsStartDate =   entry['startDate'].toJSON();
             lsEndDate   =   entry['endDate'].toJSON();
             lsBackgroundColor    =   entry.displayProp.backgroundColor;
             lsForegroundColor   =   entry.displayProp.foregroundColor;
             lsShowID            =   <?php echo $showID; ?>;
+            lsAuditionID        =   <?php echo $auditionID; ?>;
+            lsPersonnelID       =   <?php echo $personnelID; ?>;
             lsAllDay            =   entry.allDay.toString();
             var laSingleEvent = new Array();
             laSingleEvent[0]    = entry.title;
