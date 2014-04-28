@@ -395,9 +395,8 @@ function limitText(limitField, limitCount, limitNum) {
 
     var clickDate = "";
 var clickAgendaItem = "";
-//    var lsFirstName = <php echo $lsFirstName ?>;
-//    var lsLastName  = <php echo $lsLastName  ?>;
-//     var lsUserFullName lsFirstName + " " + lsLastName;
+
+        
 	
 	/**
 	 * Initializes calendar with current year & month
@@ -627,12 +626,12 @@ var clickAgendaItem = "";
 	/**
 	 * Initialize delete all agenda items button
 	 */
-//	$("#BtnDeleteAll").button();
-//	$("#BtnDeleteAll").click(function() {	
-//		jfcalplugin.deleteAllAgendaItems("#mycal");	
-//		return false;
-//	});		
-//	
+	$("#BtnDeleteAll").button();
+	$("#BtnDeleteAll").click(function() {	
+		jfcalplugin.deleteAllAgendaItems("#mycal");	
+		return false;
+	});		
+	
 //	/**
 //	 * Initialize iCal test button
 //	 */
@@ -652,7 +651,7 @@ var clickAgendaItem = "";
 //    
     $("#save").button();
     $("#save").click(function() {
-       saveEvent();
+       alert('you found the save button!');
        return false; 
     });
 
@@ -729,7 +728,6 @@ var clickAgendaItem = "";
 					var endDateObj = new Date(parseInt(endYear),parseInt(endMonth)-1,parseInt(endDay),endHour,endMin,0,0);
 
 					// add new event to the calendar
-                    
 					jfcalplugin.addAgendaItem(
 						"#mycal",
 						what,
@@ -737,8 +735,10 @@ var clickAgendaItem = "";
 						endDateObj,
 						false,
 						{
-							fname = 'Actor';
-                            lname = 'Conflict';
+							fname: "Place Holder",
+							lname: "",
+							myDate: new Date(),
+							myNum: 42
 						},
 						{
 							backgroundColor: $("#colorBackground").val(),
@@ -904,19 +904,48 @@ var clickAgendaItem = "";
 		}	
 	});
     
+    function saveShow(){
+        //Save all the non-calendar items in the database first:
+        lsNewTitle = document.getElementById('showtitle').value;
+        lsNewDirector = document.getElementById('director').value;
+        lsNewPlaywright = document.getElementById('author').value;
+        lsNewAuditionNotes = document.getElementById('auditionnotes').value;
+        lsShowID   =   <?php echo $showID; ?>;
+        
+        //Send them on their way:
+        $.ajax({
+           type: "POST",
+           url: "SaveShowMetrics.php",
+           data: {
+                title: lsNewTitle,
+                director: lsNewDirector,
+                author: lsNewPlaywright,
+                notes: lsNewAuditionNotes,
+                showID: lsShowID
+           } 
+        });
+        //Then we save the event:
+        saveEvent();
+        //And then we're done!
+        alert('Saved!!');
+    }
     
-    //function saveEvent(){
-//        var laItems = jfcalplugin.getAgendaItemByDataAttr("#mycal", "fname". 'Actor');
-//        //First clear out any old items - No need, they can only get here once
-//        lsShowID   =   <php echo $showID; ?>;
-//        lsAuditionID = <php echo $auditionID ?>;
-//        lsPersonnelID = <php echo $personnelID ?>;
+//    function saveEvent(){
+//        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
+//        //First clear out any old items:
+//        lsShowID   =   <?php echo $showID; ?>;
+//        $.ajax({
+//                type:   "POST",
+//                url:    "ClearShowEvents.php",
+//                data:   { showID : lsShowID }
+//            });
 //        //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
 //        laItems.forEach(function(entry) {
 //            lsStartDate =   entry['startDate'].toJSON();
 //            lsEndDate   =   entry['endDate'].toJSON();
 //            lsBackgroundColor    =   entry.displayProp.backgroundColor;
 //            lsForegroundColor   =   entry.displayProp.foregroundColor;
+//            lsShowID            =   <?php echo $showID; ?>;
 //            lsAllDay            =   entry.allDay.toString();
 //            var laSingleEvent = new Array();
 //            laSingleEvent[0]    = entry.title;
@@ -928,8 +957,6 @@ var clickAgendaItem = "";
 //            laSingleEvent[6]    = lsBackgroundColor;
 //            laSingleEvent[7]    = lsForegroundColor;
 //            laSingleEvent[8]    = lsShowID;
-//            laSingleEvent[9]    = lsAuditionID;
-//            laSingleEvent[10]   = lsPersonnelID;
 //            $.ajax({
 //                type:   "POST",
 //                url:    "SaveShowEdit.php",
@@ -943,6 +970,7 @@ var clickAgendaItem = "";
 //        //Won't do a goddamn thing
 //        //var c = a + b;
 //        //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
+//        newVariable = '<?php echo $randomNess ?>';
 //        jfcalplugin.addAgendaItem(
 //	       "#mycal",
 //	       "Christmas Eve",
@@ -968,9 +996,9 @@ var clickAgendaItem = "";
         laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         
         laEventList.forEach(function(singleEvent) {
-//         alert(JSON.stringify(singleEvent, null, 4))   
-//        Parse out all our variables
-//        
+         //alert(JSON.stringify(singleEvent, null, 4))   
+        //Parse out all our variables
+        
 //        $laSingleShowEvent = array (
 //            'title' => $row['Title'],
 //            'startDate' => $row['Start_Date'],
