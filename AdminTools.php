@@ -63,7 +63,7 @@ $password = $_COOKIE['password'];
 	if (isset($_POST['createshow'])) 
 	{
 		echo "<script type='text/javascript'>
-	          window.location = 'EditShow.php';</script>";
+	          window.location = 'CreateShow.php';</script>";
 		exit;	
 	}
         //redirect to searchdb.php when this button is clicked
