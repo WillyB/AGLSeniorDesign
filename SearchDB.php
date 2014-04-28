@@ -210,7 +210,7 @@ if(isset($_POST['View']))
 		<td width="75" height="43" colspan="2" background="Assets/SearchDB_16.gif">&nbsp;
         <input type="text" name="weightf" id="weightf" size="4" pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
-		<td width="72" height="43" colspan="3" background="Assets/SearchDB_17.gif">&nbsp;
+		<td width="72" height="43" colspan="3" background="Assets/SearchDB_17.gif">&nbsp;z
         <input type="text" name="weightt" id="weightt" size="4" pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;">
         </td>
 		<td colspan="2" rowspan="4">
