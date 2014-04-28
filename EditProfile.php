@@ -443,7 +443,7 @@
 		<td colspan="2" rowspan="2">
 			<img src="Assets/EditProfile_26.gif" width="132" height="53" alt=""></td>
 		<td width="453" height="42" colspan="10" background="Assets/EditProfile_27.gif">&nbsp;
-        <input type="text" name="phone" id="phone" size="65" pattern="[0-9]{11}" maxlength="11" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Contact_Phone ?>">
+        <input type="text" name="phone" id="phone" size="65" pattern="[0-9]{9,13}" maxlength="11" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Contact_Phone ?>">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
