@@ -102,11 +102,81 @@
 			  window.location = 'Audition.php';</script>";//redirect to login page
 		exit;	
 	}
-    
+    mysql_close($db_handle);
 ?>
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	left: 255px;
+	top: 884px;
+	width: 1157px;
+	height: 383px;
+	z-index: 1;
+}
+</style>
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (ViewShow.psd) -->
+<div id="castDiv" style="overflow: scroll; alignment-adjust: central;">
+<?php
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+	
+	if ($db_found) 
+	{
+		$SQL = "SELECT * FROM Role WHERE Shows_idShows = '$showID'";
+		$result = mysql_query($SQL);
+		$num_rows = mysql_num_rows($result);
+		if($num_rows > 0)
+		{			
+				echo "<body bgcolor='blue'>";
+				echo "
+				<table border='1' bordercolor='#FFFFFF' style='color: #FFFFFF;border:none;' align='center' cellpadding='1' >
+					<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					</tr>";
+					while($row = mysql_fetch_array($result))
+					{
+						$db_handle = mysql_connect($server, $user_name, $pass_word);
+						$db_found = mysql_select_db($database, $db_handle);
+						
+						if ($db_found) 
+						{
+							//Get info from Personnel
+							$id = $row['Personnel_idPersonnel'];
+							$SQL = "SELECT * FROM Personnel WHERE idPersonnel='$id'";
+							$result = mysql_query($SQL);
+							$num_rows = mysql_num_rows($result);
+							$db_field = mysql_fetch_array($result);
+							
+							echo "<tr><td>".$db_field['First_Name']."</td><td>".
+										$db_field['Last_Name']."</td><td>".
+										$db_field['Age']."</td><td>".
+										$db_field['Gender']."</td></tr>";
+						}
+					}
+				echo "</table>";
+				echo "<br>"."<br>";
+				mysql_close($db_handle);
+		}
+		else
+		{
+			
+		}
+	}
+	else
+	{
+		echo '<script type="text/javascript"> 
+		  alert("Database is not found");
+		  </script>';	
+		exit;
+	}
+	mysql_close($db_handle);
+?>
+</div>
 <form name="form" method="post" action="ViewShow.php">
 <table width="1401" height="2161" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
 	<tr>
