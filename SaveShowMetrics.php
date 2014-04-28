@@ -20,7 +20,7 @@ $notes    = $_REQUEST['notes'];
                 
 //$SQL = ("INSERT INTO Show_Events (Shows_idShows, Title, Start_Date, End_Date, All_Day, First_Name, Last_Name, Background_Color, Foreground_Color) 
 //                         VALUES ($showID, '$title', '$startDate', '$endDate', '$allDay', '$firstName', '$lastName', '$backColor', '$foreColor')");
-$SQL = "UPDATE Shows SET Show_Name = '$title', Director = '$director', Playwright = '$author', Audition_Notes = '$notes', WHERE idShows = $showID";
+$SQL = "UPDATE Shows SET Show_Name = '$title', Director = '$director', Playwright = '$author', Audition_Notes = '$notes' WHERE idShows = $showID";
 
 $result = mysql_query($SQL);
 $num_rows = mysql_num_rows($result);

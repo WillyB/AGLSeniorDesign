@@ -163,6 +163,11 @@ if(isset($_POST['save']))
 		exit;
 	}
     
+
+    
+	mysql_close($db_handle);
+}
+
                 //Load in any Show_Events
     $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
     $result = mysql_query($SQL);
@@ -184,9 +189,6 @@ if(isset($_POST['save']))
         $laSingleTitle = $laSingleShowEvent['title'];
         $laMegaShowEventArray[] = $laSingleShowEvent;
     }
-    
-	mysql_close($db_handle);
-}
 ?>
 </head>
 <body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
