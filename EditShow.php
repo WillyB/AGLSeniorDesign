@@ -1030,7 +1030,6 @@ var clickAgendaItem = "";
                 data:   { showID : lsShowID }
             });
         //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
-        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         laItems.forEach(function(entry) {
             lsStartDate =   entry['startDate'].toJSON();
             lsEndDate   =   entry['endDate'].toJSON();
