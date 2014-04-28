@@ -104,8 +104,8 @@ if (isset($_POST['logout']))
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);
     $SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email' AND password = '$password'";
+    $result = mysql_query($SQL);
     $db_field = mysql_fetch_array($result);
-	$result = mysql_query($SQL);
     $personnelFname = $db_field['First_Name'];
     $personnelLname = $db_field['Last_Name'];
     $fullName = $personnelFname . " " . $personnelLname;
@@ -947,7 +947,6 @@ var clickAgendaItem = "";
             lsForegroundColor   =   entry.displayProp.foregroundColor;
             lsShowID            =   <?php echo $showID; ?>;
             lsPersonnelID       =   <?php echo $personnelID ?>;
-            lsAuditionID        =   <?php echo $auditionID ?>;
             lsAllDay            =   entry.allDay.toString();
             var laSingleEvent = new Array();
             laSingleEvent[0]    = entry.title;

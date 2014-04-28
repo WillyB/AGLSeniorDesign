@@ -253,7 +253,6 @@ function limitText(limitField, limitCount, limitNum) {
 		  </script>';	
 		exit;
 	}
-	mysql_close($db_handle);
 ?>
 </div>
 <form name="form" method="post" action="ViewShow.php">
