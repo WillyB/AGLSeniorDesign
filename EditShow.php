@@ -42,8 +42,18 @@ Include JQuery Core (Required for calendar plugin)
 	$password = $_COOKIE['password'];
     
     $randomNess = 'hello';
-    //$showID = $_COOKIE['showID'];
-    $showID = 1;
+    $showID = $_COOKIE['showID'];
+    
+    $user_name = 'actorsgu_data';
+       	$pass_word = 'cliffy36&winepress';
+		$database = 'actorsgu_data';
+		//$server = 'box293.bluehost.com:3306';
+		$server = 'localhost:3306';
+        
+		//$con = mysql_connect($server, $user_name, $pass_word, $database);
+		$db_handle = mysql_connect($server, $user_name, $pass_word);
+		$db_found = mysql_select_db($database, $db_handle);
+    //$showID = 1;
 	//No unauthorized access
 	if(!isset($_COOKIE['email']) || !isset($_COOKIE['password']) || !isset($_COOKIE['role']))
 	{
@@ -84,6 +94,69 @@ Include JQuery Core (Required for calendar plugin)
 			 "window.location = 'LogIn.php';</script>";//redirect to login page
 		exit;	
 	}
+    //Load in the Show fields
+    $showID = $_COOKIE['showID'];
+    $user_name = 'actorsgu_data';
+	$pass_word = 'cliffy36&winepress';
+	$database = 'actorsgu_data';
+	$server ='localhost:3306';
+		
+	$db_handle = mysql_connect($server, $user_name, $pass_word);
+	$db_found = mysql_select_db($database, $db_handle);
+	
+	if ($db_found) 
+	{
+		$SQL = "SELECT * FROM Shows WHERE idShows = '$showID'";	
+		$result = mysql_query($SQL);
+		$num_rows = mysql_num_rows($result);
+		$db_field = mysql_fetch_array($result);
+		if($num_rows > 0) // if show exists in the data base
+		{
+		//Fill in that info
+			//$First_Name = $db_field['First_Name'];//not there
+			$Show_Name = $db_field['Show_Name'];
+            $Director  = $db_field['Director'];
+            $Playwright = $db_field['Playwright'];
+            $Audition_Notes = $db_field['Audition_Notes'];
+		}
+		else
+		{ 
+            //First check to see which "Home" the user is going to
+ 	      if($role == 0 || $role == 1){
+                echo "<script type='text/javascript'>
+                    alert('There was an error retreiving your information.');".
+                    "window.location = 'AdminTools.php';</script>";
+		       exit;
+            }
+		  else if($role == 2){
+                echo "<script type='text/javascript'>
+                        alert('There was an error retreiving your information.');".
+			         "window.location = 'UserTools.php';</script>";
+                exit;
+                }
+		}
+	}
+    
+    //Load in any Show_Events
+    $SQL = "SELECT * FROM Show_Events WHERE idShow_Events = $showID";
+    $result = mysql_query($SQL);
+	$num_rows = mysql_num_rows($result);
+    $db_field = mysql_fetch_array($result);
+    $laMegaShowEventArray = array();
+    while($row = mysql_fetch_array($result))
+    {
+        $laSingleShowEvent = array (
+            'title' => $row['Title'],
+            'startDate' => $row['Start_Date'],
+            'endDate' => $row['End_Date'],
+            'allDay' => $row['All_Day'],
+            'firstName' => $row['First_Name'],
+            'lastName' => $row['Last_Name'],
+            'backgroundColor' => $row['Background_Color'],
+            'foregroundColor' => $row['Foreground_Color']
+        );
+        $laMegaShowEventArray[] = $laSingleShowEvent;
+    }
 ?>
 
 <!-- <script src="Calendar.js" type="text/javascript"></script> -->
@@ -130,7 +203,7 @@ Include JQuery Core (Required for calendar plugin)
 		<td colspan="3" rowspan="6">
 			<img src="Assets/EditShow_07.gif" width="506" height="173" alt=""></td>
 		<td width="589" height="42" background="Assets/EditShow_08.gif">&nbsp;
-        <input type="text" name="showtitle" id="showtitle" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
+        <input type="text" name="showtitle" id="showtitle" style="color: #FFFFFF;border:none;background-color:transparent;" size="85" value="<?php echo $Show_Name ?>">
         </td>
 		<td colspan="3" rowspan="2">
 			<img src="Assets/EditShow_09.gif" width="116" height="47" alt=""></td>
@@ -145,7 +218,7 @@ Include JQuery Core (Required for calendar plugin)
 	</tr>
 	<tr>
 		<td width="590" height="43" colspan="2" background="Assets/EditShow_11.gif">&nbsp;
-        <input type="text" name="author" id="author" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
+        <input type="text" name="author" id="author" style="color: #FFFFFF;border:none;background-color:transparent;" size="85" value="<?php echo $Playwright ?>">
         </td>
 		<td colspan="2" rowspan="5">
 			<img src="Assets/EditShow_12.gif" width="115" height="250" alt=""></td>
@@ -160,7 +233,7 @@ Include JQuery Core (Required for calendar plugin)
 	</tr>
 	<tr>
 		<td width="590" height="42" colspan="2" background="Assets/EditShow_14.gif">&nbsp;
-        <input type="text" name="director" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="85">
+        <input type="text" name="director" id="director" style="color: #FFFFFF;border:none;background-color:transparent;" size="85" value="<?php echo $Director ?>">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
@@ -175,7 +248,7 @@ Include JQuery Core (Required for calendar plugin)
 		<td colspan="2">
 			<img src="Assets/EditShow_16.gif" width="327" height="124" alt=""></td>
 		<td width="768" height="124" colspan="2" background="Assets/EditShow_17.gif">&nbsp;
-        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" style="color: #FFFFFF;border:none;background-color:transparent; resize:none"></textarea>
+        <textarea name="auditionnotes" id="auditionnotes" cols="90" rows="5" style="color: #FFFFFF;border:none;background-color:transparent; resize:none" value="<?php echo $Audition_Notes ?>"></textarea>
         </td>
 		<td>
 			<img src="Assets/EditShow_18.gif" width="1" height="124" alt=""></td>
@@ -935,6 +1008,12 @@ var clickAgendaItem = "";
 	});
     
     function saveEvent(){
+        //First we save any changes to the main page:
+        lsShowTitle = <?php echo $Show_Name ?>;
+        lsShowDirector = <?php echo $lsShowDirector ?>;
+        lsShowPlaywright = <?php echo $lsShowPlaywright ?>;
+        lsShowNotes        = <?php echo $lsShowNotes ?>;
+        
         var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         laItems.forEach(function(entry) {
             lsStartDate =   entry['startDate'].toJSON();
