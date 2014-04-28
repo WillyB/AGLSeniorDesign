@@ -148,7 +148,7 @@ Include JQuery Core (Required for calendar plugin)
         $laSingleTitle = $laSingleShowEvent['title'];
         $laMegaShowEventArray[] = $laSingleShowEvent;
     }
-    print_r($laMegaShowEventArray);
+    //print_r($laMegaShowEventArray);
 ?>
 
 <!-- <script src="Calendar.js" type="text/javascript"></script> -->
@@ -1040,7 +1040,7 @@ var clickAgendaItem = "";
         laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
         
         laEventList.forEach(function(singleEvent) {
-         alert(JSON.stringify(singleEvent, null, 4))   
+         //alert(JSON.stringify(singleEvent, null, 4))   
         //Parse out all our variables
         
 //        $laSingleShowEvent = array (
@@ -1053,30 +1053,30 @@ var clickAgendaItem = "";
 //            'backgroundColor' => $row['Background_Color'],
 //            'foregroundColor' => $row['Foreground_Color']
 //        );
-//        lsTitle = singleEvent['Title'];
-//        ldStartDate = new Date(singleEvent['Start_Date']);
-//        ldEndDate   = new Date(singleEvent['End_Date']);
-//        firstName = singleEvent['First_Name'];
-//        lastName  = singleEvent['Last_Name'];
-//        //fullName = firstName + " " + lastName;
-//        backColor = singleEvent['Background_Color'];
-//        foreColor = singleEvent['Foreground_Color'];
+        lsTitle = singleEvent['title'];
+        ldStartDate = new Date(singleEvent['startDate']);
+        ldEndDate   = new Date(singleEvent['endDate']);
+        firstName = singleEvent['firstName'];
+        lastName  = singleEvent['lastName'];
+        fullName = firstName + " " + lastName;
+        backColor = singleEvent['backgroundColor'];
+        foreColor = singleEvent['foregroundColor'];
         //alert('Entry found for title ' + $lsTitle + ' with color ' + backColor );
         
-//        jfcalplugin.addAgendaItem(
-//	       "#mycal",
-//	       lsTitle,
-//	       ldStartDate,
-//	       ldEndDate,
-//	       false,
-//	       {
-//		      Entered_By: fullName
-//	       },
-//	       {
-//		      backgroundColor: backColor,
-//		      foregroundColor: foreColor
-//	       }	
-//        );
+        jfcalplugin.addAgendaItem(
+	       "#mycal",
+	       lsTitle,
+	       ldStartDate,
+	       ldEndDate,
+	       false,
+	       {
+		      Entered_By: fullName
+	       },
+	       {
+		      backgroundColor: backColor,
+		      foregroundColor: foreColor
+	       }	
+        );
         });
     }
     
