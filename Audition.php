@@ -930,40 +930,40 @@ var clickAgendaItem = "";
         alert('Saved!!');
     }
     
-//    function saveEvent(){
-//        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
-//        //First clear out any old items:
-//        lsShowID   =   <?php echo $showID; ?>;
-//        $.ajax({
-//                type:   "POST",
-//                url:    "ClearShowEvents.php",
-//                data:   { showID : lsShowID }
-//            });
-//        //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
-//        laItems.forEach(function(entry) {
-//            lsStartDate =   entry['startDate'].toJSON();
-//            lsEndDate   =   entry['endDate'].toJSON();
-//            lsBackgroundColor    =   entry.displayProp.backgroundColor;
-//            lsForegroundColor   =   entry.displayProp.foregroundColor;
-//            lsShowID            =   <?php echo $showID; ?>;
-//            lsAllDay            =   entry.allDay.toString();
-//            var laSingleEvent = new Array();
-//            laSingleEvent[0]    = entry.title;
-//            laSingleEvent[1]    = lsStartDate;
-//            laSingleEvent[2]    = lsEndDate;
-//            laSingleEvent[3]    = lsAllDay;
-//            laSingleEvent[4]    = entry.data.fname;
-//            laSingleEvent[5]    = entry.data.lname;
-//            laSingleEvent[6]    = lsBackgroundColor;
-//            laSingleEvent[7]    = lsForegroundColor;
-//            laSingleEvent[8]    = lsShowID;
-//            $.ajax({
-//                type:   "POST",
-//                url:    "SaveShowEdit.php",
-//                data:   { eventData : laSingleEvent }
-//            });
-//        });
-//    }
+    function saveEvent(){
+        var laItems = jfcalplugin.getAllAgendaItems("#mycal");
+        //First clear out any old items:
+        lsShowID   =   <?php echo $showID; ?>;
+        $.ajax({
+                type:   "POST",
+                url:    "ClearShowEvents.php",
+                data:   { showID : lsShowID }
+            });
+        //Then we re-add everything else, this is because since we are loading all the events anyways, if we don't drop the old events they would compound on one another.
+        laItems.forEach(function(entry) {
+            lsStartDate =   entry['startDate'].toJSON();
+            lsEndDate   =   entry['endDate'].toJSON();
+            lsBackgroundColor    =   entry.displayProp.backgroundColor;
+            lsForegroundColor   =   entry.displayProp.foregroundColor;
+            lsShowID            =   <?php echo $showID; ?>;
+            lsAllDay            =   entry.allDay.toString();
+            var laSingleEvent = new Array();
+            laSingleEvent[0]    = entry.title;
+            laSingleEvent[1]    = lsStartDate;
+            laSingleEvent[2]    = lsEndDate;
+            laSingleEvent[3]    = lsAllDay;
+            laSingleEvent[4]    = entry.data.fname;
+            laSingleEvent[5]    = entry.data.lname;
+            laSingleEvent[6]    = lsBackgroundColor;
+            laSingleEvent[7]    = lsForegroundColor;
+            laSingleEvent[8]    = lsShowID;
+            $.ajax({
+                type:   "POST",
+                url:    "SaveShowEdit.php",
+                data:   { eventData : laSingleEvent }
+            });
+        });
+    }
     
     
 //    function addGivenAgenda() {
