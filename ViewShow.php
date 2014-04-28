@@ -105,7 +105,7 @@
     mysql_close($db_handle);
 ?>
 <style type="text/css">
-#apDiv1 {
+#castDiv {
 	position: absolute;
 	left: 255px;
 	top: 884px;
