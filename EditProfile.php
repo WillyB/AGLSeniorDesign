@@ -193,7 +193,7 @@
 											Eye_Color = '$Eye_Color', Ethnicity = '$Ethnicity', 
 											Gender = '$Gender', Previous_Work = '$Previous_Work'";
 															  
-			if(!$Street_Address="")
+			if($Street_Address!="")
 				{
 					$update.= ', Street_Address="'.$Street_Address.'"';
 				}    
