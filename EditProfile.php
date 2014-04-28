@@ -509,12 +509,12 @@
 		<td rowspan="4">
 			<img src="Assets/EditProfile_30.gif" width="75" height="110" alt=""></td>
 		<td width="145" height="42" colspan="3" background="Assets/EditProfile_31.gif">&nbsp;
-        <input type="text" name="weight" id="weight" size="15" pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Weight ?>">
+        <input type="text" name="weight" id="weight" size="15" pattern ="[5-9]|[1-9][0-9]|[1-4][0-9]{2}|500" title="Enter weight from 5 to 500" maxlength="3" title="Enter weight between 1 and 500" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Weight ?>">
         </td>
 		<td colspan="2" rowspan="4">
 			<img src="Assets/EditProfile_32.gif" width="77" height="110" alt=""></td>
 		<td width="146" height="42" colspan="3" background="Assets/EditProfile_33.gif">&nbsp;
-        <input type="text" name="age" id="age" size="15" pattern="[1-9][0-9]?|1[0-1][0-9]|120" title="Enter age from 1 to 120" maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Age ?>">
+        <input type="text" name="age" id="age" size="15" pattern="[1-9][0-9]?|1[0-1][0-9]|120" title="Enter age from 1 to 120"F maxlength="3" style="color: #FFFFFF;border:none;background-color:transparent;" value="<?php echo $Age ?>">
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="42" alt=""></td>
