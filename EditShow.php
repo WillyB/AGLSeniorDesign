@@ -950,6 +950,9 @@ var clickAgendaItem = "";
             laSingleEvent[3]    = lsAllDay;
             laSingleEvent[4]    = entry.data.fname;
             laSingleEvent[5]    = entry.data.lname;
+            laSingleEvent[6]    = lsBackgroundColor;
+            laSingleEvent[7]    = lsForegroundColor;
+            laSingleEvent[8]    = lsShowID;
             //laSingleEvent   =   [entry.title, lsStartDate, lsEndDate, lsAllDay, entry.data.fname, entry.data.lname, lsBackgroundColor, lsForegroundColor, lsShowID];
             alert(entry.displayProp.backgroundColor);
 //            $.ajax({
