@@ -129,9 +129,6 @@ Include JQuery Core (Required for calendar plugin)
     
         //Load in any Show_Events
     $SQL = "SELECT * FROM Show_Events WHERE Shows_idShows = $showID";
-    echo "<script type='text/javascript'>";
-        echo "alert('Yay debug code! $SQL');";
-        echo "</script>";
     $result = mysql_query($SQL);
 	$num_rows = mysql_num_rows($result);
     //$db_field = mysql_fetch_array($result);
@@ -149,9 +146,6 @@ Include JQuery Core (Required for calendar plugin)
             'foregroundColor' => $row['Foreground_Color']
         );
         $laSingleTitle = $laSingleShowEvent['title'];
-        echo "<script type='text/javascript'>";
-        echo "alert('Saving for title $laSingleTitle');";
-        echo "</script>";
         $laMegaShowEventArray[] = $laSingleShowEvent;
     }
     print_r($laMegaShowEventArray);
@@ -475,29 +469,7 @@ Include JQuery Core (Required for calendar plugin)
     var clickDate = "";
 var clickAgendaItem = "";
 
-        function addGivenAgenda() {
-        //Won't do a goddamn thing
-        //var c = a + b;
-        //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
-        newVariable = '<?php echo $randomNess ?>';
-        jfcalplugin.addAgendaItem(
-	       "#mycal",
-	       "Christmas Eve",
-	       new Date(2014,3,14,20,0,0,0),
-	       new Date(2014,3,24,23,59,59,0),
-	       false,
-	       {
-		      fname: "Santa",
-		      lname: "Claus",
-		      leadReindeer: "Rudolph",
-		      randomness: newVariable
-	       },
-	       {
-		      backgroundColor: "#FF0F00",
-		      foregroundColor: "#FFFFFF"
-	       }	
-        );
-    }
+        
 	
 	/**
 	 * Initializes calendar with current year & month
@@ -1037,10 +1009,37 @@ var clickAgendaItem = "";
         });
     }
     
+    
+//    function addGivenAgenda() {
+//        //Won't do a goddamn thing
+//        //var c = a + b;
+//        //vsTitle, vaStartDate, vaEndDate, vbAllDay, vaDataArray, vaColorArray
+//        newVariable = '<?php echo $randomNess ?>';
+//        jfcalplugin.addAgendaItem(
+//	       "#mycal",
+//	       "Christmas Eve",
+//	       new Date(2014,3,14,20,0,0,0),
+//	       new Date(2014,3,24,23,59,59,0),
+//	       false,
+//	       {
+//		      fname: "Santa",
+//		      lname: "Claus",
+//		      leadReindeer: "Rudolph",
+//		      randomness: newVariable
+//	       },
+//	       {
+//		      backgroundColor: "#FF0F00",
+//		      foregroundColor: "#FFFFFF"
+//	       }	
+//        );
+//    }
     //Load our events from any previous edits:
-    var laEventList = new Array();
-    laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
-    laEventList.forEach(function(singleEvent) {
+    function addGivenAgenda() {
+        alert('Now attempting load');
+        var laEventList = new Array();
+        laEventList = <?php echo json_encode($laMegaShowEventArray)?>;
+        laEventList.forEach(function(singleEvent) {
+            alert('found an entry!');
         //Parse out all our variables
         
 //        $laSingleShowEvent = array (
@@ -1075,8 +1074,10 @@ var clickAgendaItem = "";
 		      backgroundColor: backColor,
 		      foregroundColor: foreColor
 	       }	
-        );
-    });
+            );
+        });
+    }
+    
     
 </script>
 </body>
