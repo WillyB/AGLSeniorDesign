@@ -133,6 +133,7 @@
 			  window.location = 'CastShow.php';</script>";//Reflect Changes
 		exit;	
 	}
+	mysql_close($db_handle);
 ?>
 </head>
 <body bgcolor="#00000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -209,6 +210,7 @@
 					<th>Last Name</th>
 					<th>Age</th>
 					<th>Gender</th>
+					<th>Cast</th>
 					</tr>";
 					while($row = mysql_fetch_array($auditionlist))
 					{
@@ -234,6 +236,7 @@
 					}
 				echo "</table>";
 				echo "<br>"."<br>";
+				mysql_close($db_handle);
 		?>
         </td>
 		<td colspan="3">
@@ -274,6 +277,7 @@
 					}
 				echo "</table>";
 				echo "<br>"."<br>";
+				mysql_close($db_handle);
 		?>
         </td>
 		<td>
