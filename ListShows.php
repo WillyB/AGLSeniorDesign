@@ -186,6 +186,7 @@ if(isset($_POST['Cast']))
 							<th>Director</th>";
 					if ($role == 0 || $role == 1){
 					   echo "<th>View</th>
+					   		<th>Edit</th>
                             <th>Cast</th></tr>";
 					}
                     else
