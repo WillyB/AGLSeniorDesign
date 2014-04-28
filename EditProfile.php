@@ -215,7 +215,7 @@
 			}
 			$SQL.= "WHERE Contact_Email = '$lookupEmail'";
 			$result = mysql_query($SQL);
-			$echo "SQL =".$SQL."<br>";
+			$echo $SQL;
 				
 				echo "<script type='text/javascript'>
 					 alert('Your profile has been updated.');".
