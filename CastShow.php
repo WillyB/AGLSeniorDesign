@@ -145,7 +145,7 @@
 	</tr>
 	<tr>
 		<td width="938" height="121" colspan="7" background="Assets/CastShow_11.gif">&nbsp;
-        <textarea name="showdescription" id="showdescription" cols="120" rows="6" style="color: #FFFFFF;border:none;background-color:transparent; resize:none"><?php echo $Audition_Notes ?></textarea>
+        <textarea name="showdescription" id="showdescription" cols="110" rows="6" style="color: #FFFFFF;border:none;background-color:transparent; resize:none"><?php echo $Audition_Notes ?></textarea>
         </td>
 		<td>
 			<img src="Assets/spacer.gif" width="1" height="121" alt=""></td>
