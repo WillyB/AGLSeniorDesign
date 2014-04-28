@@ -107,7 +107,7 @@
 <style type="text/css">
 #castDiv {
 	position: absolute;
-	left: 404px;
+	left: 389px;
 	top: 884px;
 	width: 1129px;
 	height: 383px;
