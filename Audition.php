@@ -904,32 +904,6 @@ var clickAgendaItem = "";
 		}	
 	});
     
-    function saveShow(){
-        //Save all the non-calendar items in the database first:
-        lsNewTitle = document.getElementById('showtitle').value;
-        lsNewDirector = document.getElementById('director').value;
-        lsNewPlaywright = document.getElementById('author').value;
-        lsNewAuditionNotes = document.getElementById('auditionnotes').value;
-        lsShowID   =   <?php echo $showID; ?>;
-        
-        //Send them on their way:
-        $.ajax({
-           type: "POST",
-           url: "SaveShowMetrics.php",
-           data: {
-                title: lsNewTitle,
-                director: lsNewDirector,
-                author: lsNewPlaywright,
-                notes: lsNewAuditionNotes,
-                showID: lsShowID
-           } 
-        });
-        //Then we save the event:
-        saveEvent();
-        //And then we're done!
-        alert('Saved!!');
-    }
-    
     function saveEvent(){
         var laItems = jfcalplugin.getAllAgendaItems("#mycal");
         //First clear out any old items:
