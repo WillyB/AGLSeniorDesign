@@ -4,6 +4,50 @@
 <head>
 <title>AGL: View Show</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Include CSS for JQuery Frontier Calendar plugin (Required for calendar plugin) -->
+<link rel="stylesheet" type="text/css" href="css/frontierCalendar/jquery-frontier-cal-1.3.2.css" />
+
+<!-- Include CSS for color picker plugin (Not required for calendar plugin. Used for example.) -->
+<link rel="stylesheet" type="text/css" href="css/colorpicker/colorpicker.css" />
+
+<!-- Include CSS for JQuery UI (Required for calendar plugin.) -->
+<link rel="stylesheet" type="text/css" href="css/jquery-ui/smoothness/jquery-ui-1.8.1.custom.css" />
+
+<!--
+Include JQuery Core (Required for calendar plugin)
+** This is our IE fix version which enables drag-and-drop to work correctly in IE. See README file in js/jquery-core folder. **
+-->
+<script type="text/javascript" src="js/jquery-core/jquery-1.4.2-ie-fix.min.js"></script>
+
+<!-- Include JQuery UI (Required for calendar plugin.) -->
+<script type="text/javascript" src="js/jquery-ui/smoothness/jquery-ui-1.8.1.custom.min.js"></script>
+
+<!-- Include color picker plugin (Not required for calendar plugin. Used for example.) -->
+<script type="text/javascript" src="js/colorpicker/colorpicker.js"></script>
+
+<!-- Include jquery tooltip plugin (Not required for calendar plugin. Used for example.) -->
+<script type="text/javascript" src="js/jquery-qtip-1.0.0-rc3140944/jquery.qtip-1.0.js"></script>
+
+<!--
+	(Required for plugin)
+	Dependancies for JQuery Frontier Calendar plugin.
+    ** THESE MUST BE INCLUDED BEFORE THE FRONTIER CALENDAR PLUGIN. **
+-->
+<script type="text/javascript" src="js/lib/jshashtable-2.1.js"></script>
+
+<!-- Include JQuery Frontier Calendar plugin -->
+<script type="text/javascript" src="js/frontierCalendar/jquery-frontier-cal-1.3.2.min.js"></script>
+
+<!--this function limits characters possible to enter in the note field -->
+<script language="javascript" type="text/javascript">
+function limitText(limitField, limitCount, limitNum) {
+	if (limitField.value.length > limitNum) {
+		limitField.value = limitField.value.substring(0, limitNum);
+	} else {
+		limitCount.value = limitNum - limitField.value.length;
+	}
+}
+</script>
 <?php
 	$role = $_COOKIE['role'];
 	$email = $_COOKIE['email'];
