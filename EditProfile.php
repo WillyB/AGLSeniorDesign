@@ -325,7 +325,7 @@
 				}
 				mysql_close($db_handle);		
 		   ?> 
-		alt="Headshot"></img>
+		align="middle" alt="Headshot"></img>
         </td>
 		<td colspan="2" rowspan="20">
 			<img src="Assets/EditProfile_14.gif" width="107" height="703" alt=""></td>
