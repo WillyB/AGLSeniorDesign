@@ -75,12 +75,12 @@ if ($db_found) {
 				
 				list($oldWidth, $oldHeight) = getimagesize($tmpFile);
 				$width = $oldWidth;
-				$height = $oldHeight;
+				$height = $oldHeight; // 650, 487
 								
-				if ($width >= 335 || $height >= 415) {
+				if ($oldWidth >= 335 || $oldHeight >= 415) {
 					if ($oldWidth > $oldHeight)
 					{
-						$width = 315;
+						$width = 335;
 						$height = $oldHeight * (415 / $oldWidth);
 					}
 					if ($oldWidth < $oldHeight)
@@ -91,7 +91,7 @@ if ($db_found) {
 					if ($oldWidth == $oldHeight)
 					{
 						$width = 335;
-						$height = 415;
+						$height = 335;
 					}
 				
 					$image = new Imagick($tmpFile);
