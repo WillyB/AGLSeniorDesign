@@ -72,11 +72,30 @@ if ($db_found) {
 			{
 				$tmpFile = $_FILES["file"]["tmp_name"];
 				$fileName = "upload/" . $_FILES["file"]["name"] . $lookupEmail . $Contact_id;
-				list($width, $height) = getimagesize($tmpFile);
 				
+				list($oldWidth, $oldHeight) = getimagesize($tmpFile);
+				$width = $oldWidth;
+				$height = $oldHeight;
+								
 				if ($width >= 335 || $height >= 415) {
+					if ($oldWidth > $oldHeight)
+					{
+						$width = 315;
+						$height = $oldHeight * (415 / $oldWidth);
+					}
+					if ($oldWidth < $oldHeight)
+					{
+						$width = $oldWidth * (335 / $oldHeight);
+						$height = 415;
+					}
+					if ($oldWidth == $oldHeight)
+					{
+						$width = 335;
+						$height = 415;
+					}
+				
 					$image = new Imagick($tmpFile);
-					$image->thumbnailImage(335, 415);
+					$image->thumbnailImage($width, $height);
 					$image->writeImage($fileName);
 				}
 				else
