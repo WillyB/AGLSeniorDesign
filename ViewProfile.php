@@ -192,7 +192,7 @@
 				
 				
 		   ?> 
-		width="335" height="415" alt="Headshot"></img>
+		align="middle" alt="Headshot"></img>
         </td>
 		<td colspan="3">
 			<img src="Assets/ViewProfile_09.gif" width="643" height="7" alt=""></td>
