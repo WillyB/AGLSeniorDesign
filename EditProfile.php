@@ -301,7 +301,7 @@
 		<td rowspan="20">
 			<img src="Assets/EditProfile_12.gif" width="21" height="703" alt=""></td>
 		<td width="335" height="415" colspan="3" rowspan="14" background="Assets/EditProfile_13.gif">
-			<img src=
+			<center><img src=
 			<?php
 				$user_name = 'actorsgu_data';
 				$pass_word = 'cliffy36&winepress';
@@ -325,7 +325,7 @@
 				}
 				mysql_close($db_handle);		
 		   ?> 
-		align="middle" alt="Headshot"></img>
+		alt="Headshot"></img></center>
         </td>
 		<td colspan="2" rowspan="20">
 			<img src="Assets/EditProfile_14.gif" width="107" height="703" alt=""></td>
