@@ -166,7 +166,7 @@
 		<td rowspan="38">
 			<img src="Assets/ViewProfile_07.gif" width="233" height="1429" alt=""></td>
 		<td width="335" height="413" colspan="2" rowspan="8" background="Assets/ViewProfile_08.gif">
-        <img src=
+        <center><img src=
 			<?php
 				$user_name = 'actorsgu_data';
 				$pass_word = 'cliffy36&winepress';
@@ -192,7 +192,7 @@
 				
 				
 		   ?> 
-		align="middle" alt="Headshot"></img>
+		alt="Headshot"></img></center>
         </td>
 		<td colspan="3">
 			<img src="Assets/ViewProfile_09.gif" width="643" height="7" alt=""></td>
