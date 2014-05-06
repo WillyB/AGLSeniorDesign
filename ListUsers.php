@@ -113,6 +113,7 @@ if(isset($_POST['Admin_Options']))
 		  //user = < php echo $who; ? >;
         //var newPassword=prompt("Please enter a new password for user" + user,"");
 		  echo '<script type="text/javascript">
+                    var a = prompt("Enter new password", "Default Text");
                     alert("This concludes the test of the prompt system");
                     </script>';
 		}
