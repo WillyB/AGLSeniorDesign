@@ -17,7 +17,7 @@ $email2 = "";
 
 //If cookies are still set for a user, then just log them in
 //Should select in database and compare for password
-if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['salt']) && isset($_COOKIE['role']))
+if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['role']))
 {
 		$role = $_COOKIE['role'];
 		$email = $_COOKIE['email'];
@@ -32,62 +32,48 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['sa
 			
 			//query database with entered data
 			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
-			$dbHashedPassword = mysql_query($SQL);
+			$result = mysql_query($SQL);
 
 			$num_rows1 = mysql_num_rows($result);
 			if($num_rows1 > 0)
 			{
-				if (crypt($password, $dbHashedPassword) == $dbHashedPassword) 
-				{
-					//authenticated
-					$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND BINARY password='$Password'";			
-					$result = mysql_query($SQL);
-					$num_rows = mysql_num_rows($result);
-					$db_field = mysql_fetch_array($result);
-					if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
-					{	
-						$role = $db_field['Role'];
-						switch ($role):
-							case 0://admin login
-							
-								   //save role, email, and password in a cookie
-									setCookie('role', $role);
-									setCookie('email',$email);
-									setCookie('password',$Password);//delete later
-									//setCookie('password',$hashedPassword);//uncomment later
-									
-									echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
-									exit;
-									
-							case 1://director login
-								   //save email and password in a cookie
-									setCookie('role', $role);
-									setCookie('email',$email);
-									setCookie('password',$Password);//delete later
-									//setCookie('password',$hashedPassword); uncomment later
-									
-									echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
-									exit;
-									
-							case 2://regular user login
-							
-								   //save email and password in a cookie
-									setCookie('role', $role);
-									setCookie('email',$email);
-									setCookie('password',$Password);//delete later
-									//setCookie('password',$hashedPassword); uncomment later
-									
-									echo "<script type='text/javascript'> window.location.href = 'UserTools.php';</script>";//redirect to user page  
-									exit;
-						endswitch;							
-					}
-				}
-				else
-				{
-					//not authenticated
-					echo '<script type="text/javascript">
-						alert("Invalid Password");
-						</script>';
+				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND BINARY password='$Password'";			
+				$result = mysql_query($SQL);
+				$num_rows = mysql_num_rows($result);
+				$db_field = mysql_fetch_array($result);
+				if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
+				{	
+					$role = $db_field['Role'];
+					switch ($role):
+						case 0://admin login
+						
+							   //save role, email, and password in a cookie
+								setCookie('role', $role);
+								setCookie('email',$email);
+								setCookie('password',$Password);//delete later
+								
+								echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
+								exit;
+								
+						case 1://director login
+							   //save email and password in a cookie
+								setCookie('role', $role);
+								setCookie('email',$email);
+								setCookie('password',$Password);
+								
+								echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
+								exit;
+								
+						case 2://regular user login
+						
+							   //save email and password in a cookie
+								setCookie('role', $role);
+								setCookie('email',$email);
+								setCookie('password',$Password);
+								
+								echo "<script type='text/javascript'> window.location.href = 'UserTools.php';</script>";//redirect to user page  
+								exit;
+					endswitch;							
 				}
 			}
 		}
@@ -148,55 +134,62 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['sa
 			
 			//query database with entered data
 			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
-			//uncomment following statement later
-			//$hashedPassword = mysql_query($SQL);
-			$result = mysql_query($SQL);//delete this statement later 
+			$dbHashedPassword = mysql_query($SQL);
 			
-			//uncomment the following statement when hash function works
-			//if (password_verify($password, $hashedPassword))
 			$num_rows1 = mysql_num_rows($result);
 			if($num_rows1 > 0)
 			{
-				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND BINARY password='$Password'";			
-				$result = mysql_query($SQL);
-				$num_rows = mysql_num_rows($result);
-				$db_field = mysql_fetch_array($result);
-				if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
-				{	
-					$role = $db_field['Role'];
-					switch ($role):
-						case 0://admin login
-						
-							   //save role, email, and password in a cookie
-							    setCookie('role', $role);
-								setCookie('email',$email);
-								setCookie('password',$Password);//delete later
-						        //setCookie('password',$hashedPassword);//uncomment later
-								
-								echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
-								exit;
-								
-						case 1://director login
-							   //save email and password in a cookie
-							    setCookie('role', $role);
-								setCookie('email',$email);
-								setCookie('password',$Password);//delete later
-						        //setCookie('password',$hashedPassword); uncomment later
-								
-								echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
-								exit;
-								
-						case 2://regular user login
-						
-							   //save email and password in a cookie
-							    setCookie('role', $role);
-								setCookie('email',$email);
-								setCookie('password',$Password);//delete later
-						        //setCookie('password',$hashedPassword); uncomment later
-								
-								echo "<script type='text/javascript'> window.location.href = 'UserTools.php';</script>";//redirect to user page  
-								exit;
-					endswitch;							
+				if (crypt($password, $dbHashedPassword) == $dbHashedPassword) 
+				{
+					//authenticated
+					$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND BINARY password='$Password'";			
+					$result = mysql_query($SQL);
+					$num_rows = mysql_num_rows($result);
+					$db_field = mysql_fetch_array($result);
+					if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
+					{	
+						$role = $db_field['Role'];
+						switch ($role):
+							case 0://admin login
+							
+								   //save role, email, and password in a cookie
+									setCookie('role', $role);
+									setCookie('email',$email);
+									setCookie('password',$Password);//delete later
+									//setCookie('password',$hashedPassword);//uncomment later
+									
+									echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
+									exit;
+									
+							case 1://director login
+								   //save email and password in a cookie
+									setCookie('role', $role);
+									setCookie('email',$email);
+									setCookie('password',$Password);//delete later
+									//setCookie('password',$hashedPassword); uncomment later
+									
+									echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
+									exit;
+									
+							case 2://regular user login
+							
+								   //save email and password in a cookie
+									setCookie('role', $role);
+									setCookie('email',$email);
+									setCookie('password',$Password);//delete later
+									//setCookie('password',$hashedPassword); uncomment later
+									
+									echo "<script type='text/javascript'> window.location.href = 'UserTools.php';</script>";//redirect to user page  
+									exit;
+						endswitch;							
+					}
+				}
+				else
+				{
+					//not authenticated
+					echo '<script type="text/javascript">
+						alert("Invalid Password");
+						</script>';
 				}
 			}
 			else //if user is not in DB, redirect to LogIn page
