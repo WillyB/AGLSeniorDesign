@@ -139,11 +139,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 			$num_rows1 = mysql_num_rows($dbHashedPassword);
 			if($num_rows1 > 0)
 			{
-				echo "<script type='text/javascript'>
-					 alert('password: ' + $Password + ', ' + $dbHashedPassword);".
-					 "window.location = 'Register.php';</script>";  	
-				
-				$cryptresult = crypt($Password, $dbHashedPassword);
+				$cryptresult = "hi"; //crypt($Password, $dbHashedPassword);
 				
 				if ($cryptresult == $dbHashedPassword) 
 				{
