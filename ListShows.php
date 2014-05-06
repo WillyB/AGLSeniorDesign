@@ -114,13 +114,11 @@ if(isset($_POST['View']))
 			window.location = 'ViewShow.php';</script>";
 	exit;
 }
-if(isset($_POST['Edit']))
+if(isset($_POST['Delete']))
 {
 	$showID = $_POST['ShowID'];
-	setCookie('showID', $showID);//set cookie to pass use on the next page
-	echo  "<script type='text/javascript'>
-			window.location = 'EditShow.php';</script>";
-	exit;
+	$SQL = "DELETE FROM Shows WHERE idShows = $showID";
+			
 }
 
 if(isset($_POST['Cast']))
@@ -214,7 +212,8 @@ if(isset($_POST['Cast']))
 					if ($role == 0 || $role == 1){
 					   echo "<th>View</th>
 					   		<th>Edit</th>
-                            <th>Cast</th></tr>";
+                            <th>Cast</th>
+                            <th>Delete</th></tr>";
 					}
                     else
                         "<th>View</th></tr>";
@@ -234,6 +233,9 @@ if(isset($_POST['Cast']))
 								         <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td>
                                         
                                         <td><input type='SUBMIT' name='Cast' value='Cast Show'/>
+								        <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td>
+                                        
+                                        <td><input type='SUBMIT' name='Delete' value='Delete Show'/>
 								        <input type='HIDDEN' name='ShowID' value='" .$value. "'/></td></form>";
                                  }
                                  else{
