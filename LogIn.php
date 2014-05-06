@@ -141,13 +141,11 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 			{
 				$dbHashedPassword = mysql_result($resource, 0);
 				$cryptresult = crypt($password, $dbHashedPassword);
-				echo "<h1>'$dbHashedPassword'</h1>";
-				echo "<h1>'$cryptresult'</h1>";
 				
 				if ($cryptresult == $dbHashedPassword) 
 				{
 					//authenticated
-					$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND BINARY password='$Password'";			
+					$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email'";			
 					$result = mysql_query($SQL);
 					$num_rows = mysql_num_rows($result);
 					$db_field = mysql_fetch_array($result);
