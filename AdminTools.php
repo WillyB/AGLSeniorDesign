@@ -19,20 +19,12 @@ $password = $_COOKIE['password'];
 			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
 		exit;
 	}
-	
-	$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email'";
-	$result = mysql_query($SQL);
-	$num_rows = mysql_num_rows($result);
-	$db_field = mysql_fetch_array($result);
-	if ($num_rows > 0)//if user exists in the DB, log in => go to user's profile page
-	{	
-		$role = $db_field['Role'];
-		if ($role == 2)
-		{
-			echo "<script type='text/javascript'>
-	          window.location = 'ViewProfile.php';</script>";		
-			exit;
-		}
+
+	if ($role == 2)
+	{
+		echo "<script type='text/javascript'>
+			 	window.location = 'LogIn.php';</script>";//redirect back to Inventory page    
+		exit;
 	}
 			
 
