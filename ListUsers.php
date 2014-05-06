@@ -114,7 +114,7 @@ if(isset($_POST['Admin_Options']))
         //var newPassword=prompt("Please enter a new password for user" + user,"");
 		  echo '<script type="text/javascript">
                     var a = prompt("Enter new password", "Default Text");
-                    jQuery.ajax({
+                    \$.ajax({
                         type:   "POST",
                         url:    "ResetPassword.php",
                         data:   { newPassword : a }
