@@ -603,7 +603,7 @@
 			<img src="Assets/EditProfile_43.gif" width="38" height="83" alt=""></td>
 		<td width="228" height="43" colspan="4" background="Assets/EditProfile_44.gif">&nbsp;
         <?php
-			$ethnicities = array('No Answer' => '',
+			$ethnicities = array('No Answer' => 'No Answer',
 								'Hispanic/Latino' => 'Hispanic/Latino',
 								'African American' => 'African American',
 								'Asian' => 'Asian',

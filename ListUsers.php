@@ -108,20 +108,6 @@ if(isset($_POST['Admin_Options']))
 			$SQL = "UPDATE Personnel SET Role = 0 WHERE Contact_Email = '$who'";
 			$result = mysql_query($SQL);
 		}
-        elseif($action == "resetpw")
-		{
-		  //user = < php echo $who; ? >;
-        //var newPassword=prompt("Please enter a new password for user" + user,"");
-		  echo '<script type="text/javascript">
-                    var a = prompt("Enter new password", "Default Text");
-                    $.ajax({
-                        type:   "POST",
-                        url:    "ResetPassword.php",
-                        data:   { newPassword : a }
-                        });
-                    alert(a);
-                    </script>';
-		}
 	}
 	else//if DB was not found
 	{
@@ -217,7 +203,6 @@ if(isset($_POST['Admin_Options']))
 													  <option value='makeactor'>Make Actor</option>
 													  <option value='makedirector'>Make Director</option>
 													  <option value='makeadmin'>Make Admin</option>
-                                                      <option value='resetpw'>Reset Password</option>
    													</select>";
                                         echo "<input type='SUBMIT' name='Admin_Options' value='submit'/>
 										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'</td></td></form>";
@@ -225,20 +210,7 @@ if(isset($_POST['Admin_Options']))
                                     else //Otherwise, we close the field
                                     {
                                         echo "</td></form>";
-                                    }
-                                            
-									//echo "<form action='ListUsers.php' method='post'>
-									//	 <td><input type='SUBMIT' name='Delete' value='Delete'/>
-										//	 <input type='HIDDEN' name='UserEmail0' value='" .$value. "'/></td>
-											
-//											 <td><input type='SUBMIT' name='Edit' value='Edit'/>
-//											 <input type='HIDDEN' name='UserEmail1' value='" .$value. "'/></td>
-//											 
-//											 <td><input type='SUBMIT' name='Promote' value='Promote to Director'/>
-//											 <input type='HIDDEN' name='UserEmail2' value='" .$value. "'/></td>
-//											 
-//											 <td><input type='SUBMIT' name='Demote' value='Demote to User'/>
-//											 <input type='HIDDEN' name='UserEmail3' value='" .$value. "'/></td></td></form>";	 						
+                                    }	 						
 								}
 								echo "</table>";
 								echo "<br>"."<br>";
