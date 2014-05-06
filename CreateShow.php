@@ -79,7 +79,7 @@
 			else
 			{
 				$SQL = "INSERT INTO Shows (Show_Name, Director, Playwright) 
-									VALUES ('$showname', '$director', '$author')";
+									VALUES ('$showname', '$director', '$playwright')";
 				$result = mysql_query($SQL);
 				$SQL = "SELECT * FROM Shows WHERE Show_Name = '$showname'";
 				$result = mysql_query($SQL);
