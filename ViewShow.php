@@ -197,7 +197,7 @@ include 'MasterCode.php';
 		{
 		  
 			echo "<script type='text/javascript'>
-				 alert('An error has occured.');".
+				 alert('An error has occured. I draw the line here and no further!');".
 				 "window.location = 'ViewShow.php';</script>";//redirect back to Create Show   
 			exit;//exit, so that the following code is not executed
 		}
