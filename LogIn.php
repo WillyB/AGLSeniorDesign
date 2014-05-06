@@ -190,7 +190,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 				{
 					//not authenticated
 					echo '<script type="text/javascript">
-						alert("Invalid Password '$cryptresult' , '$dbHashedPassword' , '$password' , '$Password'");
+						alert("Invalid Password " + $cryptresult + ", " + $dbHashedPassword + ", " + $password + ", " + $Password);
 						</script>';
 				}
 			}
