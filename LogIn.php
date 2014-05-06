@@ -136,7 +136,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
 			$resource = mysql_query($SQL);
 			$dbHashedPassword = mysql_result($resource, 0);
-			
+			echo "<h1>'$dbHashedPassword'</h1>";
 			$num_rows1 = mysql_num_rows($resource);
 			if($num_rows1 > 0)
 			{
