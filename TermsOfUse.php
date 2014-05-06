@@ -7,6 +7,7 @@ $db_field = "";
 
 $temp_email = $_COOKIE["temp_email"];
 $temp_password = $_COOKIE["temp_password"];
+$temp_salt = $_COOKIE["temp_salt"];
 $temp_fname = $_COOKIE["temp_fname"];
 $temp_lname = $_COOKIE["temp_lname"];
 $role = 2; //Any new registration starts as a regular user
@@ -35,9 +36,8 @@ if (isset($_POST['accept']))
 		
 	if ($db_found)
 	{
-			
-		$SQL = "INSERT INTO Personnel (First_Name, Last_Name, Contact_Email, password, Role) 
-								VALUES ('$temp_fname', '$temp_lname', '$temp_email', '$temp_password', 2)";
+		$SQL = "INSERT INTO Personnel (First_Name, Last_Name, Contact_Email, password, Salt, Role) 
+								VALUES ('$temp_fname', '$temp_lname', '$temp_email', '$temp_password', $temp_salt, 2)";
 		$result = mysql_query($SQL);
 		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$temp_email' AND password = '$temp_password'";
 		$result = mysql_query($SQL);
@@ -46,12 +46,7 @@ if (isset($_POST['accept']))
 		{
 			//query database with entered data
 			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$temp_email'";
-			//uncomment following statement later
-			//$hashedPassword = mysql_query($SQL);
 			$result = mysql_query($SQL);//delete this statement later 
-			
-			//uncomment the following statement when hash function works
-			//if (password_verify($password, $hashedPassword))
 			$num_rows1 = mysql_num_rows($result);
 			if($num_rows1 > 0)
 			{
@@ -64,16 +59,15 @@ if (isset($_POST['accept']))
 					$role = $db_field['Role'];
 					switch ($role):
 						case 0://admin login
-						
 							   //save role, email, and password in a cookie
 							    setCookie('role', $role);
 								setCookie('email',$temp_email);
 								setCookie('password',$temp_password);//delete later
 								setcookie('temp_email', '', time() - 3600);
 								setcookie('temp_password', '', time() - 3600);
+								setcookie('temp_salt', '', time() - 3600);
 								setcookie('temp_fname', '', time() - 3600);
-								setcookie('temp_lname', '', time() - 3600);	
-						        //setCookie('password',$hashedPassword);//uncomment later
+								setcookie('temp_lname', '', time() - 3600);
 								
 								echo "<script type='text/javascript'>
 									 alert('admin has logged in');".//debug statement
@@ -87,9 +81,9 @@ if (isset($_POST['accept']))
 								setCookie('password',$temp_password);//delete later
 								setcookie('temp_email', '', time() - 3600);
 								setcookie('temp_password', '', time() - 3600);
+								setcookie('temp_salt', '', time() - 3600);
 								setcookie('temp_fname', '', time() - 3600);
 								setcookie('temp_lname', '', time() - 3600);
-						        //setCookie('password',$hashedPassword); uncomment later
 								
 								echo "<script type='text/javascript'>
 									 alert('director has logged in');".//debug statement
@@ -97,16 +91,15 @@ if (isset($_POST['accept']))
 								exit;
 								
 						case 2://regular user login
-						
 							   //save email and password in a cookie
 							    setCookie('role', $role);
 								setCookie('email',$temp_email);
 								setCookie('password',$temp_password);//delete later
 								setcookie('temp_email', '', time() - 3600);
 								setcookie('temp_password', '', time() - 3600);
+								setcookie('temp_salt', '', time() - 3600);
 								setcookie('temp_fname', '', time() - 3600);
 								setcookie('temp_lname', '', time() - 3600);
-						        //setCookie('password',$hashedPassword); uncomment later
 								
 								echo "<script type='text/javascript'>
 									 alert('User has logged in');".//debug statement
@@ -146,6 +139,7 @@ if (isset($_POST['decline']))
 	setcookie('role', '', time() - 3600);		
 	setcookie('temp_email', '', time() - 3600);
 	setcookie('temp_password', '', time() - 3600);
+	setcookie('temp_salt', '', time() - 3600);
 	setcookie('temp_fname', '', time() - 3600);
 	setcookie('temp_lname', '', time() - 3600);	
 	

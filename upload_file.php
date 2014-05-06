@@ -44,84 +44,93 @@ if ($db_found) {
 	|| ($_FILES["file"]["type"] == "image/pjpeg")
 	|| ($_FILES["file"]["type"] == "image/x-png")
 	|| ($_FILES["file"]["type"] == "image/png"))
-	&& ($_FILES["file"]["size"] < 200000)
 	&& in_array($extension, $allowedExts))
 	{
-		if ($_FILES["file"]["error"] > 0)
+		if ($_FILES["file"]["size"] < 200000)
 		{
-			//echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-		}
-		else
-		{
-			//echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-			//echo "Type: " . $_FILES["file"]["type"] . "<br>";
-			//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-			//echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-			
-			//GET Contact_Email and idPersonnel
-			$SQL = "SELECT idPersonnel FROM Personnel WHERE Contact_Email='$lookupEmail'";
-			$result = mysql_query($SQL);
-			$db_field = mysql_fetch_array($result);
-			$Contact_id = $db_field['idPersonnel'];
-
-			if (file_exists("upload/" . $_FILES["file"]["name"] . $lookupEmail . $Contact_id))
+			if ($_FILES["file"]["error"] > 0)
 			{
-				echo $_FILES["file"]["name"] . " already exists. ";
+				//echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 			}
 			else
 			{
-				$tmpFile = $_FILES["file"]["tmp_name"];
-				$fileName = "upload/" . $_FILES["file"]["name"] . $lookupEmail . $Contact_id;
+				//echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+				//echo "Type: " . $_FILES["file"]["type"] . "<br>";
+				//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+				//echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
 				
-				list($oldWidth, $oldHeight) = getimagesize($tmpFile);
-				$width = $oldWidth;
-				$height = $oldHeight; // 650, 487
-								
-				if ($oldWidth >= 335 || $oldHeight >= 415) {
-					if ($oldWidth > $oldHeight)
-					{
-						$width = 335;
-						$height = $oldHeight * (415 / $oldWidth);
-					}
-					if ($oldWidth < $oldHeight)
-					{
-						$width = $oldWidth * (335 / $oldHeight);
-						$height = 415;
-					}
-					if ($oldWidth == $oldHeight)
-					{
-						$width = 335;
-						$height = 335;
-					}
-				
-					$image = new Imagick($tmpFile);
-					$image->thumbnailImage($width, $height);
-					$image->writeImage($fileName);
+				//GET Contact_Email and idPersonnel
+				$SQL = "SELECT idPersonnel FROM Personnel WHERE Contact_Email='$lookupEmail'";
+				$result = mysql_query($SQL);
+				$db_field = mysql_fetch_array($result);
+				$Contact_id = $db_field['idPersonnel'];
+
+				if (file_exists("upload/" . $_FILES["file"]["name"] . $lookupEmail . $Contact_id))
+				{
+					echo $_FILES["file"]["name"] . " already exists. ";
 				}
 				else
 				{
-					move_uploaded_file($tmpFile, $fileName);
+					$tmpFile = $_FILES["file"]["tmp_name"];
+					$fileName = "upload/" . $_FILES["file"]["name"] . $lookupEmail . $Contact_id;
+					
+					list($oldWidth, $oldHeight) = getimagesize($tmpFile);
+					$width = $oldWidth;
+					$height = $oldHeight; // 650, 487
+									
+					if ($oldWidth >= 335 || $oldHeight >= 415) {
+						if ($oldWidth > $oldHeight)
+						{
+							$width = 335;
+							$height = $oldHeight * (415 / $oldWidth);
+						}
+						if ($oldWidth < $oldHeight)
+						{
+							$width = $oldWidth * (335 / $oldHeight);
+							$height = 415;
+						}
+						if ($oldWidth == $oldHeight)
+						{
+							$width = 335;
+							$height = 335;
+						}
+					
+						$image = new Imagick($tmpFile);
+						$image->thumbnailImage($width, $height);
+						$image->writeImage($fileName);
+					}
+					else
+					{
+						move_uploaded_file($tmpFile, $fileName);
+					}
+					//echo "Stored in: " . $fileName;
+					//echo "<img src=/" . $fileName . " alt=''>";
+					
+					$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$lookupEmail'"; 
+					$result = mysql_query($SQL);
+					if (!$result)
+						echo "<h1>Failed to store changes to database.</h1>";
+					setcookie('target_email',$lookupEmail);
+					echo "<script type='text/javascript'>
+					window.location = 'EditProfile.php';</script>";//redirect back to Edit Profile page    
+					exit;
 				}
-				//echo "Stored in: " . $fileName;
-				//echo "<img src=/" . $fileName . " alt=''>";
-				
-				$SQL = "UPDATE Personnel SET Picture = '$fileName' WHERE Contact_Email = '$lookupEmail'"; 
-				$result = mysql_query($SQL);
-				if (!$result)
-					echo "<h1>Failed to store changes to database.</h1>";
-				setcookie('target_email',$lookupEmail);
-                echo "<script type='text/javascript'>
-				window.location = 'EditProfile.php';</script>";//redirect back to Edit Profile page    
-	exit;
 			}
+		}
+		else
+		{
+			echo "Uploaded image is too large. Image file size limit is ";
+			echo "<script type='text/javascript'>
+			window.location = 'browsepicture.php';</script>";//redirect back to browse picture page    
+			exit;
 		}
 	}
 	else
 	{
-		echo "Invalid file";
+		echo "Invalid file type.";
 		echo "<script type='text/javascript'>
 		window.location = 'browsepicture.php';</script>";//redirect back to browse picture page    
-	exit;
+		exit;
 	}
 }
 else 

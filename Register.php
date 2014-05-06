@@ -57,11 +57,21 @@ if (isset($_POST['register']))
 			 "window.location = 'Register.php';</script>";//redirect back to login page    
 		exit;//exit, so that the following code is not executed
 	}
+	
+	$salt = uniqid('', true);
+	$algo = '6'; // CRYPT_SHA512
+	$rounds = '5042';
+	$cryptsalt = '$'.$algo.'$rounds='.$rounds.'$'.$salt;
+
+	$hashedpassword = crypt($password, $cryptSalt);
+	// Store complete $hashedPassword in DB
+	
 	//Redirect to terms of use
 	setcookie('temp_email', $email);
 	setcookie('temp_fname', $firstname);
 	setcookie('temp_lname', $lastname);
-	setcookie('temp_password', $password);
+	setcookie('temp_password', $hashedpassword);
+	setcookie('temp_salt', $cryptsalt);
 	echo "<script type='text/javascript'>
 			 	window.location = 'TermsOfUse.php';</script>";//redirect back to Terms Of Use page    
 		exit;
