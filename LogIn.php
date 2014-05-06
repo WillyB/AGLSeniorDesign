@@ -37,7 +37,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 			$num_rows1 = mysql_num_rows($result);
 			if($num_rows1 > 0)
 			{
-				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email' AND BINARY password='$Password'";			
+				$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email'";			
 				$result = mysql_query($SQL);
 				$num_rows = mysql_num_rows($result);
 				$db_field = mysql_fetch_array($result);
@@ -145,7 +145,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 				if ($cryptresult == $dbHashedPassword) 
 				{
 					//authenticated
-					$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email'";			
+					$SQL = "SELECT Role FROM Personnel WHERE Contact_Email='$email'";		
 					$result = mysql_query($SQL);
 					$num_rows = mysql_num_rows($result);
 					$db_field = mysql_fetch_array($result);
@@ -158,8 +158,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 								   //save role, email, and password in a cookie
 									setCookie('role', $role);
 									setCookie('email',$email);
-									setCookie('password',$Password);//delete later
-									//setCookie('password',$hashedPassword);//uncomment later
+									setCookie('password',$Password);
 									
 									echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
 									exit;
@@ -169,8 +168,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 								   //save email and password in a cookie
 									setCookie('role', $role);
 									setCookie('email',$email);
-									setCookie('password',$Password);//delete later
-									//setCookie('password',$hashedPassword); uncomment later
+									setCookie('password',$Password);
 									
 									echo "<script type='text/javascript'> window.location.href = 'AdminTools.php';</script>";//redirect to admin page 
 									exit;
@@ -180,8 +178,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 								   //save email and password in a cookie
 									setCookie('role', $role);
 									setCookie('email',$email);
-									setCookie('password',$Password);//delete later
-									//setCookie('password',$hashedPassword); uncomment later
+									setCookie('password',$Password);
 									
 									echo "<script type='text/javascript'> window.location.href = 'UserTools.php';</script>";//redirect to user page  
 									exit;
