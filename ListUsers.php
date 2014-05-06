@@ -112,10 +112,9 @@ if(isset($_POST['Admin_Options']))
 		{
             echo "<script type='text/javascript'>
                     user = <?php echo $who; ?>;
-                    var newPassword=prompt(\"Please enter a new password for user\" + user,\"\");
+                    var newPassword=prompt('Please enter a new password for user' + user,'');
+                    alert('This concludes the test of the prompt system');
                     </script>";
-			$SQL = "UPDATE Personnel SET Role = 0 WHERE Contact_Email = '$who'";
-			$result = mysql_query($SQL);
 		}
 	}
 	else//if DB was not found
