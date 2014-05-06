@@ -1,4 +1,5 @@
 <?php
+include MasterCode.php;
 		$user_name = 'actorsgu_data';
        	$pass_word = 'cliffy36&winepress';
 		$database = 'actorsgu_data';
@@ -14,8 +15,4 @@ $showID = $_REQUEST['showID'];
 //First we drop all the previous events connected to the show:
 $SQL = "DELETE FROM Show_Events WHERE Shows_idShows = $showID";
 $result = mysql_query($SQL);
-
-
-
-
 ?>

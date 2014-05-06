@@ -3,6 +3,7 @@
 <title>AGL: Terms of Use</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
+include 'MasterCode.php';
 $db_field = "";
 
 $temp_email = $_COOKIE["temp_email"];

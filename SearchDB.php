@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <?php
+include 'MasterCode.php';
 	$role = $_COOKIE['role'];
 	$email = $_COOKIE['email'];
 	$password = $_COOKIE['password'];

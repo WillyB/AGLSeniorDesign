@@ -47,6 +47,7 @@ function limitText(limitField, limitCount, limitNum) {
 }
 </script>
 <?php
+include 'MasterCode.php';
 	$role = $_COOKIE['role'];
 	$email = $_COOKIE['email'];
 	$password = $_COOKIE['password'];

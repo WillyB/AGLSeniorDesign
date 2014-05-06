@@ -1,4 +1,5 @@
 <?php
+include 'MasterCode.php';
 //Add element on save
 	$db_handle = mysql_connect($server, $user_name, $pass_word);
 	$db_found = mysql_select_db($database, $db_handle);

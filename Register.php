@@ -9,6 +9,7 @@
 <title>AGL: Registration</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
+include 'MasterCode.php';
 $db_field = "";
 $email = $_COOKIE["email"];
 $role = 2; //Any new registration starts as a regular user

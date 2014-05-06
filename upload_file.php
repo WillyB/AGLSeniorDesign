@@ -2,7 +2,7 @@
         It is reached from EditProfile.php and redirects back to EditProfile.php.
 -->
 <?php
-
+include 'MasterCode.php';
 $role = $_COOKIE['role'];
 $email = $_COOKIE['email'];
 $password = $_COOKIE['password'];

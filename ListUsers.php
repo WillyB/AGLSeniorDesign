@@ -108,6 +108,15 @@ if(isset($_POST['Admin_Options']))
 			$SQL = "UPDATE Personnel SET Role = 0 WHERE Contact_Email = '$who'";
 			$result = mysql_query($SQL);
 		}
+        elseif($action == "resetpw")
+		{
+            echo "<script type='text/javascript'>
+                    user = <?php echo $who; ?>;
+                    var newPassword=prompt(\"Please enter a new password for user\" + user,\"\");
+                    </script>";
+			$SQL = "UPDATE Personnel SET Role = 0 WHERE Contact_Email = '$who'";
+			$result = mysql_query($SQL);
+		}
 	}
 	else//if DB was not found
 	{
@@ -203,7 +212,8 @@ if(isset($_POST['Admin_Options']))
 													  <option value='makeactor'>Make Actor</option>
 													  <option value='makedirector'>Make Director</option>
 													  <option value='makeadmin'>Make Admin</option>
-													</select>";
+                                                      <option value='resetpw'>Reset Password</option>
+   													</select>";
                                         echo "<input type='SUBMIT' name='Admin_Options' value='submit'/>
 										    <input type='HIDDEN' name='UserEmail1' value='" .$value. "'</td></td></form>";
                                     }

@@ -1,4 +1,5 @@
 <?php
+include 'MasterCode.php';
 //SaveAuditionEvents
 		$user_name = 'actorsgu_data';
        	$pass_word = 'cliffy36&winepress';
