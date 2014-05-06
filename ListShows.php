@@ -79,7 +79,7 @@ if(isset($_POST['Delete']))
 	
 	if ($db_found)
 	{
-		$showID = $_POST['ShowID1'];		
+		$showID = $_POST['ShowID'];		
 		$SQL2 = "DELETE FROM Shows WHERE idShows='$showID'";
 		$result2 = mysql_query($SQL2);
 		echo "<script type='text/javascript'>
@@ -113,12 +113,6 @@ if(isset($_POST['View']))
 	echo  "<script type='text/javascript'>
 			window.location = 'ViewShow.php';</script>";
 	exit;
-}
-if(isset($_POST['Delete']))
-{
-	$showID = $_POST['ShowID'];
-	$SQL = "DELETE FROM Shows WHERE idShows = $showID";
-			
 }
 
 if(isset($_POST['Cast']))
