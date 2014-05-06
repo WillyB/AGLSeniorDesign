@@ -139,7 +139,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 			$num_rows1 = mysql_num_rows($dbHashedPassword);
 			if($num_rows1 > 0)
 			{
-				$cryptresult = "hi"; //crypt($Password, $dbHashedPassword);
+				$cryptresult = crypt($Password, $dbHashedPassword);
 				
 				if ($cryptresult == $dbHashedPassword) 
 				{
