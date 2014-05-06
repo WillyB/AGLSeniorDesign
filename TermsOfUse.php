@@ -7,7 +7,6 @@ $db_field = "";
 
 $temp_email = $_COOKIE["temp_email"];
 $temp_password = $_COOKIE["temp_password"];
-$temp_salt = $_COOKIE["temp_salt"];
 $temp_fname = $_COOKIE["temp_fname"];
 $temp_lname = $_COOKIE["temp_lname"];
 $role = 2; //Any new registration starts as a regular user
@@ -36,8 +35,8 @@ if (isset($_POST['accept']))
 		
 	if ($db_found)
 	{
-		$SQL = "INSERT INTO Personnel (First_Name, Last_Name, Contact_Email, password, Salt, Role) 
-								VALUES ('$temp_fname', '$temp_lname', '$temp_email', '$temp_password', $temp_salt, 2)";
+		$SQL = "INSERT INTO Personnel (First_Name, Last_Name, Contact_Email, password, Role) 
+								VALUES ('$temp_fname', '$temp_lname', '$temp_email', '$temp_password', 2)";
 		$result = mysql_query($SQL);
 		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$temp_email' AND password = '$temp_password'";
 		$result = mysql_query($SQL);
@@ -65,7 +64,6 @@ if (isset($_POST['accept']))
 								setCookie('password',$temp_password);//delete later
 								setcookie('temp_email', '', time() - 3600);
 								setcookie('temp_password', '', time() - 3600);
-								setcookie('temp_salt', '', time() - 3600);
 								setcookie('temp_fname', '', time() - 3600);
 								setcookie('temp_lname', '', time() - 3600);
 								
@@ -81,7 +79,6 @@ if (isset($_POST['accept']))
 								setCookie('password',$temp_password);//delete later
 								setcookie('temp_email', '', time() - 3600);
 								setcookie('temp_password', '', time() - 3600);
-								setcookie('temp_salt', '', time() - 3600);
 								setcookie('temp_fname', '', time() - 3600);
 								setcookie('temp_lname', '', time() - 3600);
 								
@@ -97,7 +94,6 @@ if (isset($_POST['accept']))
 								setCookie('password',$temp_password);//delete later
 								setcookie('temp_email', '', time() - 3600);
 								setcookie('temp_password', '', time() - 3600);
-								setcookie('temp_salt', '', time() - 3600);
 								setcookie('temp_fname', '', time() - 3600);
 								setcookie('temp_lname', '', time() - 3600);
 								
@@ -120,7 +116,7 @@ if (isset($_POST['accept']))
 		{
 			//after successful registration, display "thank you" message
 			echo "<script type='text/javascript'>
-				 alert('An error has occured. $email already exists.');".
+				 alert('An error has occured. $temp_email already exists.');".
 				 "window.location = 'Register.php';</script>";//redirect back to LogIn.php   
 			exit;//exit, so that the following code is not executed
 		}			

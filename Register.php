@@ -71,7 +71,6 @@ if (isset($_POST['register']))
 	setcookie('temp_fname', $firstname);
 	setcookie('temp_lname', $lastname);
 	setcookie('temp_password', $hashedpassword);
-	setcookie('temp_salt', $cryptsalt);
 	echo "<script type='text/javascript'>
 			 	window.location = 'TermsOfUse.php';</script>";//redirect back to Terms Of Use page    
 		exit;
