@@ -135,17 +135,14 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 			//query database with entered data
 			$SQL = "SELECT password FROM Personnel WHERE Contact_Email='$email'";
 			$resource = mysql_query($SQL);
-			$dbHashedPassword = mysql_result($resource, 0);
-			
-			echo "<script type='text/javascript'>
-				 alert($dbHashedPassword);".
-				 "window.location = 'LogIn.php';</script>";//redirect back to login page   
-			exit;//exit, so that the following code is not executed
 
 			$num_rows1 = mysql_num_rows($resource);
 			if($num_rows1 > 0)
 			{
+				$dbHashedPassword = mysql_result($resource, 0);
 				$cryptresult = crypt($password, $dbHashedPassword);
+				echo "<h1>'$dbHashedPassword'</h1>";
+				echo "<h1>'$cryptresult'</h1>";
 				
 				if ($cryptresult == $dbHashedPassword) 
 				{
