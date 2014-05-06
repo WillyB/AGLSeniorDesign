@@ -110,11 +110,11 @@ if(isset($_POST['Admin_Options']))
 		}
         elseif($action == "resetpw")
 		{
-            echo "<script type='text/javascript'>
+            echo '<script type="text/javascript">
                     user = <?php echo $who; ?>;
-                    var newPassword=prompt('Please enter a new password for user' + user,'');
-                    alert('This concludes the test of the prompt system');
-                    </script>";
+                    var newPassword=prompt("Please enter a new password for user" + user,"");
+                    alert("This concludes the test of the prompt system");
+                    </script>';
 		}
 	}
 	else//if DB was not found
