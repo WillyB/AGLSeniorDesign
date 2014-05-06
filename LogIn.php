@@ -191,9 +191,9 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['ro
 				else
 				{
 					//not authenticated
-					echo '<script type="text/javascript">
-						alert('Invalid Password');
-						</script>';
+					echo '<script type="text/javascript"> 
+				  alert("Invalid Password");
+				  </script>';
 				}
 			}
 			else //if user is not in DB, redirect to LogIn page
