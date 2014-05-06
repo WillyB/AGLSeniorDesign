@@ -160,7 +160,7 @@ include 'MasterCode.php';
 	
 	if ($db_found)
 	{	
-		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email' AND password = '$password'";
+		$SQL = "SELECT * FROM Personnel WHERE Contact_Email = '$email'";
 		$result = mysql_query($SQL);
 		$db_field = mysql_fetch_array($result);
 		$num_rows = mysql_num_rows($result);
